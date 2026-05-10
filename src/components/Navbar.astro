@@ -271,6 +271,7 @@ const { overlay = false } = Astro.props;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 clamp(16px, 4vw, 40px);
+    width: 100%;
     min-height: var(--nav-height);
     display: flex;
     align-items: center;
@@ -287,6 +288,7 @@ const { overlay = false } = Astro.props;
   .navbar__logo-img {
     height: 124px;
     width: auto;
+    max-width: clamp(160px, 24vw, 220px);
     max-height: 124px;
     object-fit: contain;
     display: block;
@@ -731,20 +733,52 @@ const { overlay = false } = Astro.props;
       display: none;
     }
 
+    .navbar__container {
+      padding: 0 12px;
+      min-height: 84px;
+      gap: 10px;
+    }
+
+    .navbar__logo {
+      min-width: 0;
+      flex: 1;
+    }
+
     .navbar__toggle {
       display: flex;
     }
 
-    .navbar__container { justify-content: space-between; }
+    .navbar__actions {
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .lang-trigger {
+      padding: 6px 10px;
+      font-size: 12px;
+    }
 
     .navbar__logo-img {
-      height: 88px;
-      max-height: 88px;
+      height: 64px;
+      max-height: 64px;
+      max-width: min(46vw, 170px);
     }
 
     .navbar--overlay {
       background: rgba(245, 242, 236, 0.96);
       backdrop-filter: blur(8px);
+    }
+  }
+
+  @media (max-width: 420px) {
+    .lang-wrap {
+      display: none;
+    }
+
+    .navbar__logo-img {
+      height: 58px;
+      max-height: 58px;
+      max-width: 152px;
     }
   }
 </style>
