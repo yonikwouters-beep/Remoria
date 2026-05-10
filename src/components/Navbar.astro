@@ -256,6 +256,8 @@ const { overlay = false } = Astro.props;
     z-index: 200;
     background: #F5F2EC;
     border-bottom: 1px solid rgba(30, 41, 59, 0.07);
+    width: 100%;
+    max-width: 100%;
   }
 
   .navbar--overlay {
@@ -770,15 +772,15 @@ const { overlay = false } = Astro.props;
     }
   }
 
-  @media (max-width: 420px) {
+  @media (max-width: 480px) {
     .lang-wrap {
       display: none;
     }
 
     .navbar__logo-img {
-      height: 58px;
-      max-height: 58px;
-      max-width: 152px;
+      height: 56px;
+      max-height: 56px;
+      max-width: 148px;
     }
   }
 </style>

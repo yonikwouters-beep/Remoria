@@ -140,6 +140,8 @@
   .benefits {
     background: #F5F2EC;
     padding: 0 clamp(20px, 4vw, 40px) clamp(64px, 10vw, 100px);
+    width: 100%;
+    max-width: 100%;
   }
 
   .benefits__container {
@@ -257,10 +259,13 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    min-width: 0;
+    overflow: hidden;
   }
 
   .phone-mockup {
     width: 150px;
+    max-width: 100%;
     background: #1E293B;
     border-radius: 26px;
     padding: 10px;
@@ -306,10 +311,11 @@
 
   .laptop-mockup {
     width: 200px;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    filter: drop-shadow(0 20px 40px rgba(30, 41, 59, 0.16));
+    overflow: hidden;
   }
 
   .laptop-mockup__screen {
@@ -317,6 +323,7 @@
     background: #1E293B;
     border-radius: 10px 10px 0 0;
     padding: 6px;
+    box-shadow: 0 20px 40px rgba(30, 41, 59, 0.16);
   }
 
   .laptop-screen__bar {
@@ -359,7 +366,7 @@
   .laptop-screen__rows span.short { width: 55%; }
 
   .laptop-mockup__base {
-    width: 110%;
+    width: 100%;
     height: 8px;
     background: #1E293B;
     border-radius: 0 0 4px 4px;
