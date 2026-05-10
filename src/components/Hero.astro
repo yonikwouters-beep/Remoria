@@ -1,0 +1,268 @@
+---
+---
+
+<section class="hero">
+  <div class="hero__bg" style="background-image: url('/hero-visual.png')" aria-hidden="true"></div>
+  <div class="hero__gradient" aria-hidden="true"></div>
+
+  <div class="hero__inner">
+    <div class="hero__content">
+      <p class="hero__eyebrow">HERINNERINGEN VERBINDEN. VOOR ALTIJD.</p>
+
+      <h1 class="hero__heading">
+        Een plek waar<br />
+        herinneringen<br />
+        Samenkomen.
+      </h1>
+
+      <p class="hero__subtext">
+        Remoria biedt een toegankelijk platform waar nabestaanden eenvoudig
+        herinneringen delen en bewaren. Een serene plek om verhalen te koesteren
+        en steun te vinden bij elkaar.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#" class="btn btn-primary">Start gratis</a>
+        <a href="#" class="btn btn-secondary">
+          <span class="play-icon" aria-hidden="true">
+            <svg width="11" height="13" viewBox="0 0 11 13" fill="none">
+              <path d="M1 1L10 6.5L1 12V1Z" fill="currentColor"/>
+            </svg>
+          </span>
+          Bekijk hoe het werkt
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__fade-bottom" aria-hidden="true"></div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: clamp(580px, 80vh, 860px);
+    background-color: #F5F2EC;
+    overflow: hidden;
+  }
+
+  /* Achtergrondafbeelding — volledige breedte, gepositioneerd rechts zodat boog/pad zichtbaar is */
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url('/hero-visual.png') !important;
+    /* auto 101% = 1% groter dan contain (hoogte), right = boog/wandelpad rechts uitgelijnd */
+    background-size: auto 130% !important;
+    background-repeat: no-repeat !important;
+    background-position: right center !important;
+  }
+
+  /* Gradient: links volledig opaque (tekst leesbaar), rechts doorzichtig (beeld zichtbaar) */
+  .hero__gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      to right,
+      #F5F2EC 0%,
+      #F5F2EC 36%,
+      rgba(245, 242, 236, 0.92) 44%,
+      rgba(245, 242, 236, 0.55) 54%,
+      rgba(245, 242, 236, 0.12) 64%,
+      rgba(245, 242, 236, 0) 72%
+    );
+  }
+
+  /* Zachte fade onderaan voor vloeiende overgang naar de volgende sectie */
+  .hero__fade-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: clamp(60px, 8vh, 96px);
+    z-index: 3;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      rgba(245, 242, 236, 0) 0%,
+      rgba(245, 242, 236, 0.6) 55%,
+      #F5F2EC 100%
+    );
+  }
+
+  .hero__inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: clamp(580px, 80vh, 860px);
+    padding: clamp(52px, 7vh, 96px) clamp(20px, 5vw, 56px) clamp(72px, 9vh, 108px);
+    display: flex;
+    align-items: center;
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+  }
+
+  .hero__eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(10px, 1.8vw, 11px);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #C6A24B;
+    margin-bottom: 20px;
+  }
+
+  .hero__heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.1rem, 4.8vw + 0.4rem, 4.25rem);
+    font-weight: 500;
+    line-height: 1.07;
+    letter-spacing: -0.025em;
+    color: #1E293B;
+    margin-bottom: 24px;
+  }
+
+  .hero__subtext {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 1.5vw, 15px);
+    font-weight: 400;
+    line-height: 1.75;
+    color: #6B7280;
+    max-width: 390px;
+    margin-bottom: 38px;
+  }
+
+  .hero__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+
+  .btn:hover { transform: translateY(-2px); }
+
+  .btn-primary {
+    background: #1E293B;
+    color: #fff;
+    box-shadow: 0 4px 18px rgba(30, 41, 59, 0.22);
+  }
+
+  .btn-primary:hover {
+    background: #0f172a;
+    box-shadow: 0 8px 26px rgba(30, 41, 59, 0.28);
+  }
+
+  .btn-secondary {
+    background: #fff;
+    color: #1E293B;
+    border: 1px solid #D1D5DB;
+    box-shadow: 0 1px 2px rgba(30, 41, 59, 0.05);
+  }
+
+  .btn-secondary:hover {
+    border-color: #BFC7D4;
+    box-shadow: 0 4px 14px rgba(30, 41, 59, 0.08);
+  }
+
+  .play-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: #1E293B;
+    color: #fff;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── Tablet ─────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero {
+      min-height: clamp(560px, 85vw, 760px);
+    }
+
+    .hero__inner {
+      min-height: clamp(560px, 85vw, 760px);
+      padding: 48px 24px 96px;
+    }
+
+    .hero__content {
+      max-width: 420px;
+    }
+
+    .hero__bg {
+      background-position: 70% center;
+    }
+
+    .hero__gradient {
+      background: linear-gradient(
+        to right,
+        #F5F2EC 0%,
+        #F5F2EC 30%,
+        rgba(245, 242, 236, 0.88) 44%,
+        rgba(245, 242, 236, 0.4) 62%,
+        rgba(245, 242, 236, 0) 78%
+      );
+    }
+  }
+
+  /* ── Mobiel ─────────────────────────────── */
+  @media (max-width: 600px) {
+    .hero {
+      min-height: auto;
+    }
+
+    .hero__inner {
+      min-height: auto;
+      padding: 48px 20px 120px;
+      align-items: flex-start;
+      padding-top: 64px;
+    }
+
+    .hero__content {
+      max-width: 100%;
+    }
+
+    .hero__bg {
+      background-position: center 30%;
+      opacity: 0.25;
+    }
+
+    .hero__gradient {
+      background: rgba(245, 242, 236, 0.6);
+    }
+
+    .hero__actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,750 @@
+---
+export interface Props {
+  overlay?: boolean;
+}
+
+const { overlay = false } = Astro.props;
+---
+
+<header
+  class:list={['navbar', overlay && 'navbar--overlay']}
+  id="site-nav"
+  data-nav
+>
+  <div class="navbar__container">
+
+    <a href="/" class="navbar__logo" aria-label="Remoria homepage">
+      <picture>
+        <source srcset="/remoria-logo-transp.avif" type="image/avif" />
+        <img
+          src="/remoria-logo-transp.webp"
+          alt=""
+          class="navbar__logo-img"
+          width="360"
+          height="108"
+          aria-hidden="true"
+        />
+      </picture>
+    </a>
+
+    <nav class="navbar__nav navbar__nav--desktop" aria-label="Hoofdnavigatie">
+      <ul>
+        <li><a href="/" class="navbar__link">Home</a></li>
+        <li class="navbar__dropdown-wrap" data-dropdown>
+          <button
+            type="button"
+            class="navbar__link navbar__link--dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            data-dropdown-trigger
+          >
+            Voor wie?
+            <svg class="navbar__chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="navbar__dropdown" role="menu">
+            <a href="/voor-nabestaanden" class="navbar__dropdown-item" role="menuitem">
+              <span class="navbar__dropdown-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </span>
+              <span>
+                <strong>Voor nabestaanden</strong>
+                <em>Herinneringen bewaren &amp; delen</em>
+              </span>
+            </a>
+            <a href="/voor-uitvaartsector" class="navbar__dropdown-item" role="menuitem">
+              <span class="navbar__dropdown-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2"/>
+                  <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                </svg>
+              </span>
+              <span>
+                <strong>Voor de uitvaartsector</strong>
+                <em>Nazorg &amp; digitale dienstverlening</em>
+              </span>
+            </a>
+          </div>
+        </li>
+        <li><a href="/over-ons" class="navbar__link">Over Remoria</a></li>
+        <li><a href="/prijzen" class="navbar__link">Prijzen</a></li>
+        <li><a href="/contact" class="navbar__link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="navbar__actions">
+
+      <!-- Language switcher -->
+      <div class="lang-wrap" data-lang-wrap>
+        <button type="button" class="lang-trigger" aria-haspopup="true" aria-expanded="false" data-lang-trigger>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="lang-current" data-lang-current>NL</span>
+          <svg class="lang-chevron" width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="lang-dropdown" role="listbox" aria-label="Taal kiezen">
+          <button type="button" class="lang-option lang-option--active" role="option" data-lang="NL">
+            <span class="lang-option__flag">🇳🇱</span> Nederlands
+          </button>
+          <button type="button" class="lang-option" role="option" data-lang="ENG">
+            <span class="lang-option__flag">🇬🇧</span> English
+          </button>
+          <button type="button" class="lang-option" role="option" data-lang="FR">
+            <span class="lang-option__flag">🇫🇷</span> Français
+          </button>
+        </div>
+      </div>
+
+      <a href="#" class="navbar__login navbar__login--desktop">Inloggen</a>
+      <button
+        type="button"
+        class="navbar__toggle"
+        aria-label="Menu openen"
+        aria-expanded="false"
+        aria-controls="mobile-nav-panel"
+        data-nav-toggle
+      >
+        <span class="navbar__burger" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="navbar__sheet" id="mobile-nav-panel" data-nav-panel>
+    <nav class="navbar__nav-mobile" aria-label="Mobiele navigatie">
+      <ul>
+        <li><a href="/" class="navbar__mobile-link">Home</a></li>
+        <li>
+          <button
+            type="button"
+            class="navbar__mobile-link navbar__mobile-accordion"
+            aria-expanded="false"
+            data-mobile-accordion
+          >
+            Voor wie?
+            <svg class="navbar__chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <ul class="navbar__mobile-sub" data-mobile-sub>
+            <li><a href="/voor-nabestaanden" class="navbar__mobile-sublink">Voor nabestaanden</a></li>
+            <li><a href="/voor-uitvaartsector" class="navbar__mobile-sublink">Voor de uitvaartsector</a></li>
+          </ul>
+        </li>
+        <li><a href="/over-ons" class="navbar__mobile-link">Over Remoria</a></li>
+        <li><a href="/prijzen" class="navbar__mobile-link">Prijzen</a></li>
+        <li><a href="/contact" class="navbar__mobile-link">Contact</a></li>
+      </ul>
+      <a href="#" class="navbar__login navbar__login--mobile">Inloggen</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  (function () {
+    /* ── Mobile hamburger ── */
+    var header = document.querySelector('[data-nav]');
+    var toggle = document.querySelector('[data-nav-toggle]');
+    var panel  = document.querySelector('[data-nav-panel]');
+
+    function setOpen(open) {
+      if (!header || !toggle) return;
+      header.classList.toggle('navbar--open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    toggle?.addEventListener('click', function () {
+      if (!header) return;
+      setOpen(!header.classList.contains('navbar--open'));
+    });
+
+    panel?.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 768 && header?.classList.contains('navbar--open')) {
+        setOpen(false);
+      }
+    });
+
+    /* ── Desktop dropdown ── */
+    var dropdownWrap    = document.querySelector('[data-dropdown]');
+    var dropdownTrigger = document.querySelector('[data-dropdown-trigger]');
+
+    function setDropdown(open) {
+      if (!dropdownWrap || !dropdownTrigger) return;
+      dropdownWrap.classList.toggle('navbar__dropdown-wrap--open', open);
+      dropdownTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    dropdownTrigger?.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = dropdownWrap?.classList.contains('navbar__dropdown-wrap--open');
+      setDropdown(!isOpen);
+    });
+
+    document.addEventListener('click', function () { setDropdown(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setDropdown(false);
+    });
+
+    /* ── Mobile accordion ── */
+    var accordion = document.querySelector('[data-mobile-accordion]');
+    var sub       = document.querySelector('[data-mobile-sub]');
+
+    accordion?.addEventListener('click', function () {
+      var isOpen = sub?.classList.contains('navbar__mobile-sub--open');
+      sub?.classList.toggle('navbar__mobile-sub--open', !isOpen);
+      accordion.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+    });
+
+    /* ── Language switcher ── */
+    var langWrap    = document.querySelector('[data-lang-wrap]');
+    var langTrigger = document.querySelector('[data-lang-trigger]');
+    var langCurrent = document.querySelector('[data-lang-current]');
+    var langOptions = document.querySelectorAll('[data-lang]');
+
+    var savedLang = localStorage.getItem('remoria-lang') || 'NL';
+    if (langCurrent) langCurrent.textContent = savedLang;
+    langOptions.forEach(function (btn) {
+      btn.classList.toggle('lang-option--active', btn.getAttribute('data-lang') === savedLang);
+    });
+
+    function setLangOpen(open) {
+      if (!langWrap || !langTrigger) return;
+      langWrap.classList.toggle('lang-wrap--open', open);
+      langTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    langTrigger?.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setLangOpen(!langWrap?.classList.contains('lang-wrap--open'));
+    });
+
+    langOptions.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var lang = btn.getAttribute('data-lang') || 'NL';
+        if (langCurrent) langCurrent.textContent = lang;
+        localStorage.setItem('remoria-lang', lang);
+        langOptions.forEach(function (b) {
+          b.classList.toggle('lang-option--active', b.getAttribute('data-lang') === lang);
+        });
+        setLangOpen(false);
+      });
+    });
+
+    document.addEventListener('click', function () { setLangOpen(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setLangOpen(false);
+    });
+  })();
+</script>
+
+<style>
+  .navbar {
+    position: relative;
+    z-index: 200;
+    background: #F5F2EC;
+    border-bottom: 1px solid rgba(30, 41, 59, 0.07);
+  }
+
+  .navbar--overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: transparent;
+    border-bottom: none;
+  }
+
+  .navbar__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 40px);
+    min-height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 3vw, 40px);
+  }
+
+  .navbar__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+
+  .navbar__logo-img {
+    height: 124px;
+    width: auto;
+    max-height: 124px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .navbar__nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar__nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+
+  .navbar__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: #475569;
+    border-radius: 8px;
+    transition: color 0.18s ease, background-color 0.18s ease;
+    text-decoration: none;
+  }
+
+  .navbar__link:hover {
+    color: #1E293B;
+    background-color: rgba(30, 41, 59, 0.06);
+  }
+
+  .navbar--overlay .navbar__link:hover {
+    background-color: rgba(255, 255, 255, 0.45);
+  }
+
+  /* ── Dropdown trigger (button reset) ── */
+  .navbar__link--dropdown {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .navbar__chevron {
+    opacity: 0.5;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+    flex-shrink: 0;
+  }
+
+  .navbar__dropdown-wrap--open .navbar__chevron {
+    transform: rotate(180deg);
+    opacity: 0.8;
+  }
+
+  /* ── Dropdown panel ── */
+  .navbar__dropdown-wrap {
+    position: relative;
+  }
+
+  .navbar__dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    min-width: 260px;
+    background: #fff;
+    border: 1px solid rgba(30, 41, 59, 0.09);
+    border-radius: 18px;
+    padding: 8px;
+    box-shadow:
+      0 4px 6px rgba(30, 41, 59, 0.04),
+      0 20px 48px rgba(30, 41, 59, 0.12);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 300;
+  }
+
+  .navbar__dropdown-wrap--open .navbar__dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .navbar__dropdown-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #1E293B;
+    transition: background-color 0.15s ease;
+  }
+
+  .navbar__dropdown-item:hover {
+    background: #F5F2EC;
+  }
+
+  .navbar__dropdown-icon {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(198, 162, 75, 0.1);
+    border-radius: 9px;
+    color: #C6A24B;
+    margin-top: 1px;
+  }
+
+  .navbar__dropdown-item strong {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1E293B;
+    margin-bottom: 2px;
+  }
+
+  .navbar__dropdown-item em {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    font-style: normal;
+    font-weight: 400;
+    color: #94A3B8;
+    line-height: 1.4;
+  }
+
+  .navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  /* ── Inloggen button ── */
+  .navbar__login {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 22px;
+    background: #1E293B;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.18s ease;
+    white-space: nowrap;
+  }
+
+  .navbar__login:hover {
+    background: #0f172a;
+    transform: translateY(-1px);
+  }
+
+  /* ── Language switcher ── */
+  .lang-wrap {
+    position: relative;
+  }
+
+  .lang-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: transparent;
+    border: 1.5px solid rgba(30, 41, 59, 0.15);
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #475569;
+    cursor: pointer;
+    transition: border-color 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+    white-space: nowrap;
+  }
+
+  .lang-trigger:hover {
+    border-color: rgba(30, 41, 59, 0.3);
+    background: rgba(30, 41, 59, 0.04);
+    color: #1E293B;
+  }
+
+  .lang-trigger svg:first-child {
+    color: #94A3B8;
+    flex-shrink: 0;
+  }
+
+  .lang-chevron {
+    color: #94A3B8;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .lang-wrap--open .lang-chevron {
+    transform: rotate(180deg);
+  }
+
+  .lang-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 160px;
+    background: #fff;
+    border: 1px solid rgba(30, 41, 59, 0.09);
+    border-radius: 14px;
+    padding: 6px;
+    box-shadow:
+      0 4px 6px rgba(30, 41, 59, 0.04),
+      0 16px 40px rgba(30, 41, 59, 0.11);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-4px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 300;
+  }
+
+  .lang-wrap--open .lang-dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .lang-option {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    padding: 9px 12px;
+    background: none;
+    border: none;
+    border-radius: 9px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 400;
+    color: #475569;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .lang-option:hover {
+    background: #F5F2EC;
+    color: #1E293B;
+  }
+
+  .lang-option--active {
+    color: #1E293B;
+    font-weight: 500;
+    background: rgba(198, 162, 75, 0.08);
+  }
+
+  .lang-option__flag {
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .navbar__toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    background: rgba(30, 41, 59, 0.08);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+  }
+
+  .navbar__toggle:hover {
+    background: rgba(30, 41, 59, 0.12);
+  }
+
+  .navbar__burger {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #1E293B;
+    border-radius: 1px;
+    position: relative;
+    transition: transform 0.2s ease;
+  }
+
+  .navbar__burger::before,
+  .navbar__burger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: #1E293B;
+    border-radius: 1px;
+    transition: transform 0.2s ease;
+  }
+
+  .navbar__burger::before { top: -6px; }
+  .navbar__burger::after { top: 6px; }
+
+  .navbar--open .navbar__burger {
+    background: transparent;
+  }
+
+  .navbar--open .navbar__burger::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .navbar--open .navbar__burger::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  .navbar__sheet {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: #F5F2EC;
+    border-bottom: 1px solid rgba(30, 41, 59, 0.1);
+    box-shadow: 0 16px 40px rgba(30, 41, 59, 0.12);
+    padding: 16px 20px 24px;
+    z-index: 199;
+  }
+
+  .navbar--open .navbar__sheet {
+    display: block;
+  }
+
+  .navbar__nav-mobile ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+
+  .navbar__mobile-link {
+    display: block;
+    padding: 12px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: #1E293B;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.15s ease;
+  }
+
+  .navbar__mobile-link:hover {
+    background: rgba(30, 41, 59, 0.06);
+  }
+
+  .navbar__cta--mobile {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+  }
+
+  /* ── Mobile login button ── */
+  .navbar__login--mobile {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 14px 24px;
+    margin-top: 8px;
+    border-radius: 999px;
+    justify-content: center;
+  }
+
+  /* ── Mobile accordion ── */
+  .navbar__mobile-accordion {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .navbar__mobile-accordion[aria-expanded="true"] .navbar__chevron {
+    transform: rotate(180deg);
+  }
+
+  .navbar__mobile-sub {
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+    padding: 4px 0 4px 16px;
+    margin-top: 2px;
+    border-left: 2px solid rgba(198, 162, 75, 0.25);
+    margin-left: 14px;
+  }
+
+  .navbar__mobile-sub--open {
+    display: flex;
+  }
+
+  .navbar__mobile-sublink {
+    display: block;
+    padding: 10px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: #475569;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .navbar__mobile-sublink:hover {
+    background: rgba(30, 41, 59, 0.05);
+    color: #1E293B;
+  }
+
+  @media (max-width: 1024px) {
+    .navbar__link {
+      padding: 8px 10px;
+      font-size: 0.875rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar__nav--desktop,
+    .navbar__login--desktop {
+      display: none;
+    }
+
+    .navbar__toggle {
+      display: flex;
+    }
+
+    .navbar__container { justify-content: space-between; }
+
+    .navbar__logo-img {
+      height: 88px;
+      max-height: 88px;
+    }
+
+    .navbar--overlay {
+      background: rgba(245, 242, 236, 0.96);
+      backdrop-filter: blur(8px);
+    }
+  }
+</style>

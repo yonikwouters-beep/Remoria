@@ -1,0 +1,80 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Remoria — Een plek waar herinneringen samenkomen',
+  description = 'Remoria biedt een toegankelijk platform waar nabestaanden eenvoudig herinneringen delen en bewaren. Een serene plek om verhalen te koesteren en steun te vinden bij elkaar.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --nav-height-desktop: 132px;
+    --nav-height-mobile: 100px;
+    --nav-height: var(--nav-height-desktop);
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --nav-height: var(--nav-height-mobile);
+    }
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #F5F2EC;
+    color: #1E293B;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  img, video {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+</style>

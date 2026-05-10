@@ -1,0 +1,860 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Over ons — Remoria"
+  description="Het verhaal achter Remoria. Omdat herinneringen te kostbaar zijn om te laten vervagen."
+>
+  <Navbar />
+
+  <!-- ══════════════════════════════════════════════
+       1. HERO
+  ══════════════════════════════════════════════ -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero__content" data-reveal>
+        <p class="eyebrow">Over Remoria</p>
+        <h1 class="hero__title" id="hero-heading">
+          Het verhaal achter Remoria.
+        </h1>
+        <p class="hero__quote">
+          "Omdat herinneringen te kostbaar zijn om te laten vervagen."
+        </p>
+        <div class="hero__divider" aria-hidden="true">
+          <span class="hero__divider-line"></span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span class="hero__divider-line"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       2. MISSION
+  ══════════════════════════════════════════════ -->
+  <section class="mission" id="missie" aria-labelledby="mission-heading">
+    <div class="container">
+      <div class="mission__card" data-reveal>
+        <div class="mission__card-overlay" aria-hidden="true"></div>
+        <div class="mission__text">
+          <p class="eyebrow">Onze missie</p>
+          <h2 class="mission__title" id="mission-heading">
+            Verbinding na het afscheid.
+          </h2>
+          <p class="mission__body">
+            Remoria ontstond vanuit een eenvoudige, maar diepe overtuiging: de band
+            met mensen die we verliezen, eindigt niet bij het afscheid. Verhalen,
+            beelden en herinneringen zijn de draden die ons blijven verbinden —
+            maar ze zijn verspreid, kwetsbaar en dreigen te verdwijnen.
+          </p>
+          <p class="mission__body">
+            Wij bouwen een plek waar die draden samenkomen. Een warme, veilige
+            digitale omgeving waar families en vrienden samen kunnen herdenken,
+            verhalen bewaren en de nalatenschap van hun dierbaren levend kunnen
+            houden — voor zichzelf en voor de generaties na hen.
+          </p>
+          <p class="mission__body">
+            Remoria is geen koude database. Het is een gemeenschap van mensen die
+            geloven dat elke herinnering het waard is om bewaard te worden.
+          </p>
+          <p class="mission__pull">
+            Herinneringen verdienen een blijvende plek.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       3. VALUES
+  ══════════════════════════════════════════════ -->
+  <section class="values" aria-labelledby="values-heading">
+    <div class="container values__layout">
+
+      <div class="values__intro" data-reveal>
+        <p class="eyebrow">Kernwaarden</p>
+        <h2 class="values__title" id="values-heading">
+          Waarom we doen wat we doen.
+        </h2>
+        <p class="values__sub">
+          Drie waarden liggen aan de basis van alles wat Remoria bouwt en doet.
+        </p>
+      </div>
+
+      <div class="values__cards">
+
+        <article class="val-card" data-reveal data-reveal-delay="60">
+          <div class="val-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 class="val-card__title">Veilig en discreet</h3>
+          <p class="val-card__desc">
+            Herinneringen zijn persoonlijk en kwetsbaar. Remoria is gebouwd met
+            privacy als fundament. Uw omgeving is volledig besloten — alleen de
+            mensen die u uitnodigt, hebben toegang. Geen advertenties, geen
+            datahandel, geen compromissen.
+          </p>
+        </article>
+
+        <article class="val-card" data-reveal data-reveal-delay="120">
+          <div class="val-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="7" r="3"/>
+              <circle cx="15" cy="4" r="2"/>
+              <circle cx="15" cy="17" r="3"/>
+              <path d="M9 10c-2.8.4-5 2.7-5 5.5V19h8v-3.5c0-2.8-2.2-5.1-5-5.5"/>
+              <path d="M17 6.5c1.7.7 3 2.5 3 4.5v2h-4"/>
+            </svg>
+          </div>
+          <h3 class="val-card__title">De brug tussen generaties</h3>
+          <p class="val-card__desc">
+            Verhalen die vandaag worden bewaard, zijn de schatten van morgen.
+            Remoria zorgt ervoor dat de herinneringen die u nu vastlegt, ook
+            toegankelijk blijven voor kinderen, kleinkinderen en iedereen die
+            later meer wil weten.
+          </p>
+        </article>
+
+        <article class="val-card" data-reveal data-reveal-delay="180">
+          <div class="val-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <h3 class="val-card__title">Tastbaar blijft</h3>
+          <p class="val-card__desc">
+            Digitaal bewaard, maar tastbaar verbindt. Remoria maakt het mogelijk
+            om de online collectie om te zetten in een prachtig, fysiek aandenken
+            — een fotoboek of gedenkalbum dat u altijd bij de hand kunt houden.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       4. CINEMATIC / EMOTIONAL SECTION
+  ══════════════════════════════════════════════ -->
+  <section class="cinematic" aria-label="Missiestatement">
+    <div class="cinematic__inner">
+      <div class="cinematic__overlay" aria-hidden="true"></div>
+      <div class="container cinematic__content" data-reveal>
+        <div class="cinematic__heart" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h2 class="cinematic__title">
+          Herinneringen verdienen<br />een blijvende plek.
+        </h2>
+        <p class="cinematic__sub">
+          Elke dag gaan kostbare herinneringen verloren. Remoria is er om dat
+          te veranderen — voor elke familie, voor elke generatie die nog komen gaat.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       5. TWO-COLUMN CTA CARDS
+  ══════════════════════════════════════════════ -->
+  <section class="audience" aria-label="Voor wie is Remoria">
+    <div class="container audience__grid">
+
+      <a href="#" class="aud-card" data-reveal>
+        <div class="aud-card__bg" style="background-image: url('/over-ons-voor-nabestaanden.webp')"></div>
+        <div class="aud-card__overlay"></div>
+        <div class="aud-card__content">
+          <h3 class="aud-card__title">Voor families<br />&amp; nabestaanden</h3>
+          <p class="aud-card__body">
+            U hoeft de herinneringen aan uw dierbare niet alleen te bewaren.
+            Remoria geeft u een intuïtief platform om samen te komen met iedereen
+            die van hem of haar hield — om te delen, te huilen, te lachen en te
+            herdenken.
+          </p>
+          <span class="aud-card__btn">
+            Ontdek Remoria voor families
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="#" class="aud-card" data-reveal data-reveal-delay="100">
+        <div class="aud-card__bg" style="background-image: url('/voor-uitvaartprofessionals.webp')"></div>
+        <div class="aud-card__overlay"></div>
+        <div class="aud-card__content">
+          <h3 class="aud-card__title">Voor<br />uitvaartprofessionals</h3>
+          <p class="aud-card__body">
+            Als begrafenisondernemer bent u meer dan een dienstverlener — u bent
+            een gids in de moeilijkste momenten van het leven. Remoria versterkt
+            uw aanbod met een modern nazorgplatform dat families langdurig
+            ondersteunt.
+          </p>
+          <span class="aud-card__btn">
+            Ontdek Remoria voor professionals
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<!-- ════════════════════════════════════════════════
+     SCROLL REVEAL ANIMATION
+════════════════════════════════════════════════ -->
+<script>
+  (function () {
+    const elements = document.querySelectorAll<HTMLElement>('[data-reveal]');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
+            const delay = el.dataset.revealDelay ? parseInt(el.dataset.revealDelay) : 0;
+            setTimeout(() => el.classList.add('is-visible'), delay);
+            observer.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+  })();
+</script>
+
+<style>
+  /* ─────────────────────────────────────────────
+     SHARED UTILITIES
+  ───────────────────────────────────────────── */
+  .container {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: clamp(20px, 5vw, 48px);
+  }
+
+  .eyebrow {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #C6A24B;
+    margin-bottom: 14px;
+  }
+
+  .eyebrow--center {
+    text-align: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background-color 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
+    cursor: pointer;
+  }
+
+  .btn--dark {
+    background: #1E293B;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(30, 41, 59, 0.18);
+  }
+
+  .btn--dark:hover {
+    background: #0f172a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(30, 41, 59, 0.22);
+  }
+
+  .btn--ghost {
+    background: transparent;
+    color: #1E293B;
+    border: 1.5px solid rgba(30, 41, 59, 0.2);
+  }
+
+  .btn--ghost:hover {
+    background: rgba(30, 41, 59, 0.05);
+    border-color: rgba(30, 41, 59, 0.35);
+    transform: translateY(-2px);
+  }
+
+  .btn--lg {
+    padding: 16px 36px;
+    font-size: 16px;
+  }
+
+  /* ─────────────────────────────────────────────
+     SCROLL REVEAL
+  ───────────────────────────────────────────── */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─────────────────────────────────────────────
+     1. HERO
+  ───────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    background-image: url('/over-ons-hero.webp');
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    min-height: clamp(440px, 58vw, 680px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      #F5F2EC 0%,
+      rgba(245, 242, 236, 0.96) 28%,
+      rgba(245, 242, 236, 0.72) 50%,
+      rgba(245, 242, 236, 0.20) 72%,
+      rgba(245, 242, 236, 0.00) 90%
+    );
+  }
+
+  .hero .container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding-block: clamp(64px, 9vw, 104px);
+  }
+
+  .hero__content {
+    max-width: 520px;
+  }
+
+  .hero__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 700;
+    color: #1E293B;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+    margin-bottom: 22px;
+  }
+
+  .hero__quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.0625rem, 2vw, 1.25rem);
+    font-style: italic;
+    font-weight: 400;
+    color: #C6A24B;
+    line-height: 1.55;
+    margin-bottom: 28px;
+    max-width: 400px;
+  }
+
+  .hero__divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #C6A24B;
+    max-width: 200px;
+  }
+
+  .hero__divider-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(198, 162, 75, 0.45);
+  }
+
+  /* ─────────────────────────────────────────────
+     2. MISSION
+  ───────────────────────────────────────────── */
+  .mission {
+    padding-block: clamp(48px, 7vw, 80px);
+  }
+
+  .mission__card {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    background-image: url('/over-ons-verbinding-na-het-afscheid.webp');
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    box-shadow:
+      0 2px 8px rgba(30, 41, 59, 0.05),
+      0 16px 48px rgba(30, 41, 59, 0.09);
+  }
+
+  .mission__card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(245, 242, 236, 1) 0%,
+      rgba(245, 242, 236, 0.98) 30%,
+      rgba(245, 242, 236, 0.88) 50%,
+      rgba(245, 242, 236, 0.40) 70%,
+      rgba(245, 242, 236, 0.00) 90%
+    );
+  }
+
+  .mission__text {
+    position: relative;
+    z-index: 1;
+    max-width: 54%;
+    padding: clamp(40px, 5vw, 64px) clamp(32px, 5vw, 56px);
+  }
+
+  .mission__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.875rem, 3.5vw, 2.5rem);
+    font-weight: 500;
+    color: #1E293B;
+    letter-spacing: -0.022em;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .mission__body {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #475569;
+    line-height: 1.82;
+    margin-bottom: 16px;
+    max-width: 520px;
+  }
+
+  .mission__pull {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-style: italic;
+    color: #C6A24B;
+    margin-top: 24px;
+  }
+
+  /* ─────────────────────────────────────────────
+     3. VALUES
+  ───────────────────────────────────────────── */
+  .values {
+    padding-block: clamp(72px, 10vw, 112px);
+  }
+
+  .values__layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: clamp(48px, 6vw, 80px);
+    align-items: start;
+  }
+
+  .values__intro {
+    position: sticky;
+    top: 128px;
+  }
+
+  .values__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.625rem, 2.8vw, 2.125rem);
+    font-weight: 500;
+    color: #1E293B;
+    letter-spacing: -0.02em;
+    line-height: 1.22;
+    margin-bottom: 16px;
+  }
+
+  .values__sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #64748B;
+    line-height: 1.72;
+  }
+
+  .values__cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .val-card {
+    background: rgba(255, 255, 255, 0.65);
+    border: 1.5px solid rgba(255, 255, 255, 0.55);
+    border-radius: 24px;
+    padding: clamp(28px, 4vw, 40px);
+    box-shadow:
+      0 1px 2px rgba(30, 41, 59, 0.04),
+      0 8px 28px rgba(30, 41, 59, 0.07);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition:
+      transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.3s ease;
+  }
+
+  .val-card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      0 2px 4px rgba(30, 41, 59, 0.06),
+      0 20px 48px rgba(30, 41, 59, 0.11),
+      0 0 0 1px rgba(198, 162, 75, 0.08);
+  }
+
+  .val-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(198, 162, 75, 0.1);
+    border-radius: 14px;
+    color: #C6A24B;
+    margin-bottom: 20px;
+  }
+
+  .val-card__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: #1E293B;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .val-card__desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    font-weight: 400;
+    color: #64748B;
+    line-height: 1.78;
+  }
+
+  /* ─────────────────────────────────────────────
+     4. CINEMATIC
+  ───────────────────────────────────────────── */
+  .cinematic {
+    position: relative;
+    margin-block: 0;
+    overflow: hidden;
+  }
+
+  .cinematic__inner {
+    position: relative;
+    background-image: url('/over-ons-verbinding-na-het-afscheid.webp');
+    background-size: cover;
+    background-position: center 35%;
+    background-repeat: no-repeat;
+    min-height: clamp(340px, 44vw, 540px);
+    display: flex;
+    align-items: center;
+  }
+
+  .cinematic__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(15, 23, 42, 0.78) 0%,
+      rgba(15, 23, 42, 0.60) 50%,
+      rgba(15, 23, 42, 0.45) 100%
+    );
+  }
+
+  .cinematic__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding-block: clamp(64px, 9vw, 96px);
+  }
+
+  .cinematic__heart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    background: rgba(198, 162, 75, 0.18);
+    border: 1px solid rgba(198, 162, 75, 0.35);
+    border-radius: 50%;
+    color: #C6A24B;
+    margin-bottom: 24px;
+  }
+
+  .cinematic__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: -0.025em;
+    line-height: 1.22;
+    margin-bottom: 20px;
+  }
+
+  .cinematic__sub {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(15px, 1.8vw, 17.5px);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.75;
+    max-width: 540px;
+    margin-inline: auto;
+  }
+
+  /* ─────────────────────────────────────────────
+     5. AUDIENCE CTA CARDS
+  ───────────────────────────────────────────── */
+  .audience {
+    padding-block: clamp(64px, 9vw, 104px);
+  }
+
+  .audience__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .aud-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 28px;
+    overflow: hidden;
+    min-height: clamp(360px, 42vw, 520px);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .aud-card__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .aud-card:hover .aud-card__bg {
+    transform: scale(1.06);
+  }
+
+  .aud-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(15, 23, 42, 0.82) 0%,
+      rgba(15, 23, 42, 0.45) 45%,
+      rgba(15, 23, 42, 0.10) 100%
+    );
+    transition: opacity 0.3s ease;
+  }
+
+  .aud-card:hover .aud-card__overlay {
+    opacity: 0.88;
+  }
+
+  .aud-card__content {
+    position: relative;
+    z-index: 1;
+    padding: clamp(28px, 4vw, 44px);
+  }
+
+  .aud-card__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.22;
+    margin-bottom: 14px;
+  }
+
+  .aud-card__body {
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    max-width: 380px;
+  }
+
+  .aud-card__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    transition: background-color 0.22s ease, border-color 0.22s ease;
+  }
+
+  .aud-card:hover .aud-card__btn {
+    background: rgba(198, 162, 75, 0.24);
+    border-color: rgba(198, 162, 75, 0.45);
+  }
+
+  /* ─────────────────────────────────────────────
+     6. FINAL CTA
+  ───────────────────────────────────────────── */
+  .final-cta {
+    padding-block: clamp(80px, 11vw, 128px);
+    text-align: center;
+    background: linear-gradient(180deg, #F5F2EC 0%, #EDE9DF 100%);
+  }
+
+  .final-cta__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .final-cta__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.875rem, 4vw, 2.875rem);
+    font-weight: 500;
+    color: #1E293B;
+    letter-spacing: -0.025em;
+    line-height: 1.22;
+    max-width: 600px;
+  }
+
+  /* ─────────────────────────────────────────────
+     RESPONSIVE
+  ───────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .values__layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .values__intro {
+      position: static;
+    }
+
+    .values__cards {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 860px) {
+    .hero {
+      background-position: 70% center;
+      min-height: clamp(360px, 70vw, 520px);
+    }
+
+    .hero__overlay {
+      background: linear-gradient(
+        to right,
+        #F5F2EC 0%,
+        rgba(245, 242, 236, 0.97) 40%,
+        rgba(245, 242, 236, 0.80) 65%,
+        rgba(245, 242, 236, 0.20) 100%
+      );
+    }
+
+    .hero__content {
+      max-width: 100%;
+    }
+
+    .mission__text {
+      max-width: 70%;
+    }
+
+    .audience__grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .aud-card {
+      min-height: 320px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      background-position: 80% center;
+    }
+
+    .hero__overlay {
+      background: linear-gradient(
+        to right,
+        #F5F2EC 0%,
+        rgba(245, 242, 236, 0.97) 55%,
+        rgba(245, 242, 236, 0.60) 80%,
+        rgba(245, 242, 236, 0.10) 100%
+      );
+    }
+
+    .mission__text {
+      max-width: 100%;
+      padding: 36px 28px 36px;
+    }
+
+    .mission__card-overlay {
+      background: linear-gradient(
+        to right,
+        rgba(245, 242, 236, 1) 0%,
+        rgba(245, 242, 236, 0.98) 60%,
+        rgba(245, 242, 236, 0.70) 85%,
+        rgba(245, 242, 236, 0.00) 100%
+      );
+    }
+
+    .values__cards {
+      grid-template-columns: 1fr;
+    }
+
+    .cinematic__title br {
+      display: none;
+    }
+
+    .final-cta__title br {
+      display: none;
+    }
+  }
+</style>

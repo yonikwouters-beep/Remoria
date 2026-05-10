@@ -1,0 +1,346 @@
+---
+---
+
+<footer class="footer">
+  <div class="footer__container">
+
+    <!-- ── TOP GRID ── -->
+    <div class="footer__grid">
+
+      <!-- Col 1: Brand -->
+      <div class="footer__brand">
+        <a href="/" class="footer__logo-link" aria-label="Remoria homepage">
+          <picture>
+            <source srcset="/remoria-logo-transp.avif" type="image/avif" />
+            <img
+              src="/remoria-logo-transp.webp"
+              alt="Remoria"
+              class="footer__logo-img"
+              width="360"
+              height="108"
+            />
+          </picture>
+        </a>
+        <p class="footer__tagline">
+          Een plek voor herinneringen<br />die blijven.
+        </p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social" aria-label="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" class="footer__social" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="#" class="footer__social" aria-label="LinkedIn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Product -->
+      <div class="footer__col">
+        <p class="footer__heading">Product</p>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">Hoe werkt het?</a></li>
+          <li><a href="#" class="footer__link">Het Fotoboek</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Voor wie? -->
+      <div class="footer__col">
+        <p class="footer__heading">Voor wie?</p>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">Voor nabestaanden</a></li>
+          <li><a href="#" class="footer__link">Voor de uitvaartsector</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Over Remoria -->
+      <div class="footer__col">
+        <p class="footer__heading">Over Remoria</p>
+        <ul class="footer__links">
+          <li><a href="/over-ons" class="footer__link">Over ons</a></li>
+          <li><a href="/contact" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 5: Newsletter -->
+      <div class="footer__col">
+        <p class="footer__heading">Blijf op de hoogte</p>
+        <p class="footer__newsletter-desc">
+          Ontvang tips en inspiratie voor het koesteren van herinneringen.
+        </p>
+        <form class="footer__form" novalidate>
+          <div class="footer__input-wrap">
+            <input
+              type="email"
+              class="footer__input"
+              placeholder="E-mailadres"
+              aria-label="E-mailadres voor nieuwsbrief"
+              required
+            />
+            <button type="submit" class="footer__submit" aria-label="Inschrijven">
+              <svg width="15" height="15" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- ── BOTTOM BAR ── -->
+    <div class="footer__bottom">
+      <p class="footer__copy">
+        &copy; {new Date().getFullYear()} Remoria. Alle rechten voorbehouden.
+      </p>
+      <nav class="footer__legal" aria-label="Juridische links">
+        <a href="#" class="footer__legal-link">Privacy</a>
+        <a href="#" class="footer__legal-link">Voorwaarden</a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: #1a2235;
+    padding-top: clamp(48px, 7vw, 72px);
+  }
+
+  .footer__container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(20px, 5vw, 48px);
+    padding-right: clamp(20px, 5vw, 48px);
+  }
+
+  /* ── Grid ── */
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr 1.6fr;
+    gap: 40px;
+    padding-bottom: clamp(40px, 6vw, 56px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* ── Brand ── */
+  .footer__logo-link {
+    display: inline-block;
+    margin-bottom: 14px;
+    text-decoration: none;
+  }
+
+  .footer__logo-img {
+    height: 80px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    opacity: 0.92;
+  }
+
+  .footer__tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 20px;
+  }
+
+  .footer__socials {
+    display: flex;
+    gap: 8px;
+  }
+
+  .footer__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: background-color 0.18s ease, color 0.18s ease;
+  }
+
+  .footer__social:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+  }
+
+  /* ── Link columns ── */
+  .footer__col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer__heading {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    letter-spacing: 0.01em;
+  }
+
+  .footer__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer__link {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.58);
+    text-decoration: none;
+    transition: color 0.16s ease;
+    display: inline-block;
+  }
+
+  .footer__link:hover {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* ── Newsletter ── */
+  .footer__newsletter-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+
+  .footer__input-wrap {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.06);
+    transition: border-color 0.2s ease;
+  }
+
+  .footer__input-wrap:focus-within {
+    border-color: rgba(198, 162, 75, 0.55);
+  }
+
+  .footer__input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 11px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: #fff;
+  }
+
+  .footer__input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .footer__submit {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    background: #C6A24B;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.18s ease;
+  }
+
+  .footer__submit:hover {
+    background: #b8913e;
+  }
+
+  /* ── Bottom bar ── */
+  .footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 20px;
+    padding-bottom: 24px;
+  }
+
+  .footer__copy {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .footer__legal {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer__legal-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.42);
+    text-decoration: none;
+    transition: color 0.16s ease;
+  }
+
+  .footer__legal-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .footer__grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+    }
+
+    .footer__brand {
+      grid-column: 1 / -1;
+    }
+
+    .footer__col:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .footer__bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

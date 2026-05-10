@@ -1,0 +1,164 @@
+---
+const features = [
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>`,
+    title: 'Media collection',
+    description: 'Verzamel foto\'s, video\'s en verhalen op een prachtige plek. Deel herinneringen met familie en vrienden.',
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5l6.74-6.76z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>`,
+    title: 'Eerbetoon bericht plaatsen',
+    description: 'Schrijf een persoonlijk eerbetoon en deel je gevoelens. Een warm woord betekent meer dan je denkt.',
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+    title: 'Chat met community',
+    description: 'Vind steun bij mensen die begrijpen wat je doormaakt. Deel, praat en luister in een veilige omgeving.',
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`,
+    title: 'Maak het tastbaar',
+    description: 'Bundel herinneringen in een prachtig fotoboek. Een blijvende herinnering die je kunt vasthouden en doorgeven.',
+  },
+];
+---
+
+<section class="features">
+  <div class="features__container">
+    <p class="features__eyebrow">ALLES WAT JE NODIG HEBT</p>
+    <h2 class="features__heading">Herinneringen op jouw manier</h2>
+
+    <div class="features__grid">
+      {features.map((f) => (
+        <article class="feature-card">
+          <div class="feature-card__icon" set:html={f.icon} />
+          <h3 class="feature-card__title">{f.title}</h3>
+          <p class="feature-card__desc">{f.description}</p>
+          <a href="#" class="feature-card__link">
+            Meer informatie
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    background: #F5F2EC;
+    padding: clamp(64px, 10vw, 96px) clamp(20px, 4vw, 40px);
+  }
+
+  .features__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .features__eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #C6A24B;
+    margin-bottom: 14px;
+  }
+
+  .features__heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(30px, 3.8vw, 44px);
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: #1E293B;
+    margin-bottom: 52px;
+  }
+
+  .features__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: left;
+  }
+
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: #fff;
+    border-radius: 18px;
+    padding: 28px 24px 26px;
+    box-shadow:
+      0 1px 2px rgba(30, 41, 59, 0.04),
+      0 12px 40px rgba(30, 41, 59, 0.06);
+    border: 1px solid rgba(30, 41, 59, 0.05);
+    transition: box-shadow 0.25s ease, transform 0.2s ease;
+  }
+
+  .feature-card:hover {
+    box-shadow:
+      0 2px 4px rgba(30, 41, 59, 0.06),
+      0 18px 48px rgba(30, 41, 59, 0.09);
+    transform: translateY(-3px);
+  }
+
+  .feature-card__icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(198, 162, 75, 0.12);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #C6A24B;
+    flex-shrink: 0;
+    margin-bottom: 2px;
+  }
+
+  .feature-card__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #1E293B;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+
+  .feature-card__desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.68;
+    color: #64748B;
+    flex: 1;
+  }
+
+  .feature-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #C6A24B;
+    text-decoration: none;
+    transition: gap 0.18s ease;
+    margin-top: 2px;
+  }
+
+  .feature-card__link:hover {
+    gap: 10px;
+  }
+
+  @media (max-width: 1024px) {
+    .features__grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  }
+
+  @media (max-width: 600px) {
+    .features__grid { grid-template-columns: 1fr; }
+    .features__heading { margin-bottom: 40px; }
+    .feature-card { padding: 24px 20px 22px; }
+  }
+</style>

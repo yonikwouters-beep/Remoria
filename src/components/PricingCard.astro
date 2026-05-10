@@ -1,0 +1,208 @@
+---
+export interface Props {
+  image: string;
+  imageAlt: string;
+  title: string;
+  duration: string;
+  price: string;
+  description: string;
+  featured?: boolean;
+}
+
+const { image, imageAlt, title, duration, price, description, featured = false } = Astro.props;
+---
+
+<article class:list={[
+  'pricing-card',
+  featured && 'pricing-card--featured'
+]}>
+  {featured && (
+    <div class="pricing-card__badge">Meest gekozen</div>
+  )}
+
+  <div class="pricing-card__img-wrap">
+    <img
+      src={image}
+      alt={imageAlt}
+      class="pricing-card__img"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+
+  <div class="pricing-card__body">
+    <h3 class="pricing-card__title">{title}</h3>
+    <p class="pricing-card__duration">{duration}</p>
+
+    <div class="pricing-card__price-row">
+      <span class="pricing-card__price">{price}</span>
+      <span class="pricing-card__tax">incl. BTW</span>
+    </div>
+
+    <p class="pricing-card__desc">{description}</p>
+
+    <a href="#" class="pricing-card__btn">Start met dit plan</a>
+  </div>
+</article>
+
+<style>
+  .pricing-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(30, 41, 59, 0.07);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 2px rgba(30, 41, 59, 0.04),
+      0 8px 32px rgba(30, 41, 59, 0.07);
+    transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.28s ease;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 2px 4px rgba(30, 41, 59, 0.06),
+      0 20px 52px rgba(30, 41, 59, 0.12);
+  }
+
+  /* Featured variant */
+  .pricing-card--featured {
+    border-color: rgba(198, 162, 75, 0.45);
+    box-shadow:
+      0 2px 4px rgba(30, 41, 59, 0.06),
+      0 12px 40px rgba(198, 162, 75, 0.14),
+      inset 0 0 0 1px rgba(198, 162, 75, 0.18);
+  }
+
+  .pricing-card--featured:hover {
+    box-shadow:
+      0 4px 8px rgba(30, 41, 59, 0.08),
+      0 24px 56px rgba(198, 162, 75, 0.22),
+      inset 0 0 0 1px rgba(198, 162, 75, 0.28);
+  }
+
+  /* Badge */
+  .pricing-card__badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #c6a24b 0%, #d4af5e 100%);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 5px 12px;
+    border-radius: 999px;
+    box-shadow: 0 2px 8px rgba(198, 162, 75, 0.35);
+  }
+
+  /* Image */
+  .pricing-card__img-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 36px 32px 0;
+    min-height: 164px;
+  }
+
+  .pricing-card__img {
+    width: 100%;
+    max-width: 180px;
+    height: 140px;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  /* Body */
+  .pricing-card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 28px 32px 36px;
+  }
+
+  .pricing-card__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1E293B;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+
+  .pricing-card__duration {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #C6A24B;
+    letter-spacing: 0.04em;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+  .pricing-card__price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .pricing-card__price {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 44px;
+    font-weight: 500;
+    color: #1E293B;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .pricing-card__tax {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #94A3B8;
+  }
+
+  .pricing-card__desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #64748B;
+    text-align: center;
+    margin-bottom: 28px;
+    flex: 1;
+  }
+
+  .pricing-card__btn {
+    display: block;
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #c6a24b 0%, #d4af5e 55%, #c6a24b 100%);
+    background-size: 200% 100%;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 999px;
+    box-shadow: 0 4px 16px rgba(198, 162, 75, 0.30);
+    transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .pricing-card__btn:hover {
+    background-position: 100% 0;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(198, 162, 75, 0.40);
+  }
+</style>

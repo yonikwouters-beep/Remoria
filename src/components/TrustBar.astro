@@ -1,0 +1,101 @@
+---
+---
+
+<section class="trust">
+  <div class="trust__container">
+    <p class="trust__label">Vertrouwd door families en uitvaartorganisaties</p>
+    <ul class="trust__logos" aria-label="Partnerorganisaties">
+      <li class="trust__logo">YARDEN</li>
+      <li class="trust__logo trust__logo--sub">
+        Monuta
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+          <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </li>
+      <li class="trust__logo trust__logo--wide">DEL<span class="trust__logo-accent">A</span></li>
+      <li class="trust__logo">NOVUTA</li>
+      <li class="trust__logo trust__logo--stack">
+        <span>CONCORDIA</span>
+        <span class="trust__logo-sub">DE KEIZER</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .trust {
+    position: relative;
+    z-index: 1;
+    background: #F5F2EC;
+    /* No top border: hero bottom fade blends into this section */
+    border-bottom: 1px solid rgba(30, 41, 59, 0.07);
+    padding: clamp(36px, 6vw, 48px) clamp(16px, 4vw, 24px) 32px;
+  }
+
+  .trust__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .trust__label {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #94A3B8;
+    text-align: center;
+    letter-spacing: 0.01em;
+  }
+
+  .trust__logos {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .trust__logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #94A3B8;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    transition: color 0.2s ease;
+    cursor: default;
+  }
+
+  .trust__logo:hover {
+    color: #64748B;
+  }
+
+  .trust__logo-accent {
+    font-style: italic;
+  }
+
+  .trust__logo--stack {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+    line-height: 1;
+  }
+
+  .trust__logo-sub {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    opacity: 0.75;
+  }
+
+  @media (max-width: 600px) {
+    .trust__label { font-size: 12px; padding: 0 8px; }
+    .trust__logos { gap: 20px 24px; justify-content: center; }
+    .trust__logo { font-size: 12px; letter-spacing: 0.06em; }
+  }
+</style>
