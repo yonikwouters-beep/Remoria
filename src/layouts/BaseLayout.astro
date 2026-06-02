@@ -1,4 +1,6 @@
 ---
+import SiteNotice from '../components/SiteNotice.astro';
+
 export interface Props {
   title?: string;
   description?: string;
@@ -29,6 +31,7 @@ const {
     />
   </head>
   <body>
+    <SiteNotice />
     <div class="site-wrap">
       <slot />
     </div>

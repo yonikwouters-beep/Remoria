@@ -1,0 +1,341 @@
+---
+/** Zet op false wanneer de site live klaar is. */
+const NOTICE_ENABLED = true;
+const BYPASS_CODE = '202608';
+const STORAGE_KEY = 'remoria_site_unlock';
+---
+
+{NOTICE_ENABLED && (
+  <div
+    id="site-notice"
+    class="site-notice"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="site-notice-title"
+    hidden
+  >
+    <div class="site-notice__backdrop" aria-hidden="true"></div>
+
+    <div class="site-notice__card">
+      <button
+        type="button"
+        class="site-notice__logo-btn"
+        id="site-notice-logo"
+        aria-label="Remoria"
+        title=""
+      >
+        <img
+          src="/logo-remoria-nav.png"
+          alt="Remoria"
+          class="site-notice__logo"
+          width="160"
+          height="48"
+        />
+      </button>
+
+      <h2 id="site-notice-title" class="site-notice__title">
+        We werken nog aan de website
+      </h2>
+
+      <p class="site-notice__lead">
+        Gedenkplekken kunnen nog niet aangeschaft worden.
+      </p>
+
+      <div class="site-notice__visual">
+        <img
+          src="/Portal-dashboard.webp"
+          alt="Voorbeeld van het Remoria portaal"
+          class="site-notice__image"
+          width="640"
+          height="400"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+
+      <p class="site-notice__contact">
+        Heb je vragen of wil je een van de eerste partners zijn?
+        Neem contact op via{' '}
+        <a href="mailto:hello@remoria.eu">hello@remoria.eu</a>.
+      </p>
+
+      <form class="site-notice__unlock" id="site-notice-unlock" hidden>
+        <label for="site-notice-code" class="site-notice__unlock-label">
+          Toegangscode
+        </label>
+        <input
+          type="password"
+          id="site-notice-code"
+          class="site-notice__unlock-input"
+          inputmode="numeric"
+          autocomplete="off"
+          maxlength="12"
+          placeholder="Code"
+        />
+        <button type="submit" class="site-notice__unlock-submit">
+          Doorgaan
+        </button>
+        <p class="site-notice__unlock-error" id="site-notice-error" hidden>
+          Onjuiste code.
+        </p>
+      </form>
+    </div>
+  </div>
+)}
+
+<script define:vars={{ BYPASS_CODE, STORAGE_KEY, NOTICE_ENABLED }}>
+  if (!NOTICE_ENABLED) return;
+
+  const notice = document.getElementById('site-notice');
+  const logoBtn = document.getElementById('site-notice-logo');
+  const unlockForm = document.getElementById('site-notice-unlock');
+  const codeInput = document.getElementById('site-notice-code');
+  const errorEl = document.getElementById('site-notice-error');
+
+  const isUnlocked = () => sessionStorage.getItem(STORAGE_KEY) === '1';
+
+  const lockScroll = (locked) => {
+    document.documentElement.classList.toggle('site-notice-open', locked);
+    document.body.classList.toggle('site-notice-open', locked);
+  };
+
+  const hideNotice = () => {
+    if (!notice) return;
+    notice.hidden = true;
+    notice.setAttribute('aria-hidden', 'true');
+    lockScroll(false);
+  };
+
+  const showNotice = () => {
+    if (!notice) return;
+    notice.hidden = false;
+    notice.setAttribute('aria-hidden', 'false');
+    lockScroll(true);
+  };
+
+  const unlock = () => {
+    sessionStorage.setItem(STORAGE_KEY, '1');
+    hideNotice();
+  };
+
+  if (isUnlocked()) {
+    hideNotice();
+  } else {
+    showNotice();
+  }
+
+  let logoClicks = 0;
+  let logoTimer;
+
+  logoBtn?.addEventListener('click', () => {
+    logoClicks += 1;
+    clearTimeout(logoTimer);
+    logoTimer = setTimeout(() => {
+      logoClicks = 0;
+    }, 1200);
+
+    if (logoClicks >= 3) {
+      logoClicks = 0;
+      if (unlockForm) {
+        unlockForm.hidden = false;
+        codeInput?.focus();
+      }
+    }
+  });
+
+  unlockForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const value = codeInput?.value?.trim() ?? '';
+    if (value === BYPASS_CODE) {
+      if (errorEl) errorEl.hidden = true;
+      unlock();
+      return;
+    }
+    if (errorEl) errorEl.hidden = false;
+    if (codeInput) {
+      codeInput.value = '';
+      codeInput.focus();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!notice || notice.hidden) return;
+    if (e.key === 'Escape') e.preventDefault();
+  });
+</script>
+
+<style>
+  :global(html.site-notice-open),
+  :global(body.site-notice-open) {
+    overflow: hidden;
+  }
+
+  .site-notice {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(16px, 4vw, 32px);
+  }
+
+  .site-notice[hidden] {
+    display: none !important;
+  }
+
+  .site-notice__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(30, 41, 59, 0.55);
+    backdrop-filter: blur(6px);
+  }
+
+  .site-notice__card {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 520px);
+    max-height: min(92vh, 720px);
+    overflow-y: auto;
+    background: #F7F4EE;
+    border-radius: 24px;
+    padding: clamp(28px, 5vw, 40px) clamp(24px, 4vw, 36px);
+    box-shadow:
+      0 24px 64px rgba(30, 41, 59, 0.18),
+      0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+    text-align: center;
+  }
+
+  .site-notice__logo-btn {
+    display: inline-flex;
+    margin: 0 auto 20px;
+    padding: 4px;
+    border: none;
+    background: transparent;
+    cursor: default;
+    border-radius: 8px;
+  }
+
+  .site-notice__logo {
+    width: auto;
+    max-width: min(200px, 70vw);
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .site-notice__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.35rem, 3.5vw, 1.65rem);
+    font-weight: 500;
+    line-height: 1.25;
+    color: #1E293B;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .site-notice__lead {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+
+  .site-notice__visual {
+    margin-bottom: 20px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(30, 41, 59, 0.1);
+  }
+
+  .site-notice__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .site-notice__contact {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #64748B;
+    line-height: 1.6;
+  }
+
+  .site-notice__contact a {
+    color: #1E293B;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .site-notice__contact a:hover {
+    color: #C6A24B;
+  }
+
+  .site-notice__unlock {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(30, 41, 59, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .site-notice__unlock[hidden] {
+    display: none !important;
+  }
+
+  .site-notice__unlock-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #94A3B8;
+  }
+
+  .site-notice__unlock-input {
+    width: 140px;
+    padding: 10px 14px;
+    border: 1px solid rgba(30, 41, 59, 0.12);
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    text-align: center;
+    background: #fff;
+    color: #1E293B;
+  }
+
+  .site-notice__unlock-input:focus {
+    outline: 2px solid rgba(198, 162, 75, 0.45);
+    outline-offset: 2px;
+  }
+
+  .site-notice__unlock-submit {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 999px;
+    background: #1E293B;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .site-notice__unlock-submit:hover {
+    background: #0f172a;
+  }
+
+  .site-notice__unlock-error {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #b45309;
+  }
+
+  .site-notice__unlock-error[hidden] {
+    display: none !important;
+  }
+</style>
