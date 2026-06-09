@@ -13,12 +13,12 @@ import Footer from '../components/Footer.astro';
   <!-- ══════════════════════════════════════════════
        1. HERO
   ══════════════════════════════════════════════ -->
-  <section class="hero" data-reveal>
-    <div class="container hero__grid">
-
+  <section class="hero" aria-labelledby="hero-heading" data-reveal>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="container">
       <div class="hero__content" data-reveal>
         <p class="eyebrow">Remoria voor de nabestaanden</p>
-        <h1 class="hero__title">
+        <h1 class="hero__title" id="hero-heading">
           Een blijvende plek<br />voor elk kostbaar<br />moment
         </h1>
         <p class="hero__body">
@@ -44,21 +44,6 @@ import Footer from '../components/Footer.astro';
           </a>
         </div>
       </div>
-
-      <div class="hero__visual" data-reveal data-reveal-delay="120">
-        <div class="hero__img-wrap">
-          <img
-            src="/hero-voor-nabestaanden.webp"
-            alt="Herinneringen bewaren op een veilige, serene plek"
-            class="hero__img"
-            loading="eager"
-            decoding="async"
-            width="900"
-            height="700"
-          />
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -456,20 +441,45 @@ import Footer from '../components/Footer.astro';
   }
 
   /* ════════════════════════════════════════════
-     HERO
+     HERO — full-bleed achtergrond zoals /over-ons
   ════════════════════════════════════════════ */
   .hero {
-    padding: clamp(56px, 8vh, 96px) 0 clamp(64px, 9vh, 108px);
-  }
-
-  .hero__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(40px, 5vw, 72px);
+    position: relative;
+    background-color: var(--bg);
+    background-image: url('/Voor-nabestaanden-web.webp');
+    background-size: cover;
+    background-position: 66% 18%;
+    background-repeat: no-repeat;
+    min-height: clamp(520px, 64vw, 740px);
+    display: flex;
     align-items: center;
+    overflow: hidden;
   }
 
-  .hero__content { max-width: 500px; }
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      #F7F4EE 0%,
+      rgba(247, 244, 238, 0.97) 26%,
+      rgba(247, 244, 238, 0.82) 44%,
+      rgba(247, 244, 238, 0.45) 62%,
+      rgba(247, 244, 238, 0.08) 82%,
+      rgba(247, 244, 238, 0) 100%
+    );
+  }
+
+  .hero .container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding-block: clamp(64px, 9vw, 104px);
+  }
+
+  .hero__content {
+    max-width: 520px;
+  }
 
   .hero__title {
     font-family: 'Playfair Display', Georgia, serif;
@@ -486,7 +496,7 @@ import Footer from '../components/Footer.astro';
     font-size: clamp(15px, 1.5vw, 16px);
     line-height: 1.8;
     color: var(--muted);
-    max-width: 440px;
+    max-width: 460px;
     margin-bottom: 40px;
   }
 
@@ -495,26 +505,6 @@ import Footer from '../components/Footer.astro';
     align-items: center;
     flex-wrap: wrap;
     gap: 14px;
-  }
-
-  .hero__img-wrap {
-    position: relative;
-    border-radius: var(--radius-img);
-    overflow: hidden;
-    box-shadow:
-      0 2px 8px rgba(30, 41, 59, 0.06),
-      0 24px 60px rgba(30, 41, 59, 0.12),
-      0 0 0 1px rgba(30, 41, 59, 0.04);
-  }
-
-  .hero__img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .hero__img-wrap:hover .hero__img {
-    transform: scale(1.025);
   }
 
   /* ════════════════════════════════════════════
@@ -850,20 +840,30 @@ import Footer from '../components/Footer.astro';
     }
   }
 
-  @media (max-width: 720px) {
-    .hero__grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
+  @media (max-width: 860px) {
+    .hero {
+      background-size: cover;
+      background-position: 70% 15%;
+      min-height: clamp(440px, 70vw, 580px);
     }
 
-    .hero__visual {
-      order: -1;
+    .hero__overlay {
+      background: linear-gradient(
+        to right,
+        #F7F4EE 0%,
+        rgba(247, 244, 238, 0.98) 38%,
+        rgba(247, 244, 238, 0.88) 58%,
+        rgba(247, 244, 238, 0.35) 78%,
+        rgba(247, 244, 238, 0) 100%
+      );
     }
 
     .hero__content {
       max-width: 100%;
     }
+  }
 
+  @media (max-width: 720px) {
     .hero__actions {
       flex-direction: column;
       align-items: stretch;
@@ -875,6 +875,24 @@ import Footer from '../components/Footer.astro';
 
     .trust__grid {
       grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      background-size: cover;
+      background-position: 78% 12%;
+    }
+
+    .hero__overlay {
+      background: linear-gradient(
+        to right,
+        #F7F4EE 0%,
+        rgba(247, 244, 238, 0.98) 52%,
+        rgba(247, 244, 238, 0.75) 72%,
+        rgba(247, 244, 238, 0.2) 92%,
+        rgba(247, 244, 238, 0) 100%
+      );
     }
   }
 
