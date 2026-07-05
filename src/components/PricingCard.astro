@@ -7,10 +7,10 @@ export interface Props {
   price: string;
   description: string;
   featured?: boolean;
-  stripePrice?: string;
+  startUrl?: string;
 }
 
-const { image, imageAlt, title, duration, price, description, featured = false, stripePrice = '' } = Astro.props;
+const { image, imageAlt, title, duration, price, description, featured = false, startUrl = '#' } = Astro.props;
 ---
 
 <article class:list={[
@@ -42,13 +42,7 @@ const { image, imageAlt, title, duration, price, description, featured = false, 
 
     <p class="pricing-card__desc">{description}</p>
 
-    <button
-      class="pricing-card__btn"
-      data-stripe-price={stripePrice}
-      data-checkout-btn
-    >
-      Start met dit plan
-    </button>
+    <a href={startUrl} class="pricing-card__btn">Start met dit plan</a>
   </div>
 </article>
 
@@ -201,21 +195,15 @@ const { image, imageAlt, title, duration, price, description, featured = false, 
     font-size: 15px;
     font-weight: 500;
     text-align: center;
-    border: none;
+    text-decoration: none;
     border-radius: 999px;
-    cursor: pointer;
     box-shadow: 0 4px 16px rgba(198, 162, 75, 0.30);
     transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .pricing-card__btn:hover:not(:disabled) {
+  .pricing-card__btn:hover {
     background-position: 100% 0;
     transform: translateY(-1px);
     box-shadow: 0 8px 24px rgba(198, 162, 75, 0.40);
-  }
-
-  .pricing-card__btn:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
   }
 </style>
