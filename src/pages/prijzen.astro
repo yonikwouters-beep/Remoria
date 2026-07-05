@@ -13,6 +13,7 @@ const plans = [
     price: '€85',
     description: 'Breng iedereen samen. De perfecte periode om foto’s, video’s en verhalen te verzamelen die anders verloren gaan. Nodig onbeperkt familie en vrienden uit om gratis herinneringen te delen en te bekijken.',
     featured: false,
+    stripePrice: 'price_1TpqgdBGR9yFOuLkB0Vpq9Gf',
   },
   {
     image: '/jonge-boom-remoria.png',
@@ -22,6 +23,7 @@ const plans = [
     price: '€129',
     description: 'Neem in alle rust de tijd om samen te herdenken. Keer een jaar lang onbeperkt terug naar de verzamelde herinneringen, juist op de dagen die er zo toe doen. Toegankelijk voor de hele familie.',
     featured: true,
+    stripePrice: 'price_1TpqhrBGR9yFOuLkRo0YsFtC',
   },
   {
     image: '/Groteboom-remoria.png',
@@ -31,6 +33,7 @@ const plans = [
     price: '€239',
     description: 'Een blijvende plek waar herinneringen in alle rust bewaard blijven, voor vandaag en later.',
     featured: false,
+    stripePrice: 'price_1TpqkLBGR9yFOuLk9NHgJj4m',
   },
 ];
 
@@ -98,6 +101,7 @@ const features = [
               price={plan.price}
               description={plan.description}
               featured={plan.featured}
+              stripePrice={plan.stripePrice}
             />
           ))}
         </div>
@@ -177,7 +181,12 @@ const features = [
               <br /><br />
               Deel je link en help je hen een bijzondere herinnering levend te houden.
             </p>
-            <a href="#" class="ref-btn">
+            <a
+              href="https://remoriaeu-4cbb.endorsely.com"
+              class="ref-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Deel de link en help een vriend
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -211,6 +220,50 @@ const features = [
 
   <Footer />
 </BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('[data-checkout-btn]');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const priceId = btn.dataset.stripePrice;
+        if (!priceId || priceId.startsWith('price_VERVANG')) {
+          alert('Dit plan is nog niet beschikbaar. Probeer het later opnieuw.');
+          return;
+        }
+
+        btn.disabled = true;
+        const originalText = btn.textContent || '';
+        btn.textContent = 'Laden...';
+
+        try {
+          // Haal endorsely referral op (gezet door endorsely.js script)
+          const endorsely_referral = (window as any).endorsely_referral ?? null;
+
+          const res = await fetch('/api/create-checkout', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ priceId, endorsely_referral }),
+          });
+
+          const data = await res.json();
+
+          if (data.url) {
+            window.location.href = data.url;
+          } else {
+            throw new Error(data.error || 'Onbekende fout');
+          }
+        } catch (err) {
+          console.error('Checkout error:', err);
+          alert('Er is iets misgegaan. Probeer het opnieuw of neem contact op via hello@remoria.eu.');
+          btn.disabled = false;
+          btn.textContent = originalText;
+        }
+      });
+    });
+  });
+</script>
 
 <style>
   /* ─── Page base ─────────────────────────────────────── */

@@ -128,79 +128,155 @@ import Footer from '../components/Footer.astro';
   </section>
 
   <!-- ══════════════════════════════════════════════
-       3. FEATURE SHOWCASE
+       3. FEATURES GRID
   ══════════════════════════════════════════════ -->
-  <section class="features">
-    <div class="container features__grid">
+  <section class="fg">
+    <div class="container">
 
-      <div class="features__visual" data-reveal>
-        <div class="features__img-wrap">
-          <img
-            src="/over-ons-voor-nabestaanden.webp"
-            alt="Remoria platform — herinneringen bewaren en delen"
-            class="features__img"
-            loading="lazy"
-            decoding="async"
-            width="680"
-            height="760"
-          />
-        </div>
+      <!-- Header -->
+      <div class="fg__header" data-reveal>
+        <p class="eyebrow eyebrow--center">
+          <span class="eyebrow__plus" aria-hidden="true">+</span> Alles wat u krijgt
+        </p>
+        <h2 class="section-title fg__title">
+          Een complete omgeving voor blijvende herinneringen
+        </h2>
+        <p class="section-sub fg__sub">
+          Remoria biedt nabestaanden een veilige en persoonlijke plek om herinneringen te bewaren,
+          te delen en samen te koesteren. Ontdek wat er allemaal mogelijk is.
+        </p>
       </div>
 
-      <div class="features__list" data-reveal data-reveal-delay="80">
+      <!-- Drie kaarten boven -->
+      <div class="fg__top">
 
-        <div class="feature-item">
-          <div class="feature-item__icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
+        <!-- Kaart 1: Mediacollectie -->
+        <div class="fg-card" data-reveal data-reveal-delay="0">
+          <div class="fg-card__head">
+            <div class="fg-card__icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="fg-card__title">Mediacollectie</h3>
+              <p class="fg-card__sub">Bewaar en organiseer foto's, video's en audio.</p>
+            </div>
           </div>
-          <div class="feature-item__body">
-            <h3 class="feature-item__title">Memory Collection</h3>
-            <p class="feature-item__text">
-              Bouw samen aan een rijk archief. Upload foto's, video's en audiofragmenten.
-            </p>
-          </div>
+          <!-- Screenshot placeholder — vervang de div door een <img> naar wens -->
+          <div class="fg-card__screen" aria-label="Screenshot placeholder Mediacollectie"></div>
         </div>
-        <div class="feature-item__divider"></div>
 
-        <div class="feature-item">
-          <div class="feature-item__icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
+        <!-- Kaart 2: Community chat -->
+        <div class="fg-card" data-reveal data-reveal-delay="80">
+          <div class="fg-card__head">
+            <div class="fg-card__icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="fg-card__title">Community chat</h3>
+              <p class="fg-card__sub">Deel verhalen en steun elkaar in een warme omgeving.</p>
+            </div>
           </div>
-          <div class="feature-item__body">
-            <h3 class="feature-item__title">Samen herdenken</h3>
-            <p class="feature-item__text">
-              Plaats persoonlijke rouwberichten of deel anekdotes. Via de geïntegreerde
-              chatfunctie kunt u in een vertrouwde omgeving praten met anderen die de
-              overledene ook hebben gekend. Zo steunt u elkaar en blijven verhalen leven.
-            </p>
-          </div>
+          <div class="fg-card__screen" aria-label="Screenshot placeholder Community chat"></div>
         </div>
-        <div class="feature-item__divider"></div>
 
-        <div class="feature-item">
-          <div class="feature-item__icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-            </svg>
+        <!-- Kaart 3: Eerbetonen -->
+        <div class="fg-card" data-reveal data-reveal-delay="160">
+          <div class="fg-card__head">
+            <div class="fg-card__icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="fg-card__title">Eerbetonen</h3>
+              <p class="fg-card__sub">Breng een eerbetoon en laat bijzondere woorden achter.</p>
+            </div>
           </div>
-          <div class="feature-item__body">
-            <h3 class="feature-item__title">Van digitaal naar tastbaar</h3>
-            <p class="feature-item__text">
-              Met Remoria zet u de verzamelde herinneringen in slechts enkele klikken om
-              in een prachtig, kwalitatief fotoboek. Een tastbaar aandenken om op elk
-              moment even vast te pakken.
-            </p>
-          </div>
+          <div class="fg-card__screen" aria-label="Screenshot placeholder Eerbetonen"></div>
         </div>
 
       </div>
+
+      <!-- Brede kaart onder -->
+      <div class="fg-wide" data-reveal>
+        <div class="fg-wide__left">
+          <div class="fg-wide__head">
+            <div class="fg-card__icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="fg-card__title">Tastbaar maken</h3>
+              <p class="fg-card__sub">Maak herinneringen tastbaar met een fotoboek.</p>
+            </div>
+          </div>
+
+          <ul class="fg-steps">
+            <li class="fg-step">
+              <div class="fg-step__icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+              </div>
+              <div>
+                <p class="fg-step__title">Selecteer momenten</p>
+                <p class="fg-step__text">Kies de mooiste foto's en verhalen uit de collectie.</p>
+              </div>
+            </li>
+            <li class="fg-step">
+              <div class="fg-step__icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20h9"/>
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="fg-step__title">Personaliseer</p>
+                <p class="fg-step__text">Voeg teksten, lay-outs en thema's toe die bij jullie passen.</p>
+              </div>
+            </li>
+            <li class="fg-step">
+              <div class="fg-step__icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 12V22H4V12"/>
+                  <path d="M22 7H2v5h20V7z"/>
+                  <path d="M12 22V7"/>
+                  <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+                  <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="fg-step__title">Ontvang een fotoboek</p>
+                <p class="fg-step__text">Een blijvende herinnering om vast te houden en te koesteren.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Screenshot placeholder — vervang door <img> naar wens -->
+        <div class="fg-wide__screen" aria-label="Screenshot placeholder fotoboek"></div>
+      </div>
+
+      <!-- Trust footer -->
+      <div class="fg__trust" data-reveal>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span>100% privé &amp; veilig</span>
+        <span class="fg__trust-dot" aria-hidden="true">•</span>
+        <span>Alleen familie en genodigden hebben toegang</span>
+      </div>
+
     </div>
   </section>
 
@@ -448,9 +524,9 @@ import Footer from '../components/Footer.astro';
     background-color: var(--bg);
     background-image: url('/Voor-nabestaanden-web.webp');
     background-size: cover;
-    background-position: 66% 28%;
+    background-position: 66% 18%;
     background-repeat: no-repeat;
-    min-height: clamp(600px, 82vw, 920px);
+    min-height: clamp(520px, 64vw, 740px);
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -673,6 +749,221 @@ import Footer from '../components/Footer.astro';
   }
 
   /* ════════════════════════════════════════════
+     FEATURES GRID
+  ════════════════════════════════════════════ */
+  .fg {
+    padding: clamp(72px, 10vh, 112px) 0 clamp(40px, 5vh, 60px);
+  }
+
+  .fg__header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto clamp(44px, 6vh, 64px);
+  }
+
+  .eyebrow__plus {
+    color: var(--gold);
+    font-size: 13px;
+    margin-right: 2px;
+  }
+
+  .fg__title {
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+  .fg__sub {
+    text-align: center;
+  }
+
+  /* ── Drie kaarten boven ── */
+  .fg__top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .fg-card {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(30, 41, 59, 0.08);
+    border-radius: 20px;
+    padding: 24px 24px 0;
+    box-shadow:
+      0 1px 2px rgba(30, 41, 59, 0.04),
+      0 8px 24px rgba(30, 41, 59, 0.07);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .fg-card__head {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .fg-card__icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gold-soft);
+    border-radius: 11px;
+    color: var(--gold);
+    margin-top: 2px;
+  }
+
+  .fg-card__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 5px;
+  }
+
+  .fg-card__sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  /* Screenshot placeholder: lege div, klaar voor een <img> */
+  .fg-card__screen {
+    flex: 1;
+    min-height: 220px;
+    background: rgba(30, 41, 59, 0.04);
+    border-radius: 14px 14px 0 0;
+    border: 1.5px dashed rgba(30, 41, 59, 0.12);
+    border-bottom: none;
+  }
+
+  /* ── Brede kaart onder ── */
+  .fg-wide {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(30, 41, 59, 0.08);
+    border-radius: 20px;
+    box-shadow:
+      0 1px 2px rgba(30, 41, 59, 0.04),
+      0 8px 24px rgba(30, 41, 59, 0.07);
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 0;
+    overflow: hidden;
+    min-height: 340px;
+  }
+
+  .fg-wide__left {
+    padding: 32px 32px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .fg-wide__head {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .fg-steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .fg-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .fg-step__icon {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gold-soft);
+    border-radius: 9px;
+    color: var(--gold);
+    margin-top: 1px;
+  }
+
+  .fg-step__title {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 3px;
+    line-height: 1.3;
+  }
+
+  .fg-step__text {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  /* Screenshot placeholder brede kaart */
+  .fg-wide__screen {
+    background: rgba(30, 41, 59, 0.04);
+    border-left: 1.5px dashed rgba(30, 41, 59, 0.12);
+    border-radius: 0 20px 20px 0;
+  }
+
+  /* ── Trust footer ── */
+  .fg__trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding-top: clamp(24px, 3vh, 36px);
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+
+  .fg__trust svg {
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .fg__trust-dot {
+    color: rgba(30, 41, 59, 0.3);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .fg__top {
+      grid-template-columns: 1fr;
+    }
+
+    .fg-card__screen {
+      min-height: 200px;
+    }
+
+    .fg-wide {
+      grid-template-columns: 1fr;
+    }
+
+    .fg-wide__screen {
+      min-height: 240px;
+      border-left: none;
+      border-top: 1.5px dashed rgba(30, 41, 59, 0.12);
+      border-radius: 0 0 20px 20px;
+    }
+  }
+
+  /* ════════════════════════════════════════════
      QUOTE BANNER
   ════════════════════════════════════════════ */
   .quote-banner {
@@ -843,8 +1134,8 @@ import Footer from '../components/Footer.astro';
   @media (max-width: 860px) {
     .hero {
       background-size: cover;
-      background-position: 70% 25%;
-      min-height: clamp(500px, 78vw, 700px);
+      background-position: 70% 15%;
+      min-height: clamp(440px, 70vw, 580px);
     }
 
     .hero__overlay {
@@ -881,7 +1172,7 @@ import Footer from '../components/Footer.astro';
   @media (max-width: 600px) {
     .hero {
       background-size: cover;
-      background-position: 78% 20%;
+      background-position: 78% 12%;
     }
 
     .hero__overlay {

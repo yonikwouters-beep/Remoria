@@ -135,34 +135,88 @@
 
   .panel--left {
     background-color: #EDE9DF;
-    background-image: url('/flowers-background.webp');
-    background-repeat: no-repeat;
-    background-size: 46% auto;
-    background-position: bottom left;
+    background-image:
+      radial-gradient(ellipse 60% 55% at 0% 100%, transparent 45%, #EDE9DF 80%),
+      url('/flowers-background.webp');
+    background-repeat: no-repeat, no-repeat;
+    background-size: 100% 100%, 44% auto;
+    background-position: bottom left, bottom left;
   }
 
   .panel--right {
     background: #E5EDF3;
   }
 
-  /* Tekst links · mockup rechts */
   .panel__row {
     display: flex;
     flex-direction: row;
     align-items: stretch;
     min-height: 440px;
-    gap: 0;
   }
 
+  /* ── Linker kaart: tekst 40 % · telefoon 60 % ── */
+  .panel--left .panel__text   { flex: 0 0 40%; max-width: 40%; }
+  .panel--left .panel__visual { flex: 0 0 60%; max-width: 60%; }
+
+  /* ── Rechter kaart: tekst 46 % · laptop 54 % ── */
+  .panel--right .panel__text   { flex: 0 0 46%; max-width: 46%; }
+  .panel--right .panel__visual { flex: 0 0 54%; max-width: 54%; }
+
   .panel__text {
-    flex: 0 0 48%;
     min-width: 0;
-    padding: clamp(28px, 3vw, 40px) clamp(16px, 1.8vw, 24px) clamp(28px, 3vw, 40px) clamp(20px, 2.5vw, 32px);
+    padding: clamp(28px, 3vw, 40px) clamp(12px, 1.5vw, 20px) clamp(28px, 3vw, 40px) clamp(20px, 2.5vw, 32px);
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
+  .panel__visual {
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    display: flex;
+  }
+
+  /* ────────────────────────────────────────────────────────
+     TELEFOON  –  mobile-home-transp.webp = 1080 × 1080 (vierkant)
+     Kolom ≈ 48 % van 590 px = 283 px breed
+     width: 84 % = 238 px  →  height auto = 238 px (vierkant)
+     Lichte kanteling geeft dynamiek; overflow hidden clips netjes
+  ──────────────────────────────────────────────────────── */
+  .panel__visual--phone {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .phone-img {
+    width: 108%;
+    height: auto;
+    display: block;
+    transform: rotate(4deg) translateX(-2%);
+    transform-origin: center center;
+    filter: drop-shadow(0 20px 44px rgba(30, 41, 59, 0.26));
+  }
+
+  /* ────────────────────────────────────────────────────────
+     LAPTOP  –  laptop-transp.webp = 2528 × 1684 (landschap 1.5 : 1)
+     Kolom ≈ 54 % van 590 px = 319 px breed
+     width: 108 % = 345 px  →  height auto = 230 px
+     Naast de bullet points: gecentreerd verticaal
+     Lichte rechter uitlijning zodat laptop rechts aansluit
+  ──────────────────────────────────────────────────────── */
+  .panel__visual--laptop {
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .laptop-img {
+    width: 108%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 14px 32px rgba(30, 41, 59, 0.17));
+  }
+
+  /* ── Tekststijlen (ongewijzigd) ── */
   .panel__icon {
     width: 48px;
     height: 48px;
@@ -238,8 +292,9 @@
     font-weight: 500;
     border-radius: 999px;
     text-decoration: none;
+    white-space: nowrap;
     transition: background-color 0.2s ease, transform 0.18s ease;
-    max-width: 100%;
+    align-self: flex-start;
   }
 
   .panel__btn:hover {
@@ -247,39 +302,13 @@
     transform: translateY(-2px);
   }
 
-  .panel__visual {
-    flex: 0 0 52%;
-    max-width: 52%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 0;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .phone-img {
-    width: 115%;
-    height: auto;
-    display: block;
-    transform: rotate(6deg) translateY(20px);
-    transform-origin: bottom center;
-    filter: drop-shadow(0 18px 32px rgba(30, 41, 59, 0.14));
-  }
-
-  .laptop-img {
-    width: 148%;
-    height: auto;
-    display: block;
-    transform: perspective(1000px) rotateX(4deg) translateY(10px);
-    transform-origin: bottom center;
-    filter: drop-shadow(0 16px 28px rgba(30, 41, 59, 0.12));
-  }
-
+  /* ── Responsive ── */
   @media (max-width: 1100px) {
     .benefits__container { gap: 16px; }
     .panel__row { min-height: 400px; }
     .panel__list li { font-size: 12px; }
+    .phone-img { width: 112%; }
+    .laptop-img { width: 112%; }
   }
 
   @media (max-width: 900px) {
@@ -287,42 +316,27 @@
   }
 
   @media (max-width: 640px) {
-    .panel__row {
-      flex-direction: column;
-      min-height: auto;
-    }
+    .panel__row { flex-direction: column; min-height: auto; }
 
-    .panel__text {
-      padding: 24px 20px 16px;
-    }
+    .panel--left .panel__text,
+    .panel--right .panel__text  { flex: none; max-width: 100%; padding: 28px 24px 16px; }
 
-    .panel__visual {
-      flex: none;
-      max-width: 100%;
-      height: 280px;
-      justify-content: center;
-    }
+    .panel--left .panel__visual,
+    .panel--right .panel__visual { flex: none; max-width: 100%; height: 300px; }
 
-    .phone-img {
-      width: auto;
-      height: 100%;
-      transform: rotate(6deg);
-    }
+    .panel__visual--phone  { justify-content: center; align-items: center; }
+    .panel__visual--laptop { justify-content: center; align-items: center; }
 
-    .laptop-img {
-      width: 110%;
-      height: auto;
-    }
+    .phone-img  { width: 120%; height: auto; transform: rotate(5deg); }
+    .laptop-img { width: 88%; height: auto; }
 
-    .panel__btn {
-      width: 100%;
-      justify-content: center;
-    }
+    .panel__btn { align-self: stretch; justify-content: center; }
   }
 
   @media (max-width: 480px) {
     .panel { border-radius: 16px; }
     .panel--left { background-size: 55% auto; }
-    .panel__visual { height: 240px; }
+    .panel--left .panel__visual,
+    .panel--right .panel__visual { height: 260px; }
   }
 </style>
