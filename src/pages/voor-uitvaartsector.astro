@@ -240,18 +240,28 @@ import Footer from '../components/Footer.astro';
       <div class="cta-banner__card">
         <div class="cta-banner__overlay" aria-hidden="true"></div>
         <div class="cta-banner__inner" data-reveal>
-      <blockquote class="cta-banner__quote" id="cta-heading">
-        "Onderscheid uw uitvaartcentrum en bied Remoria aan als blijvende plek
-        voor troost en herinnering."
-      </blockquote>
-      <div class="cta-banner__actions">
-        <a href="/contact" class="btn btn--gold">Word partner</a>
-        <a href="/contact" class="btn btn--outline-light">
-          Neem contact op
-          <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
+          <blockquote class="cta-banner__quote" id="cta-heading">
+            "Onderscheid uw uitvaartcentrum en bied Remoria aan als blijvende plek
+            voor troost en herinnering."
+          </blockquote>
+          <div class="cta-banner__cta-block">
+            <div class="cta-banner__actions">
+              <a href="/contact" class="btn btn--gold">Word partner</a>
+              <a href="/contact" class="btn btn--outline-light">
+                Neem contact op
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+            <p class="cta-banner__legal">
+              <a
+                href="/Remoria-Verwerkersovereenkomst-Bijlage-AV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Verwerkersovereenkomst (bijlage bij de algemene voorwaarden)</a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -711,13 +721,40 @@ import Footer from '../components/Footer.astro';
     quotes: none;
   }
 
+  .cta-banner__cta-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+
   .cta-banner__actions {
     display: flex;
     flex-direction: row;
     gap: 12px;
-    flex-shrink: 0;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: flex-end;
+  }
+
+  .cta-banner__legal {
+    margin: 0;
+    text-align: right;
+    max-width: 320px;
+  }
+
+  .cta-banner__legal a {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.18s ease;
+  }
+
+  .cta-banner__legal a:hover {
+    color: rgba(255, 255, 255, 0.9);
   }
 
   /* ─────────────────────────────────────────────
@@ -757,10 +794,18 @@ import Footer from '../components/Footer.astro';
       align-items: center;
     }
 
+    .cta-banner__cta-block {
+      align-items: center;
+    }
+
     .cta-banner__actions {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
+    }
+
+    .cta-banner__legal {
+      text-align: center;
     }
   }
 

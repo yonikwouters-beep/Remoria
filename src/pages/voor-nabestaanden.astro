@@ -2,6 +2,43 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import GuaranteeBadge from '../components/GuaranteeBadge.astro';
+
+const nabestaandenFaqs = [
+  {
+    question: 'Heb ik technische kennis nodig?',
+    answer: 'Nee. Een gedenkplek aanmaken duurt enkele minuten, en foto\'s toevoegen is niet moeilijker dan een berichtje sturen. We hebben Remoria bewust zo eenvoudig gemaakt dat iedereen kan meedoen.',
+  },
+  {
+    question: 'Kunnen oudere familieleden ook meedoen?',
+    answer: 'Ja — dat is precies waarvoor Remoria gebouwd is. Genodigden komen binnen via een eenvoudige link of QR-code, zonder ingewikkelde registratie. Ook wie zelden op een computer zit, kan foto\'s bekijken en herinneringen delen.',
+  },
+  {
+    question: 'Wie kan de gedenkplek zien?',
+    answer: 'Alleen de mensen die jij uitnodigt. De gedenkplek is volledig besloten: niet vindbaar via Google, niet zichtbaar voor buitenstaanders.',
+  },
+  {
+    question: 'Kost het iets voor de mensen die ik uitnodig?',
+    answer: 'Nee, niets. Uitnodigen, delen en meelezen is voor familie en vrienden altijd volledig gratis — hoeveel mensen je ook uitnodigt.',
+  },
+  {
+    question: 'Houd ik controle over wat er geplaatst wordt?',
+    answer: 'Ja. Als beheerder bepaal jij wie toegang krijgt, en je kunt bijdragen ordenen of verwijderen als iets niet past. In de praktijk is dat zelden nodig — maar de controle ligt bij jou.',
+  },
+  {
+    question: 'Ben ik mijn foto\'s kwijt als het plan afloopt?',
+    answer: 'Nee. Na afloop wordt de gedenkplek gearchiveerd, maar alles blijft nog maandenlang bewaard. Je kunt in die periode alles downloaden of het plan verlengen. Er verdwijnt nooit iets zonder dat je het weet.',
+  },
+  {
+    question: 'Is het te vroeg — of te laat — om een gedenkplek te maken?',
+    answer: 'Nee. Sommige families starten in de week van het afscheid, zodat de foto\'s voor de dienst samenkomen. Anderen beginnen maanden of jaren later, als er ruimte voor is. Elk moment is het juiste moment.',
+  },
+  {
+    question: 'Kan onze uitvaartondernemer dit voor ons regelen?',
+    answer: 'Ja. Remoria werkt samen met uitvaartondernemers die de gedenkplek voor jou klaarzetten, zodat jij er geen omkijken naar hebt. Vraag ernaar bij je uitvaartcentrum — of maak er zelf één aan.',
+  },
+];
 ---
 
 <BaseLayout
@@ -209,7 +246,7 @@ import Footer from '../components/Footer.astro';
       </div>
 
       <!-- Brede kaart onder -->
-      <div class="fg-wide" data-reveal>
+      <div class="fg-wide" id="fotoboek" data-reveal>
         <div class="fg-wide__left">
           <div class="fg-wide__head">
             <div class="fg-card__icon" aria-hidden="true">
@@ -318,6 +355,9 @@ import Footer from '../components/Footer.astro';
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </a>
+        <div class="cta__guarantee">
+          <GuaranteeBadge />
+        </div>
       </div>
     </div>
   </section>
@@ -374,6 +414,8 @@ import Footer from '../components/Footer.astro';
       </div>
     </div>
   </section>
+
+  <FaqAccordion title="Vragen die we vaak horen" items={nabestaandenFaqs} id="nabestaanden-faq" />
 
   <Footer />
 </BaseLayout>
@@ -593,6 +635,7 @@ import Footer from '../components/Footer.astro';
   ════════════════════════════════════════════ */
   .how {
     padding: clamp(72px, 10vh, 112px) 0;
+    scroll-margin-top: 24px;
   }
 
   .how__header {
@@ -860,6 +903,7 @@ import Footer from '../components/Footer.astro';
     grid-template-columns: 1fr 1.4fr;
     gap: 0;
     overflow: hidden;
+    scroll-margin-top: 24px;
     min-height: 340px;
   }
 
@@ -1055,6 +1099,12 @@ import Footer from '../components/Footer.astro';
     line-height: 1.75;
     color: var(--muted);
     margin-bottom: 36px;
+  }
+
+  .cta__guarantee {
+    display: flex;
+    justify-content: center;
+    margin-top: 22px;
   }
 
   /* ════════════════════════════════════════════

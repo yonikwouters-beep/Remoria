@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import PricingCard from '../components/PricingCard.astro';
 import Footer from '../components/Footer.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import GuaranteeBadge from '../components/GuaranteeBadge.astro';
 
 const plans = [
   {
@@ -11,6 +13,7 @@ const plans = [
     title: 'Samen Herinneren',
     duration: '4 maanden actief',
     price: '€85',
+    monthlyPrice: '≈ €21,25 per maand',
     description: 'Breng iedereen samen. De perfecte periode om foto’s, video’s en verhalen te verzamelen die anders verloren gaan. Nodig onbeperkt familie en vrienden uit om gratis herinneringen te delen en te bekijken.',
     featured: false,
     startUrl: 'https://remoria.eu/start?plan=starter',
@@ -21,6 +24,7 @@ const plans = [
     title: 'Samen Koesteren',
     duration: '1 jaar actief',
     price: '€129',
+    monthlyPrice: '≈ €10,75 per maand',
     description: 'Neem in alle rust de tijd om samen te herdenken. Keer een jaar lang onbeperkt terug naar de verzamelde herinneringen, juist op de dagen die er zo toe doen. Toegankelijk voor de hele familie.',
     featured: true,
     startUrl: 'https://remoria.eu/start?plan=standard',
@@ -31,9 +35,45 @@ const plans = [
     title: 'Een Blijvende Herinnering',
     duration: '3 jaar actief',
     price: '€239',
+    monthlyPrice: '≈ €6,64 per maand',
     description: 'Een blijvende plek waar herinneringen in alle rust bewaard blijven, voor vandaag en later.',
     featured: false,
     startUrl: 'https://remoria.eu/start?plan=premium',
+  },
+];
+
+const pricingFaqs = [
+  {
+    question: 'Wat gebeurt er als het plan afloopt?',
+    answer: 'Niets abrupt. De gedenkplek wordt eerst gearchiveerd: ze is dan niet meer zichtbaar, maar alle foto\'s en verhalen blijven nog maandenlang veilig bewaard. In die periode kun je alles downloaden of het plan alsnog verlengen. Herinneringen worden bij Remoria nooit zomaar verwijderd.',
+  },
+  {
+    question: 'Betalen familie en vrienden ook?',
+    answer: 'Nee. Jij betaalt één keer voor de gedenkplek; iedereen die je uitnodigt kan volledig gratis foto\'s delen, verhalen schrijven en meelezen. Onbeperkt, zonder account-kosten.',
+  },
+  {
+    question: 'Is er verschil in functies tussen de plannen?',
+    answer: 'Nee — elk plan bevat alles: de mediacollectie, de gesprekken, de eerbetonen en de mogelijkheid om een fotoboek samen te stellen. Het enige verschil is hoe lang de gedenkplek actief blijft.',
+  },
+  {
+    question: 'Hoe werkt de 14-dagen-garantie?',
+    answer: 'Ben je binnen 14 dagen na het aanmaken van de gedenkplek niet tevreden, dan krijg je je aankoop terug — zonder gedoe. Je foto\'s en verhalen blijven daarna nog even downloadbaar, zodat je nooit iets kwijtraakt.',
+  },
+  {
+    question: 'Is het fotoboek inbegrepen in de prijs?',
+    answer: 'Het samenstellen van je fotoboek zit in elk plan. Het gedrukte exemplaar bestel je apart, wanneer jullie er klaar voor zijn — je ziet de prijs vooraf, en je beslist zelf of en wanneer.',
+  },
+  {
+    question: 'Kan alleen de koper verlengen?',
+    answer: 'Nee, en dat is bewust: iedereen met toegang kan bijdragen aan een verlenging. Zo hangt het voortbestaan van de gedenkplek niet af van één persoon, maar draagt de hele kring hem samen.',
+  },
+  {
+    question: 'Is dit een abonnement dat automatisch verlengt?',
+    answer: 'Nee. Je betaalt eenmalig voor de gekozen periode. Loopt die af, dan beslissen jullie zelf of je verlengt — er wordt nooit automatisch iets afgeschreven.',
+  },
+  {
+    question: 'Is de gedenkplek privé?',
+    answer: 'Volledig. Alleen mensen die jij uitnodigt hebben toegang. Geen advertenties, geen datahandel, geen zoekmachines.',
   },
 ];
 
@@ -99,15 +139,17 @@ const features = [
               title={plan.title}
               duration={plan.duration}
               price={plan.price}
+              monthlyPrice={plan.monthlyPrice}
               description={plan.description}
               featured={plan.featured}
               startUrl={plan.startUrl}
             />
           ))}
         </div>
-        <p class="pricing-guarantee">
-          14 dagen geld-terug-garantie. Niet tevreden? Dan krijg je je aankoop zonder gedoe terug.
-        </p>
+        <p class="pricing-total-note">Totaalprijs — geen verborgen kosten.</p>
+        <div class="pricing-guarantee-wrap">
+          <GuaranteeBadge />
+        </div>
       </div>
     </section>
 
@@ -169,6 +211,8 @@ const features = [
       </div>
     </section>
 
+    <FaqAccordion title="Veelgestelde vragen" items={pricingFaqs} id="prijzen-faq" />
+
     <!-- ════════════════════════════════════
          REFERRAL
     ════════════════════════════════════ -->
@@ -179,7 +223,7 @@ const features = [
             <h2 class="ref-title">Help een ander herinneringen koesteren</h2>
             <p class="ref-sub">
               Foto's vertellen verhalen die het verdienen om gedeeld te worden.
-              Ken jij iemand voor wie een gedenkplek als Remoria een troost zo
+              Ken jij iemand voor wie een gedenkplek als Remoria een troost zou
               kunnen zijn? Deel jouw persoonlijke link.
               <br /><br />
               Deel je link en help je hen een bijzondere herinnering levend te houden.
@@ -307,14 +351,20 @@ const features = [
     gap: 28px;
   }
 
-  .pricing-guarantee {
-    margin-top: 28px;
+  .pricing-total-note {
+    margin-top: 24px;
     text-align: center;
     font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.6;
-    color: #94A3B8;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #64748B;
+  }
+
+  .pricing-guarantee-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
   }
 
   @media (max-width: 860px) {
