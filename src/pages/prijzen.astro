@@ -45,7 +45,7 @@ const plans = [
 const pricingFaqs = [
   {
     question: 'Wat gebeurt er als het plan afloopt?',
-    answer: 'Niets abrupt. De gedenkplek wordt eerst gearchiveerd: ze is dan niet meer zichtbaar, maar alle foto\'s en verhalen blijven nog maandenlang veilig bewaard. In die periode kun je alles downloaden of het plan alsnog verlengen. Herinneringen worden bij Remoria nooit zomaar verwijderd.',
+    answer: 'Niets abrupt. De gedenkplek wordt eerst gearchiveerd: ze is dan niet meer zichtbaar, maar alle foto\'s en verhalen blijven 6 maanden lang veilig bewaard. In die periode kun je alles downloaden of het plan alsnog verlengen. Herinneringen worden bij Remoria nooit zomaar verwijderd.',
   },
   {
     question: 'Betalen familie en vrienden ook?',
@@ -53,7 +53,7 @@ const pricingFaqs = [
   },
   {
     question: 'Is er verschil in functies tussen de plannen?',
-    answer: 'Nee — elk plan bevat alles: de mediacollectie, de gesprekken, de eerbetonen en de mogelijkheid om een fotoboek samen te stellen. Het enige verschil is hoe lang de gedenkplek actief blijft.',
+    answer: 'Nee — elk plan bevat alles: de Mediacollectie, de Community chat, de eerbetonen en de mogelijkheid om een fotoboek samen te stellen. Het enige verschil is hoe lang de gedenkplek actief blijft.',
   },
   {
     question: 'Hoe werkt de 14-dagen-garantie?',
@@ -94,7 +94,7 @@ const features = [
   {
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
     title: 'Community chat',
-    desc: 'Gebruik de communitychat om met elkaar contact te houden, verhalen te delen en troost te zoeken bij elkaar.',
+    desc: 'Gebruik de Community chat om met elkaar contact te houden, verhalen te delen en troost te zoeken bij elkaar.',
   },
   {
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
@@ -104,7 +104,7 @@ const features = [
   {
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`,
     title: 'Maak een fotoboek',
-    desc: 'Maak eenvoudig achteraf een prachtig fotoboek van alle verzamelde herinneringen.',
+    desc: 'Maak eenvoudig achteraf een prachtig fotoboek van alle verzamelde herinneringen. (optioneel bij te bestellen)',
   },
 ];
 ---
@@ -196,7 +196,6 @@ const features = [
     ════════════════════════════════════ -->
     <section class="section-feat">
       <div class="container">
-        <p class="section-eyebrow">Alles inbegrepen</p>
         <h2 class="section-title">Alle voordelen van Remoria</h2>
 
         <div class="feat-grid">
@@ -485,16 +484,6 @@ const features = [
   .section-feat {
     padding-block: 0 clamp(64px, 10vw, 96px);
     text-align: center;
-  }
-
-  .section-eyebrow {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #C6A24B;
-    margin-bottom: 12px;
   }
 
   .section-title {

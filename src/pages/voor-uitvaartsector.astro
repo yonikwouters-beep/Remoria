@@ -5,8 +5,8 @@ import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout
-  title="Remoria voor de uitvaartsector — Innovatieve nazorg die families verbindt"
-  description="Als begrafenisondernemer bent u de rots in de branding tijdens de moeilijkste dagen van een familie. Met Remoria biedt u een moderne, digitale gedenkplek aan uw dienstverlening."
+  title="Remoria voor de uitvaartsector — nazorg die families verbindt"
+  description="Bied families een serene digitale gedenkplek als onderdeel van jouw nazorg. Gratis portaal, vaste winst per plan, klaar in enkele seconden per dossier."
 >
   <Navbar />
 
@@ -22,25 +22,22 @@ import Footer from '../components/Footer.astro';
           Innovatieve nazorg<br />die families verbindt
         </h1>
         <p class="hero__body">
-          Onderscheid uw kantoor met een unieke digitale gedenkplek voor de nabestaanden.
-          Een waardevolle toevoeging aan uw nazorg die troost biedt zonder extra werklast.
+          Onderscheid je kantoor met een unieke digitale gedenkplek voor de nabestaanden.
+          Een waardevolle toevoeging aan je nazorg die troost biedt zonder extra werklast.
         </p>
         <div class="hero__actions">
           <a href="/contact" class="btn btn--gold">Word partner</a>
-          <button
-            type="button"
-            class="btn btn--outline"
-            data-cal-link="remoria/30min"
-            data-cal-namespace="30min"
-            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-          >
-            <span class="btn__play" aria-hidden="true">
-              <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor">
-                <path d="M0 0l10 6-10 6V0z"/>
+          <a href="/contact#plan-een-gesprek" class="btn btn--outline">
+            <span class="btn__cal" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
               </svg>
             </span>
             Plan een demo
-          </button>
+          </a>
         </div>
       </div>
 
@@ -68,11 +65,11 @@ import Footer from '../components/Footer.astro';
         </svg>
       </div>
       <h2 class="value-prop__title">
-        Versterk uw dienstverlening<br />met een digitale gedenkplek
+        Versterk je dienstverlening<br />met een digitale gedenkplek
       </h2>
       <p class="value-prop__sub">
         Op een toegankelijke manier herinneringen met elkaar kunnen delen.
-        Remoria is het platform dat u als professionele partner kunt aanbieden
+        Remoria is het platform dat je als professionele partner kun aanbieden
         om die behoefte in te vullen.
       </p>
     </div>
@@ -134,11 +131,12 @@ import Footer from '../components/Footer.astro';
         <div class="how__step" data-reveal data-reveal-delay="80">
           <div class="how__step-header">
             <span class="how__step-num">2</span>
-            <h3 class="how__step-title">Creëer domeinen voor je families en ontvang commissies</h3>
+            <h3 class="how__step-title">Maak in enkele seconden een gedenkplek aan</h3>
           </div>
           <p class="how__step-desc">
             Voor elke uitvaart die je verzorgt, maak je in enkele seconden een
-            nieuw, beveiligd domein aan.
+            nieuw, beveiligd domein aan — tegen een vaste inkoopprijs, met een
+            vaste winst per plan.
           </p>
         </div>
 
@@ -150,7 +148,7 @@ import Footer from '../components/Footer.astro';
           <p class="how__step-desc">
             In je overzichtelijke dashboard behoud je de volledige controle. Je
             ziet in één oogopslag welke omgevingen actief zijn en hoe de
-            community's groeien. Hier heb je ook direct inzicht in je commissies.
+            community's groeien. Hier heb je ook direct inzicht in jouw verdiensten.
           </p>
         </div>
 
@@ -171,7 +169,78 @@ import Footer from '../components/Footer.astro';
   </section>
 
   <!-- ══════════════════════════════════════════════
-       4. FEATURES
+       4. WAT KOST HET?
+  ══════════════════════════════════════════════ -->
+  <section class="pricing-model" aria-labelledby="pricing-model-heading">
+    <div class="container">
+      <div class="pricing-model__header" data-reveal>
+        <p class="eyebrow">Transparant partnermodel</p>
+        <h2 class="pricing-model__title" id="pricing-model-heading">Wat kost het?</h2>
+      </div>
+
+      <div class="features__grid">
+        <div class="feat-card" data-reveal>
+          <div class="feat-card__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="feat-card__body">
+            <h3 class="feat-card__title">Gratis portaal</h3>
+            <p class="feat-card__desc">
+              Geen abonnementskosten, geen instapkosten, geen verplichtingen. Het
+              partnerportaal is en blijft volledig gratis.
+            </p>
+          </div>
+        </div>
+
+        <div class="feat-card" data-reveal data-reveal-delay="80">
+          <div class="feat-card__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <div class="feat-card__body">
+            <h3 class="feat-card__title">Vaste winst per plan</h3>
+            <p class="feat-card__desc">
+              Je koopt elk plan aan tegen een vaste inkoopprijs en bepaalt zelf
+              jouw dienstverlening errond. Elk verkocht plan levert je een vaste,
+              voorspelbare winst op.
+            </p>
+          </div>
+        </div>
+
+        <div class="feat-card" data-reveal data-reveal-delay="160">
+          <div class="feat-card__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <div class="feat-card__body">
+            <h3 class="feat-card__title">Eén overzichtelijke maandfactuur</h3>
+            <p class="feat-card__desc">
+              Geen voorfinanciering of administratie per dossier: Je ontvangt
+              begin elke maand één verzamelfactuur voor de gedenkplekken van de
+              voorbije maand.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p class="pricing-model__cta" data-reveal>
+        Benieuwd naar de concrete partnervoorwaarden?
+        <a href="/contact#plan-een-gesprek">Plan een vrijblijvende kennismaking →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       5. FEATURES
   ══════════════════════════════════════════════ -->
   <section class="features" aria-labelledby="features-heading">
     <div class="container features__grid">
@@ -185,10 +254,10 @@ import Footer from '../components/Footer.astro';
           </svg>
         </div>
         <div class="feat-card__body">
-          <h3 class="feat-card__title">Memory Collection als extra service</h3>
+          <h3 class="feat-card__title">Mediacollectie als extra service</h3>
           <p class="feat-card__desc">
             Bied nabestaanden een centrale plek voor foto's, video's en
-            audiofragmenten. U geeft hen de tools om een rijk, digitaal archief
+            audiofragmenten. Je geeft hen de tools om een rijk, digitaal archief
             op te bouwen.
           </p>
         </div>
@@ -206,8 +275,8 @@ import Footer from '../components/Footer.astro';
         <div class="feat-card__body">
           <h3 class="feat-card__title">Een interactieve community</h3>
           <p class="feat-card__desc">
-            Faciliteer verbinding. Via de chatfunctie en de mogelijkheid om
-            rouwberichten te plaatsen, creëert u een veilige omgeving waar de
+            Faciliteer verbinding. Via de Community chat en de mogelijkheid om
+            rouwberichten te plaatsen, creëer je een veilige omgeving waar de
             familie en hun vrienden samen kunnen rouwen en herinneringen delen.
           </p>
         </div>
@@ -233,7 +302,7 @@ import Footer from '../components/Footer.astro';
   </section>
 
   <!-- ══════════════════════════════════════════════
-       5. CTA BANNER
+       6. CTA BANNER
   ══════════════════════════════════════════════ -->
   <section class="cta-banner" aria-labelledby="cta-heading">
     <div class="container">
@@ -241,7 +310,7 @@ import Footer from '../components/Footer.astro';
         <div class="cta-banner__overlay" aria-hidden="true"></div>
         <div class="cta-banner__inner" data-reveal>
           <blockquote class="cta-banner__quote" id="cta-heading">
-            "Onderscheid uw uitvaartcentrum en bied Remoria aan als blijvende plek
+            "Onderscheid je uitvaartcentrum en bied Remoria aan als blijvende plek
             voor troost en herinnering."
           </blockquote>
           <div class="cta-banner__cta-block">
@@ -269,15 +338,6 @@ import Footer from '../components/Footer.astro';
 
   <Footer />
 </BaseLayout>
-
-<script is:inline>
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.eu/embed/embed.js", "init");
-  Cal("init", "30min", {origin:"https://app.cal.eu"});
-  Cal.config = Cal.config || {};
-  Cal.config.forwardQueryParams = true;
-
-  Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-</script>
 
 <script>
   (function () {
@@ -383,7 +443,7 @@ import Footer from '../components/Footer.astro';
     transform: translateY(-2px);
   }
 
-  .btn__play {
+  .btn__cal {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -609,7 +669,49 @@ import Footer from '../components/Footer.astro';
   }
 
   /* ─────────────────────────────────────────────
-     4. FEATURES
+     4. WAT KOST HET?
+  ───────────────────────────────────────────── */
+  .pricing-model {
+    padding-block: clamp(48px, 7vw, 80px);
+  }
+
+  .pricing-model__header {
+    text-align: center;
+    margin-bottom: clamp(28px, 4vw, 40px);
+  }
+
+  .pricing-model__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    font-weight: 500;
+    color: #1E293B;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .pricing-model__cta {
+    margin-top: clamp(24px, 3.5vw, 36px);
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    color: #64748B;
+    line-height: 1.6;
+  }
+
+  .pricing-model__cta a {
+    color: #C6A24B;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 4px;
+    transition: color 0.18s ease;
+  }
+
+  .pricing-model__cta a:hover {
+    color: #1E293B;
+  }
+
+  /* ─────────────────────────────────────────────
+     5. FEATURES
   ───────────────────────────────────────────── */
   .features {
     padding-block: clamp(48px, 7vw, 72px);
@@ -677,7 +779,7 @@ import Footer from '../components/Footer.astro';
   }
 
   /* ─────────────────────────────────────────────
-     5. CTA BANNER
+     6. CTA BANNER
   ───────────────────────────────────────────── */
   .cta-banner {
     padding-block: 0 clamp(64px, 9vw, 96px);
