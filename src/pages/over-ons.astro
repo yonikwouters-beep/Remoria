@@ -5,8 +5,8 @@ import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout
-  title="Over ons — Remoria"
-  description="Het verhaal achter Remoria. Omdat herinneringen te kostbaar zijn om te laten vervagen."
+  title="Over Remoria — het verhaal achter de gedenkplekken"
+  description="Waarom Remoria bestaat: de mooiste foto's en verhalen bereiken de familie vaak nooit. Wij bouwen de plek waar ze wél aankomen — besloten, sereen en voor elke generatie."
 >
   <Navbar />
 
@@ -14,6 +14,13 @@ import Footer from '../components/Footer.astro';
        1. HERO
   ══════════════════════════════════════════════ -->
   <section class="hero" aria-labelledby="hero-heading">
+    <img
+      class="hero__img"
+      src="/family-album-about-us.webp"
+      alt="Een familie bekijkt samen oude foto's in een fotoalbum"
+      loading="eager"
+      decoding="async"
+    />
     <div class="hero__overlay" aria-hidden="true"></div>
     <div class="container">
       <div class="hero__content" data-reveal>
@@ -43,28 +50,34 @@ import Footer from '../components/Footer.astro';
       <div class="mission__card" data-reveal>
         <div class="mission__card-overlay" aria-hidden="true"></div>
         <div class="mission__text">
-          <p class="eyebrow">Onze missie</p>
+          <p class="eyebrow">Het verhaal achter Remoria</p>
           <h2 class="mission__title" id="mission-heading">
-            Verbinding na het afscheid.
+            Omdat de mooiste foto's vaak nooit aankomen.
           </h2>
           <p class="mission__body">
-            Remoria ontstond vanuit een eenvoudige, maar diepe overtuiging: de band
-            met mensen die we verliezen, eindigt niet bij het afscheid. Verhalen,
-            beelden en herinneringen zijn de draden die ons blijven verbinden —
-            maar ze zijn verspreid, kwetsbaar en dreigen te verdwijnen.
+            Als iemand overlijdt, zitten de herinneringen overal. In oude
+            fotoalbums op zolder. Op de telefoons van collega's, reisgenoten en
+            jeugdvrienden. In verhalen die alleen verteld worden als de juiste
+            mensen toevallig samen aan tafel zitten.
           </p>
           <p class="mission__body">
-            Wij bouwen een plek waar die draden samenkomen. Een warme, veilige
-            digitale omgeving waar families en vrienden samen kunnen herdenken,
-            verhalen bewaren en de nalatenschap van hun dierbaren levend kunnen
-            houden — voor zichzelf en voor de generaties na hen.
+            Het grootste deel daarvan bereikt de familie nooit. Niet uit onwil,
+            maar omdat de drempel te hoog is. Je stuurt niet zomaar een berichtje
+            met foto's naar iemand in rouw. En de plekken die er wel zijn, voelen
+            niet als de juiste plek voor iets zo persoonlijks.
           </p>
           <p class="mission__body">
-            Remoria is geen koude database. Het is een gemeenschap van mensen die
-            geloven dat elke herinnering het waard is om bewaard te worden.
+            Remoria is gebouwd om die drempel weg te nemen. Eén serene, besloten
+            plek waar iedereen die iemand gekend heeft zijn foto's, video's en
+            verhalen kwijt kan. Zodat je plots die foto van twintig jaar geleden
+            ziet: je oom op een surfplank, ergens ver weg, avontuurlijker dan je
+            ooit had geweten. Zodat er aan tafel weer over hem verteld wordt.
+          </p>
+          <p class="mission__body">
+            Herinneringen zijn er om te delen. Wij zorgen dat ze aankomen.
           </p>
           <p class="mission__pull">
-            Herinneringen verdienen een blijvende plek.
+            — Yonik, oprichter van Remoria
           </p>
         </div>
       </div>
@@ -83,11 +96,30 @@ import Footer from '../components/Footer.astro';
           Waarom we doen wat we doen.
         </h2>
         <p class="values__sub">
-          Drie waarden liggen aan de basis van alles wat Remoria bouwt en doet.
+          Remoria is geen koude database. Het is een plek gebouwd op een paar
+          overtuigingen:
         </p>
       </div>
 
       <div class="values__cards">
+
+        <article class="val-card" data-reveal data-reveal-delay="0">
+          <div class="val-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="val-card__title">Toegankelijk voor iedereen</h3>
+          <p class="val-card__desc">
+            De mooiste herinneringen komen van onverwachte mensen: de oude
+            reisgenoot, de collega van vroeger, de buurvrouw. Remoria maakt
+            bijdragen zo eenvoudig dat niemand een drempel voelt — van je moeder
+            tot de vriend die je dierbare veertig jaar geleden kende.
+          </p>
+        </article>
 
         <article class="val-card" data-reveal data-reveal-delay="60">
           <div class="val-card__icon" aria-hidden="true">
@@ -97,10 +129,9 @@ import Footer from '../components/Footer.astro';
           </div>
           <h3 class="val-card__title">Veilig en discreet</h3>
           <p class="val-card__desc">
-            Herinneringen zijn persoonlijk en kwetsbaar. Remoria is gebouwd met
-            privacy als fundament. Uw omgeving is volledig besloten — alleen de
-            mensen die u uitnodigt, hebben toegang. Geen advertenties, geen
-            datahandel, geen compromissen.
+            Herinneringen zijn persoonlijk en kwetsbaar. Daarom is Remoria
+            volledig besloten: alleen de mensen die je uitnodigt, hebben toegang.
+            Geen advertenties, geen datahandel, geen compromissen.
           </p>
         </article>
 
@@ -117,9 +148,9 @@ import Footer from '../components/Footer.astro';
           <h3 class="val-card__title">De brug tussen generaties</h3>
           <p class="val-card__desc">
             Verhalen die vandaag worden bewaard, zijn de schatten van morgen.
-            Remoria zorgt ervoor dat de herinneringen die u nu vastlegt, ook
-            toegankelijk blijven voor kinderen, kleinkinderen en iedereen die
-            later meer wil weten.
+            Remoria zorgt dat de herinneringen die je nu vastlegt, toegankelijk
+            blijven voor kinderen, kleinkinderen en iedereen die later meer wil
+            weten.
           </p>
         </article>
 
@@ -132,9 +163,9 @@ import Footer from '../components/Footer.astro';
           </div>
           <h3 class="val-card__title">Tastbaar blijft</h3>
           <p class="val-card__desc">
-            Digitaal bewaard, maar tastbaar verbindt. Remoria maakt het mogelijk
-            om de online collectie om te zetten in een prachtig, fysiek aandenken
-            — een fotoboek of gedenkalbum dat u altijd bij de hand kunt houden.
+            Digitaal bewaard, maar tastbaar verbindt. Zet de online collectie om
+            in een prachtig, fysiek fotoboek — een aandenken dat je altijd bij de
+            hand hebt.
           </p>
         </article>
 
@@ -158,8 +189,9 @@ import Footer from '../components/Footer.astro';
           Herinneringen verdienen<br />een blijvende plek.
         </h2>
         <p class="cinematic__sub">
-          Elke dag gaan kostbare herinneringen verloren. Remoria is er om dat
-          te veranderen — voor elke familie, voor elke generatie die nog komen gaat.
+          Elke dag gaan kostbare herinneringen verloren — foto's die nooit
+          aankomen, verhalen die niet meer verteld worden. Remoria is er om dat
+          te veranderen. Voor elke familie, en voor elke generatie die nog komt.
         </p>
       </div>
     </div>
@@ -177,9 +209,9 @@ import Footer from '../components/Footer.astro';
         <div class="aud-card__content">
           <h3 class="aud-card__title">Voor families<br />&amp; nabestaanden</h3>
           <p class="aud-card__body">
-            U hoeft de herinneringen aan uw dierbare niet alleen te bewaren.
-            Remoria geeft u een intuïtief platform om samen te komen met iedereen
-            die van hem of haar hield — om te delen, te huilen, te lachen en te
+            Je hoeft de herinneringen aan je dierbare niet alleen te bewaren.
+            Remoria geeft je één plek om samen te verzamelen met iedereen die hem
+            of haar gekend heeft — om te delen, te lachen, stil te worden en te
             herdenken.
           </p>
           <span class="aud-card__btn">
@@ -197,10 +229,10 @@ import Footer from '../components/Footer.astro';
         <div class="aud-card__content">
           <h3 class="aud-card__title">Voor<br />uitvaartprofessionals</h3>
           <p class="aud-card__body">
-            Als begrafenisondernemer bent u meer dan een dienstverlener — u bent
+            Als uitvaartondernemer ben je meer dan een dienstverlener — je bent
             een gids in de moeilijkste momenten van het leven. Remoria versterkt
-            uw aanbod met een modern nazorgplatform dat families langdurig
-            ondersteunt.
+            je nazorg met een platform dat families ook ná de uitvaart blijft
+            ondersteunen.
           </p>
           <span class="aud-card__btn">
             Ontdek Remoria voor professionals
@@ -330,14 +362,20 @@ import Footer from '../components/Footer.astro';
   ───────────────────────────────────────────── */
   .hero {
     position: relative;
-    background-image: url('/over-ons-hero.webp');
-    background-size: cover;
-    background-position: center right;
-    background-repeat: no-repeat;
+    background-color: #F5F2EC;
     min-height: clamp(440px, 58vw, 680px);
     display: flex;
     align-items: center;
     overflow: hidden;
+  }
+
+  .hero__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
   }
 
   .hero__overlay {
@@ -783,8 +821,11 @@ import Footer from '../components/Footer.astro';
 
   @media (max-width: 860px) {
     .hero {
-      background-position: 70% center;
       min-height: clamp(360px, 70vw, 520px);
+    }
+
+    .hero__img {
+      object-position: 70% center;
     }
 
     .hero__overlay {
@@ -816,8 +857,8 @@ import Footer from '../components/Footer.astro';
   }
 
   @media (max-width: 600px) {
-    .hero {
-      background-position: 80% center;
+    .hero__img {
+      object-position: 80% center;
     }
 
     .hero__overlay {
