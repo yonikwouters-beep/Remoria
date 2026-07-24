@@ -1,4 +1,7 @@
 ---
+import { getLocale, t } from '../i18n/utils';
+const locale = getLocale(Astro.currentLocale);
+
 export interface Props {
   image: string;
   imageAlt: string;
@@ -29,7 +32,7 @@ const {
   featured && 'pricing-card--featured'
 ]}>
   {featured && (
-    <div class="pricing-card__badge">Meest gekozen</div>
+    <div class="pricing-card__badge">{t(locale, 'pricingCard.featuredBadge')}</div>
   )}
 
   <div class="pricing-card__img-wrap">
@@ -55,7 +58,7 @@ const {
 
     <p class="pricing-card__desc">{description}</p>
 
-    <a href={startUrl} class="pricing-card__btn">Start met dit plan</a>
+    <a href={startUrl} class="pricing-card__btn">{t(locale, 'pricingCard.startCta')}</a>
   </div>
 </article>
 

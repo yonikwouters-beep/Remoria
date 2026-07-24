@@ -1,19 +1,25 @@
 ---
 import SiteNotice from '../components/SiteNotice.astro';
+import { getLocale, localizePath, stripLocalePrefix, locales, t } from '../i18n/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 export interface Props {
   title?: string;
   description?: string;
 }
 
+const locale = getLocale(Astro.currentLocale);
 const {
-  title = 'Remoria — Een plek waar herinneringen samenkomen',
-  description = 'Remoria biedt een toegankelijk platform waar nabestaanden eenvoudig herinneringen delen en bewaren. Een serene plek om verhalen te koesteren en steun te vinden bij elkaar.',
+  title = t(locale, 'meta.defaultTitle'),
+  description = t(locale, 'meta.defaultDescription'),
 } = Astro.props;
+
+const pathname = stripLocalePrefix(Astro.url.pathname);
+const pathForLocale = pathname === '/' ? '' : pathname.replace(/^\//, '');
 ---
 
 <!doctype html>
-<html lang="nl">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -22,6 +28,19 @@ const {
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
+
+    {locales.map((loc) => (
+      <link
+        rel="alternate"
+        hreflang={loc}
+        href={new URL(getRelativeLocaleUrl(loc, pathForLocale || undefined), Astro.site ?? Astro.url.origin).href}
+      />
+    ))}
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(localizePath('nl', pathname), Astro.site ?? Astro.url.origin).href}
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

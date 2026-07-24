@@ -1,4 +1,6 @@
 ---
+import { getLocale, localizePath, t } from '../i18n/utils';
+const locale = getLocale(Astro.currentLocale);
 ---
 
 <section class="hero">
@@ -7,22 +9,20 @@
 
   <div class="hero__inner">
     <div class="hero__content">
-      <p class="hero__eyebrow">HERINNERINGEN VERBINDEN. VOOR ALTIJD.</p>
+      <p class="hero__eyebrow">{t(locale, 'hero.eyebrow')}</p>
 
       <h1 class="hero__heading">
-        Een plek waar<br />
-        herinneringen<br />
-        samenkomen.
+        {t(locale, 'hero.headingLine1')}<br />
+        {t(locale, 'hero.headingLine2')}<br />
+        {t(locale, 'hero.headingLine3')}
       </h1>
 
       <p class="hero__subtext">
-        Remoria biedt een toegankelijk platform waar nabestaanden eenvoudig
-        herinneringen delen en bewaren. Een serene plek om verhalen te koesteren
-        en steun te vinden bij elkaar.
+        {t(locale, 'hero.subtext')}
       </p>
 
       <div class="hero__actions">
-        <a href="/prijzen" class="btn btn-primary">Start een gedenkplek</a>
+        <a href={localizePath(locale, '/prijzen')} class="btn btn-primary">{t(locale, 'hero.primaryCta')}</a>
         <a
           href="https://remoria.eu/demo"
           class="btn btn-secondary"
@@ -34,7 +34,7 @@
               <path d="M1 1L10 6.5L1 12V1Z" fill="currentColor"/>
             </svg>
           </span>
-          Bekijk een voorbeeld
+          {t(locale, 'hero.secondaryCta')}
         </a>
       </div>
     </div>

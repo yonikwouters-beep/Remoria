@@ -1,4 +1,9 @@
 ---
+import { getLocale, localizePath, t, tp } from '../i18n/utils';
+const locale = getLocale(Astro.currentLocale);
+
+const bereavedItems = tp<string[]>(locale, 'benefits.bereaved.items');
+const funeralItems = tp<string[]>(locale, 'benefits.funeral.items');
 ---
 
 <section class="benefits">
@@ -16,30 +21,20 @@
               <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
             </svg>
           </div>
-          <p class="panel__label">VOOR NABESTAANDEN</p>
-          <h2 class="panel__heading">Samen herinneren,<br />samen helen.</h2>
+          <p class="panel__label">{t(locale, 'benefits.bereaved.label')}</p>
+          <h2 class="panel__heading" set:html={t(locale, 'benefits.bereaved.heading').replace(/\n/g, '<br />')} />
 
           <ul class="panel__list">
-            <li>
-              <span class="check-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              Alles op één veilige plek
-            </li>
-            <li>
-              <span class="check-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              Deel met wie jij kiest
-            </li>
-            <li>
-              <span class="check-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              Blijvende herinneringen voor later
-            </li>
-            <li>
-              <span class="check-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              Toegankelijk op elk moment
-            </li>
+            {bereavedItems.map((item) => (
+              <li>
+                <span class="check-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                {item}
+              </li>
+            ))}
           </ul>
 
-          <a href="/voor-nabestaanden" class="panel__btn">
-            Meer voor nabestaanden
+          <a href={localizePath(locale, '/voor-nabestaanden')} class="panel__btn">
+            {t(locale, 'benefits.bereaved.cta')}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
@@ -47,7 +42,7 @@
         <div class="panel__visual panel__visual--phone">
           <img
             src="/mobile-home-transp.webp"
-            alt="Remoria app op smartphone"
+            alt={t(locale, 'benefits.bereaved.imageAlt')}
             class="phone-img"
             loading="lazy"
             decoding="async"
@@ -67,30 +62,20 @@
               <path d="M9 21V9"/>
             </svg>
           </div>
-          <p class="panel__label">VOOR DE UITVAARTSECTOR</p>
-          <h2 class="panel__heading">Innovatie die<br />zorg versterkt.</h2>
+          <p class="panel__label">{t(locale, 'benefits.funeral.label')}</p>
+          <h2 class="panel__heading" set:html={t(locale, 'benefits.funeral.heading').replace(/\n/g, '<br />')} />
 
           <ul class="panel__list">
-            <li>
-              <span class="check-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              Bied nabestaanden een digitale plek
-            </li>
-            <li>
-              <span class="check-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              Verhoog betrokkenheid en nazorg
-            </li>
-            <li>
-              <span class="check-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              Efficiënt en gebruiksvriendelijk platform
-            </li>
-            <li>
-              <span class="check-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              Volledig in lijn met jouw dienstverlening
-            </li>
+            {funeralItems.map((item) => (
+              <li>
+                <span class="check-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                {item}
+              </li>
+            ))}
           </ul>
 
-          <a href="/voor-uitvaartsector" class="panel__btn">
-            Meer voor uitvaartorganisaties
+          <a href={localizePath(locale, '/voor-uitvaartsector')} class="panel__btn">
+            {t(locale, 'benefits.funeral.cta')}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
@@ -98,7 +83,7 @@
         <div class="panel__visual panel__visual--laptop">
           <img
             src="/laptop-transp.webp"
-            alt="Remoria platform op laptop"
+            alt={t(locale, 'benefits.funeral.imageAlt')}
             class="laptop-img"
             loading="lazy"
             decoding="async"

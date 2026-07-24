@@ -1,31 +1,58 @@
 ---
+import {
+  getLocale,
+  localizePath,
+  stripLocalePrefix,
+  t,
+  localeLabels,
+  locales,
+  type Locale,
+} from '../i18n/utils';
+
 export interface Props {
   overlay?: boolean;
 }
 
 const { overlay = false } = Astro.props;
+const locale = getLocale(Astro.currentLocale);
+const currentPath = stripLocalePrefix(Astro.url.pathname);
+
+const homeHref = localizePath(locale, '/');
+const bereavedHref = localizePath(locale, '/voor-nabestaanden');
+const funeralHref = localizePath(locale, '/voor-uitvaartsector');
+const aboutHref = localizePath(locale, '/over-ons');
+const pricingHref = localizePath(locale, '/prijzen');
+const contactHref = localizePath(locale, '/contact');
+
+const langNames: Record<Locale, string> = {
+  nl: t(locale, 'nav.langNl'),
+  en: t(locale, 'nav.langEn'),
+  fr: t(locale, 'nav.langFr'),
+};
 ---
 
 <header
   class:list={['navbar', overlay && 'navbar--overlay']}
   id="site-nav"
   data-nav
+  data-open-label={t(locale, 'nav.openMenu')}
+  data-close-label={t(locale, 'nav.closeMenu')}
 >
   <div class="navbar__container">
 
-    <a href="/" class="navbar__logo" aria-label="Remoria homepage">
+    <a href={homeHref} class="navbar__logo" aria-label={t(locale, 'nav.logoAria')}>
       <img
         src="/logo-remoria-nav.png"
-        alt="Remoria"
+        alt={t(locale, 'nav.logoAlt')}
         class="navbar__logo-img"
         width="360"
         height="108"
       />
     </a>
 
-    <nav class="navbar__nav navbar__nav--desktop" aria-label="Hoofdnavigatie">
+    <nav class="navbar__nav navbar__nav--desktop" aria-label={t(locale, 'nav.mainAria')}>
       <ul>
-        <li><a href="/" class="navbar__link">Home</a></li>
+        <li><a href={homeHref} class="navbar__link">{t(locale, 'nav.home')}</a></li>
         <li class="navbar__dropdown-wrap" data-dropdown>
           <button
             type="button"
@@ -34,24 +61,24 @@ const { overlay = false } = Astro.props;
             aria-expanded="false"
             data-dropdown-trigger
           >
-            Voor wie?
+            {t(locale, 'nav.forWho')}
             <svg class="navbar__chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
           <div class="navbar__dropdown" role="menu">
-            <a href="/voor-nabestaanden" class="navbar__dropdown-item" role="menuitem">
+            <a href={bereavedHref} class="navbar__dropdown-item" role="menuitem">
               <span class="navbar__dropdown-icon" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                 </svg>
               </span>
               <span>
-                <strong>Voor nabestaanden</strong>
-                <em>Herinneringen bewaren &amp; delen</em>
+                <strong>{t(locale, 'nav.forBereaved')}</strong>
+                <em>{t(locale, 'nav.forBereavedDesc')}</em>
               </span>
             </a>
-            <a href="/voor-uitvaartsector" class="navbar__dropdown-item" role="menuitem">
+            <a href={funeralHref} class="navbar__dropdown-item" role="menuitem">
               <span class="navbar__dropdown-icon" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="2" y="7" width="20" height="14" rx="2"/>
@@ -59,15 +86,15 @@ const { overlay = false } = Astro.props;
                 </svg>
               </span>
               <span>
-                <strong>Voor de uitvaartsector</strong>
-                <em>Nazorg &amp; digitale dienstverlening</em>
+                <strong>{t(locale, 'nav.forFuneral')}</strong>
+                <em>{t(locale, 'nav.forFuneralDesc')}</em>
               </span>
             </a>
           </div>
         </li>
-        <li><a href="/over-ons" class="navbar__link">Over Remoria</a></li>
-        <li><a href="/prijzen" class="navbar__link">Prijzen</a></li>
-        <li><a href="/contact" class="navbar__link">Contact</a></li>
+        <li><a href={aboutHref} class="navbar__link">{t(locale, 'nav.about')}</a></li>
+        <li><a href={pricingHref} class="navbar__link">{t(locale, 'nav.pricing')}</a></li>
+        <li><a href={contactHref} class="navbar__link">{t(locale, 'nav.contact')}</a></li>
       </ul>
     </nav>
 
@@ -75,35 +102,48 @@ const { overlay = false } = Astro.props;
 
       <!-- Language switcher -->
       <div class="lang-wrap" data-lang-wrap>
-        <button type="button" class="lang-trigger" aria-haspopup="true" aria-expanded="false" data-lang-trigger>
+        <button
+          type="button"
+          class="lang-trigger"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-label={t(locale, 'nav.langSwitcherAria')}
+          data-lang-trigger
+        >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="10"/>
             <line x1="2" y1="12" x2="22" y2="12"/>
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
           </svg>
-          <span class="lang-current" data-lang-current>NL</span>
+          <span class="lang-current" data-lang-current>{localeLabels[locale]}</span>
           <svg class="lang-chevron" width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
             <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
-        <div class="lang-dropdown" role="listbox" aria-label="Taal kiezen">
-          <button type="button" class="lang-option lang-option--active" role="option" data-lang="NL">
-            <span class="lang-option__flag">🇳🇱</span> Nederlands
-          </button>
-          <button type="button" class="lang-option" role="option" data-lang="ENG">
-            <span class="lang-option__flag">🇬🇧</span> English
-          </button>
-          <button type="button" class="lang-option" role="option" data-lang="FR">
-            <span class="lang-option__flag">🇫🇷</span> Français
-          </button>
+        <div class="lang-dropdown" role="listbox" aria-label={t(locale, 'nav.langSwitcherAria')}>
+          {locales.map((loc) => (
+            <a
+              href={localizePath(loc, currentPath)}
+              class:list={['lang-option', loc === locale && 'lang-option--active']}
+              role="option"
+              aria-selected={loc === locale}
+              data-lang={loc}
+              hreflang={loc}
+            >
+              <span class="lang-option__flag" aria-hidden="true">
+                {loc === 'nl' ? '🇳🇱' : loc === 'en' ? '🇬🇧' : '🇫🇷'}
+              </span>
+              {langNames[loc]}
+            </a>
+          ))}
         </div>
       </div>
 
-      <a href="#" class="navbar__login navbar__login--desktop">Inloggen</a>
+      <a href="#" class="navbar__login navbar__login--desktop">{t(locale, 'nav.login')}</a>
       <button
         type="button"
         class="navbar__toggle"
-        aria-label="Menu openen"
+        aria-label={t(locale, 'nav.openMenu')}
         aria-expanded="false"
         aria-controls="mobile-nav-panel"
         data-nav-toggle
@@ -114,9 +154,9 @@ const { overlay = false } = Astro.props;
   </div>
 
   <div class="navbar__sheet" id="mobile-nav-panel" data-nav-panel>
-    <nav class="navbar__nav-mobile" aria-label="Mobiele navigatie">
+    <nav class="navbar__nav-mobile" aria-label={t(locale, 'nav.mobileAria')}>
       <ul>
-        <li><a href="/" class="navbar__mobile-link">Home</a></li>
+        <li><a href={homeHref} class="navbar__mobile-link">{t(locale, 'nav.home')}</a></li>
         <li>
           <button
             type="button"
@@ -124,21 +164,39 @@ const { overlay = false } = Astro.props;
             aria-expanded="false"
             data-mobile-accordion
           >
-            Voor wie?
+            {t(locale, 'nav.forWho')}
             <svg class="navbar__chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
           <ul class="navbar__mobile-sub" data-mobile-sub>
-            <li><a href="/voor-nabestaanden" class="navbar__mobile-sublink">Voor nabestaanden</a></li>
-            <li><a href="/voor-uitvaartsector" class="navbar__mobile-sublink">Voor de uitvaartsector</a></li>
+            <li><a href={bereavedHref} class="navbar__mobile-sublink">{t(locale, 'nav.forBereaved')}</a></li>
+            <li><a href={funeralHref} class="navbar__mobile-sublink">{t(locale, 'nav.forFuneral')}</a></li>
           </ul>
         </li>
-        <li><a href="/over-ons" class="navbar__mobile-link">Over Remoria</a></li>
-        <li><a href="/prijzen" class="navbar__mobile-link">Prijzen</a></li>
-        <li><a href="/contact" class="navbar__mobile-link">Contact</a></li>
+        <li><a href={aboutHref} class="navbar__mobile-link">{t(locale, 'nav.about')}</a></li>
+        <li><a href={pricingHref} class="navbar__mobile-link">{t(locale, 'nav.pricing')}</a></li>
+        <li><a href={contactHref} class="navbar__mobile-link">{t(locale, 'nav.contact')}</a></li>
       </ul>
-      <a href="#" class="navbar__login navbar__login--mobile">Inloggen</a>
+
+      <div class="lang-mobile" role="group" aria-label={t(locale, 'nav.langSwitcherAria')}>
+        {locales.map((loc) => (
+          <a
+            href={localizePath(loc, currentPath)}
+            class:list={['lang-mobile__option', loc === locale && 'lang-mobile__option--active']}
+            hreflang={loc}
+            data-lang={loc}
+            aria-current={loc === locale ? 'true' : undefined}
+          >
+            <span class="lang-mobile__flag" aria-hidden="true">
+              {loc === 'nl' ? '🇳🇱' : loc === 'en' ? '🇬🇧' : '🇫🇷'}
+            </span>
+            {localeLabels[loc]}
+          </a>
+        ))}
+      </div>
+
+      <a href="#" class="navbar__login navbar__login--mobile">{t(locale, 'nav.login')}</a>
     </nav>
   </div>
 </header>
@@ -149,12 +207,14 @@ const { overlay = false } = Astro.props;
     var header = document.querySelector('[data-nav]');
     var toggle = document.querySelector('[data-nav-toggle]');
     var panel  = document.querySelector('[data-nav-panel]');
+    var openLabel = header?.getAttribute('data-open-label') || 'Menu openen';
+    var closeLabel = header?.getAttribute('data-close-label') || 'Menu sluiten';
 
     function setOpen(open) {
       if (!header || !toggle) return;
       header.classList.toggle('navbar--open', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+      toggle.setAttribute('aria-label', open ? closeLabel : openLabel);
       document.body.style.overflow = open ? 'hidden' : '';
     }
 
@@ -207,14 +267,6 @@ const { overlay = false } = Astro.props;
     /* ── Language switcher ── */
     var langWrap    = document.querySelector('[data-lang-wrap]');
     var langTrigger = document.querySelector('[data-lang-trigger]');
-    var langCurrent = document.querySelector('[data-lang-current]');
-    var langOptions = document.querySelectorAll('[data-lang]');
-
-    var savedLang = localStorage.getItem('remoria-lang') || 'NL';
-    if (langCurrent) langCurrent.textContent = savedLang;
-    langOptions.forEach(function (btn) {
-      btn.classList.toggle('lang-option--active', btn.getAttribute('data-lang') === savedLang);
-    });
 
     function setLangOpen(open) {
       if (!langWrap || !langTrigger) return;
@@ -227,15 +279,10 @@ const { overlay = false } = Astro.props;
       setLangOpen(!langWrap?.classList.contains('lang-wrap--open'));
     });
 
-    langOptions.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var lang = btn.getAttribute('data-lang') || 'NL';
-        if (langCurrent) langCurrent.textContent = lang;
-        localStorage.setItem('remoria-lang', lang);
-        langOptions.forEach(function (b) {
-          b.classList.toggle('lang-option--active', b.getAttribute('data-lang') === lang);
-        });
-        setLangOpen(false);
+    document.querySelectorAll('[data-lang]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        var lang = link.getAttribute('data-lang');
+        if (lang) localStorage.setItem('remoria-lang', lang);
       });
     });
 
@@ -536,6 +583,7 @@ const { overlay = false } = Astro.props;
     color: #475569;
     cursor: pointer;
     text-align: left;
+    text-decoration: none;
     transition: background-color 0.15s ease, color 0.15s ease;
   }
 
@@ -670,6 +718,49 @@ const { overlay = false } = Astro.props;
     justify-content: center;
   }
 
+  /* ── Mobile language switcher (in sheet) ── */
+  .lang-mobile {
+    display: none;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(30, 41, 59, 0.08);
+  }
+
+  .lang-mobile__option {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px 10px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(30, 41, 59, 0.12);
+    background: rgba(255, 255, 255, 0.55);
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #475569;
+    text-decoration: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .lang-mobile__option:hover {
+    background: rgba(30, 41, 59, 0.05);
+    border-color: rgba(30, 41, 59, 0.22);
+  }
+
+  .lang-mobile__option--active {
+    background: rgba(198, 162, 75, 0.12);
+    border-color: rgba(198, 162, 75, 0.45);
+    color: #1E293B;
+  }
+
+  .lang-mobile__flag {
+    font-size: 15px;
+    line-height: 1;
+  }
+
   /* ── Mobile accordion ── */
   .navbar__mobile-accordion {
     width: 100%;
@@ -751,9 +842,13 @@ const { overlay = false } = Astro.props;
       flex-shrink: 0;
     }
 
-    .lang-trigger {
-      padding: 6px 10px;
-      font-size: 12px;
+    /* Header dropdown is cramped on mobile — language lives in the sheet */
+    .lang-wrap {
+      display: none;
+    }
+
+    .lang-mobile {
+      display: flex;
     }
 
     .navbar__logo-img {
@@ -769,10 +864,6 @@ const { overlay = false } = Astro.props;
   }
 
   @media (max-width: 480px) {
-    .lang-wrap {
-      display: none;
-    }
-
     .navbar__logo-img {
       height: 56px;
       max-height: 56px;

@@ -1,4 +1,7 @@
 ---
+import { getLocale, t } from '../i18n/utils';
+const locale = getLocale(Astro.currentLocale);
+
 /** Zet op false wanneer de site live klaar is. */
 const NOTICE_ENABLED = true;
 const BYPASS_CODE = '202608';
@@ -21,12 +24,12 @@ const STORAGE_KEY = 'remoria_site_unlock';
         type="button"
         class="site-notice__logo-btn"
         id="site-notice-logo"
-        aria-label="Remoria"
+        aria-label={t(locale, 'siteNotice.logoAria')}
         title=""
       >
         <img
           src="/logo-remoria-nav.png"
-          alt="Remoria"
+          alt={t(locale, 'siteNotice.logoAlt')}
           class="site-notice__logo"
           width="160"
           height="48"
@@ -34,17 +37,17 @@ const STORAGE_KEY = 'remoria_site_unlock';
       </button>
 
       <h2 id="site-notice-title" class="site-notice__title">
-        We werken nog aan de website
+        {t(locale, 'siteNotice.title')}
       </h2>
 
       <p class="site-notice__lead">
-        Gedenkplekken kunnen nog niet aangeschaft worden.
+        {t(locale, 'siteNotice.lead')}
       </p>
 
       <div class="site-notice__visual">
         <img
           src="/Portal-dashboard.webp"
-          alt="Voorbeeld van het Remoria portaal"
+          alt={t(locale, 'siteNotice.imageAlt')}
           class="site-notice__image"
           width="640"
           height="400"
@@ -54,14 +57,13 @@ const STORAGE_KEY = 'remoria_site_unlock';
       </div>
 
       <p class="site-notice__contact">
-        Heb je vragen of wil je een van de eerste partners zijn?
-        Neem contact op via{' '}
+        {t(locale, 'siteNotice.contact')}{' '}
         <a href="mailto:hello@remoria.eu">hello@remoria.eu</a>.
       </p>
 
       <form class="site-notice__unlock" id="site-notice-unlock" hidden>
         <label for="site-notice-code" class="site-notice__unlock-label">
-          Toegangscode
+          {t(locale, 'siteNotice.unlockLabel')}
         </label>
         <input
           type="password"
@@ -70,13 +72,13 @@ const STORAGE_KEY = 'remoria_site_unlock';
           inputmode="numeric"
           autocomplete="off"
           maxlength="12"
-          placeholder="Code"
+          placeholder={t(locale, 'siteNotice.unlockPlaceholder')}
         />
         <button type="submit" class="site-notice__unlock-submit">
-          Doorgaan
+          {t(locale, 'siteNotice.unlockSubmit')}
         </button>
         <p class="site-notice__unlock-error" id="site-notice-error" hidden>
-          Onjuiste code.
+          {t(locale, 'siteNotice.unlockError')}
         </p>
       </form>
     </div>

@@ -1,4 +1,6 @@
 ---
+import { getLocale, localizePath, t } from '../i18n/utils';
+const locale = getLocale(Astro.currentLocale);
 ---
 
 <footer class="footer">
@@ -9,63 +11,63 @@
 
       <!-- Col 1: Brand -->
       <div class="footer__brand">
-        <a href="/" class="footer__logo-link" aria-label="Remoria homepage">
+        <a href={localizePath(locale, '/')} class="footer__logo-link" aria-label={t(locale, 'footer.logoAria')}>
           <img
             src="/logo-remoria-footer.svg"
-            alt="Remoria"
+            alt={t(locale, 'footer.logoAlt')}
             class="footer__logo-img"
             width="360"
             height="108"
           />
         </a>
         <p class="footer__tagline">
-          Een plek voor herinneringen<br />die blijven.
+          {t(locale, 'footer.taglineLine1')}<br />{t(locale, 'footer.taglineLine2')}
         </p>
       </div>
 
       <!-- Col 2: Product -->
       <div class="footer__col">
-        <p class="footer__heading">Product</p>
+        <p class="footer__heading">{t(locale, 'footer.productHeading')}</p>
         <ul class="footer__links">
-          <li><a href="/voor-nabestaanden#hoe-werkt-het" class="footer__link">Hoe werkt het?</a></li>
-          <li><a href="/voor-nabestaanden#fotoboek" class="footer__link">Het Fotoboek</a></li>
+          <li><a href={localizePath(locale, '/voor-nabestaanden#hoe-werkt-het')} class="footer__link">{t(locale, 'footer.howItWorks')}</a></li>
+          <li><a href={localizePath(locale, '/voor-nabestaanden#fotoboek')} class="footer__link">{t(locale, 'footer.photoBook')}</a></li>
         </ul>
       </div>
 
       <!-- Col 3: Voor wie? -->
       <div class="footer__col">
-        <p class="footer__heading">Voor wie?</p>
+        <p class="footer__heading">{t(locale, 'footer.forWhoHeading')}</p>
         <ul class="footer__links">
-          <li><a href="/voor-nabestaanden" class="footer__link">Voor nabestaanden</a></li>
-          <li><a href="/voor-uitvaartsector" class="footer__link">Voor de uitvaartsector</a></li>
+          <li><a href={localizePath(locale, '/voor-nabestaanden')} class="footer__link">{t(locale, 'footer.forBereaved')}</a></li>
+          <li><a href={localizePath(locale, '/voor-uitvaartsector')} class="footer__link">{t(locale, 'footer.forFuneral')}</a></li>
         </ul>
       </div>
 
       <!-- Col 4: Over Remoria -->
       <div class="footer__col">
-        <p class="footer__heading">Over Remoria</p>
+        <p class="footer__heading">{t(locale, 'footer.aboutHeading')}</p>
         <ul class="footer__links">
-          <li><a href="/over-ons" class="footer__link">Over ons</a></li>
-          <li><a href="/contact" class="footer__link">Contact</a></li>
+          <li><a href={localizePath(locale, '/over-ons')} class="footer__link">{t(locale, 'footer.aboutUs')}</a></li>
+          <li><a href={localizePath(locale, '/contact')} class="footer__link">{t(locale, 'footer.contact')}</a></li>
         </ul>
       </div>
 
       <!-- Col 5: Newsletter -->
       <div class="footer__col">
-        <p class="footer__heading">Blijf op de hoogte</p>
+        <p class="footer__heading">{t(locale, 'footer.newsletterHeading')}</p>
         <p class="footer__newsletter-desc">
-          Ontvang tips en inspiratie voor het koesteren van herinneringen.
+          {t(locale, 'footer.newsletterDesc')}
         </p>
         <form class="footer__form" novalidate>
           <div class="footer__input-wrap">
             <input
               type="email"
               class="footer__input"
-              placeholder="E-mailadres"
-              aria-label="E-mailadres voor nieuwsbrief"
+              placeholder={t(locale, 'footer.emailPlaceholder')}
+              aria-label={t(locale, 'footer.emailAria')}
               required
             />
-            <button type="submit" class="footer__submit" aria-label="Inschrijven">
+            <button type="submit" class="footer__submit" aria-label={t(locale, 'footer.subscribeAria')}>
               <svg width="15" height="15" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -73,13 +75,12 @@
           </div>
         </form>
         <p class="footer__newsletter-note">
-          Maximaal één mail per maand. Uitschrijven kan altijd — zie onze
-          <a
+          {t(locale, 'footer.newsletterNoteBefore')}<a
             href="/Remoria-Privacyverklaring.pdf"
             class="footer__newsletter-note-link"
             target="_blank"
             rel="noopener noreferrer"
-          >privacyverklaring</a>.
+          >{t(locale, 'footer.privacyLink')}</a>{t(locale, 'footer.newsletterNoteAfter')}
         </p>
       </div>
 
@@ -88,22 +89,22 @@
     <!-- ── BOTTOM BAR ── -->
     <div class="footer__bottom">
       <p class="footer__copy">
-        &copy; {new Date().getFullYear()} Remoria. Alle rechten voorbehouden.
-        <span class="footer__vat" aria-label="BTW-nummer">BTW BE0774.952.893</span>
+        &copy; {new Date().getFullYear()} {t(locale, 'footer.copyright')}
+        <span class="footer__vat" aria-label={t(locale, 'footer.vatAria')}>{t(locale, 'footer.vat')}</span>
       </p>
-      <nav class="footer__legal" aria-label="Juridische links">
+      <nav class="footer__legal" aria-label={t(locale, 'footer.legalAria')}>
         <a
           href="/Remoria-Privacyverklaring.pdf"
           class="footer__legal-link"
           target="_blank"
           rel="noopener noreferrer"
-        >Privacy</a>
+        >{t(locale, 'footer.privacy')}</a>
         <a
           href="/Remoria-Algemene-Voorwaarden.pdf"
           class="footer__legal-link"
           target="_blank"
           rel="noopener noreferrer"
-        >Voorwaarden</a>
+        >{t(locale, 'footer.terms')}</a>
       </nav>
     </div>
 
