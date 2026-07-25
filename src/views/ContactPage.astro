@@ -2,181 +2,180 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import { getLocale, t, tp } from '../i18n/utils';
+import { getLocale, t, tp, localizePath } from '../i18n/utils';
 
 const locale = getLocale(Astro.currentLocale);
-
 const afdelingOptions = tp<string[]>(locale, 'contact.form.afdelingOptions');
+const faqUrl = localizePath(locale, '/prijzen') + '#prijzen-faq';
 ---
 
 <BaseLayout title={t(locale, 'contact.meta.title')} description={t(locale, 'contact.meta.description')}>
   <Navbar />
 
-  <!-- ══════════════════════════════════════════════
-       HERO
-  ══════════════════════════════════════════════ -->
-  <section class="contact-hero">
-    <div class="container">
-      <div class="contact-hero__inner" data-reveal>
-        <p class="eyebrow">{t(locale, 'contact.hero.eyebrow')}</p>
-        <h1 class="contact-hero__title">
-          {t(locale, 'contact.hero.titleLine1')}<br />{t(locale, 'contact.hero.titleLine2')}
-        </h1>
-        <p class="contact-hero__sub">
-          {t(locale, 'contact.hero.sub')}
-        </p>
-      </div>
-    </div>
-  </section>
+  <main class="contact-page">
+    <section class="contact">
+      <div class="container contact__grid">
 
-  <!-- ══════════════════════════════════════════════
-       TWO-COLUMN BODY
-  ══════════════════════════════════════════════ -->
-  <section class="contact-body">
-    <div class="container contact-body__grid">
-
-      <!-- LEFT -->
-      <aside class="contact-info" data-reveal>
-
-        <div class="info-block">
-          <div class="info-block__icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
+        <!-- Left column -->
+        <div class="contact__left" data-reveal>
+          <p class="eyebrow">{t(locale, 'contact.hero.eyebrow')}</p>
+          <h1 class="contact__title">{t(locale, 'contact.hero.title')}</h1>
+          <p class="contact__intro">{t(locale, 'contact.hero.sub')}</p>
+          <p class="contact__reassure">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
             </svg>
-          </div>
-          <div>
-            <p class="info-block__label">{t(locale, 'contact.info.emailLabel')}</p>
-            <a href="mailto:hello@remoria.eu" class="info-block__value">
-              hello@remoria.eu
+            {t(locale, 'contact.hero.reassure')}
+          </p>
+
+          <div class="contact__cards">
+            <a href="mailto:hello@remoria.eu" class="route-card route-card--email">
+              <span class="route-card__icon route-card__icon--gold" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>
+                </svg>
+              </span>
+              <span>
+                <span class="route-card__label">{t(locale, 'contact.info.emailLabel')}</span>
+                <span class="route-card__title">hello@remoria.eu</span>
+                <span class="route-card__sub">{t(locale, 'contact.info.emailSub')}</span>
+              </span>
             </a>
-          </div>
-        </div>
 
-        <div class="info-divider" aria-hidden="true"></div>
+            <div class="route-card route-card--meet" id="plan-een-gesprek">
+              <span class="route-card__icon route-card__icon--blue" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+                </svg>
+              </span>
+              <span>
+                <span class="route-card__label">{t(locale, 'contact.info.meetingLabel')}</span>
+                <span class="route-card__title">{t(locale, 'contact.info.meetingTitle')}</span>
+                <span class="route-card__sub">{t(locale, 'contact.info.meetingDesc')}</span>
+                <button
+                  type="button"
+                  class="route-card__cta"
+                  data-cal-link="remoria/30min"
+                  data-cal-namespace="30min"
+                  data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                >
+                  {t(locale, 'contact.info.meetingCta')}
+                </button>
+              </span>
+            </div>
 
-        <div class="info-block info-block--meet" id="plan-een-gesprek">
-          <div class="info-block__icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-          </div>
-          <div>
-            <p class="info-block__label">{t(locale, 'contact.info.meetingLabel')}</p>
-            <p class="info-block__desc">
-              {t(locale, 'contact.info.meetingDesc')}
-            </p>
-            <button
-              type="button"
-              class="info-btn"
-              data-cal-link="remoria/30min"
-              data-cal-namespace="30min"
-              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-            >
-              {t(locale, 'contact.info.meetingCta')}
-              <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <div class="faq-tip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#96742F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
               </svg>
-            </button>
+              <p class="faq-tip__text">
+                {t(locale, 'contact.faqTip.before')}
+                <a href={faqUrl}>{t(locale, 'contact.faqTip.link')}</a>{t(locale, 'contact.faqTip.after')}
+              </p>
+            </div>
           </div>
         </div>
 
-      </aside>
+        <!-- Right: form -->
+        <div
+          class="form-card"
+          data-reveal
+          data-reveal-delay="80"
+          data-msg-sending={t(locale, 'contact.form.sending')}
+          data-msg-error={t(locale, 'contact.form.error')}
+          data-msg-required={t(locale, 'contact.form.validationRequired')}
+          data-msg-email={t(locale, 'contact.form.validationEmail')}
+        >
+          <h2 class="form-card__title">{t(locale, 'contact.form.title')}</h2>
+          <p class="form-card__sub">{t(locale, 'contact.form.sub')}</p>
 
-      <!-- RIGHT: FORM -->
-      <div
-        class="contact-form-wrap"
-        data-reveal
-        data-reveal-delay="80"
-        data-msg-sending={t(locale, 'contact.form.sending')}
-        data-msg-success={t(locale, 'contact.form.success')}
-        data-msg-error={t(locale, 'contact.form.error')}
-      >
-        <form class="contact-form" id="contact-form" novalidate>
+          <form class="contact-form" id="contact-form" novalidate>
+            <input
+              type="text"
+              name="website"
+              class="form-honeypot"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
 
-          <!-- Honeypot: leave empty -->
-          <input
-            type="text"
-            name="website"
-            class="form-honeypot"
-            tabindex="-1"
-            autocomplete="off"
-            aria-hidden="true"
-          />
-
-          <div class="form-row form-row--2">
-            <div class="form-field">
-              <label class="form-label" for="naam">{t(locale, 'contact.form.naamLabel')}</label>
-              <input
-                class="form-input"
-                type="text"
-                id="naam"
-                name="naam"
-                placeholder={t(locale, 'contact.form.naamPlaceholder')}
-                autocomplete="name"
-                required
-                maxlength="200"
-              />
+            <div class="form-row form-row--2">
+              <div class="form-field">
+                <label class="form-label" for="naam">{t(locale, 'contact.form.naamLabel')}</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="naam"
+                  name="naam"
+                  placeholder={t(locale, 'contact.form.naamPlaceholder')}
+                  autocomplete="name"
+                  required
+                  maxlength="200"
+                />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="email">{t(locale, 'contact.form.emailLabel')}</label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder={t(locale, 'contact.form.emailPlaceholder')}
+                  autocomplete="email"
+                  required
+                  maxlength="320"
+                />
+              </div>
             </div>
-            <div class="form-field">
-              <label class="form-label" for="email">{t(locale, 'contact.form.emailLabel')}</label>
-              <input
-                class="form-input"
-                type="email"
-                id="email"
-                name="email"
-                placeholder={t(locale, 'contact.form.emailPlaceholder')}
-                autocomplete="email"
-                required
-                maxlength="320"
-              />
-            </div>
-          </div>
 
-          <div class="form-field">
-            <label class="form-label" for="afdeling">{t(locale, 'contact.form.afdelingLabel')}</label>
-            <div class="form-select-wrap">
+            <div class="form-field">
+              <label class="form-label" for="afdeling">{t(locale, 'contact.form.afdelingLabel')}</label>
               <select class="form-input form-select" id="afdeling" name="afdeling">
                 {afdelingOptions.map((option, i) => (
                   <option value={option} selected={i === 0}>{option}</option>
                 ))}
               </select>
-              <svg class="form-select-arrow" width="16" height="16" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
             </div>
-          </div>
 
-          <div class="form-field">
-            <label class="form-label" for="bericht">{t(locale, 'contact.form.berichtLabel')}</label>
-            <textarea
-              class="form-input form-textarea"
-              id="bericht"
-              name="bericht"
-              placeholder={t(locale, 'contact.form.berichtPlaceholder')}
-              rows="5"
-              required
-              maxlength="5000"
-            ></textarea>
-          </div>
+            <div class="form-field">
+              <label class="form-label" for="bericht">{t(locale, 'contact.form.berichtLabel')}</label>
+              <textarea
+                class="form-input form-textarea"
+                id="bericht"
+                name="bericht"
+                placeholder={t(locale, 'contact.form.berichtPlaceholder')}
+                rows="5"
+                required
+                maxlength="5000"
+              ></textarea>
+            </div>
 
-          <p class="form-status" id="contact-form-status" role="status" hidden></p>
+            <div class="form-success" id="contact-form-success" hidden>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/>
+              </svg>
+              {t(locale, 'contact.form.success')}
+            </div>
 
-          <button type="submit" class="form-submit" id="contact-form-submit">
-            <span class="form-submit__label">{t(locale, 'contact.form.submit')}</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
+            <p class="form-error" id="contact-form-error" role="alert" hidden></p>
 
-        </form>
+            <div class="form-actions">
+              <button type="submit" class="form-submit" id="contact-form-submit">
+                <span class="form-submit__label">{t(locale, 'contact.form.submit')}</span>
+              </button>
+              <span class="form-privacy">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                {t(locale, 'contact.form.privacy')}
+              </span>
+            </div>
+          </form>
+        </div>
+
       </div>
-
-    </div>
-  </section>
+    </section>
+  </main>
 
   <Footer />
 </BaseLayout>
@@ -186,7 +185,6 @@ const afdelingOptions = tp<string[]>(locale, 'contact.form.afdelingOptions');
   Cal("init", "30min", {origin:"https://app.cal.eu"});
   Cal.config = Cal.config || {};
   Cal.config.forwardQueryParams = true;
-
   Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
 </script>
 
@@ -212,30 +210,85 @@ const afdelingOptions = tp<string[]>(locale, 'contact.form.afdelingOptions');
 
 <script>
   (function () {
-    const wrap = document.querySelector<HTMLElement>('.contact-form-wrap');
+    const card = document.querySelector<HTMLElement>('.form-card');
     const form = document.getElementById('contact-form') as HTMLFormElement | null;
-    const statusEl = document.getElementById('contact-form-status');
+    const successEl = document.getElementById('contact-form-success');
+    const errorEl = document.getElementById('contact-form-error');
     const submitBtn = document.getElementById('contact-form-submit') as HTMLButtonElement | null;
     const submitLabel = submitBtn?.querySelector('.form-submit__label');
+    const naamInput = document.getElementById('naam') as HTMLInputElement | null;
+    const emailInput = document.getElementById('email') as HTMLInputElement | null;
 
-    if (!wrap || !form || !statusEl || !submitBtn || !submitLabel) return;
+    if (!card || !form || !successEl || !errorEl || !submitBtn || !submitLabel || !naamInput || !emailInput) return;
 
-    const msgSending = wrap.dataset.msgSending || 'Sending…';
-    const msgSuccess = wrap.dataset.msgSuccess || 'Message sent.';
-    const msgError = wrap.dataset.msgError || 'Something went wrong.';
+    const msgSending = card.dataset.msgSending || 'Sending…';
+    const msgError = card.dataset.msgError || 'Something went wrong.';
+    const msgRequired = card.dataset.msgRequired || 'Please fill in this field.';
+    const msgEmail = card.dataset.msgEmail || 'Please enter a valid email.';
     const defaultLabel = submitLabel.textContent || '';
 
-    const showStatus = (text: string, type: 'ok' | 'err' | 'pending') => {
-      statusEl.hidden = false;
-      statusEl.textContent = text;
-      statusEl.classList.remove('form-status--ok', 'form-status--err', 'form-status--pending');
-      statusEl.classList.add(`form-status--${type}`);
+    const emailOk = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+    const setFieldInvalid = (el: HTMLElement, invalid: boolean) => {
+      el.classList.toggle('is-invalid', invalid);
     };
+
+    const validate = () => {
+      let ok = true;
+      const naam = naamInput.value.trim();
+      const email = emailInput.value.trim();
+
+      if (!naam) {
+        setFieldInvalid(naamInput, true);
+        naamInput.setCustomValidity(msgRequired);
+        ok = false;
+      } else {
+        setFieldInvalid(naamInput, false);
+        naamInput.setCustomValidity('');
+      }
+
+      if (!email) {
+        setFieldInvalid(emailInput, true);
+        emailInput.setCustomValidity(msgRequired);
+        ok = false;
+      } else if (!emailOk(email)) {
+        setFieldInvalid(emailInput, true);
+        emailInput.setCustomValidity(msgEmail);
+        ok = false;
+      } else {
+        setFieldInvalid(emailInput, false);
+        emailInput.setCustomValidity('');
+      }
+
+      return ok;
+    };
+
+    ['input', 'blur'].forEach((evt) => {
+      naamInput.addEventListener(evt, () => {
+        if (naamInput.value.trim()) {
+          setFieldInvalid(naamInput, false);
+          naamInput.setCustomValidity('');
+        }
+      });
+      emailInput.addEventListener(evt, () => {
+        const v = emailInput.value.trim();
+        if (v && emailOk(v)) {
+          setFieldInvalid(emailInput, false);
+          emailInput.setCustomValidity('');
+        }
+      });
+    });
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      if (!form.reportValidity()) return;
+      successEl.hidden = true;
+      errorEl.hidden = true;
+
+      if (!validate()) {
+        form.reportValidity();
+        return;
+      }
 
       const data = new FormData(form);
       const payload = {
@@ -246,9 +299,13 @@ const afdelingOptions = tp<string[]>(locale, 'contact.form.afdelingOptions');
         website: String(data.get('website') || '').trim(),
       };
 
+      if (!payload.bericht) {
+        form.reportValidity();
+        return;
+      }
+
       submitBtn.disabled = true;
       submitLabel.textContent = msgSending;
-      showStatus(msgSending, 'pending');
 
       try {
         const res = await fetch('/api/contact', {
@@ -256,17 +313,14 @@ const afdelingOptions = tp<string[]>(locale, 'contact.form.afdelingOptions');
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
         });
-
         const result = await res.json().catch(() => ({}));
-
-        if (!res.ok) {
-          throw new Error(result.error || 'Request failed');
-        }
+        if (!res.ok) throw new Error(result.error || 'Request failed');
 
         form.reset();
-        showStatus(msgSuccess, 'ok');
+        successEl.hidden = false;
       } catch {
-        showStatus(msgError, 'err');
+        errorEl.hidden = false;
+        errorEl.textContent = msgError;
       } finally {
         submitBtn.disabled = false;
         submitLabel.textContent = defaultLabel;
@@ -276,34 +330,360 @@ const afdelingOptions = tp<string[]>(locale, 'contact.form.afdelingOptions');
 </script>
 
 <style>
-  /* ─────────────────────────────────────────────
-     SHARED
-  ───────────────────────────────────────────── */
+  .contact-page {
+    font-family: 'Nunito Sans', sans-serif;
+    background: #F6F1E8;
+    color: #4A4438;
+  }
+
+  .contact {
+    background:
+      linear-gradient(180deg, #F1E9D9, rgba(241, 233, 217, 0) 420px),
+      url('/flowers-background.webp') left bottom / 560px auto no-repeat;
+  }
+
   .container {
-    max-width: 1200px;
+    max-width: 1140px;
     margin-inline: auto;
-    padding-inline: clamp(20px, 5vw, 48px);
+    padding: 64px 24px 96px;
+  }
+
+  .contact__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 64px;
+    align-items: start;
   }
 
   .eyebrow {
-    display: block;
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: #C6A24B;
-    margin-bottom: 14px;
+    color: #B8934A;
+    margin: 0 0 18px;
   }
 
-  /* ─────────────────────────────────────────────
-     SCROLL REVEAL
-  ───────────────────────────────────────────── */
+  .contact__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 4.5vw, 48px);
+    line-height: 1.12;
+    color: #1C2A43;
+    margin: 0 0 18px;
+    text-wrap: pretty;
+  }
+
+  .contact__intro {
+    font-size: 16.5px;
+    line-height: 1.65;
+    color: #7A7263;
+    margin: 0 0 12px;
+    max-width: 420px;
+  }
+
+  .contact__reassure {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #96742F;
+    margin: 0 0 34px;
+  }
+
+  .contact__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 440px;
+  }
+
+  .route-card {
+    background: #FDFBF7;
+    border: 1px solid #E7DFD2;
+    border-radius: 16px;
+    padding: 22px 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .route-card--email:hover {
+    box-shadow: 0 14px 30px -16px rgba(28, 42, 67, 0.22);
+  }
+
+  .route-card__icon {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .route-card__icon--gold {
+    background: #F3E7CF;
+    color: #96742F;
+  }
+
+  .route-card__icon--blue {
+    background: #E2E7EC;
+    color: #4A6E8C;
+  }
+
+  .route-card__label {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #A79C87;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .route-card__title {
+    display: block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: #1C2A43;
+  }
+
+  .route-card__sub {
+    display: block;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #7A7263;
+    margin-top: 4px;
+  }
+
+  .route-card--meet .route-card__sub {
+    margin: 4px 0 14px;
+  }
+
+  .route-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #1C2A43;
+    color: #fff;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    padding: 11px 22px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+  }
+
+  .route-card__cta:hover {
+    background: #2A3B5C;
+  }
+
+  .faq-tip {
+    border: 1px solid #E7DFC2;
+    background: #F8F3E9;
+    border-radius: 16px;
+    padding: 18px 24px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .faq-tip__text {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #6B6353;
+    margin: 0;
+  }
+
+  .faq-tip__text a {
+    font-weight: 700;
+    color: #96742F;
+    text-decoration: none;
+  }
+
+  .faq-tip__text a:hover {
+    text-decoration: underline;
+  }
+
+  .form-card {
+    background: #FDFBF7;
+    border: 1px solid #E7DFD2;
+    border-radius: 20px;
+    padding: 40px 40px 36px;
+    box-shadow: 0 22px 44px -24px rgba(28, 42, 67, 0.25);
+  }
+
+  .form-card__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #1C2A43;
+    margin: 0 0 4px;
+  }
+
+  .form-card__sub {
+    font-size: 13.5px;
+    color: #A79C87;
+    margin: 0 0 26px;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-honeypot {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .form-row--2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .form-field {
+    margin-bottom: 16px;
+  }
+
+  .form-row--2 .form-field {
+    margin-bottom: 0;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #4A4438;
+    margin-bottom: 6px;
+  }
+
+  .form-input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #E7DFD2;
+    border-radius: 10px;
+    background: #fff;
+    padding: 12px 14px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14px;
+    color: #4A4438;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: #C9A86B;
+    box-shadow: 0 0 0 3px rgba(217, 179, 106, 0.2);
+  }
+
+  .form-input.is-invalid {
+    border-color: #C47A6A;
+  }
+
+  .form-select {
+    appearance: auto;
+    cursor: pointer;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+
+  .form-field:has(.form-textarea) {
+    margin-bottom: 22px;
+  }
+
+  .form-success {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #EAF0E4;
+    border: 1px solid #CBDABD;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #5C7048;
+  }
+
+  .form-success[hidden] {
+    display: none !important;
+  }
+
+  .form-error {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #9B3B2E;
+    margin: 0 0 14px;
+  }
+
+  .form-error[hidden] {
+    display: none !important;
+  }
+
+  .form-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .form-submit {
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #D9B36A;
+    color: #1C2A43;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    padding: 14px 30px;
+    border-radius: 999px;
+    transition: background-color 0.2s ease;
+  }
+
+  .form-submit:hover {
+    background: #E3C285;
+  }
+
+  .form-submit:disabled {
+    opacity: 0.7;
+    cursor: wait;
+  }
+
+  .form-privacy {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12.5px;
+    color: #A79C87;
+  }
+
   [data-reveal] {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.68s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 0.68s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(20px);
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   [data-reveal].is-visible {
@@ -311,321 +691,33 @@ const afdelingOptions = tp<string[]>(locale, 'contact.form.afdelingOptions');
     transform: translateY(0);
   }
 
-  /* ─────────────────────────────────────────────
-     HERO
-  ───────────────────────────────────────────── */
-  .contact-hero {
-    padding-block: clamp(64px, 9vw, 100px) clamp(40px, 6vw, 64px);
-  }
-
-  .contact-hero__inner {
-    max-width: 680px;
-  }
-
-  .contact-hero__title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2.5rem, 5.5vw, 4rem);
-    font-weight: 600;
-    color: #1E293B;
-    letter-spacing: -0.028em;
-    line-height: 1.1;
-    margin-bottom: 20px;
-  }
-
-  .contact-hero__sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    font-weight: 400;
-    color: #64748B;
-    line-height: 1.72;
-    max-width: 480px;
-  }
-
-  /* ─────────────────────────────────────────────
-     BODY GRID
-  ───────────────────────────────────────────── */
-  .contact-body {
-    padding-block: 0 clamp(80px, 11vw, 120px);
-  }
-
-  .contact-body__grid {
-    display: grid;
-    grid-template-columns: 340px 1fr;
-    gap: clamp(48px, 7vw, 96px);
-    align-items: start;
-  }
-
-  /* ─────────────────────────────────────────────
-     LEFT — INFO BLOCKS
-  ───────────────────────────────────────────── */
-  .contact-info {
-    position: sticky;
-    top: 148px;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .info-block {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .info-block__icon {
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(198, 162, 75, 0.1);
-    border-radius: 12px;
-    color: #C6A24B;
-    margin-top: 2px;
-  }
-
-  .info-block__label {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #94A3B8;
-    margin-bottom: 6px;
-  }
-
-  .info-block__value {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 18px;
-    font-weight: 500;
-    color: #1E293B;
-    text-decoration: none;
-    transition: color 0.18s ease;
-  }
-
-  .info-block__value:hover {
-    color: #C6A24B;
-  }
-
-  .info-divider {
-    height: 1px;
-    background: rgba(30, 41, 59, 0.08);
-    margin-block: 28px;
-  }
-
-  .info-block--meet {
-    align-items: flex-start;
-    scroll-margin-top: calc(var(--nav-height) + 24px);
-  }
-
-  .info-block__desc {
-    font-family: 'Inter', sans-serif;
-    font-size: 14.5px;
-    font-weight: 400;
-    color: #64748B;
-    line-height: 1.72;
-    margin-bottom: 18px;
-  }
-
-  .info-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 11px 20px;
-    background: #1E293B;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    border-radius: 999px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.18s ease;
-    box-shadow: 0 4px 14px rgba(30, 41, 59, 0.16);
-  }
-
-  .info-btn:hover {
-    background: #0f172a;
-    transform: translateY(-2px);
-  }
-
-  /* ─────────────────────────────────────────────
-     RIGHT — FORM CARD
-  ───────────────────────────────────────────── */
-  .contact-form-wrap {
-    background: rgba(255, 255, 255, 0.72);
-    border: 1.5px solid rgba(255, 255, 255, 0.5);
-    border-radius: 28px;
-    padding: clamp(32px, 5vw, 52px);
-    box-shadow:
-      0 1px 2px rgba(30, 41, 59, 0.04),
-      0 12px 40px rgba(30, 41, 59, 0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-  }
-
-  .form-row--2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .form-field {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-  }
-
-  .form-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    color: #475569;
-    letter-spacing: 0.01em;
-  }
-
-  .form-input {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    color: #1E293B;
-    background: #F5F2EC;
-    border: 1.5px solid rgba(30, 41, 59, 0.12);
-    border-radius: 12px;
-    padding: 13px 16px;
-    outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-    width: 100%;
-    appearance: none;
-    -webkit-appearance: none;
-  }
-
-  .form-input::placeholder {
-    color: #94A3B8;
-  }
-
-  .form-input:focus {
-    border-color: rgba(198, 162, 75, 0.55);
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(198, 162, 75, 0.12);
-  }
-
-  .form-select-wrap {
-    position: relative;
-  }
-
-  .form-select {
-    cursor: pointer;
-    padding-right: 40px;
-  }
-
-  .form-select-arrow {
-    position: absolute;
-    right: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    color: #94A3B8;
-  }
-
-  .form-textarea {
-    resize: vertical;
-    min-height: 140px;
-    line-height: 1.65;
-  }
-
-  .form-honeypot {
-    position: absolute;
-    left: -9999px;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .form-status {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
-    margin: 0;
-  }
-
-  .form-status--pending {
-    color: #64748B;
-  }
-
-  .form-status--ok {
-    color: #3F6B4A;
-  }
-
-  .form-status--err {
-    color: #9B3B2E;
-  }
-
-  .form-submit {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    padding: 15px 32px;
-    background: linear-gradient(135deg, #c6a24b 0%, #d4af5e 55%, #c6a24b 100%);
-    background-size: 200% 100%;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 15.5px;
-    font-weight: 500;
-    border: none;
-    border-radius: 999px;
-    cursor: pointer;
-    box-shadow: 0 4px 18px rgba(198, 162, 75, 0.30);
-    transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    align-self: flex-start;
-  }
-
-  .form-submit:hover {
-    background-position: 100% 0;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(198, 162, 75, 0.38);
-  }
-
-  .form-submit:disabled {
-    opacity: 0.7;
-    cursor: wait;
-    transform: none;
-  }
-
-  /* ─────────────────────────────────────────────
-     RESPONSIVE
-  ───────────────────────────────────────────── */
-  @media (max-width: 860px) {
-    .contact-body__grid {
+  @media (max-width: 900px) {
+    .contact__grid {
       grid-template-columns: 1fr;
       gap: 40px;
     }
 
-    .contact-info {
-      position: static;
+    .contact__cards {
+      max-width: none;
+    }
+
+    .form-card {
+      padding: 32px 24px;
     }
   }
 
-  @media (max-width: 540px) {
+  @media (max-width: 560px) {
+    .container {
+      padding: 48px 20px 72px;
+    }
+
     .form-row--2 {
       grid-template-columns: 1fr;
     }
 
-    .contact-hero__title br {
-      display: none;
-    }
-
-    .form-submit {
-      align-self: stretch;
+    .form-actions {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 </style>

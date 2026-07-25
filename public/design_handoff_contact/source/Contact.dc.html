@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+html, body { margin: 0; padding: 0; background: #F6F1E8; }
+a { color: #1C2A43; }
+a:hover { color: #B8934A; }
+input, select, textarea { font-family: 'Nunito Sans', sans-serif; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: #C9A86B !important; box-shadow: 0 0 0 3px rgba(217,179,106,.2); }
+</style>
+</helmet>
+<div style="font-family: 'Nunito Sans', sans-serif; background: #F6F1E8; color: #4A4438; min-height: 100vh;" data-screen-label="Contact">
+
+  <!-- Nav -->
+  <div style="display: flex; align-items: center; gap: 32px; max-width: 1180px; margin: 0 auto; padding: 20px 24px;" data-screen-label="Navigatie">
+    <a href="Home.dc.html" style="display: inline-flex; align-items: center; gap: 9px; text-decoration: none;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1C2A43" stroke-width="1.6"><path d="M5 21V10a7 7 0 0 1 14 0v11"></path><path d="M8 21V11a4 4 0 0 1 8 0v10"></path></svg>
+      <span style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: #1C2A43;">Remoria</span>
+    </a>
+    <div style="display: flex; align-items: center; gap: 26px; margin-left: 12px; font-size: 14.5px; font-weight: 600;">
+      <a href="Home.dc.html" style="text-decoration: none; color: #7A7263;">Home</a>
+      <a href="Voor%20nabestaanden%20-%20features.dc.html" style="text-decoration: none; color: #7A7263;">Voor nabestaanden</a>
+      <a href="Voor%20uitvaartsector.dc.html" style="text-decoration: none; color: #7A7263;">Voor de uitvaartsector</a>
+      <a href="Over%20Remoria.dc.html" style="text-decoration: none; color: #7A7263;">Over Remoria</a>
+      <a href="Prijzen.dc.html" style="text-decoration: none; color: #7A7263;">Prijzen</a>
+      <span style="color: #1C2A43;">Contact</span>
+    </div>
+    <span style="margin-left: auto; background: #1C2A43; color: #fff; font-size: 13.5px; font-weight: 700; padding: 10px 22px; border-radius: 999px;">Inloggen</span>
+  </div>
+
+  <!-- Contact -->
+  <div style="background: linear-gradient(180deg, #F1E9D9, rgba(241,233,217,0) 420px), url('uploads/flowers-background.webp') left bottom / 560px auto no-repeat;">
+    <div style="max-width: 1140px; margin: 0 auto; padding: 64px 24px 96px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 64px; align-items: start;">
+
+      <!-- Links -->
+      <div data-screen-label="Contactopties">
+        <div style="font-size: 12px; font-weight: 800; letter-spacing: 2.5px; color: #B8934A; text-transform: uppercase; margin-bottom: 18px;">Contact</div>
+        <h1 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 48px; line-height: 1.12; color: #1C2A43; margin: 0 0 18px; text-wrap: pretty;">Hoe kunnen we helpen?</h1>
+        <p style="font-size: 16.5px; line-height: 1.65; color: #7A7263; margin: 0 0 12px; max-width: 420px;">Een vraag over een gedenkplek, hulp nodig bij het verzamelen, of gewoon even aftoetsen of Remoria iets voor jullie is? We horen graag van je.</p>
+        <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 700; color: #96742F; margin-bottom: 34px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+          We antwoorden meestal binnen &eacute;&eacute;n werkdag
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 16px; max-width: 440px;">
+          <a href="mailto:hello@remoria.eu" style="text-decoration: none; background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 16px; padding: 22px 24px; display: flex; gap: 16px; align-items: flex-start;" style-hover="box-shadow: 0 14px 30px -16px rgba(28,42,67,.22);">
+            <span style="display: inline-flex; width: 44px; height: 44px; border-radius: 12px; background: #F3E7CF; color: #96742F; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg></span>
+            <span>
+              <span style="display: block; font-size: 11.5px; font-weight: 800; letter-spacing: 1.5px; color: #A79C87; text-transform: uppercase; margin-bottom: 4px;">E-mail</span>
+              <span style="display: block; font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 600; color: #1C2A43;">hello@remoria.eu</span>
+              <span style="display: block; font-size: 13.5px; line-height: 1.55; color: #7A7263; margin-top: 4px;">Voor alle vragen &mdash; groot of klein. Ook 's avonds mag.</span>
+            </span>
+          </a>
+          <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 16px; padding: 22px 24px; display: flex; gap: 16px; align-items: flex-start;">
+            <span style="display: inline-flex; width: 44px; height: 44px; border-radius: 12px; background: #E2E7EC; color: #4A6E8C; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg></span>
+            <span>
+              <span style="display: block; font-size: 11.5px; font-weight: 800; letter-spacing: 1.5px; color: #A79C87; text-transform: uppercase; margin-bottom: 4px;">Plan een gesprek</span>
+              <span style="display: block; font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 600; color: #1C2A43;">Voor uitvaartprofessionals</span>
+              <span style="display: block; font-size: 13.5px; line-height: 1.55; color: #7A7263; margin: 4px 0 14px;">Wil je Remoria ontdekken voor je kantoor? Plan een vrijblijvende kennismaking van 20 minuten.</span>
+              <a href="{{ demoUrl }}" style="display: inline-flex; align-items: center; gap: 8px; background: #1C2A43; color: #fff; font-size: 13.5px; font-weight: 700; padding: 11px 22px; border-radius: 999px; text-decoration: none; white-space: nowrap;" style-hover="background: #2A3B5C; color: #fff;">Bekijk beschikbaarheid &rarr;</a>
+            </span>
+          </div>
+          <div style="border: 1px solid #E7DFC2; background: #F8F3E9; border-radius: 16px; padding: 18px 24px; display: flex; gap: 14px; align-items: center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#96742F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <span style="font-size: 13.5px; line-height: 1.6; color: #6B6353;">Snel antwoord nodig over prijzen of verlengen? Kijk eerst even bij de <a href="Prijzen.dc.html" style="font-weight: 700; color: #96742F;">veelgestelde vragen</a>.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulier -->
+      <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 20px; padding: 40px 40px 36px; box-shadow: 0 22px 44px -24px rgba(28,42,67,.25);" data-screen-label="Formulier">
+        <div style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: #1C2A43; margin-bottom: 4px;">Stuur ons een bericht</div>
+        <div style="font-size: 13.5px; color: #A79C87; margin-bottom: 26px;">We lezen elk bericht persoonlijk.</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <div>
+            <label for="c-naam" style="display: block; font-size: 13px; font-weight: 700; color: #4A4438; margin-bottom: 6px;">Naam</label>
+            <input id="c-naam" type="text" placeholder="Je volledige naam" style="width: 100%; box-sizing: border-box; border: 1px solid #E7DFD2; border-radius: 10px; background: #fff; padding: 12px 14px; font-size: 14px; color: #4A4438;">
+          </div>
+          <div>
+            <label for="c-email" style="display: block; font-size: 13px; font-weight: 700; color: #4A4438; margin-bottom: 6px;">E-mail</label>
+            <input id="c-email" type="email" placeholder="naam@email.be" style="width: 100%; box-sizing: border-box; border: 1px solid #E7DFD2; border-radius: 10px; background: #fff; padding: 12px 14px; font-size: 14px; color: #4A4438;">
+          </div>
+        </div>
+        <div style="margin-bottom: 16px;">
+          <label for="c-afdeling" style="display: block; font-size: 13px; font-weight: 700; color: #4A4438; margin-bottom: 6px;">Waarover gaat je vraag?</label>
+          <select id="c-afdeling" style="width: 100%; box-sizing: border-box; border: 1px solid #E7DFD2; border-radius: 10px; background: #fff; padding: 12px 14px; font-size: 14px; color: #4A4438; appearance: auto;">
+            <option>Algemene vraag</option>
+            <option>Partnerschap (uitvaartsector)</option>
+            <option>Support</option>
+          </select>
+        </div>
+        <div style="margin-bottom: 22px;">
+          <label for="c-bericht" style="display: block; font-size: 13px; font-weight: 700; color: #4A4438; margin-bottom: 6px;">Bericht</label>
+          <textarea id="c-bericht" rows="5" placeholder="Hoe kunnen we je helpen? Vertel gerust in je eigen woorden." style="width: 100%; box-sizing: border-box; border: 1px solid #E7DFD2; border-radius: 10px; background: #fff; padding: 12px 14px; font-size: 14px; line-height: 1.6; color: #4A4438; resize: vertical;"></textarea>
+        </div>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; align-items: center; gap: 10px; background: #EAF0E4; border: 1px solid #CBDABD; border-radius: 12px; padding: 14px 18px; margin-bottom: 18px; font-size: 14px; font-weight: 700; color: #5C7048;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"></path><circle cx="12" cy="12" r="10"></circle></svg>
+            Bedankt! Je bericht is verstuurd. We antwoorden zo snel mogelijk.
+          </div>
+        </sc-if>
+        <div style="display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
+          <button onClick="{{ send }}" style="border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; background: #D9B36A; color: #1C2A43; font-family: 'Nunito Sans', sans-serif; font-size: 15px; font-weight: 800; padding: 14px 30px; border-radius: 999px;" style-hover="background: #E3C285;">Verstuur bericht &rarr;</button>
+          <span style="display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; color: #A79C87;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Je gegevens gebruiken we alleen om je te antwoorden</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;demoUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://www.remoria.eu/plan-een-demo&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}}">
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    return {
+      sent: this.state.sent,
+      send: () => this.setState({ sent: true }),
+      demoUrl: this.props.demoUrl ?? "https://www.remoria.eu/plan-een-demo"
+    };
+  }
+}
+</script>
+</body>
+</html>
