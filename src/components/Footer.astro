@@ -58,13 +58,22 @@ const locale = getLocale(Astro.currentLocale);
         <p class="footer__newsletter-desc">
           {t(locale, 'footer.newsletterDesc')}
         </p>
-        <form class="footer__form" novalidate>
+        <form
+          class="footer__form"
+          id="footer-newsletter-form"
+          novalidate
+          data-msg-success={t(locale, 'footer.newsletterSuccess')}
+          data-msg-error={t(locale, 'footer.newsletterError')}
+          data-msg-invalid={t(locale, 'footer.newsletterInvalid')}
+        >
           <div class="footer__input-wrap">
             <input
               type="email"
+              name="email"
               class="footer__input"
               placeholder={t(locale, 'footer.emailPlaceholder')}
               aria-label={t(locale, 'footer.emailAria')}
+              autocomplete="email"
               required
             />
             <button type="submit" class="footer__submit" aria-label={t(locale, 'footer.subscribeAria')}>
@@ -73,6 +82,16 @@ const locale = getLocale(Astro.currentLocale);
               </svg>
             </button>
           </div>
+          <!-- Honeypot -->
+          <input
+            type="text"
+            name="website"
+            class="footer__honeypot"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
+          <p class="footer__newsletter-status" id="footer-newsletter-status" role="status" hidden></p>
         </form>
         <p class="footer__newsletter-note">
           {t(locale, 'footer.newsletterNoteBefore')}<a
@@ -252,6 +271,34 @@ const locale = getLocale(Astro.currentLocale);
     background: #b8913e;
   }
 
+  .footer__honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .footer__newsletter-status {
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .footer__newsletter-status[hidden] {
+    display: none;
+  }
+
+  .footer__newsletter-status--ok {
+    color: #9fd4a8;
+  }
+
+  .footer__newsletter-status--err {
+    color: #f0a8a8;
+  }
+
   .footer__newsletter-note {
     margin-top: 12px;
     font-family: 'Inter', sans-serif;
@@ -354,3 +401,57 @@ const locale = getLocale(Astro.currentLocale);
     }
   }
 </style>
+
+<script>
+  const form = document.getElementById('footer-newsletter-form');
+  const statusEl = document.getElementById('footer-newsletter-status');
+  if (form instanceof HTMLFormElement && statusEl) {
+    const msgSuccess = form.dataset.msgSuccess || '';
+    const msgError = form.dataset.msgError || '';
+    const msgInvalid = form.dataset.msgInvalid || '';
+    const emailInput = form.querySelector('input[name="email"]');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!(emailInput instanceof HTMLInputElement) || !(submitBtn instanceof HTMLButtonElement)) return;
+
+      const email = emailInput.value.trim();
+      statusEl.hidden = true;
+      statusEl.classList.remove('footer__newsletter-status--ok', 'footer__newsletter-status--err');
+
+      if (!email || !emailInput.checkValidity()) {
+        statusEl.textContent = msgInvalid;
+        statusEl.classList.add('footer__newsletter-status--err');
+        statusEl.hidden = false;
+        emailInput.focus();
+        return;
+      }
+
+      const honeypot = form.querySelector('input[name="website"]');
+      const website = honeypot instanceof HTMLInputElement ? honeypot.value : '';
+
+      submitBtn.disabled = true;
+      try {
+        const res = await fetch('/api/newsletter', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, website }),
+        });
+        const result = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(result.error || 'Request failed');
+
+        form.reset();
+        statusEl.textContent = msgSuccess;
+        statusEl.classList.add('footer__newsletter-status--ok');
+        statusEl.hidden = false;
+      } catch {
+        statusEl.textContent = msgError;
+        statusEl.classList.add('footer__newsletter-status--err');
+        statusEl.hidden = false;
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  }
+</script>

@@ -47,6 +47,9 @@ export const fr = {
     emailPlaceholder: 'Adresse e-mail',
     emailAria: 'Adresse e-mail pour la newsletter',
     subscribeAria: "S'abonner",
+    newsletterSuccess: 'Merci ! Vous êtes inscrit.',
+    newsletterError: "L'inscription a échoué. Réessayez plus tard.",
+    newsletterInvalid: 'Veuillez entrer une adresse e-mail valide.',
     newsletterNoteBefore:
       'Maximum un e-mail par mois. Désabonnement possible à tout moment — voir notre ',
     privacyLink: 'politique de confidentialité',
