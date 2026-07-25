@@ -556,7 +556,6 @@ export const fr = {
     },
     info: {
       emailLabel: 'E-mail',
-      emailSub: "Pour toutes les questions — grandes ou petites. Même le soir, c'est bienvenu.",
       meetingLabel: 'Planifier un entretien',
       meetingTitle: 'Pour les professionnels funéraires',
       meetingDesc:

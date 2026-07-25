@@ -800,7 +800,6 @@ export const en = {
     },
     info: {
       emailLabel: 'Email',
-      emailSub: 'For every question — big or small. Even in the evening is fine.',
       meetingLabel: 'Book a call',
       meetingTitle: 'For funeral professionals',
       meetingDesc:

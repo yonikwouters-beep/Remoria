@@ -800,7 +800,6 @@ export const nl = {
     },
     info: {
       emailLabel: 'E-mail',
-      emailSub: "Voor alle vragen — groot of klein. Ook 's avonds mag.",
       meetingLabel: 'Plan een gesprek',
       meetingTitle: 'Voor uitvaartprofessionals',
       meetingDesc:
