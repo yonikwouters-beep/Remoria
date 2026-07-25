@@ -215,191 +215,138 @@ export const fr = {
       ],
     },
     features: {
-      title: 'Tous les avantages de Remoria',
-      items: [
-        {
-          title: 'Partage & collecte',
-          desc: 'Crée facilement un espace mémorial, partage-le avec la famille, les amis et les connaissances, et rassemble les souvenirs.',
-        },
-        {
-          title: 'Community chat',
-          desc: 'Utilise le Community chat pour rester en contact, partager des histoires et trouver du réconfort mutuellement.',
-        },
-        {
-          title: 'Publier des hommages',
-          desc: 'Laisse un beau message, partage un souvenir et rends hommage à ton être cher.',
-        },
-        {
-          title: 'Créer un livre photo',
-          desc: 'Crée facilement un magnifique livre photo de tous les souvenirs rassemblés (option en supplément).',
-        },
-      ],
-    },
-    faqs: {
-      title: 'Questions fréquemment posées',
-      items: [
-        {
-          question: 'Que se passe-t-il lorsque le plan expire ?',
-          answer:
-            "Rien d'abrupt. L'espace mémorial est d'abord archivé : il n'est plus visible, mais toutes les photos et histoires restent conservées en sécurité pendant 6 mois. Durant cette période, tu peux tout télécharger ou renouveler le plan. Les souvenirs ne sont jamais simplement supprimés chez Remoria.",
-        },
-        {
-          question: 'La famille et les amis doivent-ils aussi payer ?',
-          answer:
-            "Non. Tu paies une seule fois pour l'espace mémorial ; toutes les personnes que tu invites peuvent partager des photos, écrire des histoires et lire entièrement gratuitement. Sans limite, sans frais de compte.",
-        },
-        {
-          question: 'Y a-t-il une différence de fonctionnalités entre les plans ?',
-          answer:
-            "Non — chaque plan inclut tout : la Médiathèque, le Community chat, les hommages et la possibilité de composer un livre photo. La seule différence est la durée pendant laquelle l'espace mémorial reste actif.",
-        },
-        {
-          question: 'Comment fonctionne la garantie 14 jours ?',
-          answer:
-            "Si tu n'es pas satisfait dans les 14 jours suivant la création de l'espace mémorial, tu es remboursé — sans tracas. Tes photos et histoires restent téléchargeables quelque temps après, afin que tu ne perdes jamais rien.",
-        },
-        {
-          question: 'Le livre photo est-il inclus dans le prix ?',
-          answer:
-            "La composition de ton livre photo est incluse dans chaque plan. L'exemplaire imprimé est commandé séparément, quand vous êtes prêts — tu vois le prix à l'avance, et tu décides toi-même si et quand.",
-        },
-        {
-          question: "Seul l'acheteur peut-il prolonger ?",
-          answer:
-            "Non, et c'est intentionnel : toute personne ayant accès peut contribuer à une prolongation. Ainsi, la pérennité de l'espace mémorial ne dépend pas d'une seule personne, mais est portée par toute la communauté.",
-        },
-        {
-          question: "S'agit-il d'un abonnement qui se renouvelle automatiquement ?",
-          answer:
-            "Non. Tu paies une seule fois pour la période choisie. Lorsqu'elle expire, vous décidez ensemble de renouveler ou non — rien n'est jamais prélevé automatiquement.",
-        },
-        {
-          question: "L'espace mémorial est-il privé ?",
-          answer:
-            'Entièrement. Seules les personnes que tu invites ont accès. Pas de publicités, pas de commerce de données, pas de moteurs de recherche.',
-        },
-      ],
-    },
-    referral: {
-      title: "Aide quelqu'un d'autre à chérir ses souvenirs",
-      subP1:
-        "Les photos racontent des histoires qui méritent d'être partagées. Connais-tu quelqu'un pour qui un espace comme Remoria pourrait apporter du réconfort ? Partage ton lien personnel.",
-      subP2: 'Partage ton lien et aide-les à maintenir vivant un souvenir précieux.',
-      cta: 'Partager le lien et aider un ami',
-      coinLabel: 'Reçois',
-      coinAmount: '€20',
-      coinSub: 'en remerciement',
-      imageAlt: "Partage d'un souvenir",
-    },
-  },
-
-  nabestaanden: {
-    meta: {
-      title: 'Remoria pour les proches — Un espace durable pour chaque moment précieux',
-      description:
-        "Remoria facilite le rassemblement de tous les souvenirs en un seul endroit sûr et serein. Crée dès aujourd'hui un espace mémorial numérique pour ton être cher.",
-    },
-    hero: {
-      eyebrow: 'Remoria pour les proches',
-      titleLine1: 'Un espace durable',
-      titleLine2: 'pour chaque moment',
-      titleLine3: 'précieux',
-      body: "Lorsque nous perdons quelqu'un, les souvenirs deviennent notre bien le plus précieux. Mais ces souvenirs sont souvent dispersés : dans de vieux albums photos, sur différents téléphones ou profondément dans notre mémoire. Remoria facilite le rassemblement de tout cela en un seul endroit sûr et serein.",
-      ctaPrimary: 'Créer un espace mémorial',
-      ctaSecondary: 'Voir un exemple',
-    },
-    how: {
-      eyebrow: 'Comment ça marche',
-      title: 'Comment créer\nun espace durable',
-      sub: "La création d'un espace mémorial numérique est simple.",
-      steps: [
-        {
-          title: 'Crée ton espace en un rien de temps',
-          text: "Lance facilement un espace mémorial personnel. En quelques minutes, tu disposes d'un environnement sûr où les souvenirs se rassemblent.",
-        },
-        {
-          title: 'Invite ton entourage',
-          text: "Partage le lien unique via les réseaux sociaux, ou utilise le QR code personnel. Tu peux également faire imprimer ce code sur le faire-part de deuil, afin que les amis et la famille aient immédiatement accès à l'espace.",
-        },
-        {
-          title: 'Partage, connecte et souviens-toi',
-          text: "Une fois que tes proches ont rejoint l'espace, chacun peut télécharger ses propres photos, vidéos ou enregistrements audio. Via le Community chat ou en publiant un hommage, des conversations s'engagent et des histoires émergent que tu n'avais peut-être jamais entendues.",
-        },
-      ],
-    },
-    features: {
       eyebrow: 'Tout ce que tu obtiens',
-      title: 'Un environnement complet pour des souvenirs durables',
-      sub: 'Remoria offre aux proches un espace sûr et personnel pour conserver, partager et chérir les souvenirs ensemble. Découvre tout ce qui est possible.',
-      cards: [
-        {
-          title: 'Médiathèque',
-          sub: 'Conserve et organise photos, vidéos et audio.',
-          headline: "Les photos que personne\nn'avait encore vues",
-          body: "Chaque personne que tu invites ajoute ses propres photos, vidéos et messages vocaux. En quelques jours naît une collection bien plus riche que ce qu'une seule personne aurait pu rassembler.",
-          points: ["Photos, vidéos et audio", "Classées automatiquement par date"],
+      title: 'Un seul endroit où tous les souvenirs se rejoignent',
+      sub: "Chacun de ceux qui l'aimaient apporte une pièce : des photos que tu n'avais jamais vues, des histoires que tu ne connaissais pas, des mots qui restent. Voilà ce qui se passe sur un espace du souvenir.",
+      demoLink: 'Voir un vrai espace d\u2019exemple',
+      media: {
+        chip: 'Photos, vidéos & audio',
+        headline: "Les photos que personne n'avait encore vues",
+        body: "Chacun conserve quelque part une boîte ou un téléphone plein de moments que le reste de la famille n'a jamais vus. Sur l'espace du souvenir, chacun ajoute ses propres photos, vidéos et enregistrements vocaux — et peu à peu se dessine le portrait d'une vie entière, racontée par tous ceux qui y étaient.",
+        points: [
+          'Tous ceux que tu invites peuvent contribuer',
+          'Vidéos et enregistrements vocaux aussi',
+          'Clairment organisés en albums',
+        ],
+        mock: {
+          url: 'app.remoria.eu',
+          title: 'Souvenirs partagés',
+          sub: 'Photos, vidéos et audio que vous partagez ensemble',
+          add: 'Ajouter un souvenir',
+          filterAll: 'Tous',
+          filterPhotos: 'Photos',
+          filterVideos: 'Vidéos',
+          filterAudio: 'Audio',
+          meta: '13 contributions · 6 personnes',
         },
-        {
-          title: 'Community chat',
-          sub: 'Partage des histoires et soutenez-vous dans un environnement chaleureux.',
-          headline: "Des histoires qui n'auraient\njamais été racontées",
-          body: "Un ancien collègue qui parle de l'atelier. Une voisine des roses près de la porte. Dans les conversations remontent des souvenirs que tu n'avais jamais entendus — et que tu peux désormais conserver pour toujours.",
-          points: ["Réagir aux souvenirs des autres", "Assez simple pour tous les âges"],
+      },
+      chat: {
+        chip: 'Community chat',
+        headline: "Des histoires qui n'auraient jamais été racontées",
+        body: "Dans le chat privé, famille, amis et anciens collègues font remonter les souvenirs ensemble. Le collègue de l'atelier, la voisine d'autrefois — chacun connaît un côté que tu ne connaissais pas. Et chaque histoire en appelle une autre.",
+        points: [
+          'Entièrement privé — seulement ceux que tu invites',
+          'Assez simple pour tous les âges',
+        ],
+        mock: {
+          title: 'Community Chat',
+          sub: '24 participants',
+          pinName: '📌 An Calleem',
+          pinText:
+            "Chère famille et chers amis, bienvenue sur la place de papa. Ajoutez librement vos photos et vos histoires. Chaque souvenir est le bienvenu. ♥",
+          typingInitials: 'DP',
+          placeholder: 'Écrire un message...',
+          messages: [
+            {
+              initials: 'WV',
+              name: 'Willy Vandenbroeck',
+              time: '12:31',
+              avatar: 'wv',
+              text: "J'ai enfin descendu cette vieille boîte du grenier. Il y a des photos de l'atelier que vous n'avez jamais vues. Je les ajoute.",
+            },
+            {
+              initials: 'AC',
+              name: 'An Calleem',
+              time: '16:31',
+              avatar: 'ac',
+              text: "Willy, cette photo de papa à l'établi... j'ai dû avaler ma salive. Comme il a l'air jeune. Merci.",
+            },
+          ],
         },
-        {
-          title: 'Hommages',
-          sub: 'Rends hommage et laisse des mots précieux.',
-          headline: "Des mots qui restent\nà leur place",
-          body: "À côté des photos, chacun laisse un hommage personnel. Ensemble, ils dressent le portrait de qui ton proche était vraiment — pour vous aujourd'hui, et pour celles et ceux qui voudront le lire dans vingt ans.",
-          points: ["Messages personnels", "Conservés pour les générations futures"],
+      },
+      tribute: {
+        chip: 'En souvenir',
+        headline: 'Des mots qui restent à leur place',
+        body: "Les cartes de condoléances disparaissent dans une boîte. Ici, les mots trouvent une place durable : des messages personnels de tous ceux qui ont dit adieu, à relire quand tu en as besoin — le mois prochain, ou dans dix ans.",
+        points: [
+          'Un registre de condoléances durable',
+          "Aussi pour ceux qui n'ont pas pu venir aux funérailles",
+        ],
+        mock: {
+          title: 'En souvenir',
+          sub: 'Souvenirs et messages en l\u2019honneur de Vincent Calleem',
+          cards: [
+            {
+              initials: 'RC',
+              name: 'Roger Calleem',
+              date: '22 juillet',
+              quote:
+                '"Des garnements à la ferme à deux vieux hommes au bar — tu étais toujours là, grand frère. Salut, Vince."',
+              likes: '7',
+            },
+            {
+              initials: 'DP',
+              name: 'Denise Peeters',
+              date: '19 juillet',
+              quote:
+                '"On n\u2019aurait pas pu rêver d\u2019un meilleur voisin. Toujours une main tendue et un mot par-dessus la haie. La rue est plus silencieuse sans vous, Vincent."',
+              likes: '12',
+            },
+          ],
         },
-      ],
+      },
       photobook: {
-        title: 'Rendre tangible',
-        sub: 'Transforme les souvenirs en un livre photo tangible.',
-        headline: "Et puis tu le tiens\nentre tes mains",
-        body: "Quand vous vous sentez prêts, tout ce que vous avez rassemblé devient un vrai livre photo. Tu choisis les plus beaux moments, nous nous occupons du reste.",
+        chip: 'Le livre photo',
+        headline: 'Et puis tu le tiens entre tes mains',
+        body: "Quand votre espace est rempli, vous rassemblez les plus belles photos et histoires en un livre photo imprimé. Un souvenir tangible qui vit sur la table basse plutôt que dans le cloud — pour vous, ou en cadeau à ceux que vous aimez.",
+        alt: 'Livre photo Remoria imprimé',
         steps: [
           {
-            title: 'Sélectionne des moments',
-            text: 'Choisis les plus belles photos et histoires de la collection.',
+            title: 'Sélectionne les moments',
+            text: 'qui racontent le mieux l\u2019histoire',
           },
           {
             title: 'Personnalise',
-            text: 'Ajoute des textes, des mises en page et des thèmes qui vous correspondent.',
+            text: 'la couverture, le titre et la mise en page',
           },
           {
-            title: 'Reçois un livre photo',
-            text: 'Un souvenir durable à tenir entre ses mains et à chérir.',
+            title: 'Reçois-le chez toi',
+            text: ', prêt à transmettre',
           },
         ],
       },
-      trustPrivacy: '100 % privé & sécurisé',
-      trustAccess: 'Seuls la famille et les invités ont accès',
-      reassure: {
-        title: "Avant de commencer, sache ceci",
-        items: [
-          {
-            title: "Entièrement privé",
-            text: "Seules les personnes que tu invites peuvent entrer. Introuvable via Google, sans publicité, sans commerce de données.",
-          },
-          {
-            title: "Gratuit pour toutes les personnes invitées",
-            text: "La famille et les amis partagent et consultent sans frais — quel que soit le nombre de personnes ajoutées.",
-          },
-          {
-            title: "Jamais effacé sans prévenir",
-            text: "À la fin d'un plan, l'espace est archivé et tout reste téléchargeable pendant 6 mois.",
-          },
+      pricing: {
+        eyebrow: 'Combien ça coûte ?',
+        title: "Des photos que tu n'aurais jamais vues. Pour 85 €.",
+        p1: "Un seul montant, pas d'abonnement qui continue en silence. Tu obtiens <strong>quatre mois complets</strong> — largement le temps d'inviter tout le monde et de rassembler toutes les photos et histoires, à votre rythme.",
+        p2: "Ensuite tu décides : prolonger si l'espace vit encore, ou conclure — par exemple avec un livre photo comme clôture tangible.",
+        price: '85 €',
+        priceMeta: 'paiement unique · 4 mois',
+        checks: [
+          'Espace du souvenir complet avec tout ce qui précède',
+          "Invite autant de famille et d'amis que tu veux",
+          'Prolonger est possible, mais jamais obligatoire',
+          'Pas satisfait sous 14 jours ? Remboursé',
         ],
+        cta: 'Créer un espace du souvenir →',
+      },
+      demoCta: {
+        title: "Tu préfères d'abord voir comment ça se sent ?",
+        sub: "Parcours librement un vrai espace d'exemple. Aucun compte requis, rien à installer.",
+        primary: "Voir l'espace d'exemple",
+        secondary: 'Créer un espace du souvenir →',
       },
     },
-    quoteLine1: "Partager ses souvenirs, c'est donner à l'amour",
-    quoteLine2: "un endroit où continuer d'exister.",
-    quoteEyebrow: "Pourquoi nous avons créé Remoria",
-    quoteSub: "La plupart des familles commencent dans la semaine des adieux, afin que les photos soient réunies avant la cérémonie. Mais quelques mois ou années plus tard, il n'est jamais trop tard non plus.",
-    quoteCta: "Créer un espace du souvenir",
-    quoteCtaNote: "À partir de 85 € — paiement unique, sans abonnement",
     cta: {
       titleLine1: 'Prêt à créer un espace',
       titleLine2: 'durable ?',

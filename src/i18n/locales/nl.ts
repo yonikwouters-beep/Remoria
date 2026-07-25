@@ -328,77 +328,137 @@ export const nl = {
     },
     features: {
       eyebrow: 'Alles wat je krijgt',
-      title: 'Een complete omgeving voor blijvende herinneringen',
-      sub: 'Remoria biedt nabestaanden een veilige en persoonlijke plek om herinneringen te bewaren, te delen en samen te koesteren. Ontdek wat er allemaal mogelijk is.',
-      cards: [
-        {
-          title: 'Mediacollectie',
-          sub: "Bewaar en organiseer foto's, video's en audio.",
-          headline: "De foto's die niemand nog\nvan elkaar had gezien",
-          body: "Iedereen die je uitnodigt voegt zijn eigen foto's, video's en spraakberichten toe. Zo ontstaat er in een paar dagen een collectie die veel rijker is dan wat één persoon ooit alleen had kunnen verzamelen.",
-          points: ["Foto's, video's én audio", 'Automatisch geordend op datum'],
+      title: 'Eén plek waar alle herinneringen samenkomen',
+      sub: "Iedereen die van hem of haar hield, draagt een stukje bij: foto's die je nog nooit zag, verhalen die je nog niet kende, woorden die blijven. Dit is wat er op een gedenkplek gebeurt.",
+      demoLink: 'Bekijk een echte voorbeeldplek',
+      media: {
+        chip: "Foto's, video's & audio",
+        headline: "De foto's die niemand nog van elkaar had gezien",
+        body: "Iedereen bewaart ergens een doos of een telefoon vol momenten die de rest van de familie nooit zag. Op de gedenkplek voegt ieder zijn eigen foto's, video's en spraakopnames toe — zo groeit er vanzelf een beeld van een heel leven, verteld door iedereen die erbij was.",
+        points: [
+          'Iedereen die je uitnodigt kan bijdragen',
+          "Ook video's en spraakopnames",
+          'Overzichtelijk geordend in albums',
+        ],
+        mock: {
+          url: 'app.remoria.eu',
+          title: 'Gedeelde Herinneringen',
+          sub: "Foto's, video's en audio die jullie samen delen",
+          add: 'Herinnering toevoegen',
+          filterAll: 'Alle',
+          filterPhotos: "Foto's",
+          filterVideos: "Video's",
+          filterAudio: 'Audio',
+          meta: '13 bijdragen · 6 mensen',
         },
-        {
-          title: 'Community chat',
-          sub: 'Deel verhalen en steun elkaar in een warme omgeving.',
-          headline: 'Verhalen die anders\nnooit verteld waren',
-          body: 'Een oud-collega die vertelt over de werkplaats. Een buurvrouw over de rozen naast de deur. In de gesprekken komen herinneringen boven die je nog nooit had gehoord — en die je nu voorgoed kunt bewaren.',
-          points: ['Reageren op elkaars herinneringen', 'Eenvoudig genoeg voor elke leeftijd'],
+      },
+      chat: {
+        chip: 'Community chat',
+        headline: 'Verhalen die anders nooit verteld waren',
+        body: 'In de besloten chat halen familie, vrienden en oud-collega\u2019s samen herinneringen op. De collega uit het atelier, de buurvrouw van vroeger — iedereen kent een kant die jij nog niet kende. En elk verhaal lokt het volgende uit.',
+        points: [
+          'Volledig besloten — alleen wie jij uitnodigt',
+          'Eenvoudig genoeg voor elke leeftijd',
+        ],
+        mock: {
+          title: 'Community Chat',
+          sub: '24 deelnemers',
+          pinName: '📌 An Calleem',
+          pinText:
+            "Lieve familie en vrienden, welkom op papa's plek. Voeg gerust jullie foto's en verhalen toe. Elke herinnering is welkom. ♥",
+          typingInitials: 'DP',
+          placeholder: 'Typ een bericht...',
+          messages: [
+            {
+              initials: 'WV',
+              name: 'Willy Vandenbroeck',
+              time: '12:31',
+              avatar: 'wv',
+              text: "Ben eindelijk die oude doos van zolder gaan halen. Er zitten foto's van de werkplaats tussen die jullie nog nooit zagen. Ik voeg ze toe.",
+            },
+            {
+              initials: 'AC',
+              name: 'An Calleem',
+              time: '16:31',
+              avatar: 'ac',
+              text: 'Willy, die foto van papa aan de schaafbank... daar moest ik even van slikken. Wat jong ziet hij er daar uit. Dankjewel.',
+            },
+          ],
         },
-        {
-          title: 'Eerbetonen',
-          sub: 'Breng een eerbetoon en laat bijzondere woorden achter.',
-          headline: 'Woorden die blijven\nstaan',
-          body: 'Naast de foto\u2019s laat iedereen een persoonlijk eerbetoon achter. Samen vormen ze een portret van wie je dierbare écht was — voor jullie nu, en voor wie er over twintig jaar over wil lezen.',
-          points: ['Persoonlijke boodschappen', 'Bewaard voor volgende generaties'],
+      },
+      tribute: {
+        chip: 'Ter Nagedachtenis',
+        headline: 'Woorden die blijven staan',
+        body: 'Condoleancekaartjes verdwijnen in een doos. Hier krijgen de woorden een blijvende plek: persoonlijke boodschappen van iedereen die afscheid nam, om te herlezen op de momenten dat je ze nodig hebt — volgende maand, of over tien jaar.',
+        points: [
+          'Een blijvend condoleanceregister',
+          'Ook voor wie niet op de uitvaart kon zijn',
+        ],
+        mock: {
+          title: 'Ter Nagedachtenis',
+          sub: 'Herinneringen en boodschappen ter ere van Vincent Calleem',
+          cards: [
+            {
+              initials: 'RC',
+              name: 'Roger Calleem',
+              date: '22 juli',
+              quote:
+                '"Van deugnieten op de boerderij tot twee oude mannen aan de toog — jij was er altijd, grote broer. Salut, Vince."',
+              likes: '7',
+            },
+            {
+              initials: 'DP',
+              name: 'Denise Peeters',
+              date: '19 juli',
+              quote:
+                '"Een betere buur konden we ons niet wensen. Altijd een helpende hand en een praatje over de haag. De straat is stiller zonder u, Vincent."',
+              likes: '12',
+            },
+          ],
         },
-      ],
+      },
       photobook: {
-        title: 'Tastbaar maken',
-        sub: 'Maak herinneringen tastbaar met een fotoboek.',
-        headline: 'En dan houd je het\nin je handen',
-        body: 'Wanneer jullie er klaar voor zijn, wordt alles wat jullie samen verzamelden een echt fotoboek. Jij kiest de mooiste momenten, wij zorgen voor de rest.',
+        chip: 'Het fotoboek',
+        headline: 'En dan houd je het vast, in je handen',
+        body: 'Wanneer jullie plek gevuld is, bundel je de mooiste foto\u2019s en verhalen tot een gedrukt fotoboek. Een tastbare herinnering die op de salontafel ligt in plaats van in de cloud — voor jezelf, of als geschenk aan wie je lief is.',
+        alt: 'Gedrukt Remoria-fotoboek',
         steps: [
           {
-            title: 'Selecteer momenten',
-            text: "Kies de mooiste foto's en verhalen uit de collectie.",
+            title: 'Selecteer de momenten',
+            text: 'die het verhaal het mooist vertellen',
           },
           {
             title: 'Personaliseer',
-            text: "Voeg teksten, lay-outs en thema's toe die bij jullie passen.",
+            text: 'de omslag, titel en indeling',
           },
           {
-            title: 'Ontvang een fotoboek',
-            text: 'Een blijvende herinnering om vast te houden en te koesteren.',
+            title: 'Ontvang het thuis',
+            text: ', klaar om door te geven',
           },
         ],
       },
-      trustPrivacy: '100% privé & veilig',
-      trustAccess: 'Alleen familie en genodigden hebben toegang',
-      reassure: {
-        title: 'Voor je begint, weet dit',
-        items: [
-          {
-            title: 'Volledig besloten',
-            text: 'Alleen mensen die jij uitnodigt komen binnen. Niet vindbaar via Google, geen advertenties, geen datahandel.',
-          },
-          {
-            title: 'Gratis voor iedereen die je uitnodigt',
-            text: 'Familie en vrienden delen en lezen mee zonder kosten — hoeveel mensen je ook toevoegt.',
-          },
-          {
-            title: 'Nooit zomaar weg',
-            text: 'Loopt een plan af, dan wordt de gedenkplek gearchiveerd en blijft alles 6 maanden bewaard om te downloaden.',
-          },
+      pricing: {
+        eyebrow: 'Wat kost het?',
+        title: "Foto's die je anders nooit had gezien. Voor €85.",
+        p1: 'Eén bedrag, geen abonnement dat stilletjes doorloopt. Je krijgt <strong>vier volle maanden</strong> — ruim de tijd om iedereen uit te nodigen en alle foto\u2019s en verhalen te verzamelen, in jullie eigen tempo.',
+        p2: 'Daarna beslis je zelf: verlengen als de plek nog leeft, of afronden — bijvoorbeeld met een fotoboek als tastbare afsluiting.',
+        price: '€85',
+        priceMeta: 'eenmalig · 4 maanden',
+        checks: [
+          'Volledige gedenkplek met alles hierboven',
+          'Nodig zoveel familie en vrienden uit als je wil',
+          'Verlengen kan, maar hoeft niet',
+          '14 dagen niet tevreden? Geld terug',
         ],
+        cta: 'Start een gedenkplek →',
+      },
+      demoCta: {
+        title: 'Liever eerst zien hoe het voelt?',
+        sub: 'Loop vrijblijvend rond op een echte voorbeeldplek. Geen account nodig, niets te installeren.',
+        primary: 'Bekijk de voorbeeldplek',
+        secondary: 'Start een gedenkplek →',
       },
     },
-    quoteLine1: 'Herinneringen delen is liefde',
-    quoteLine2: 'een plek geven om te blijven bestaan.',
-    quoteEyebrow: 'Waarom we dit bouwden',
-    quoteSub: 'De meeste families beginnen in de week van het afscheid, zodat de foto\u2019s al samenkomen vóór de dienst. Maar ook maanden of jaren later is het nooit te laat.',
-    quoteCta: 'Start een gedenkplek',
-    quoteCtaNote: 'Vanaf €85 — eenmalig, geen abonnement',
     cta: {
       titleLine1: 'Klaar om een blijvende',
       titleLine2: 'plek te creëren?',

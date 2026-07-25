@@ -328,77 +328,137 @@ export const en = {
     },
     features: {
       eyebrow: 'Everything you get',
-      title: 'A complete environment for lasting memories',
-      sub: 'Remoria gives the bereaved a safe and personal place to preserve, share and cherish memories together. Discover everything that is possible.',
-      cards: [
-        {
-          title: 'Media collection',
-          sub: 'Store and organise photos, videos and audio.',
-          headline: 'The photos no one had\nseen from each other',
-          body: 'Everyone you invite adds their own photos, videos and voice messages. Within days a collection takes shape that is far richer than anything one person could ever have gathered alone.',
-          points: ['Photos, videos and audio', 'Automatically sorted by date'],
+      title: 'One place where all the memories come together',
+      sub: 'Everyone who loved them contributes a piece: photos you had never seen, stories you had not heard, words that stay. This is what happens on a memorial.',
+      demoLink: 'View a real example memorial',
+      media: {
+        chip: 'Photos, videos & audio',
+        headline: 'The photos no one had seen from each other',
+        body: 'Everyone keeps a box or a phone full of moments the rest of the family never saw. On the memorial, each person adds their own photos, videos and voice recordings — and gradually a portrait of a whole life takes shape, told by everyone who was there.',
+        points: [
+          'Everyone you invite can contribute',
+          'Videos and voice recordings too',
+          'Clearly organised into albums',
+        ],
+        mock: {
+          url: 'app.remoria.eu',
+          title: 'Shared Memories',
+          sub: 'Photos, videos and audio you share together',
+          add: 'Add a memory',
+          filterAll: 'All',
+          filterPhotos: 'Photos',
+          filterVideos: 'Videos',
+          filterAudio: 'Audio',
+          meta: '13 contributions · 6 people',
         },
-        {
-          title: 'Community chat',
-          sub: 'Share stories and support one another in a warm environment.',
-          headline: 'Stories that would\nnever have been told',
-          body: 'A former colleague talking about the workshop. A neighbour about the roses by the door. In the conversations, memories surface that you had never heard before — and can now keep forever.',
-          points: ['Reply to each other\u2019s memories', 'Simple enough for every age'],
+      },
+      chat: {
+        chip: 'Community chat',
+        headline: 'Stories that would never have been told',
+        body: 'In the private chat, family, friends and former colleagues bring memories back together. The colleague from the workshop, the neighbour from years ago — everyone knows a side you had not heard. And every story draws out the next.',
+        points: [
+          'Fully private — only who you invite',
+          'Simple enough for every age',
+        ],
+        mock: {
+          title: 'Community Chat',
+          sub: '24 participants',
+          pinName: '📌 An Calleem',
+          pinText:
+            "Dear family and friends, welcome to dad's place. Feel free to add your photos and stories. Every memory is welcome. ♥",
+          typingInitials: 'DP',
+          placeholder: 'Type a message...',
+          messages: [
+            {
+              initials: 'WV',
+              name: 'Willy Vandenbroeck',
+              time: '12:31',
+              avatar: 'wv',
+              text: 'Finally brought that old box down from the attic. There are photos of the workshop in there that none of you have seen. I am adding them.',
+            },
+            {
+              initials: 'AC',
+              name: 'An Calleem',
+              time: '16:31',
+              avatar: 'ac',
+              text: 'Willy, that photo of dad at the workbench... I had to catch my breath. How young he looks there. Thank you.',
+            },
+          ],
         },
-        {
-          title: 'Tributes',
-          sub: 'Pay tribute and leave special words behind.',
-          headline: 'Words that stay\nwhere they belong',
-          body: 'Alongside the photos, everyone leaves a personal tribute. Together they form a portrait of who your loved one truly was — for you now, and for whoever wants to read it twenty years from now.',
-          points: ['Personal messages', 'Preserved for future generations'],
+      },
+      tribute: {
+        chip: 'In remembrance',
+        headline: 'Words that stay where they belong',
+        body: 'Sympathy cards disappear into a box. Here the words get a lasting place: personal messages from everyone who said goodbye, to reread when you need them — next month, or ten years from now.',
+        points: [
+          'A lasting book of condolences',
+          'Also for those who could not attend the funeral',
+        ],
+        mock: {
+          title: 'In Remembrance',
+          sub: 'Memories and messages in honour of Vincent Calleem',
+          cards: [
+            {
+              initials: 'RC',
+              name: 'Roger Calleem',
+              date: '22 July',
+              quote:
+                '"From rascals on the farm to two old men at the bar — you were always there, big brother. Farewell, Vince."',
+              likes: '7',
+            },
+            {
+              initials: 'DP',
+              name: 'Denise Peeters',
+              date: '19 July',
+              quote:
+                '"We could not have wished for a better neighbour. Always a helping hand and a chat over the hedge. The street is quieter without you, Vincent."',
+              likes: '12',
+            },
+          ],
         },
-      ],
+      },
       photobook: {
-        title: 'Make it tangible',
-        sub: 'Turn memories into a tangible photo book.',
-        headline: 'And then you hold it\nin your hands',
-        body: 'When you are ready, everything you gathered together becomes a real photo book. You choose the finest moments, we take care of the rest.',
+        chip: 'The photo book',
+        headline: 'And then you hold it in your hands',
+        body: 'When your space is filled, you gather the finest photos and stories into a printed photo book. A tangible keepsake that lives on the coffee table instead of in the cloud — for yourself, or as a gift to someone you love.',
+        alt: 'Printed Remoria photo book',
         steps: [
           {
-            title: 'Select moments',
-            text: 'Choose the most beautiful photos and stories from the collection.',
+            title: 'Select the moments',
+            text: 'that tell the story best',
           },
           {
             title: 'Personalise',
-            text: 'Add texts, layouts and themes that suit you.',
+            text: 'the cover, title and layout',
           },
           {
-            title: 'Receive a photo book',
-            text: 'A lasting keepsake to hold on to and cherish.',
+            title: 'Receive it at home',
+            text: ', ready to pass on',
           },
         ],
       },
-      trustPrivacy: '100% private & secure',
-      trustAccess: 'Only family and invited guests have access',
-      reassure: {
-        title: 'Before you begin, know this',
-        items: [
-          {
-            title: 'Completely private',
-            text: 'Only the people you invite can get in. Not findable through Google, no advertising, no data trading.',
-          },
-          {
-            title: 'Free for everyone you invite',
-            text: 'Family and friends share and read along at no cost — however many people you add.',
-          },
-          {
-            title: 'Never simply gone',
-            text: 'When a plan ends, the memorial is archived and everything stays available to download for 6 months.',
-          },
+      pricing: {
+        eyebrow: 'What does it cost?',
+        title: 'Photos you otherwise never would have seen. For €85.',
+        p1: 'One amount, no subscription that quietly continues. You get <strong>four full months</strong> — plenty of time to invite everyone and gather all the photos and stories, at your own pace.',
+        p2: 'After that you decide: renew if the place is still alive, or wrap up — for example with a photo book as a tangible close.',
+        price: '€85',
+        priceMeta: 'one-off · 4 months',
+        checks: [
+          'Full memorial with everything above',
+          'Invite as many family and friends as you want',
+          'Renewing is possible, but never required',
+          'Not satisfied within 14 days? Money back',
         ],
+        cta: 'Start a memorial →',
+      },
+      demoCta: {
+        title: 'Prefer to feel it first?',
+        sub: 'Browse a real example memorial at your leisure. No account needed, nothing to install.',
+        primary: 'View the example memorial',
+        secondary: 'Start a memorial →',
       },
     },
-    quoteLine1: 'Sharing memories is giving love',
-    quoteLine2: 'a place to keep on living.',
-    quoteEyebrow: 'Why we built this',
-    quoteSub: 'Most families start in the week of the farewell, so the photos come together before the service. But months or years later is never too late either.',
-    quoteCta: 'Start a memorial',
-    quoteCtaNote: 'From €85 — one-off, no subscription',
     cta: {
       titleLine1: 'Ready to create a lasting',
       titleLine2: 'place?',

@@ -1,0 +1,1079 @@
+---
+/**
+ * High-fidelity feature section from design_handoff_features/.
+ * Live UI mockups + prijsblok + demo-CTA. Hero remains outside this component.
+ */
+import { getLocale, t, tp, localizePath } from '../i18n/utils';
+
+const locale = getLocale(Astro.currentLocale);
+const startUrl = localizePath(locale, '/prijzen');
+const demoUrl = 'https://remoria.eu/demo';
+
+type CheckItem = string;
+type PhotobookStep = { title: string; text: string };
+type TributeCard = { initials: string; name: string; date: string; quote: string; likes: string };
+type ChatMessage = { initials: string; name: string; time: string; text: string; avatar: string };
+
+const mediaPoints = tp<CheckItem[]>(locale, 'nabestaanden.features.media.points');
+const chatPoints = tp<CheckItem[]>(locale, 'nabestaanden.features.chat.points');
+const tributePoints = tp<CheckItem[]>(locale, 'nabestaanden.features.tribute.points');
+const photobookSteps = tp<PhotobookStep[]>(locale, 'nabestaanden.features.photobook.steps');
+const pricingChecks = tp<CheckItem[]>(locale, 'nabestaanden.features.pricing.checks');
+const tributeCards = tp<TributeCard[]>(locale, 'nabestaanden.features.tribute.mock.cards');
+const chatMessages = tp<ChatMessage[]>(locale, 'nabestaanden.features.chat.mock.messages');
+
+const galleryPhotos = [
+  '/features/photo-01.png',
+  '/features/photo-02.png',
+  '/features/photo-03.png',
+  '/features/photo-04.png',
+  '/features/photo-05.png',
+  '/features/photo-06.png',
+  '/features/photo-08.png',
+];
+---
+
+<section class="nf" id="alles-wat-je-krijgt" aria-labelledby="nf-heading">
+  <div class="nf__inner">
+
+    <!-- Sectiekop -->
+    <header class="nf__header" data-reveal>
+      <p class="nf__eyebrow">{t(locale, 'nabestaanden.features.eyebrow')}</p>
+      <h2 class="nf__title" id="nf-heading">{t(locale, 'nabestaanden.features.title')}</h2>
+      <p class="nf__intro">{t(locale, 'nabestaanden.features.sub')}</p>
+      <a href={demoUrl} class="nf__demo-link" target="_blank" rel="noopener noreferrer">
+        {t(locale, 'nabestaanden.features.demoLink')}
+        <span aria-hidden="true">→</span>
+      </a>
+    </header>
+
+    <!-- Feature 1: Media -->
+    <article class="nf-row nf-row--media" data-reveal>
+      <div class="nf-row__copy">
+        <p class="nf-chip nf-chip--gold">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          {t(locale, 'nabestaanden.features.media.chip')}
+        </p>
+        <h3 class="nf-row__title">{t(locale, 'nabestaanden.features.media.headline')}</h3>
+        <p class="nf-row__text">{t(locale, 'nabestaanden.features.media.body')}</p>
+        <ul class="nf-checks">
+          {mediaPoints.map((point) => (
+            <li class="nf-check">
+              <span class="nf-check__mark" aria-hidden="true">✓</span>
+              {point}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="nf-stage nf-stage--beige" aria-hidden="true">
+        <div class="nf-mock">
+          <div class="nf-mock__chrome">
+            <span class="nf-mock__dot"></span>
+            <span class="nf-mock__dot"></span>
+            <span class="nf-mock__dot"></span>
+            <span class="nf-mock__url">{t(locale, 'nabestaanden.features.media.mock.url')}</span>
+          </div>
+          <div class="nf-mock__body">
+            <div class="nf-gallery__head">
+              <div>
+                <p class="nf-gallery__title">{t(locale, 'nabestaanden.features.media.mock.title')}</p>
+                <p class="nf-gallery__sub">{t(locale, 'nabestaanden.features.media.mock.sub')}</p>
+              </div>
+              <span class="nf-gallery__add">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+                {t(locale, 'nabestaanden.features.media.mock.add')}
+              </span>
+            </div>
+            <div class="nf-gallery__filters">
+              <span class="nf-filter nf-filter--active">{t(locale, 'nabestaanden.features.media.mock.filterAll')}</span>
+              <span class="nf-filter">{t(locale, 'nabestaanden.features.media.mock.filterPhotos')}</span>
+              <span class="nf-filter">{t(locale, 'nabestaanden.features.media.mock.filterVideos')}</span>
+              <span class="nf-filter">{t(locale, 'nabestaanden.features.media.mock.filterAudio')}</span>
+              <span class="nf-gallery__meta">{t(locale, 'nabestaanden.features.media.mock.meta')}</span>
+            </div>
+            <div class="nf-gallery__grid">
+              {galleryPhotos.map((src) => (
+                <img src={src} alt="" loading="lazy" decoding="async" />
+              ))}
+              <div class="nf-gallery__more">
+                <img src="/features/photo-09.png" alt="" loading="lazy" decoding="async" />
+                <span>+5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Feature 2: Community chat -->
+    <article class="nf-row nf-row--chat" data-reveal>
+      <div class="nf-stage nf-stage--sage" aria-hidden="true">
+        <div class="nf-mock">
+          <div class="nf-chat__head">
+            <span class="nf-chat__avatar">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <div>
+              <p class="nf-chat__title">{t(locale, 'nabestaanden.features.chat.mock.title')}</p>
+              <p class="nf-chat__sub">{t(locale, 'nabestaanden.features.chat.mock.sub')}</p>
+            </div>
+          </div>
+          <div class="nf-chat__pin">
+            <strong>{t(locale, 'nabestaanden.features.chat.mock.pinName')}</strong>
+            {' — '}
+            {t(locale, 'nabestaanden.features.chat.mock.pinText')}
+          </div>
+          <div class="nf-chat__msgs">
+            {chatMessages.map((msg) => (
+              <div class="nf-chat__msg">
+                <span class={`nf-chat__ini nf-chat__ini--${msg.avatar}`}>{msg.initials}</span>
+                <div>
+                  <p class="nf-chat__name">
+                    {msg.name} <span>{msg.time}</span>
+                  </p>
+                  <p class="nf-chat__bubble">{msg.text}</p>
+                </div>
+              </div>
+            ))}
+            <div class="nf-chat__msg">
+              <span class="nf-chat__ini nf-chat__ini--dp">{t(locale, 'nabestaanden.features.chat.mock.typingInitials')}</span>
+              <div class="nf-chat__typing" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+          <div class="nf-chat__input">
+            <div class="nf-chat__field">{t(locale, 'nabestaanden.features.chat.mock.placeholder')}</div>
+            <span class="nf-chat__send">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="nf-row__copy">
+        <p class="nf-chip nf-chip--sage">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          {t(locale, 'nabestaanden.features.chat.chip')}
+        </p>
+        <h3 class="nf-row__title">{t(locale, 'nabestaanden.features.chat.headline')}</h3>
+        <p class="nf-row__text">{t(locale, 'nabestaanden.features.chat.body')}</p>
+        <ul class="nf-checks">
+          {chatPoints.map((point) => (
+            <li class="nf-check">
+              <span class="nf-check__mark" aria-hidden="true">✓</span>
+              {point}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
+
+    <!-- Feature 3: Ter Nagedachtenis -->
+    <article class="nf-row nf-row--tribute" data-reveal>
+      <div class="nf-row__copy">
+        <p class="nf-chip nf-chip--rose">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          {t(locale, 'nabestaanden.features.tribute.chip')}
+        </p>
+        <h3 class="nf-row__title">{t(locale, 'nabestaanden.features.tribute.headline')}</h3>
+        <p class="nf-row__text">{t(locale, 'nabestaanden.features.tribute.body')}</p>
+        <ul class="nf-checks">
+          {tributePoints.map((point) => (
+            <li class="nf-check">
+              <span class="nf-check__mark" aria-hidden="true">✓</span>
+              {point}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="nf-stage nf-stage--rose" aria-hidden="true">
+        <div class="nf-mock nf-mock--pad">
+          <div class="nf-tribute__head">
+            <span class="nf-tribute__heart">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </span>
+            <p class="nf-tribute__title">{t(locale, 'nabestaanden.features.tribute.mock.title')}</p>
+            <p class="nf-tribute__sub">{t(locale, 'nabestaanden.features.tribute.mock.sub')}</p>
+          </div>
+          <div class="nf-tribute__cards">
+            {tributeCards.map((card) => (
+              <div class="nf-tribute__card">
+                <div class="nf-tribute__meta">
+                  <span class="nf-tribute__ini">{card.initials}</span>
+                  <span class="nf-tribute__name">{card.name}</span>
+                  <span class="nf-tribute__date">{card.date}</span>
+                </div>
+                <p class="nf-tribute__quote">{card.quote}</p>
+                <span class="nf-tribute__likes">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                  {card.likes}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Feature 4: Fotoboek -->
+    <article class="nf-row nf-row--book" id="fotoboek" data-reveal>
+      <div class="nf-book">
+        <img
+          src="/features/fotoboek.png"
+          alt={t(locale, 'nabestaanden.features.photobook.alt')}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="nf-row__copy">
+        <p class="nf-chip nf-chip--gold">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+          {t(locale, 'nabestaanden.features.photobook.chip')}
+        </p>
+        <h3 class="nf-row__title">{t(locale, 'nabestaanden.features.photobook.headline')}</h3>
+        <p class="nf-row__text">{t(locale, 'nabestaanden.features.photobook.body')}</p>
+        <ol class="nf-steps">
+          {photobookSteps.map((step, i) => (
+            <li class="nf-step">
+              <span class="nf-step__num" aria-hidden="true">{i + 1}</span>
+              <p>
+                <strong>{step.title}</strong>
+                {' '}
+                {step.text}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </article>
+
+    <!-- Prijsblok -->
+    <div class="nf-price" data-reveal>
+      <div class="nf-price__copy">
+        <p class="nf__eyebrow">{t(locale, 'nabestaanden.features.pricing.eyebrow')}</p>
+        <h3 class="nf-price__title">{t(locale, 'nabestaanden.features.pricing.title')}</h3>
+        <p class="nf-price__text" set:html={t(locale, 'nabestaanden.features.pricing.p1')} />
+        <p class="nf-price__text">{t(locale, 'nabestaanden.features.pricing.p2')}</p>
+      </div>
+      <div class="nf-price__card">
+        <div class="nf-price__amount">
+          <span class="nf-price__euro">{t(locale, 'nabestaanden.features.pricing.price')}</span>
+          <span class="nf-price__meta">{t(locale, 'nabestaanden.features.pricing.priceMeta')}</span>
+        </div>
+        <div class="nf-price__divider" aria-hidden="true"></div>
+        <ul class="nf-price__checks">
+          {pricingChecks.map((check) => (
+            <li>
+              <span aria-hidden="true">✓</span>
+              {check}
+            </li>
+          ))}
+        </ul>
+        <a href={startUrl} class="nf-btn nf-btn--gold">
+          {t(locale, 'nabestaanden.features.pricing.cta')}
+        </a>
+      </div>
+    </div>
+
+    <!-- Demo CTA -->
+    <div class="nf-cta" data-reveal>
+      <h3 class="nf-cta__title">{t(locale, 'nabestaanden.features.demoCta.title')}</h3>
+      <p class="nf-cta__sub">{t(locale, 'nabestaanden.features.demoCta.sub')}</p>
+      <div class="nf-cta__actions">
+        <a href={demoUrl} class="nf-btn nf-btn--navy" target="_blank" rel="noopener noreferrer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          {t(locale, 'nabestaanden.features.demoCta.primary')}
+        </a>
+        <a href={startUrl} class="nf-btn nf-btn--outline">
+          {t(locale, 'nabestaanden.features.demoCta.secondary')}
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .nf {
+    --nf-bg: #F6F1E8;
+    --nf-ink: #1C2A43;
+    --nf-body: #4A4438;
+    --nf-muted: #7A7263;
+    --nf-meta: #A79C87;
+    --nf-meta-soft: #B4A98F;
+    --nf-gold: #B8934A;
+    --nf-gold-btn: #D9B36A;
+    --nf-gold-chip: #F3E7CF;
+    --nf-gold-chip-text: #96742F;
+    --nf-card: #FDFBF7;
+    --nf-border: #E7DFD2;
+    --nf-line: #EFE8DB;
+    --nf-beige: #EFE6D5;
+    --nf-sage: #E5EADF;
+    --nf-sage-chip: #DDE5D4;
+    --nf-sage-text: #5C7048;
+    --nf-rose: #F0E4DF;
+    --nf-rose-chip: #F0DFDA;
+    --nf-rose-text: #96605C;
+    --nf-shadow: 0 18px 40px -18px rgba(28, 42, 67, 0.25);
+
+    font-family: 'Nunito Sans', 'Inter', system-ui, sans-serif;
+    background: var(--nf-bg);
+    color: var(--nf-body);
+    padding: 88px 24px 96px;
+  }
+
+  .nf__inner {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .nf__header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 24px;
+  }
+
+  .nf__eyebrow {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    color: var(--nf-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .nf__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.9rem, 3.6vw, 2.75rem);
+    line-height: 1.15;
+    color: var(--nf-ink);
+    margin: 0 0 18px;
+    text-wrap: pretty;
+  }
+
+  .nf__intro {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--nf-muted);
+    margin: 0;
+  }
+
+  .nf__demo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--nf-gold);
+    text-decoration: none;
+    border-bottom: 1px solid #D8BE8A;
+    padding-bottom: 2px;
+  }
+  .nf__demo-link:hover {
+    color: #96742F;
+  }
+
+  /* ── Rows ── */
+  .nf-row {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: 64px;
+    align-items: center;
+    margin-top: 88px;
+  }
+  .nf-row--media {
+    margin-top: 72px;
+  }
+  .nf-row--chat,
+  .nf-row--book {
+    grid-template-columns: 6fr 5fr;
+  }
+
+  .nf-row__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.45rem, 2.4vw, 1.875rem);
+    line-height: 1.2;
+    color: var(--nf-ink);
+    margin: 0 0 16px;
+    text-wrap: pretty;
+  }
+
+  .nf-row__text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--nf-muted);
+    margin: 0 0 22px;
+  }
+
+  .nf-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    padding: 7px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .nf-chip--gold {
+    background: var(--nf-gold-chip);
+    color: var(--nf-gold-chip-text);
+  }
+  .nf-chip--sage {
+    background: var(--nf-sage-chip);
+    color: var(--nf-sage-text);
+  }
+  .nf-chip--rose {
+    background: var(--nf-rose-chip);
+    color: var(--nf-rose-text);
+  }
+
+  .nf-checks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nf-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--nf-body);
+  }
+
+  .nf-check__mark {
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--nf-gold);
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+
+  /* ── Stage / mock ── */
+  .nf-stage {
+    border-radius: 20px;
+    padding: 28px;
+  }
+  .nf-stage--beige { background: var(--nf-beige); }
+  .nf-stage--sage { background: var(--nf-sage); }
+  .nf-stage--rose { background: var(--nf-rose); }
+
+  .nf-mock {
+    background: var(--nf-card);
+    border: 1px solid var(--nf-border);
+    border-radius: 14px;
+    box-shadow: var(--nf-shadow);
+    overflow: hidden;
+  }
+  .nf-mock--pad {
+    padding: 22px 22px 20px;
+  }
+
+  .nf-mock__chrome {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--nf-line);
+  }
+  .nf-mock__dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #E4D9C4;
+  }
+  .nf-mock__url {
+    margin-left: 10px;
+    background: #F3EEE3;
+    border-radius: 999px;
+    font-size: 10.5px;
+    color: var(--nf-meta);
+    padding: 3px 12px;
+  }
+  .nf-mock__body {
+    padding: 18px 20px 20px;
+  }
+
+  /* Gallery */
+  .nf-gallery__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .nf-gallery__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--nf-ink);
+    margin: 0;
+  }
+  .nf-gallery__sub {
+    font-size: 11.5px;
+    color: var(--nf-meta);
+    margin: 3px 0 0;
+  }
+  .nf-gallery__add {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--nf-gold-btn);
+    color: #3D2F14;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 13px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+  .nf-gallery__filters {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .nf-filter {
+    background: #F3EEE3;
+    color: #8A7F6B;
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 4px 11px;
+    border-radius: 6px;
+  }
+  .nf-filter--active {
+    background: #C9A86B;
+    color: #fff;
+    font-weight: 700;
+  }
+  .nf-gallery__meta {
+    margin-left: auto;
+    font-size: 10.5px;
+    color: var(--nf-meta);
+  }
+  .nf-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+    margin-top: 13px;
+  }
+  .nf-gallery__grid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 7px;
+    display: block;
+  }
+  .nf-gallery__more {
+    position: relative;
+    border-radius: 7px;
+    overflow: hidden;
+  }
+  .nf-gallery__more img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.55);
+  }
+  .nf-gallery__more span {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  /* Chat */
+  .nf-chat__head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--nf-line);
+  }
+  .nf-chat__avatar {
+    display: inline-flex;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #C9A86B;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+  }
+  .nf-chat__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--nf-ink);
+    margin: 0;
+  }
+  .nf-chat__sub {
+    font-size: 11px;
+    color: var(--nf-meta);
+    margin: 0;
+  }
+  .nf-chat__pin {
+    background: #F8F3E9;
+    padding: 10px 18px;
+    font-size: 11.5px;
+    line-height: 1.55;
+    color: #8A7F6B;
+    border-bottom: 1px solid var(--nf-line);
+  }
+  .nf-chat__pin strong {
+    color: var(--nf-gold-chip-text);
+  }
+  .nf-chat__msgs {
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .nf-chat__msg {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .nf-chat__ini {
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 800;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .nf-chat__ini--wv { background: #E3D5EE; color: #7A5C96; }
+  .nf-chat__ini--ac { background: #D5E3EE; color: #4A6E8C; }
+  .nf-chat__ini--dp { background: #EED9D5; color: #96605C; }
+  .nf-chat__name {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--nf-body);
+    margin: 0;
+  }
+  .nf-chat__name span {
+    font-weight: 400;
+    color: var(--nf-meta-soft);
+  }
+  .nf-chat__bubble {
+    background: #F3EEE3;
+    border-radius: 4px 14px 14px 14px;
+    padding: 9px 13px;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--nf-body);
+    margin: 4px 0 0;
+  }
+  .nf-chat__typing {
+    background: #F3EEE3;
+    border-radius: 4px 14px 14px 14px;
+    padding: 11px 14px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+  .nf-chat__typing span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--nf-meta);
+    animation: nf-typing 1.2s infinite;
+  }
+  .nf-chat__typing span:nth-child(2) { animation-delay: 0.2s; }
+  .nf-chat__typing span:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes nf-typing {
+    0%, 60%, 100% { opacity: 0.25; transform: translateY(0); }
+    30% { opacity: 1; transform: translateY(-3px); }
+  }
+
+  .nf-chat__input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px 16px;
+  }
+  .nf-chat__field {
+    flex: 1;
+    border: 1px solid var(--nf-border);
+    border-radius: 999px;
+    padding: 9px 16px;
+    font-size: 12.5px;
+    color: var(--nf-meta-soft);
+  }
+  .nf-chat__send {
+    display: inline-flex;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #C9A86B;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Tribute */
+  .nf-tribute__head {
+    text-align: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--nf-line);
+  }
+  .nf-tribute__heart {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #EADFC9;
+    color: #C9A86B;
+    align-items: center;
+    justify-content: center;
+    animation: nf-pulse 3s ease-in-out infinite;
+  }
+  @keyframes nf-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+  .nf-tribute__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--nf-ink);
+    margin: 8px 0 0;
+  }
+  .nf-tribute__sub {
+    font-size: 11.5px;
+    color: var(--nf-meta);
+    margin: 3px 0 0;
+  }
+  .nf-tribute__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .nf-tribute__card {
+    border: 1px solid var(--nf-line);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .nf-tribute__meta {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .nf-tribute__ini {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #F3EEE3;
+    color: #8A7F6B;
+    font-size: 10.5px;
+    font-weight: 800;
+    align-items: center;
+    justify-content: center;
+  }
+  .nf-tribute__name {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--nf-body);
+  }
+  .nf-tribute__date {
+    margin-left: auto;
+    font-size: 10.5px;
+    color: var(--nf-meta-soft);
+  }
+  .nf-tribute__quote {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: #6B6353;
+    font-style: italic;
+    margin: 8px 0 0;
+  }
+  .nf-tribute__likes {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #C9A86B;
+    font-weight: 700;
+  }
+
+  /* Photobook */
+  .nf-book {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px -18px rgba(28, 42, 67, 0.3);
+  }
+  .nf-book img {
+    width: 100%;
+    aspect-ratio: 736 / 620;
+    object-fit: cover;
+    object-position: 50% 42%;
+    display: block;
+  }
+  .nf-steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+  }
+  .nf-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--nf-body);
+  }
+  .nf-step__num {
+    display: inline-flex;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--nf-ink);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .nf-step strong {
+    font-weight: 700;
+  }
+
+  /* Price */
+  .nf-price {
+    margin-top: 96px;
+    background: var(--nf-card);
+    border: 1px solid var(--nf-border);
+    border-radius: 24px;
+    padding: clamp(32px, 5vw, 56px) clamp(24px, 4.5vw, 60px);
+    display: grid;
+    grid-template-columns: 6fr 5fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .nf-price__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.5rem, 2.6vw, 2.125rem);
+    line-height: 1.2;
+    color: var(--nf-ink);
+    margin: 0 0 18px;
+    text-wrap: pretty;
+  }
+  .nf-price__text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--nf-muted);
+    margin: 0 0 14px;
+  }
+  .nf-price__text:last-child {
+    margin-bottom: 0;
+  }
+  .nf-price__text :global(strong) {
+    color: var(--nf-body);
+    font-weight: 700;
+  }
+  .nf-price__card {
+    background: var(--nf-ink);
+    border-radius: 18px;
+    padding: 36px 36px 32px;
+    color: #EDE6D8;
+  }
+  .nf-price__amount {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .nf-price__euro {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.4rem, 4vw, 3.25rem);
+    font-weight: 600;
+    color: #fff;
+  }
+  .nf-price__meta {
+    font-size: 14px;
+    color: #B9AE97;
+  }
+  .nf-price__divider {
+    height: 1px;
+    background: rgba(237, 230, 216, 0.18);
+    margin: 22px 0;
+  }
+  .nf-price__checks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+  }
+  .nf-price__checks li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+  }
+  .nf-price__checks span {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--nf-gold-btn);
+    color: var(--nf-ink);
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  /* Buttons */
+  .nf-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Nunito Sans', 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+  .nf-btn--gold {
+    display: block;
+    text-align: center;
+    background: var(--nf-gold-btn);
+    color: var(--nf-ink);
+    font-weight: 800;
+    padding: 14px 20px;
+    margin-top: 26px;
+  }
+  .nf-btn--gold:hover {
+    background: #E3C285;
+  }
+  .nf-btn--navy {
+    background: var(--nf-ink);
+    color: #fff;
+  }
+  .nf-btn--navy:hover {
+    background: #2A3B5C;
+  }
+  .nf-btn--outline {
+    background: transparent;
+    color: var(--nf-ink);
+    border: 1.5px solid #C6BBA4;
+  }
+  .nf-btn--outline:hover {
+    border-color: var(--nf-ink);
+  }
+
+  /* Demo CTA */
+  .nf-cta {
+    text-align: center;
+    margin-top: 72px;
+  }
+  .nf-cta__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.45rem, 2.4vw, 1.875rem);
+    color: var(--nf-ink);
+    margin: 0 0 12px;
+  }
+  .nf-cta__sub {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--nf-muted);
+    max-width: 520px;
+    margin: 0 auto 26px;
+  }
+  .nf-cta__actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 900px) {
+    .nf {
+      padding: 64px 20px 72px;
+    }
+    .nf-row,
+    .nf-row--chat,
+    .nf-row--book,
+    .nf-price {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .nf-row--chat .nf-stage {
+      order: 2;
+    }
+    .nf-row--book .nf-book {
+      order: 2;
+    }
+    .nf-row {
+      margin-top: 56px;
+    }
+    .nf-row--media {
+      margin-top: 48px;
+    }
+    .nf-price {
+      margin-top: 64px;
+    }
+    .nf-stage {
+      padding: 18px;
+    }
+    .nf-gallery__add {
+      display: none;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .nf-gallery__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .nf-gallery__grid > :nth-child(7),
+    .nf-gallery__grid > :nth-child(8) {
+      display: none;
+    }
+    .nf-price__card {
+      padding: 28px 24px 24px;
+    }
+  }
+</style>
