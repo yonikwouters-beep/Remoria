@@ -200,9 +200,9 @@ export const en = {
       stat1Num: '23',
       stat1Label: 'Memorials',
       stat1LabelFull: 'Active memorials',
-      stat2Num: '1,248',
+      stat2Num: '812',
       stat2Label: 'Community members',
-      stat3Num: '342',
+      stat3Num: '946',
       stat3Label: 'Memories',
       stat3LabelFull: 'Shared memories',
       rowsCompact: [
@@ -812,6 +812,9 @@ export const en = {
       berichtLabel: 'Message',
       berichtPlaceholder: 'How can we help you?',
       submit: 'Send message',
+      sending: 'Sending…',
+      success: 'Thank you! Your message has been sent. We will reply as soon as possible.',
+      error: 'Something went wrong. Please try again or email hello@remoria.eu.',
     },
   },
 } as const;

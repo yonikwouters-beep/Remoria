@@ -202,9 +202,9 @@ export const fr = {
       stat1Num: '23',
       stat1Label: 'Espaces mémoriaux',
       stat1LabelFull: 'Espaces mémoriaux actifs',
-      stat2Num: '1 248',
+      stat2Num: '812',
       stat2Label: 'Membres de la communauté',
-      stat3Num: '342',
+      stat3Num: '946',
       stat3Label: 'Souvenirs',
       stat3LabelFull: 'Souvenirs partagés',
       rowsCompact: [
@@ -568,6 +568,9 @@ export const fr = {
       berichtLabel: 'Message',
       berichtPlaceholder: "Comment pouvons-nous t'aider ?",
       submit: 'Envoyer le message',
+      sending: 'Envoi en cours…',
+      success: 'Merci ! Ton message a été envoyé. Nous répondrons dès que possible.',
+      error: 'Une erreur est survenue. Réessaie ou écris à hello@remoria.eu.',
     },
   },
 } as const;

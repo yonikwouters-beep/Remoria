@@ -200,9 +200,9 @@ export const nl = {
       stat1Num: '23',
       stat1Label: 'Gedenkplekken',
       stat1LabelFull: 'Actieve gedenkplekken',
-      stat2Num: '1.248',
+      stat2Num: '812',
       stat2Label: 'Communityleden',
-      stat3Num: '342',
+      stat3Num: '946',
       stat3Label: 'Herinneringen',
       stat3LabelFull: 'Gedeelde Herinneringen',
       rowsCompact: [
@@ -812,6 +812,9 @@ export const nl = {
       berichtLabel: 'Bericht',
       berichtPlaceholder: 'Hoe kunnen we je helpen?',
       submit: 'Verstuur bericht',
+      sending: 'Bezig met versturen…',
+      success: 'Bedankt! Je bericht is verstuurd. We antwoorden zo snel mogelijk.',
+      error: 'Er ging iets mis. Probeer het opnieuw of mail naar hello@remoria.eu.',
     },
   },
 } as const;

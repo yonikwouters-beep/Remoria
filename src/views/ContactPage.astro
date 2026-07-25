@@ -87,8 +87,25 @@ const afdelingOptions = tp<string[]>(locale, 'contact.form.afdelingOptions');
       </aside>
 
       <!-- RIGHT: FORM -->
-      <div class="contact-form-wrap" data-reveal data-reveal-delay="80">
-        <form class="contact-form" novalidate>
+      <div
+        class="contact-form-wrap"
+        data-reveal
+        data-reveal-delay="80"
+        data-msg-sending={t(locale, 'contact.form.sending')}
+        data-msg-success={t(locale, 'contact.form.success')}
+        data-msg-error={t(locale, 'contact.form.error')}
+      >
+        <form class="contact-form" id="contact-form" novalidate>
+
+          <!-- Honeypot: leave empty -->
+          <input
+            type="text"
+            name="website"
+            class="form-honeypot"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
 
           <div class="form-row form-row--2">
             <div class="form-field">
@@ -101,6 +118,7 @@ const afdelingOptions = tp<string[]>(locale, 'contact.form.afdelingOptions');
                 placeholder={t(locale, 'contact.form.naamPlaceholder')}
                 autocomplete="name"
                 required
+                maxlength="200"
               />
             </div>
             <div class="form-field">
@@ -113,6 +131,7 @@ const afdelingOptions = tp<string[]>(locale, 'contact.form.afdelingOptions');
                 placeholder={t(locale, 'contact.form.emailPlaceholder')}
                 autocomplete="email"
                 required
+                maxlength="320"
               />
             </div>
           </div>
@@ -122,7 +141,7 @@ const afdelingOptions = tp<string[]>(locale, 'contact.form.afdelingOptions');
             <div class="form-select-wrap">
               <select class="form-input form-select" id="afdeling" name="afdeling">
                 {afdelingOptions.map((option, i) => (
-                  <option value={option.toLowerCase()} selected={i === 0}>{option}</option>
+                  <option value={option} selected={i === 0}>{option}</option>
                 ))}
               </select>
               <svg class="form-select-arrow" width="16" height="16" viewBox="0 0 12 12" fill="none" aria-hidden="true">
@@ -140,11 +159,14 @@ const afdelingOptions = tp<string[]>(locale, 'contact.form.afdelingOptions');
               placeholder={t(locale, 'contact.form.berichtPlaceholder')}
               rows="5"
               required
+              maxlength="5000"
             ></textarea>
           </div>
 
-          <button type="submit" class="form-submit">
-            {t(locale, 'contact.form.submit')}
+          <p class="form-status" id="contact-form-status" role="status" hidden></p>
+
+          <button type="submit" class="form-submit" id="contact-form-submit">
+            <span class="form-submit__label">{t(locale, 'contact.form.submit')}</span>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -185,6 +207,71 @@ const afdelingOptions = tp<string[]>(locale, 'contact.form.afdelingOptions');
       { threshold: 0.12 }
     );
     elements.forEach((el) => observer.observe(el));
+  })();
+</script>
+
+<script>
+  (function () {
+    const wrap = document.querySelector<HTMLElement>('.contact-form-wrap');
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    const statusEl = document.getElementById('contact-form-status');
+    const submitBtn = document.getElementById('contact-form-submit') as HTMLButtonElement | null;
+    const submitLabel = submitBtn?.querySelector('.form-submit__label');
+
+    if (!wrap || !form || !statusEl || !submitBtn || !submitLabel) return;
+
+    const msgSending = wrap.dataset.msgSending || 'Sending…';
+    const msgSuccess = wrap.dataset.msgSuccess || 'Message sent.';
+    const msgError = wrap.dataset.msgError || 'Something went wrong.';
+    const defaultLabel = submitLabel.textContent || '';
+
+    const showStatus = (text: string, type: 'ok' | 'err' | 'pending') => {
+      statusEl.hidden = false;
+      statusEl.textContent = text;
+      statusEl.classList.remove('form-status--ok', 'form-status--err', 'form-status--pending');
+      statusEl.classList.add(`form-status--${type}`);
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!form.reportValidity()) return;
+
+      const data = new FormData(form);
+      const payload = {
+        naam: String(data.get('naam') || '').trim(),
+        email: String(data.get('email') || '').trim(),
+        afdeling: String(data.get('afdeling') || '').trim(),
+        bericht: String(data.get('bericht') || '').trim(),
+        website: String(data.get('website') || '').trim(),
+      };
+
+      submitBtn.disabled = true;
+      submitLabel.textContent = msgSending;
+      showStatus(msgSending, 'pending');
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const result = await res.json().catch(() => ({}));
+
+        if (!res.ok) {
+          throw new Error(result.error || 'Request failed');
+        }
+
+        form.reset();
+        showStatus(msgSuccess, 'ok');
+      } catch {
+        showStatus(msgError, 'err');
+      } finally {
+        submitBtn.disabled = false;
+        submitLabel.textContent = defaultLabel;
+      }
+    });
   })();
 </script>
 
@@ -454,6 +541,34 @@ const afdelingOptions = tp<string[]>(locale, 'contact.form.afdelingOptions');
     line-height: 1.65;
   }
 
+  .form-honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .form-status {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .form-status--pending {
+    color: #64748B;
+  }
+
+  .form-status--ok {
+    color: #3F6B4A;
+  }
+
+  .form-status--err {
+    color: #9B3B2E;
+  }
+
   .form-submit {
     display: inline-flex;
     align-items: center;
@@ -478,6 +593,12 @@ const afdelingOptions = tp<string[]>(locale, 'contact.form.afdelingOptions');
     background-position: 100% 0;
     transform: translateY(-2px);
     box-shadow: 0 8px 28px rgba(198, 162, 75, 0.38);
+  }
+
+  .form-submit:disabled {
+    opacity: 0.7;
+    cursor: wait;
+    transform: none;
   }
 
   /* ─────────────────────────────────────────────
