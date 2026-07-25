@@ -335,19 +335,30 @@ export const fr = {
         {
           title: 'Médiathèque',
           sub: 'Conserve et organise photos, vidéos et audio.',
+          headline: "Les photos que personne\nn'avait encore vues",
+          body: "Chaque personne que tu invites ajoute ses propres photos, vidéos et messages vocaux. En quelques jours naît une collection bien plus riche que ce qu'une seule personne aurait pu rassembler.",
+          points: ["Photos, vidéos et audio", "Classées automatiquement par date"],
         },
         {
           title: 'Community chat',
           sub: 'Partage des histoires et soutenez-vous dans un environnement chaleureux.',
+          headline: "Des histoires qui n'auraient\njamais été racontées",
+          body: "Un ancien collègue qui parle de l'atelier. Une voisine des roses près de la porte. Dans les conversations remontent des souvenirs que tu n'avais jamais entendus — et que tu peux désormais conserver pour toujours.",
+          points: ["Réagir aux souvenirs des autres", "Assez simple pour tous les âges"],
         },
         {
           title: 'Hommages',
           sub: 'Rends hommage et laisse des mots précieux.',
+          headline: "Des mots qui restent\nà leur place",
+          body: "À côté des photos, chacun laisse un hommage personnel. Ensemble, ils dressent le portrait de qui ton proche était vraiment — pour vous aujourd'hui, et pour celles et ceux qui voudront le lire dans vingt ans.",
+          points: ["Messages personnels", "Conservés pour les générations futures"],
         },
       ],
       photobook: {
         title: 'Rendre tangible',
         sub: 'Transforme les souvenirs en un livre photo tangible.',
+        headline: "Et puis tu le tiens\nentre tes mains",
+        body: "Quand vous vous sentez prêts, tout ce que vous avez rassemblé devient un vrai livre photo. Tu choisis les plus beaux moments, nous nous occupons du reste.",
         steps: [
           {
             title: 'Sélectionne des moments',
@@ -365,9 +376,30 @@ export const fr = {
       },
       trustPrivacy: '100 % privé & sécurisé',
       trustAccess: 'Seuls la famille et les invités ont accès',
+      reassure: {
+        title: "Avant de commencer, sache ceci",
+        items: [
+          {
+            title: "Entièrement privé",
+            text: "Seules les personnes que tu invites peuvent entrer. Introuvable via Google, sans publicité, sans commerce de données.",
+          },
+          {
+            title: "Gratuit pour toutes les personnes invitées",
+            text: "La famille et les amis partagent et consultent sans frais — quel que soit le nombre de personnes ajoutées.",
+          },
+          {
+            title: "Jamais effacé sans prévenir",
+            text: "À la fin d'un plan, l'espace est archivé et tout reste téléchargeable pendant 6 mois.",
+          },
+        ],
+      },
     },
     quoteLine1: "Partager ses souvenirs, c'est donner à l'amour",
     quoteLine2: "un endroit où continuer d'exister.",
+    quoteEyebrow: "Pourquoi nous avons créé Remoria",
+    quoteSub: "La plupart des familles commencent dans la semaine des adieux, afin que les photos soient réunies avant la cérémonie. Mais quelques mois ou années plus tard, il n'est jamais trop tard non plus.",
+    quoteCta: "Créer un espace du souvenir",
+    quoteCtaNote: "À partir de 85 € — paiement unique, sans abonnement",
     cta: {
       titleLine1: 'Prêt à créer un espace',
       titleLine2: 'durable ?',

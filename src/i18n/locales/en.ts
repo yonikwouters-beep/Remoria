@@ -334,19 +334,30 @@ export const en = {
         {
           title: 'Media collection',
           sub: 'Store and organise photos, videos and audio.',
+          headline: 'The photos no one had\nseen from each other',
+          body: 'Everyone you invite adds their own photos, videos and voice messages. Within days a collection takes shape that is far richer than anything one person could ever have gathered alone.',
+          points: ['Photos, videos and audio', 'Automatically sorted by date'],
         },
         {
           title: 'Community chat',
           sub: 'Share stories and support one another in a warm environment.',
+          headline: 'Stories that would\nnever have been told',
+          body: 'A former colleague talking about the workshop. A neighbour about the roses by the door. In the conversations, memories surface that you had never heard before — and can now keep forever.',
+          points: ['Reply to each other\u2019s memories', 'Simple enough for every age'],
         },
         {
           title: 'Tributes',
           sub: 'Pay tribute and leave special words behind.',
+          headline: 'Words that stay\nwhere they belong',
+          body: 'Alongside the photos, everyone leaves a personal tribute. Together they form a portrait of who your loved one truly was — for you now, and for whoever wants to read it twenty years from now.',
+          points: ['Personal messages', 'Preserved for future generations'],
         },
       ],
       photobook: {
         title: 'Make it tangible',
         sub: 'Turn memories into a tangible photo book.',
+        headline: 'And then you hold it\nin your hands',
+        body: 'When you are ready, everything you gathered together becomes a real photo book. You choose the finest moments, we take care of the rest.',
         steps: [
           {
             title: 'Select moments',
@@ -364,9 +375,30 @@ export const en = {
       },
       trustPrivacy: '100% private & secure',
       trustAccess: 'Only family and invited guests have access',
+      reassure: {
+        title: 'Before you begin, know this',
+        items: [
+          {
+            title: 'Completely private',
+            text: 'Only the people you invite can get in. Not findable through Google, no advertising, no data trading.',
+          },
+          {
+            title: 'Free for everyone you invite',
+            text: 'Family and friends share and read along at no cost — however many people you add.',
+          },
+          {
+            title: 'Never simply gone',
+            text: 'When a plan ends, the memorial is archived and everything stays available to download for 6 months.',
+          },
+        ],
+      },
     },
     quoteLine1: 'Sharing memories is giving love',
     quoteLine2: 'a place to keep on living.',
+    quoteEyebrow: 'Why we built this',
+    quoteSub: 'Most families start in the week of the farewell, so the photos come together before the service. But months or years later is never too late either.',
+    quoteCta: 'Start a memorial',
+    quoteCtaNote: 'From €85 — one-off, no subscription',
     cta: {
       titleLine1: 'Ready to create a lasting',
       titleLine2: 'place?',

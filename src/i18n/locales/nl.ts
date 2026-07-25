@@ -334,19 +334,30 @@ export const nl = {
         {
           title: 'Mediacollectie',
           sub: "Bewaar en organiseer foto's, video's en audio.",
+          headline: "De foto's die niemand nog\nvan elkaar had gezien",
+          body: "Iedereen die je uitnodigt voegt zijn eigen foto's, video's en spraakberichten toe. Zo ontstaat er in een paar dagen een collectie die veel rijker is dan wat één persoon ooit alleen had kunnen verzamelen.",
+          points: ["Foto's, video's én audio", 'Automatisch geordend op datum'],
         },
         {
           title: 'Community chat',
           sub: 'Deel verhalen en steun elkaar in een warme omgeving.',
+          headline: 'Verhalen die anders\nnooit verteld waren',
+          body: 'Een oud-collega die vertelt over de werkplaats. Een buurvrouw over de rozen naast de deur. In de gesprekken komen herinneringen boven die je nog nooit had gehoord — en die je nu voorgoed kunt bewaren.',
+          points: ['Reageren op elkaars herinneringen', 'Eenvoudig genoeg voor elke leeftijd'],
         },
         {
           title: 'Eerbetonen',
           sub: 'Breng een eerbetoon en laat bijzondere woorden achter.',
+          headline: 'Woorden die blijven\nstaan',
+          body: 'Naast de foto\u2019s laat iedereen een persoonlijk eerbetoon achter. Samen vormen ze een portret van wie je dierbare écht was — voor jullie nu, en voor wie er over twintig jaar over wil lezen.',
+          points: ['Persoonlijke boodschappen', 'Bewaard voor volgende generaties'],
         },
       ],
       photobook: {
         title: 'Tastbaar maken',
         sub: 'Maak herinneringen tastbaar met een fotoboek.',
+        headline: 'En dan houd je het\nin je handen',
+        body: 'Wanneer jullie er klaar voor zijn, wordt alles wat jullie samen verzamelden een echt fotoboek. Jij kiest de mooiste momenten, wij zorgen voor de rest.',
         steps: [
           {
             title: 'Selecteer momenten',
@@ -364,9 +375,30 @@ export const nl = {
       },
       trustPrivacy: '100% privé & veilig',
       trustAccess: 'Alleen familie en genodigden hebben toegang',
+      reassure: {
+        title: 'Voor je begint, weet dit',
+        items: [
+          {
+            title: 'Volledig besloten',
+            text: 'Alleen mensen die jij uitnodigt komen binnen. Niet vindbaar via Google, geen advertenties, geen datahandel.',
+          },
+          {
+            title: 'Gratis voor iedereen die je uitnodigt',
+            text: 'Familie en vrienden delen en lezen mee zonder kosten — hoeveel mensen je ook toevoegt.',
+          },
+          {
+            title: 'Nooit zomaar weg',
+            text: 'Loopt een plan af, dan wordt de gedenkplek gearchiveerd en blijft alles 6 maanden bewaard om te downloaden.',
+          },
+        ],
+      },
     },
     quoteLine1: 'Herinneringen delen is liefde',
     quoteLine2: 'een plek geven om te blijven bestaan.',
+    quoteEyebrow: 'Waarom we dit bouwden',
+    quoteSub: 'De meeste families beginnen in de week van het afscheid, zodat de foto\u2019s al samenkomen vóór de dienst. Maar ook maanden of jaren later is het nooit te laat.',
+    quoteCta: 'Start een gedenkplek',
+    quoteCtaNote: 'Vanaf €85 — eenmalig, geen abonnement',
     cta: {
       titleLine1: 'Klaar om een blijvende',
       titleLine2: 'plek te creëren?',

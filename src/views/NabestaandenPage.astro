@@ -9,7 +9,7 @@ import { getLocale, t, tp, localizePath } from '../i18n/utils';
 const locale = getLocale(Astro.currentLocale);
 
 type HowStep = { title: string; text: string };
-type FeatureCard = { title: string; sub: string };
+type FeatureCard = { title: string; sub: string; headline: string; body: string; points: string[] };
 type PhotobookStep = { title: string; text: string };
 type TrustItem = { title: string; text: string };
 type FaqItem = { question: string; answer: string };
@@ -17,6 +17,7 @@ type FaqItem = { question: string; answer: string };
 const howSteps = tp<HowStep[]>(locale, 'nabestaanden.how.steps');
 const featureCards = tp<FeatureCard[]>(locale, 'nabestaanden.features.cards');
 const photobookSteps = tp<PhotobookStep[]>(locale, 'nabestaanden.features.photobook.steps');
+const reassureItems = tp<TrustItem[]>(locale, 'nabestaanden.features.reassure.items');
 const trustItems = tp<TrustItem[]>(locale, 'nabestaanden.trust');
 const nabestaandenFaqs = tp<FaqItem[]>(locale, 'nabestaanden.faqs.items');
 
@@ -32,11 +33,20 @@ const featureCardIcons = [
   `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
 ];
 
-/** Optional screenshots for feature cards (Mediacollectie, Community chat, Eerbetonen) */
-const featureCardImages: (string | null)[] = [
-  '/mediacollectie-preview.png',
-  '/community-chat-preview.png',
-  '/eerbetonen-preview.png',
+/**
+ * Screenshots worden bewust groter getoond dan hun podium en bloeden over de rand,
+ * zodat de UI-tekst op leesbare schaal blijft in plaats van weggeschaald te worden.
+ */
+const featureShowcase = [
+  { img: '/mediacollectie-preview.png', width: '114%', top: '-2%', left: '-7%' },
+  { img: '/community-chat-preview.png', width: '142%', top: '0%', left: '0%' },
+  { img: '/eerbetonen-preview.png', width: '146%', top: '-7%', left: '-1%' },
+];
+
+const reassureIcons = [
+  `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>`,
+  `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3.5-7.1"/><polyline points="21 3 21 9 15 9"/><polyline points="12 7 12 12 15.5 14"/></svg>`,
 ];
 
 const photobookStepIcons = [
@@ -144,82 +154,98 @@ const prijzenUrl = localizePath(locale, '/prijzen');
         </p>
       </div>
 
-      <!-- Three top cards -->
-      <div class="fg__top">
+      <!-- Showcase rows -->
+      <div class="fg__rows">
         {featureCards.map((card, i) => (
-          <div class="fg-card" data-reveal data-reveal-delay={String(i * 80)}>
-            <div class="fg-card__head">
-              <div class="fg-card__icon" aria-hidden="true" set:html={featureCardIcons[i]} />
-              <div>
-                <h3 class="fg-card__title">{card.title}</h3>
-                <p class="fg-card__sub">{card.sub}</p>
-              </div>
+          <article class="fg-row" data-reveal>
+            <div class="fg-row__copy">
+              <p class="fg-row__label">
+                <span class="fg-row__label-icon" aria-hidden="true" set:html={featureCardIcons[i]} />
+                {card.title}
+              </p>
+              <h3 class="fg-row__title">{card.headline}</h3>
+              <p class="fg-row__text">{card.body}</p>
+              <ul class="fg-row__points">
+                {card.points.map((point) => (
+                  <li class="fg-row__point">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            {featureCardImages[i] ? (
-              <div class="fg-card__screen fg-card__screen--media">
+
+            <div class={`fg-row__stage fg-row__stage--${i + 1}`}>
+              <div class="fg-shot">
                 <img
-                  src={featureCardImages[i]!}
+                  src={featureShowcase[i].img}
                   alt={card.title}
-                  class="fg-card__screen-img"
+                  class="fg-shot__img"
+                  style={`width:${featureShowcase[i].width};top:${featureShowcase[i].top};left:${featureShowcase[i].left};`}
                   loading="lazy"
                   decoding="async"
                 />
               </div>
-            ) : (
-              <div class="fg-card__screen" aria-label={`Screenshot placeholder ${card.title}`}></div>
-            )}
-          </div>
+            </div>
+          </article>
         ))}
-      </div>
 
-      <!-- Wide photobook card -->
-      <div class="fg-wide" id="fotoboek" data-reveal>
-        <div class="fg-wide__left">
-          <div class="fg-wide__head">
-            <div class="fg-card__icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-              </svg>
-            </div>
-            <div>
-              <h3 class="fg-card__title">{t(locale, 'nabestaanden.features.photobook.title')}</h3>
-              <p class="fg-card__sub">{t(locale, 'nabestaanden.features.photobook.sub')}</p>
-            </div>
+        <!-- Photobook row -->
+        <article class="fg-row fg-row--book" id="fotoboek" data-reveal>
+          <div class="fg-row__copy">
+            <p class="fg-row__label">
+              <span class="fg-row__label-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                </svg>
+              </span>
+              {t(locale, 'nabestaanden.features.photobook.title')}
+            </p>
+            <h3 class="fg-row__title">{t(locale, 'nabestaanden.features.photobook.headline')}</h3>
+            <p class="fg-row__text">{t(locale, 'nabestaanden.features.photobook.body')}</p>
+
+            <ul class="fg-steps">
+              {photobookSteps.map((step, i) => (
+                <li class="fg-step">
+                  <div class="fg-step__icon" aria-hidden="true" set:html={photobookStepIcons[i]} />
+                  <div>
+                    <p class="fg-step__title">{step.title}</p>
+                    <p class="fg-step__text">{step.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <ul class="fg-steps">
-            {photobookSteps.map((step, i) => (
-              <li class="fg-step">
-                <div class="fg-step__icon" aria-hidden="true" set:html={photobookStepIcons[i]} />
-                <div>
-                  <p class="fg-step__title">{step.title}</p>
-                  <p class="fg-step__text">{step.text}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div class="fg-wide__screen fg-wide__screen--media">
-          <img
-            src="/fotoboek-preview.png"
-            alt={t(locale, 'nabestaanden.features.photobook.title')}
-            class="fg-wide__screen-img"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
+          <div class="fg-row__stage fg-row__stage--book">
+            <img
+              src="/fotoboek-preview.png"
+              alt={t(locale, 'nabestaanden.features.photobook.title')}
+              class="fg-row__photo"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </article>
       </div>
 
-      <!-- Trust footer -->
-      <div class="fg__trust" data-reveal>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
-        <span>{t(locale, 'nabestaanden.features.trustPrivacy')}</span>
-        <span class="fg__trust-dot" aria-hidden="true">•</span>
-        <span>{t(locale, 'nabestaanden.features.trustAccess')}</span>
+      <!-- Reassurance -->
+      <div class="fg-reassure" data-reveal>
+        <p class="fg-reassure__title">{t(locale, 'nabestaanden.features.reassure.title')}</p>
+        <div class="fg-reassure__grid">
+          {reassureItems.map((item, i) => (
+            <div class="fg-reassure__item">
+              <div class="fg-reassure__icon" aria-hidden="true" set:html={reassureIcons[i]} />
+              <div>
+                <p class="fg-reassure__item-title">{item.title}</p>
+                <p class="fg-reassure__item-text">{item.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
     </div>
@@ -233,10 +259,16 @@ const prijzenUrl = localizePath(locale, '/prijzen');
       <div class="quote-banner__inner" data-reveal>
         <div class="quote-banner__overlay"></div>
         <div class="quote-banner__content">
-          <span class="quote-banner__mark" aria-hidden="true">"</span>
+          <p class="quote-banner__eyebrow">{t(locale, 'nabestaanden.quoteEyebrow')}</p>
           <blockquote class="quote-banner__quote">
             {t(locale, 'nabestaanden.quoteLine1')}<br />{t(locale, 'nabestaanden.quoteLine2')}
           </blockquote>
+          <span class="quote-banner__rule" aria-hidden="true"></span>
+          <p class="quote-banner__sub">{t(locale, 'nabestaanden.quoteSub')}</p>
+          <div class="quote-banner__actions">
+            <a href={prijzenUrl} class="btn btn--gold">{t(locale, 'nabestaanden.quoteCta')}</a>
+            <span class="quote-banner__note">{t(locale, 'nabestaanden.quoteCtaNote')}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -588,7 +620,25 @@ const prijzenUrl = localizePath(locale, '/prijzen');
      FEATURES GRID
   ════════════════════════════════════════════ */
   .fg {
+    position: relative;
     padding: clamp(72px, 10vh, 112px) 0 clamp(40px, 5vh, 60px);
+  }
+
+  /* Zachte warme wash zodat de sectie niet als één vlak wit leest */
+  .fg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(58% 30% at 82% 16%, rgba(198, 162, 75, 0.11) 0%, transparent 70%),
+      radial-gradient(52% 28% at 12% 52%, rgba(122, 141, 122, 0.1) 0%, transparent 70%),
+      radial-gradient(60% 32% at 88% 86%, rgba(198, 162, 75, 0.09) 0%, transparent 70%);
+  }
+
+  .fg > .container {
+    position: relative;
+    z-index: 1;
   }
 
   .fg__header {
@@ -612,123 +662,166 @@ const prijzenUrl = localizePath(locale, '/prijzen');
     text-align: center;
   }
 
-  /* ── Three top cards ── */
-  .fg__top {
+  /* ── Showcase rows ── */
+  .fg__rows {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(40px, 6vh, 76px);
+  }
+
+  .fg-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    grid-template-columns: 1fr 1.32fr;
+    align-items: center;
+    gap: clamp(28px, 3.6vw, 56px);
+    scroll-margin-top: 24px;
+  }
+
+  .fg-row:nth-child(even) .fg-row__copy {
+    order: 2;
+  }
+
+  .fg-row__copy {
+    max-width: 460px;
+  }
+
+  .fg-row__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+
+  .fg-row__label-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background: var(--gold-soft);
+    border-radius: 10px;
+    color: var(--gold);
+  }
+
+  .fg-row__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 2.5vw, 2.05rem);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    white-space: pre-line;
     margin-bottom: 16px;
   }
 
-  .fg-card {
-    background: rgba(255, 255, 255, 0.78);
-    border: 1px solid rgba(30, 41, 59, 0.08);
-    border-radius: 20px;
-    padding: 24px 24px 0;
-    box-shadow:
-      0 1px 2px rgba(30, 41, 59, 0.04),
-      0 8px 24px rgba(30, 41, 59, 0.07);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  .fg-card__head {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 20px;
-  }
-
-  .fg-card__icon {
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--gold-soft);
-    border-radius: 11px;
-    color: var(--gold);
-    margin-top: 2px;
-  }
-
-  .fg-card__title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1rem, 1.3vw, 1.15rem);
-    font-weight: 500;
-    color: var(--ink);
-    line-height: 1.3;
-    margin-bottom: 5px;
-  }
-
-  .fg-card__sub {
+  .fg-row__text {
     font-family: 'Inter', sans-serif;
-    font-size: 13.5px;
-    line-height: 1.65;
+    font-size: 15.5px;
+    line-height: 1.8;
     color: var(--muted);
   }
 
-  /* Screenshot placeholder */
-  .fg-card__screen {
-    flex: 1;
-    min-height: 220px;
-    background: rgba(30, 41, 59, 0.04);
-    border-radius: 14px 14px 0 0;
-    border: 1.5px dashed rgba(30, 41, 59, 0.12);
-    border-bottom: none;
+  .fg-row__points {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .fg-row__point {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px 8px 12px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(30, 41, 59, 0.08);
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+    box-shadow: 0 1px 3px rgba(30, 41, 59, 0.05);
+  }
+
+  .fg-row__point svg {
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* Tinted stage carrying the screenshot */
+  .fg-row__stage {
+    position: relative;
+    border-radius: 24px;
+    padding: clamp(16px, 1.9vw, 24px);
     overflow: hidden;
+    box-shadow:
+      0 1px 2px rgba(30, 41, 59, 0.05),
+      0 18px 44px rgba(30, 41, 59, 0.1);
   }
 
-  .fg-card__screen--media {
-    background: #f3f0ea;
-    border-style: solid;
-    border-color: rgba(30, 41, 59, 0.06);
+  .fg-row__stage::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    pointer-events: none;
   }
 
-  .fg-card__screen-img {
-    width: 100%;
-    height: 100%;
-    min-height: 220px;
-    object-fit: cover;
-    object-position: top center;
+  .fg-row__stage--1 {
+    background: linear-gradient(150deg, #f5ecdc 0%, #e7d9c1 100%);
+  }
+  .fg-row__stage--2 {
+    background: linear-gradient(150deg, #e9eee9 0%, #d6e0d7 100%);
+  }
+  .fg-row__stage--3 {
+    background: linear-gradient(150deg, #f3ece7 0%, #e4d5cb 100%);
+  }
+  .fg-row__stage--book {
+    background: linear-gradient(150deg, #e7ece4 0%, #d3ddd2 100%);
+    display: flex;
+    padding: 0;
+    min-height: clamp(340px, 40vw, 520px);
+  }
+
+  .fg-shot {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow:
+      0 2px 6px rgba(30, 41, 59, 0.08),
+      0 22px 46px rgba(30, 41, 59, 0.22);
+  }
+
+  .fg-shot__img {
+    position: absolute;
+    max-width: none;
     display: block;
   }
 
-  /* ── Wide card ── */
-  .fg-wide {
-    background: rgba(255, 255, 255, 0.78);
-    border: 1px solid rgba(30, 41, 59, 0.08);
-    border-radius: 20px;
-    box-shadow:
-      0 1px 2px rgba(30, 41, 59, 0.04),
-      0 8px 24px rgba(30, 41, 59, 0.07);
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 0;
-    overflow: hidden;
-    scroll-margin-top: 24px;
-    min-height: 340px;
-  }
-
-  .fg-wide__left {
-    padding: 32px 32px 36px;
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  .fg-wide__head {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
+  .fg-row__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 24px;
   }
 
   .fg-steps {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
+    margin-top: 26px;
   }
 
   .fg-step {
@@ -766,68 +859,98 @@ const prijzenUrl = localizePath(locale, '/prijzen');
     color: var(--muted);
   }
 
-  /* Fotoboek visual */
-  .fg-wide__screen {
-    background: rgba(30, 41, 59, 0.04);
-    border-left: 1.5px solid rgba(30, 41, 59, 0.06);
-    border-radius: 0 20px 20px 0;
-    overflow: hidden;
-    min-height: 280px;
+  /* ── Reassurance strip ── */
+  .fg-reassure {
+    margin-top: clamp(48px, 7vh, 84px);
+    background: linear-gradient(140deg, rgba(255, 255, 255, 0.92) 0%, rgba(250, 245, 236, 0.92) 100%);
+    border: 1px solid rgba(198, 162, 75, 0.24);
+    border-radius: 22px;
+    padding: clamp(28px, 3.4vw, 40px);
+    box-shadow: 0 2px 20px rgba(30, 41, 59, 0.06);
   }
 
-  .fg-wide__screen--media {
-    background: #e8ebe4;
+  .fg-reassure__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    font-weight: 500;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: clamp(22px, 3vh, 30px);
   }
 
-  .fg-wide__screen-img {
-    width: 100%;
-    height: 100%;
-    min-height: 280px;
-    object-fit: cover;
-    object-position: center;
-    display: block;
+  .fg-reassure__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 3vw, 36px);
   }
 
-  /* ── Trust footer ── */
-  .fg__trust {
+  .fg-reassure__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .fg-reassure__icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding-top: clamp(24px, 3vh, 36px);
+    background: var(--gold-soft);
+    border-radius: 11px;
+    color: var(--gold);
+  }
+
+  .fg-reassure__item-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.35;
+    margin-bottom: 5px;
+  }
+
+  .fg-reassure__item-text {
     font-family: 'Inter', sans-serif;
     font-size: 13.5px;
+    line-height: 1.7;
     color: var(--muted);
-  }
-
-  .fg__trust svg {
-    color: var(--gold);
-    flex-shrink: 0;
-  }
-
-  .fg__trust-dot {
-    color: rgba(30, 41, 59, 0.3);
   }
 
   /* ── Responsive ── */
   @media (max-width: 900px) {
-    .fg__top {
+    .fg-row,
+    .fg-row--book {
       grid-template-columns: 1fr;
     }
 
-    .fg-card__screen {
-      min-height: 200px;
+    .fg-row:nth-child(even) .fg-row__copy {
+      order: 0;
     }
 
-    .fg-wide {
+    .fg-row__copy {
+      max-width: none;
+    }
+
+    .fg-row__stage--book {
+      min-height: 300px;
+    }
+
+    .fg-reassure__grid {
       grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .fg-row__stage {
+      padding: 14px;
+      border-radius: 18px;
     }
 
-    .fg-wide__screen {
-      min-height: 240px;
-      border-left: none;
-      border-top: 1.5px solid rgba(30, 41, 59, 0.06);
-      border-radius: 0 0 20px 20px;
+    .fg-shot {
+      aspect-ratio: 1 / 1;
     }
   }
 
@@ -842,7 +965,7 @@ const prijzenUrl = localizePath(locale, '/prijzen');
     position: relative;
     border-radius: var(--radius-img);
     overflow: hidden;
-    min-height: clamp(260px, 36vw, 400px);
+    min-height: clamp(360px, 44vw, 520px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -854,39 +977,77 @@ const prijzenUrl = localizePath(locale, '/prijzen');
   .quote-banner__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(15, 23, 42, 0.72) 0%,
-      rgba(30, 41, 59, 0.58) 100%
-    );
+    background:
+      radial-gradient(70% 90% at 50% 45%, rgba(15, 23, 42, 0.5) 0%, rgba(15, 23, 42, 0.86) 100%),
+      linear-gradient(135deg, rgba(15, 23, 42, 0.62) 0%, rgba(46, 38, 28, 0.62) 100%);
   }
 
   .quote-banner__content {
     position: relative;
     z-index: 2;
     text-align: center;
-    padding: clamp(40px, 6vw, 72px) clamp(24px, 8vw, 96px);
+    max-width: 720px;
+    padding: clamp(44px, 6vw, 76px) clamp(24px, 6vw, 64px);
   }
 
-  .quote-banner__mark {
-    display: block;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(4rem, 8vw, 7rem);
-    line-height: 0.6;
+  .quote-banner__eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
     color: var(--gold);
-    opacity: 0.7;
-    margin-bottom: 8px;
-    user-select: none;
+    margin-bottom: 20px;
   }
 
   .quote-banner__quote {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1.35rem, 3vw, 2.1rem);
+    font-size: clamp(1.5rem, 3.2vw, 2.35rem);
     font-weight: 500;
-    line-height: 1.45;
+    line-height: 1.38;
     letter-spacing: -0.015em;
     color: #fff;
     font-style: normal;
+  }
+
+  .quote-banner__rule {
+    display: block;
+    width: 54px;
+    height: 1px;
+    margin: clamp(22px, 3vh, 30px) auto;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .quote-banner__sub {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14.5px, 1.4vw, 15.5px);
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .quote-banner__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: clamp(26px, 3.5vh, 34px);
+  }
+
+  .btn--gold {
+    background: var(--gold);
+    color: #1E293B;
+    font-weight: 600;
+    box-shadow: 0 6px 24px rgba(198, 162, 75, 0.34);
+  }
+  .btn--gold:hover {
+    background: #d4b063;
+    box-shadow: 0 10px 32px rgba(198, 162, 75, 0.44);
+  }
+
+  .quote-banner__note {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.62);
   }
 
   /* ════════════════════════════════════════════
