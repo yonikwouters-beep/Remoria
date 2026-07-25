@@ -102,13 +102,7 @@ const funeral = tp<Benefit>(locale, 'benefits.funeral');
   }
 
   .panel--bereaved {
-    background:
-      radial-gradient(ellipse 62% 58% at 0% 100%, transparent 42%, #EFE6D5 78%),
-      url('/flowers-background.webp');
-    background-color: #EFE6D5;
-    background-repeat: no-repeat, no-repeat;
-    background-size: 100% 100%, 46% auto;
-    background-position: left bottom, left bottom;
+    background: #EFE6D5 url('/flowers-background.webp') left bottom / cover no-repeat;
     padding: 34px 32px;
   }
 
@@ -236,11 +230,13 @@ const funeral = tp<Benefit>(locale, 'benefits.funeral');
 
   .panel__visual--phone {
     align-self: end;
-    justify-content: center;
+    justify-content: flex-start;
+    width: 195px;
   }
 
   .panel__visual--dashboard {
     justify-content: flex-end;
+    width: 274px;
   }
 
   @media (max-width: 640px) {
@@ -261,10 +257,15 @@ const funeral = tp<Benefit>(locale, 'benefits.funeral');
     .panel__visual {
       order: 2;
       justify-content: center;
+      width: auto;
     }
 
     .panel__visual--phone {
       align-self: center;
+    }
+
+    :global(.phone) {
+      margin-bottom: 0;
     }
   }
 </style>
