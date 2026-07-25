@@ -1,0 +1,461 @@
+---
+/**
+ * HTML partner dashboard mockup (home compact + uitvaartsector full).
+ * All visible text from i18n (`mockups.dashboard.*`).
+ */
+import { getLocale, t, tp } from '../i18n/utils';
+
+interface Props {
+  variant?: 'compact' | 'full';
+}
+
+const { variant = 'compact' } = Astro.props;
+const locale = getLocale(Astro.currentLocale);
+const isFull = variant === 'full';
+
+type Row = {
+  photo: string;
+  name: string;
+  meta: string;
+  members?: string;
+  memories?: string;
+};
+
+const rows = tp<Row[]>(
+  locale,
+  isFull ? 'mockups.dashboard.rowsFull' : 'mockups.dashboard.rowsCompact'
+);
+
+const navItems = [
+  { key: 'overview', active: true },
+  { key: 'memorials', active: false },
+  { key: 'staff', active: false },
+  { key: 'stats', active: false },
+  { key: 'settings', active: false },
+] as const;
+---
+
+<div class:list={['dash', isFull && 'dash--full']} aria-hidden="true">
+  <div class="dash__chrome">
+    <span class="dash__dot"></span>
+    <span class="dash__dot"></span>
+    <span class="dash__dot"></span>
+    <span class="dash__url">{t(locale, 'mockups.dashboard.url')}</span>
+  </div>
+
+  <div class="dash__body">
+    <aside class="dash__side">
+      <div class="dash__brand">
+        <svg width={isFull ? 15 : 11} height={isFull ? 15 : 11} viewBox="0 0 24 24" fill="none" stroke="#1C2A43" stroke-width="1.7">
+          <path d="M5 21V10a7 7 0 0 1 14 0v11"></path>
+          {isFull && <path d="M8 21V11a4 4 0 0 1 8 0v10"></path>}
+        </svg>
+        <span>Remoria</span>
+      </div>
+
+      {navItems.map((item) => (
+        <div class:list={['dash__nav', item.active && 'dash__nav--active']}>
+          {isFull && item.key === 'overview' && (
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          )}
+          {isFull && item.key === 'memorials' && (
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 21V10a7 7 0 0 1 14 0v11"/></svg>
+          )}
+          {isFull && item.key === 'staff' && (
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          )}
+          {isFull && item.key === 'stats' && (
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+          )}
+          {isFull && item.key === 'settings' && (
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          )}
+          {t(locale, `mockups.dashboard.nav.${item.key}`)}
+        </div>
+      ))}
+
+      {isFull && (
+        <div class="dash__nav">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          {t(locale, 'mockups.dashboard.nav.help')}
+        </div>
+      )}
+    </aside>
+
+    <div class="dash__main">
+      <div class="dash__main-head">
+        <div>
+          <p class="dash__h">{t(locale, 'mockups.dashboard.heading')}</p>
+          <p class="dash__sub">{t(locale, 'mockups.dashboard.sub')}</p>
+        </div>
+        <span class="dash__new">{t(locale, 'mockups.dashboard.newCta')}</span>
+      </div>
+
+      <div class="dash__stats">
+        {isFull ? (
+          <>
+            <div class="dash__stat dash__stat--rich">
+              <span class="dash__stat-ico">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              </span>
+              <div>
+                <p class="dash__stat-num">{t(locale, 'mockups.dashboard.stat1Num')}</p>
+                <p class="dash__stat-label">{t(locale, 'mockups.dashboard.stat1LabelFull')}</p>
+              </div>
+            </div>
+            <div class="dash__stat dash__stat--rich">
+              <span class="dash__stat-ico">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <div>
+                <p class="dash__stat-num">{t(locale, 'mockups.dashboard.stat2Num')}</p>
+                <p class="dash__stat-label">{t(locale, 'mockups.dashboard.stat2Label')}</p>
+              </div>
+            </div>
+            <div class="dash__stat dash__stat--rich">
+              <span class="dash__stat-ico">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              </span>
+              <div>
+                <p class="dash__stat-num">{t(locale, 'mockups.dashboard.stat3Num')}</p>
+                <p class="dash__stat-label">{t(locale, 'mockups.dashboard.stat3LabelFull')}</p>
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            <div class="dash__stat">
+              <p class="dash__stat-num">{t(locale, 'mockups.dashboard.stat1Num')}</p>
+              <p class="dash__stat-label">{t(locale, 'mockups.dashboard.stat1Label')}</p>
+            </div>
+            <div class="dash__stat">
+              <p class="dash__stat-num">{t(locale, 'mockups.dashboard.stat2Num')}</p>
+              <p class="dash__stat-label">{t(locale, 'mockups.dashboard.stat2Label')}</p>
+            </div>
+            <div class="dash__stat">
+              <p class="dash__stat-num">{t(locale, 'mockups.dashboard.stat3Num')}</p>
+              <p class="dash__stat-label">{t(locale, 'mockups.dashboard.stat3Label')}</p>
+            </div>
+          </>
+        )}
+      </div>
+
+      <p class="dash__recent">{t(locale, 'mockups.dashboard.recent')}</p>
+      <div class="dash__rows">
+        {rows.map((row) => (
+          <div class="dash__row">
+            <img src={row.photo} alt="" loading="lazy" decoding="async" />
+            <div class="dash__row-info">
+              <p class="dash__row-name">{row.name}</p>
+              <p class="dash__row-meta">{row.meta}</p>
+            </div>
+            {isFull && row.members && <span class="dash__row-extra">{row.members}</span>}
+            {isFull && row.memories && <span class="dash__row-extra">{row.memories}</span>}
+            <span class="dash__open">{t(locale, 'mockups.dashboard.open')}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .dash {
+    font-family: 'Nunito Sans', 'Inter', system-ui, sans-serif;
+    background: #FDFBF7;
+    border: 1px solid #E7DFD2;
+    border-right: none;
+    border-radius: 12px 0 0 12px;
+    box-shadow: -18px 18px 40px -24px rgba(28, 42, 67, 0.28);
+    overflow: hidden;
+    transform: scale(0.75);
+    transform-origin: center right;
+  }
+  .dash--full {
+    border-right: 1px solid #E7DFD2;
+    border-radius: 14px;
+    box-shadow: 0 18px 40px -18px rgba(28, 42, 67, 0.25);
+    transform: none;
+  }
+  .dash__chrome {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+    border-bottom: 1px solid #EFE8DB;
+  }
+  .dash--full .dash__chrome {
+    gap: 6px;
+    padding: 10px 14px;
+  }
+  .dash__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #E4D9C4;
+  }
+  .dash--full .dash__dot {
+    width: 9px;
+    height: 9px;
+  }
+  .dash__url {
+    margin-left: 8px;
+    background: #F3EEE3;
+    border-radius: 999px;
+    font-size: 9px;
+    color: #A79C87;
+    padding: 2px 10px;
+  }
+  .dash--full .dash__url {
+    margin-left: 10px;
+    font-size: 10.5px;
+    padding: 3px 12px;
+  }
+  .dash__body {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+  }
+  .dash--full .dash__body {
+    grid-template-columns: 148px 1fr;
+  }
+  .dash__side {
+    border-right: 1px solid #EFE8DB;
+    padding: 10px 0 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .dash--full .dash__side {
+    padding: 14px 0 18px;
+    gap: 2px;
+  }
+  .dash__brand {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 10px 8px;
+  }
+  .dash--full .dash__brand {
+    gap: 7px;
+    padding: 2px 14px 12px;
+  }
+  .dash__brand span {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: #1C2A43;
+  }
+  .dash--full .dash__brand span {
+    font-size: 13px;
+  }
+  .dash__nav {
+    font-size: 9px;
+    font-weight: 600;
+    color: #8A7F6B;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .dash--full .dash__nav {
+    font-size: 11px;
+    padding: 8px 14px;
+  }
+  .dash__nav--active {
+    font-weight: 700;
+    color: #1C2A43;
+    background: #F6EADF;
+    border-radius: 0 8px 8px 0;
+    margin-right: 8px;
+  }
+  .dash--full .dash__nav--active {
+    border-radius: 0 10px 10px 0;
+    margin-right: 10px;
+  }
+  .dash__main {
+    padding: 12px 14px 16px;
+  }
+  .dash--full .dash__main {
+    padding: 16px 18px 20px;
+  }
+  .dash__main-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+  .dash--full .dash__main-head {
+    margin-bottom: 14px;
+  }
+  .dash__h {
+    font-size: 13px;
+    font-weight: 800;
+    color: #1C2A43;
+    margin: 0;
+  }
+  .dash--full .dash__h {
+    font-size: 17px;
+  }
+  .dash__sub {
+    font-size: 8px;
+    color: #A79C87;
+    margin: 1px 0 0;
+  }
+  .dash--full .dash__sub {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+  .dash__new {
+    background: #1C2A43;
+    color: #fff;
+    font-size: 8.5px;
+    font-weight: 700;
+    padding: 5px 11px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+  .dash--full .dash__new {
+    font-size: 10.5px;
+    padding: 8px 14px;
+    border-radius: 10px;
+  }
+  .dash__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-bottom: 11px;
+  }
+  .dash--full .dash__stats {
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .dash__stat {
+    border: 1px solid #EFE8DB;
+    border-radius: 8px;
+    padding: 6px 8px;
+    min-width: 0;
+  }
+  .dash__stat--rich {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    border-radius: 10px;
+    padding: 11px 12px;
+  }
+  .dash__stat-ico {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: #F6EADF;
+    color: #1C2A43;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .dash__stat-num {
+    font-size: 11px;
+    font-weight: 800;
+    color: #1C2A43;
+    margin: 0;
+  }
+  .dash--full .dash__stat-num {
+    font-size: 16px;
+  }
+  .dash__stat-label {
+    font-size: 6.5px;
+    color: #8A7F6B;
+    margin: 0;
+  }
+  .dash--full .dash__stat-label {
+    font-size: 8.5px;
+  }
+  .dash__recent {
+    font-size: 9px;
+    font-weight: 800;
+    color: #1C2A43;
+    margin: 0 0 6px;
+  }
+  .dash--full .dash__recent {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+  .dash__rows {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dash--full .dash__rows {
+    gap: 7px;
+  }
+  .dash__row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #EFE8DB;
+    border-radius: 8px;
+    padding: 6px 9px;
+  }
+  .dash--full .dash__row {
+    gap: 10px;
+    border-radius: 10px;
+    padding: 8px 12px;
+  }
+  .dash__row img {
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    object-fit: cover;
+    display: block;
+    flex-shrink: 0;
+  }
+  .dash--full .dash__row img {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+  }
+  .dash__row-info {
+    min-width: 0;
+  }
+  .dash--full .dash__row-info {
+    min-width: 110px;
+  }
+  .dash__row-name {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #1C2A43;
+    margin: 0;
+  }
+  .dash--full .dash__row-name {
+    font-size: 11.5px;
+  }
+  .dash__row-meta {
+    font-size: 7px;
+    color: #A79C87;
+    margin: 0;
+  }
+  .dash--full .dash__row-meta {
+    font-size: 8.5px;
+    color: #B4A98F;
+  }
+  .dash__row-extra {
+    font-size: 9.5px;
+    color: #8A7F6B;
+    white-space: nowrap;
+  }
+  .dash__open {
+    margin-left: auto;
+    border: 1px solid #E7DFD2;
+    border-radius: 999px;
+    font-size: 7.5px;
+    font-weight: 700;
+    color: #1C2A43;
+    padding: 3px 10px;
+    white-space: nowrap;
+  }
+  .dash--full .dash__open {
+    font-size: 9.5px;
+    padding: 4px 14px;
+  }
+</style>

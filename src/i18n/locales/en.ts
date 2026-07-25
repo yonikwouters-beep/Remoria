@@ -59,75 +59,79 @@ export const en = {
   },
 
   hero: {
-    eyebrow: 'MEMORIES CONNECT. FOREVER.',
+    eyebrow: 'Memories connect. Forever.',
+    heading: 'A place where memories come together',
     headingLine1: 'A place where',
     headingLine2: 'memories',
     headingLine3: 'come together.',
     subtext:
-      'Remoria offers an accessible platform where bereaved families can easily share and preserve memories. A serene place to cherish stories and find support in one another.',
-    primaryCta: 'Start a memorial',
-    secondaryCta: 'See an example',
+      'After a farewell, photos and stories scatter across phones, boxes and minds. Remoria brings them together in one safe, serene place — by everyone who was there.',
+    primaryCta: 'Start a memorial →',
+    secondaryCta: 'View an example',
+    trustNote: 'Safe, private and made with love',
   },
 
   features: {
-    eyebrow: 'EVERYTHING YOU NEED',
+    eyebrow: 'Everything you need',
     heading: 'Memories, your way',
     items: [
       {
-        title: 'Media collection',
+        title: 'Gather all media',
         description:
-          'Gather photos, videos and stories in one beautiful place. Share memories with family and friends.',
+          'Photos, videos and voice recordings from everyone you invite, together in one place.',
       },
       {
-        title: 'Post a tribute',
+        title: 'Leave a tribute',
         description:
-          'Write a personal tribute and share your feelings. A warm word means more than you think.',
+          'Write a personal message that stays. A warm word means more than you think.',
       },
       {
-        title: 'Community chat',
+        title: 'Talk with each other',
         description:
-          'Find support from people who understand what you are going through. Share, talk and listen in a safe environment.',
+          'Share, talk and listen in a private chat with people who understand what you are going through.',
       },
       {
         title: 'Make it tangible',
         description:
-          'Bundle memories into a beautiful photo book. A lasting keepsake you can hold on to and pass on.',
+          'Gather the finest memories into a printed photo book to hold and pass on.',
       },
     ],
   },
 
   benefits: {
     bereaved: {
-      label: 'FOR THE BEREAVED',
-      heading: 'Remember together,\nheal together.',
+      label: 'For the bereaved',
+      heading: 'Remember together, heal together',
+      intro:
+        'One safe place where family and friends share photos, stories and support — at your own pace.',
       items: [
         'Everything in one safe place',
         'Share with who you choose',
-        'Lasting memories for the future',
-        'Accessible at any time',
+        'Accessible anytime, on any device',
       ],
       cta: 'More for the bereaved',
-      imageAlt: 'Remoria app on smartphone',
+      imageAlt: 'Remoria app on a smartphone',
     },
     funeral: {
-      label: 'FOR THE FUNERAL SECTOR',
-      heading: 'Innovation that\nstrengthens care.',
+      label: 'For funeral professionals',
+      heading: 'Aftercare that sets your firm apart',
+      intro:
+        'Offer families a digital memorial as a fixed part of your service — without extra workload.',
       items: [
-        'Offer families a digital space',
-        'Increase engagement and aftercare',
-        'Efficient and user-friendly platform',
-        'Fully aligned with your service',
+        'Memorial created in seconds',
+        'Fixed purchase price, fixed profit per plan',
+        'Everything managed from one dashboard',
       ],
       cta: 'More for funeral organisations',
-      imageAlt: 'Remoria platform on laptop',
+      imageAlt: 'Remoria partner dashboard',
     },
   },
 
   ctaBanner: {
-    heading: "Memories don't fade\nwhen you share them.",
-    subtext: 'Start collecting and cherishing memories today.',
-    cta: 'Start a memorial',
-    note: 'Safe, private and made with care.',
+    heading: 'Memories do not fade when you share them',
+    subtext: 'Start gathering today — tomorrow someone may remember a little less.',
+    cta: 'Start a memorial →',
+    note: 'Safe, private and made with love',
   },
 
   guarantee: {
@@ -158,25 +162,108 @@ export const en = {
     logosAria: 'Partner organisations',
   },
 
+  mockups: {
+    phone: {
+      title: '✨ Share your Memories ♡',
+      sub: 'Upload photos, videos and audio recordings to keep precious moments forever and share them.',
+      uploadCta: 'Upload your Memories',
+      drop: 'Drag memories here or click to select',
+      formats: 'JPG, PNG, GIF, MP4, MOV, MP3, WAV · max. 500MB per file',
+      collectionTitle: 'Memory collection',
+      viewAll: 'View all ›',
+      collectionSub: 'Together we build a lasting archive.',
+      photosCount: '13',
+      photosLabel: 'Photos',
+      videosCount: '0',
+      videosLabel: 'Videos',
+      tabHome: 'Home',
+      tabMedia: 'Media',
+      tabTributes: 'Tributes',
+      tabChat: 'Community Chat',
+      tabBook: 'Photo book',
+    },
+    dashboard: {
+      url: 'partner.remoria.eu',
+      nav: {
+        overview: 'Overview',
+        memorials: 'Memorials',
+        staff: 'Staff',
+        stats: 'Statistics',
+        settings: 'Settings',
+        help: 'Help & support',
+      },
+      heading: 'Overview',
+      sub: 'All your memorials at a glance.',
+      newCta: '+ New memorial',
+      recent: 'Recent memorials',
+      open: 'Open',
+      stat1Num: '23',
+      stat1Label: 'Memorials',
+      stat1LabelFull: 'Active memorials',
+      stat2Num: '1,248',
+      stat2Label: 'Community members',
+      stat3Num: '342',
+      stat3Label: 'Memories',
+      stat3LabelFull: 'Shared memories',
+      rowsCompact: [
+        {
+          photo: '/features/photo-09.png',
+          name: 'Jan De Vries',
+          meta: '156 members · 432 memories',
+        },
+        {
+          photo: '/features/photo-01.png',
+          name: 'Maria Jansen',
+          meta: '96 members · 276 memories',
+        },
+      ],
+      rowsFull: [
+        {
+          photo: '/features/photo-09.png',
+          name: 'Jan De Vries',
+          meta: 'Created on 15-06-2026',
+          members: '156 members',
+          memories: '432 memories',
+        },
+        {
+          photo: '/features/photo-01.png',
+          name: 'Maria Jansen',
+          meta: 'Created on 02-07-2026',
+          members: '96 members',
+          memories: '276 memories',
+        },
+        {
+          photo: '/features/photo-06.png',
+          name: 'Peter Mertens',
+          meta: 'Created on 28-06-2026',
+          members: '203 members',
+          memories: '589 memories',
+        },
+      ],
+    },
+  },
+
   prijzen: {
     meta: {
       title: 'Pricing — Remoria',
       description:
-        'Choose the plan that suits you. Everyone in the community can contribute and easily extend the memorial.',
+        'Choose the plan that suits you. You pay once for the memorial; family and friends contribute for free.',
     },
     hero: {
+      eyebrow: 'Pricing',
       title: 'Choose the plan that suits you',
-      sub: 'You only pay for the memorial; inviting family and friends and letting them contribute is always completely free.',
+      sub: 'You pay once, for the memorial itself. Inviting family and friends and letting them contribute is always completely free.',
+      note: 'Every plan includes all features — only the duration differs.',
     },
     plans: [
       {
-        imageAlt: 'Small seedling — Remember Together plan',
+        imageAlt: 'Seedling — Remember Together plan',
         title: 'Remember Together',
         duration: 'Active for 4 months',
         price: '€85',
-        monthlyPrice: '≈ €21.25 per month',
+        monthlyPrice: 'one-time · ≈ €21.25 per month',
         description:
-          'Bring everyone together. The perfect period to collect photos, videos and stories that would otherwise be lost. Invite unlimited family and friends to freely share and view memories.',
+          'Four months — plenty of time to invite everyone and gather all the photos and stories that would otherwise be lost. The photos you would never have seen, for one fixed amount.',
         featured: false,
       },
       {
@@ -184,53 +271,60 @@ export const en = {
         title: 'Cherish Together',
         duration: 'Active for 1 year',
         price: '€129',
-        monthlyPrice: '≈ €10.75 per month',
+        monthlyPrice: 'one-time · ≈ €10.75 per month',
         description:
-          'Take all the time you need to remember together. Return to the collected memories without limit for a full year — especially on the days that matter most. Accessible to the whole family.',
+          'A full year to collect and return: on birthdays, anniversaries, the days that matter most. One whole year of remembering together, with the whole family.',
         featured: true,
       },
       {
-        imageAlt: 'Large tree — A Lasting Memory plan',
+        imageAlt: 'Mature tree — A Lasting Memory plan',
         title: 'A Lasting Memory',
         duration: 'Active for 3 years',
         price: '€239',
-        monthlyPrice: '≈ €6.64 per month',
+        monthlyPrice: 'one-time · ≈ €6.64 per month',
         description:
-          'A permanent space where memories are kept safe and sound, for today and for the future.',
+          'Three years of peace: the memorial remains and grows with you — for those who are here today, and for those who want to know more later.',
         featured: false,
       },
     ],
-    pricingNote: 'Total price — no hidden costs.',
+    trustLabel: 'Assurances',
+    trust: [
+      'Not satisfied within 14 days? Money back',
+      'No automatic renewal',
+      'Total price — no hidden costs',
+      'Family and friends contribute for free',
+    ],
     extensions: {
       title: 'Extend? Everyone can contribute',
-      sub: 'The memorial lives on as long as the community extends it. Anyone with access can contribute.',
-      note: 'Together we make sure memories are preserved.',
+      subHtml:
+        'The memorial lives on as long as the community wants. Not only the purchaser — <strong>anyone with access</strong> can contribute an extension. The longer you choose, the better the value.',
+      note: 'Together we make sure memories are preserved',
       items: [
         { period: '1 month', price: '€6.50' },
         { period: '3 months', price: '€6/m' },
-        { period: '6 months', price: '€5.5/m' },
+        { period: '6 months', price: '€5.50/m' },
         { period: '1 year', price: '€5/m' },
-        { period: '1+', price: '€4.85/m' },
+        { period: '1 year +', price: '€4.85/m' },
       ],
     },
     features: {
-      title: 'All the benefits of Remoria',
+      title: 'All the benefits of Remoria, in every plan',
       items: [
         {
           title: 'Share & collect',
-          desc: 'Easily create a memorial, share it with family, friends and acquaintances, and gather memories.',
+          desc: 'Invite family, friends and acquaintances and gather photos, videos and audio together in one safe place.',
         },
         {
           title: 'Community chat',
-          desc: 'Use the Community chat to stay in touch, share stories and find comfort in one another.',
+          desc: 'Stay in touch, share stories and find comfort together in the private chat.',
         },
         {
           title: 'Post tributes',
-          desc: 'Leave a beautiful message, share a memory and pay tribute to your loved one.',
+          desc: 'Leave a beautiful message, share a memory and pay lasting tribute to your loved one.',
         },
         {
           title: 'Create a photo book',
-          desc: 'Easily create a beautiful photo book from all collected memories afterwards (optional add-on).',
+          desc: 'Afterwards, turn all collected memories into a beautiful photo book (optional add-on).',
         },
       ],
     },
@@ -240,7 +334,7 @@ export const en = {
         {
           question: 'What happens when the plan expires?',
           answer:
-            'Nothing abrupt. The memorial is first archived: it is no longer visible, but all photos and stories remain safely stored for 6 months. During that period you can download everything or renew the plan. Memories are never simply deleted at Remoria.',
+            'The memorial is first archived: it is no longer visible, but all photos and stories remain safely stored for 6 months. During that period you can download everything or renew the plan. Memories are never simply deleted at Remoria.',
         },
         {
           question: 'Do family and friends also have to pay?',
@@ -280,15 +374,11 @@ export const en = {
       ],
     },
     referral: {
+      badge: 'Receive €20 as a thank-you',
       title: 'Help someone else cherish memories',
-      subP1:
-        'Photos tell stories that deserve to be shared. Do you know someone for whom a memorial like Remoria could bring comfort? Share your personal link.',
-      subP2: 'Share your link and help them keep a special memory alive.',
-      cta: 'Share the link and help a friend',
-      coinLabel: 'Receive',
-      coinAmount: '€20',
-      coinSub: 'as a thank-you',
-      imageAlt: 'Sharing a memory',
+      sub: 'Photos tell stories that deserve to be shared. Do you know someone for whom a memorial could bring comfort? Share your personal link — and help them keep a special memory alive.',
+      cta: 'Share the link and help a friend →',
+      imageAlt: 'Envelope with a photo, flowers and a golden heart',
     },
   },
 
@@ -538,80 +628,90 @@ export const en = {
     },
     hero: {
       eyebrow: 'Remoria for the funeral sector',
-      titleLine1: 'Innovative aftercare',
-      titleLine2: 'that connects families',
-      body: 'Distinguish your firm with a unique digital memorial for the bereaved. A valuable addition to your aftercare that brings comfort without extra workload.',
+      title: 'Aftercare that connects families — and sets your firm apart',
+      body: 'Give every family a digital memorial as a standard part of your service. Meaningful comfort for them, a lasting bond with your firm — without extra workload.',
       ctaPrimary: 'Become a partner',
       ctaSecondary: 'Schedule a demo',
       imageAlt: 'Digital memorial — glowing arch as a symbol of connection',
-    },
-    valueProp: {
-      titleLine1: 'Strengthen your service',
-      titleLine2: 'with a digital memorial',
-      sub: 'Being able to share memories with one another in an accessible way. Remoria is the platform you can offer as a professional partner to meet that need.',
+      checks: ['Free partner portal', 'No obligations', 'Fixed profit per plan'],
     },
     how: {
-      eyebrow: 'Seamless integration into your service',
+      eyebrow: 'Seamlessly integrated into your service',
       title: 'How it works',
       steps: [
         {
-          title: 'Simple onboarding',
-          desc: 'Sign up via our partner form with your business details. Once your account is activated, you have immediate access to your own professional environment.',
+          title: 'Register your firm',
+          desc: 'Sign up via the partner form with your business details. Once your account is active, you have immediate access to your own professional environment.',
         },
         {
           title: 'Create a memorial in seconds',
-          desc: 'For every funeral you arrange, you create a new, secured domain in seconds — at a fixed purchase price, with a fixed profit per plan.',
+          desc: 'For every funeral you arrange, you create a new, secured domain — at a fixed purchase price, with a fixed profit per plan.',
         },
         {
-          title: 'Manage everything via your dashboard',
-          desc: "In your clear dashboard you keep full control. At a glance you see which spaces are active and how the communities are growing. You also have direct insight into your earnings.",
+          title: 'The family takes it from there',
+          desc: "Relatives invite family and friends themselves and fill the memorial with photos and stories. You don't have to moderate a thing.",
         },
         {
-          title: 'Direct source for the ceremony',
-          desc: 'Need photos for the farewell service? In the dashboard you can easily download the photos uploaded by family and friends in high quality.',
+          title: 'Use it for the ceremony',
+          desc: 'Download uploaded photos in high quality directly from your dashboard — ready for the farewell service.',
         },
       ],
     },
-    pricingModel: {
+    dashboard: {
+      chip: 'Your dashboard',
+      title: 'Everything at a glance, everything under control',
+      body: 'You instantly see which memorials are active, how the communities are growing, and what your earnings are. Download imagery for the ceremony in high quality, straight from the file.',
+      checks: [
+        'Overview per memorial and per family',
+        'Direct insight into your earnings',
+        'Download photos in high quality',
+      ],
+    },
+    partner: {
       eyebrow: 'Transparent partner model',
-      title: 'What does it cost?',
+      title: 'No risk, only reward',
+      sub: 'No subscription fees, no set-up costs, no obligations. You only pay for what you sell.',
       cards: [
         {
           title: 'Free portal',
-          desc: 'No subscription costs, no set-up fees, no obligations. The partner portal is and remains completely free.',
+          desc: 'The partner portal is and remains completely free. No subscription, no set-up fees, no obligations.',
         },
         {
           title: 'Fixed profit per plan',
-          desc: 'You purchase each plan at a fixed price and decide your own service around it. Every plan sold gives you a fixed, predictable profit.',
+          desc: 'You purchase each plan at a fixed price and decide your own selling price. Every plan sold delivers a fixed, predictable margin.',
         },
         {
-          title: 'One clear monthly invoice',
-          desc: 'No pre-financing or administration per file: at the start of each month you receive one consolidated invoice for the memorials of the past month.',
+          title: 'One monthly invoice',
+          desc: 'No pre-financing or per-file administration. At the start of each month you receive one consolidated invoice for the past month.',
         },
       ],
-      ctaText: 'Curious about the specific partner conditions?',
-      ctaLink: 'Schedule a no-obligation introduction →',
+      linkBefore: 'Curious about the specific partner terms? ',
+      linkCta: 'Schedule a no-obligation introduction →',
     },
-    features: [
-      {
-        title: 'Media collection as an extra service',
-        desc: 'Give families a central place for photos, videos and audio clips. You provide them with the tools to build a rich digital archive.',
-      },
-      {
-        title: 'An interactive community',
-        desc: 'Facilitate connection. Via the Community chat and the ability to post condolence messages, you create a safe environment where the family and their friends can grieve and share memories together.',
-      },
-      {
-        title: 'Make it tangible with the photo book',
-        desc: 'Remoria turns the digital collection into a high-quality photo book with just a few clicks. A lasting memory to cherish.',
-      },
-    ],
+    familyOffer: {
+      eyebrow: 'What you offer the family',
+      title: 'A service families thank you for',
+      cards: [
+        {
+          title: 'A shared media collection',
+          desc: 'One central place for photos, videos and audio — including footage the family has never seen before.',
+        },
+        {
+          title: 'A private community',
+          desc: 'Through chat and the condolence register, family and friends grieve together in a safe environment.',
+        },
+        {
+          title: 'A tangible photo book',
+          desc: 'From the digital collection, the family creates a high-quality printed photo book in just a few clicks.',
+        },
+      ],
+    },
     ctaBanner: {
       quote:
         '"Distinguish your funeral home and offer Remoria as a lasting place for comfort and remembrance."',
       ctaPrimary: 'Become a partner',
       ctaSecondary: 'Get in touch',
-      legal: 'Data processing agreement (annex to the general terms and conditions)',
+      legal: 'Data processing agreement included (annex to the general terms and conditions)',
     },
   },
 
@@ -619,33 +719,33 @@ export const en = {
     meta: {
       title: 'About Remoria — the story behind the memorials',
       description:
-        "Why Remoria exists: the most beautiful photos and stories rarely reach the family. We build the place where they do — private, serene and for every generation.",
+        'Why Remoria exists: the most beautiful photos and stories rarely reach the family. We build the place where they do — private, serene and for every generation.',
     },
     hero: {
       eyebrow: 'About Remoria',
-      title: 'The story behind Remoria.',
+      title: 'The story behind Remoria',
       quote: '"Because memories are too precious to let fade."',
-      imageAlt: 'A family looking at old photos in a photo album together',
+      imageAlt: 'A family browsing an old photo album together',
     },
     mission: {
-      eyebrow: 'The story behind Remoria',
-      title: "Because the most beautiful photos often never arrive.",
+      eyebrow: 'Why Remoria exists',
+      title: 'Because the most beautiful photos often never arrive',
       paragraphs: [
-        "When someone passes away, memories are everywhere. In old photo albums in the attic. On the phones of colleagues, travel companions and childhood friends. In stories that are only told when the right people happen to sit together at the table.",
-        "Most of that never reaches the family. Not out of reluctance, but because the barrier is too high. You do not just send a message with photos to someone who is grieving. And the places that do exist do not feel like the right place for something so personal.",
-        "Remoria was built to remove that barrier. One serene, private place where everyone who knew someone can share their photos, videos and stories. So that you suddenly see that photo from twenty years ago: your uncle on a surfboard, somewhere far away, more adventurous than you ever knew. So that at the table people start talking about him again.",
-        "Memories are there to be shared. We make sure they arrive.",
+        'When someone passes away, memories are everywhere. In old photo albums in the attic, on the phones of colleagues, travel companions and childhood friends. In stories that are only told when the right people happen to sit together at the table.',
+        'Most of that never reaches the family. Not out of reluctance, but because the barrier is too high: you do not just send a message with photos to someone who is grieving.',
+        'Remoria removes that barrier. One serene, private place where everyone who knew someone can share their piece of the story. So that you suddenly see that photo from twenty years ago — your uncle on a surfboard, somewhere far away, more adventurous than you had ever known him.',
       ],
-      pull: '— Yonik, founder of Remoria',
+      closing: 'Memories are there to be shared. We make sure they arrive.',
+      signature: '— Yonik, founder of Remoria',
     },
     values: {
       eyebrow: 'Core values',
-      title: 'Why we do what we do.',
-      sub: 'Remoria is not a cold database. It is a place built on a few convictions:',
+      title: 'Why we do what we do',
+      sub: 'Remoria is not a cold database. It is a place, built on a few convictions.',
       cards: [
         {
           title: 'Accessible to everyone',
-          desc: 'The most beautiful memories come from unexpected people: the old travel companion, the former colleague, the neighbour. Remoria makes contributing so simple that no one feels a barrier — from your mother to the friend who knew your loved one forty years ago.',
+          desc: 'The most beautiful memories come from unexpected people: the old travel companion, the colleague, the neighbour. Remoria makes contributing so simple that no one feels a barrier — from your mother to the friend who knew your loved one forty years ago.',
         },
         {
           title: 'Safe and discreet',
@@ -657,23 +757,28 @@ export const en = {
         },
         {
           title: 'Tangible endures',
-          desc: 'Preserved digitally, but tangibility connects. Turn the online collection into a beautiful, physical photo book — a keepsake you always have within reach.',
+          desc: 'Preserved digitally, but told tangibly. Turn the online collection into a beautiful, physical photo book — a keepsake that always stays within reach.',
         },
       ],
     },
-    cinematic: {
-      title: 'Memories deserve\na lasting place.',
-      sub: "Every day precious memories are lost — photos that never arrive, stories that are no longer told. Remoria is here to change that. For every family, and for every generation yet to come.",
+    cta: {
+      title: 'Memories deserve a lasting place',
+      sub: 'Every day precious memories are lost — photos that never arrive, stories that are no longer told. Remoria is here to change that. For every family, and for every generation yet to come.',
+      primary: 'Start a memorial →',
+      secondary: 'View an example',
     },
+    audienceSectionLabel: 'Who Remoria is for',
     audience: [
       {
-        title: 'For families\n& the bereaved',
-        body: 'You do not have to keep the memories of your loved one on your own. Remoria gives you one place to collect together with everyone who knew them — to share, to laugh, to be still and to remember.',
+        eyebrow: 'For families & the bereaved',
+        title: 'Remember together, at your own pace',
+        body: 'One place to gather together what your loved one gave not only to you, but to everyone — and to share, view and remember it.',
         cta: 'Discover Remoria for families',
       },
       {
-        title: 'For\nfuneral professionals',
-        body: 'As a funeral director you are more than a service provider — you are a guide through the hardest moments of life. Remoria strengthens your aftercare with a platform that continues to support families long after the funeral.',
+        eyebrow: 'For funeral professionals',
+        title: 'More than a service provider',
+        body: 'Become a guide through the hardest moments of life. Remoria strengthens your aftercare with a platform that continues to support families long after the funeral.',
         cta: 'Discover Remoria for professionals',
       },
     ],

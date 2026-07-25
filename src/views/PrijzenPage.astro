@@ -4,7 +4,6 @@ import Navbar from '../components/Navbar.astro';
 import PricingCard from '../components/PricingCard.astro';
 import Footer from '../components/Footer.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
-import GuaranteeBadge from '../components/GuaranteeBadge.astro';
 import { getLocale, t, tp } from '../i18n/utils';
 
 const locale = getLocale(Astro.currentLocale);
@@ -41,18 +40,27 @@ const plans = planData.map((p, i) => ({
   startUrl: startUrls[i],
 }));
 
+const trustItems = tp<string[]>(locale, 'prijzen.trust');
 const extensions = tp<ExtItem[]>(locale, 'prijzen.extensions.items');
 const featItems = tp<FeatItem[]>(locale, 'prijzen.features.items');
+const pricingFaqs = tp<FaqItem[]>(locale, 'prijzen.faqs.items');
+
+const trustIcons = [
+  `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>`,
+  `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>`,
+  `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>`,
+  `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+];
 
 const featureIcons = [
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`,
+  `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>`,
+  `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+  `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>`,
+  `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>`,
 ];
 
 const features = featItems.map((f, i) => ({ ...f, icon: featureIcons[i] }));
-const pricingFaqs = tp<FaqItem[]>(locale, 'prijzen.faqs.items');
+const referralUrl = 'https://remoriaeu-4cbb.endorsely.com';
 ---
 
 <BaseLayout title={t(locale, 'prijzen.meta.title')} description={t(locale, 'prijzen.meta.description')}>
@@ -60,23 +68,17 @@ const pricingFaqs = tp<FaqItem[]>(locale, 'prijzen.faqs.items');
 
   <main class="pricing-page">
 
-    <!-- ════════════════════════════════════
-         HERO
-    ════════════════════════════════════ -->
     <section class="section-hero">
       <div class="container container--narrow">
+        <p class="eyebrow">{t(locale, 'prijzen.hero.eyebrow')}</p>
         <h1 class="hero-title">{t(locale, 'prijzen.hero.title')}</h1>
-        <p class="hero-sub">
-          {t(locale, 'prijzen.hero.sub')}
-        </p>
+        <p class="hero-sub">{t(locale, 'prijzen.hero.sub')}</p>
+        <p class="hero-note">{t(locale, 'prijzen.hero.note')}</p>
       </div>
     </section>
 
-    <!-- ════════════════════════════════════
-         PRICING CARDS
-    ════════════════════════════════════ -->
     <section class="section-cards">
-      <div class="container">
+      <div class="container container--plans">
         <div class="cards-grid">
           {plans.map((plan) => (
             <PricingCard
@@ -92,41 +94,38 @@ const pricingFaqs = tp<FaqItem[]>(locale, 'prijzen.faqs.items');
             />
           ))}
         </div>
-        <p class="pricing-total-note">{t(locale, 'prijzen.pricingNote')}</p>
-        <div class="pricing-guarantee-wrap">
-          <GuaranteeBadge />
+      </div>
+    </section>
+
+    <section class="section-trust" aria-label={t(locale, 'prijzen.trustLabel')}>
+      <div class="container container--plans">
+        <div class="trust-strip">
+          {trustItems.map((item, i) => (
+            <div class="trust-item">
+              <span class="trust-item__icon" aria-hidden="true" set:html={trustIcons[i]} />
+              {item}
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
-    <!-- ════════════════════════════════════
-         EXTENSIONS
-    ════════════════════════════════════ -->
     <section class="section-ext">
-      <div class="container">
+      <div class="container container--plans">
         <div class="ext-box">
           <div class="ext-left">
             <h2 class="ext-title">{t(locale, 'prijzen.extensions.title')}</h2>
-            <p class="ext-sub">
-              {t(locale, 'prijzen.extensions.sub')}
-            </p>
+            <p class="ext-sub" set:html={t(locale, 'prijzen.extensions.subHtml')} />
             <div class="ext-note">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C6A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+              </svg>
               {t(locale, 'prijzen.extensions.note')}
             </div>
           </div>
-
           <div class="ext-right">
-            {extensions.map((e) => (
-              <div class="ext-item">
-                <div class="ext-item__icon" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C6A24B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2"/>
-                    <line x1="16" y1="2" x2="16" y2="6"/>
-                    <line x1="8" y1="2" x2="8" y2="6"/>
-                    <line x1="3" y1="10" x2="21" y2="10"/>
-                  </svg>
-                </div>
+            {extensions.map((e, i) => (
+              <div class:list={['ext-item', i === extensions.length - 1 && 'ext-item--highlight']}>
                 <p class="ext-item__period">{e.period}</p>
                 <p class="ext-item__price">{e.price}</p>
               </div>
@@ -136,17 +135,13 @@ const pricingFaqs = tp<FaqItem[]>(locale, 'prijzen.faqs.items');
       </div>
     </section>
 
-    <!-- ════════════════════════════════════
-         FEATURES
-    ════════════════════════════════════ -->
     <section class="section-feat">
-      <div class="container">
+      <div class="container container--plans">
         <h2 class="section-title">{t(locale, 'prijzen.features.title')}</h2>
-
         <div class="feat-grid">
           {features.map((f) => (
             <div class="feat-card">
-              <div class="feat-card__icon" set:html={f.icon} />
+              <span class="feat-card__icon" set:html={f.icon} />
               <h3 class="feat-card__title">{f.title}</h3>
               <p class="feat-card__desc">{f.desc}</p>
             </div>
@@ -157,50 +152,29 @@ const pricingFaqs = tp<FaqItem[]>(locale, 'prijzen.faqs.items');
 
     <FaqAccordion title={t(locale, 'prijzen.faqs.title')} items={pricingFaqs} id="prijzen-faq" />
 
-    <!-- ════════════════════════════════════
-         REFERRAL
-    ════════════════════════════════════ -->
     <section class="section-ref">
-      <div class="container">
+      <div class="container container--plans">
         <div class="ref-box">
           <div class="ref-left">
-            <h2 class="ref-title">{t(locale, 'prijzen.referral.title')}</h2>
-            <p class="ref-sub">
-              {t(locale, 'prijzen.referral.subP1')}
-              <br /><br />
-              {t(locale, 'prijzen.referral.subP2')}
-            </p>
-            <a
-              href="https://remoriaeu-4cbb.endorsely.com"
-              class="ref-btn"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {t(locale, 'prijzen.referral.cta')}
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <div class="ref-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
               </svg>
+              {t(locale, 'prijzen.referral.badge')}
+            </div>
+            <h2 class="ref-title">{t(locale, 'prijzen.referral.title')}</h2>
+            <p class="ref-sub">{t(locale, 'prijzen.referral.sub')}</p>
+            <a href={referralUrl} class="ref-btn" target="_blank" rel="noopener noreferrer">
+              {t(locale, 'prijzen.referral.cta')}
             </a>
           </div>
-
-          <div class="ref-right">
-            <div class="ref-coin">
-              <div class="ref-coin__inner">
-                <p class="ref-coin__label">{t(locale, 'prijzen.referral.coinLabel')}</p>
-                <p class="ref-coin__amount">{t(locale, 'prijzen.referral.coinAmount')}</p>
-                <p class="ref-coin__sub">{t(locale, 'prijzen.referral.coinSub')}</p>
-              </div>
-            </div>
-            <div class="ref-img-wrap">
-              <img
-                src="/referral-remoria.png"
-                alt={t(locale, 'prijzen.referral.imageAlt')}
-                class="ref-img"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
+          <img
+            src="/referral-envelope.png"
+            alt={t(locale, 'prijzen.referral.imageAlt')}
+            class="ref-img"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </div>
     </section>
@@ -211,474 +185,352 @@ const pricingFaqs = tp<FaqItem[]>(locale, 'prijzen.faqs.items');
 </BaseLayout>
 
 <style>
-  /* ─── Page base ─────────────────────────────────────── */
   .pricing-page {
-    background: #F5F2EC;
+    font-family: 'Nunito Sans', sans-serif;
+    background: #F6F1E8;
+    color: #4A4438;
   }
 
   .container {
-    max-width: 1200px;
     margin-inline: auto;
-    padding-inline: clamp(20px, 5vw, 56px);
+    padding-inline: 24px;
   }
 
   .container--narrow {
-    max-width: 760px;
+    max-width: 620px;
   }
 
-  /* ─── Hero ──────────────────────────────────────────── */
+  .container--plans {
+    max-width: 1080px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #B8934A;
+    margin: 0 0 18px;
+  }
+
   .section-hero {
-    padding-block: clamp(64px, 10vw, 100px) clamp(48px, 7vw, 72px);
     text-align: center;
-    display: flex;
-    justify-content: center;
+    padding: 56px 0 0;
   }
 
   .hero-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2rem, 4.5vw, 3.25rem);
-    font-weight: 500;
-    line-height: 1.15;
-    letter-spacing: -0.025em;
-    color: #1E293B;
-    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: clamp(2rem, 4.5vw, 46px);
+    line-height: 1.14;
+    color: #1C2A43;
+    margin: 0 0 18px;
+    text-wrap: pretty;
   }
 
   .hero-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(15px, 1.8vw, 17px);
-    font-weight: 400;
-    line-height: 1.72;
-    color: #64748B;
-    margin-bottom: 28px;
-    max-width: 600px;
-    margin-inline: auto;
+    font-size: 16.5px;
+    line-height: 1.65;
+    color: #7A7263;
+    margin: 0 0 10px;
   }
 
-  .hero-badge {
-    display: inline-flex;
-    align-items: flex-start;
-    gap: 10px;
-    background: rgba(198, 162, 75, 0.08);
-    border: 1px solid rgba(198, 162, 75, 0.22);
-    border-radius: 14px;
-    padding: 12px 20px;
-    font-family: 'Inter', sans-serif;
-    font-size: 13.5px;
-    font-weight: 400;
-    color: #64748B;
-    line-height: 1.55;
-    max-width: 540px;
-    text-align: left;
+  .hero-note {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #4A4438;
+    margin: 0;
   }
 
-  .hero-badge strong {
-    color: #1E293B;
-    font-weight: 600;
-  }
-
-  .hero-badge__icon {
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  /* ─── Cards ─────────────────────────────────────────── */
   .section-cards {
-    padding-block: 0 clamp(64px, 10vw, 96px);
+    padding-top: 48px;
   }
 
   .cards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 20px;
+    align-items: stretch;
   }
 
-  .pricing-total-note {
-    margin-top: 24px;
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.5;
-    color: #64748B;
+  .section-trust {
+    padding-top: 26px;
   }
 
-  .pricing-guarantee-wrap {
+  .trust-strip {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    gap: 28px;
+    flex-wrap: wrap;
   }
 
-  @media (max-width: 860px) {
-    .cards-grid {
-      grid-template-columns: 1fr;
-      max-width: 480px;
-      margin-inline: auto;
-    }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #5C5548;
   }
 
-  /* ─── Extensions ─────────────────────────────────────── */
+  .trust-item__icon {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
   .section-ext {
-    padding-block: 0 clamp(64px, 10vw, 96px);
+    padding-top: 64px;
   }
 
   .ext-box {
-    background: rgba(255, 255, 255, 0.65);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1.5px solid rgba(30, 41, 59, 0.06);
-    border-radius: 24px;
-    padding: clamp(32px, 5vw, 52px);
+    background: #FDFBF7;
+    border: 1px solid #E7DFD2;
+    border-radius: 20px;
+    padding: 40px 44px;
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 48px;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 40px;
     align-items: center;
   }
 
   .ext-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-    font-weight: 500;
-    color: #1E293B;
-    letter-spacing: -0.02em;
+    font-weight: 600;
+    font-size: 26px;
     line-height: 1.25;
-    margin-bottom: 12px;
+    color: #1C2A43;
+    margin: 0 0 12px;
   }
 
   .ext-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 14.5px;
     line-height: 1.7;
-    color: #64748B;
-    margin-bottom: 16px;
+    color: #7A7263;
+    margin: 0 0 12px;
+  }
+
+  .ext-sub :global(strong) {
+    color: #4A4438;
+    font-weight: 700;
   }
 
   .ext-note {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Inter', sans-serif;
     font-size: 13px;
-    color: #64748B;
+    font-weight: 700;
+    color: #96742F;
   }
 
   .ext-right {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    align-items: start;
+    gap: 10px;
   }
 
   .ext-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    border: 1px solid #EFE8DB;
+    border-radius: 12px;
+    padding: 14px 8px;
     text-align: center;
   }
 
-  .ext-item__icon {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(198, 162, 75, 0.09);
-    border-radius: 12px;
+  .ext-item--highlight {
+    background: #F8F3E9;
   }
 
   .ext-item__period {
-    font-family: 'Inter', sans-serif;
     font-size: 12px;
-    font-weight: 600;
-    color: #1E293B;
-    letter-spacing: 0.02em;
+    font-weight: 700;
+    color: #4A4438;
+    margin: 0;
   }
 
   .ext-item__price {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 16px;
-    font-weight: 500;
-    color: #C6A24B;
+    font-weight: 600;
+    color: #B8934A;
+    margin: 6px 0 0;
   }
 
-  @media (max-width: 860px) {
-    .ext-box {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-
-    .ext-right {
-      grid-template-columns: repeat(5, 1fr);
-      gap: 8px;
-    }
-
-    .ext-item__period { font-size: 11px; }
-    .ext-item__price { font-size: 14px; }
-  }
-
-  @media (max-width: 540px) {
-    .ext-right {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  /* ─── Features ───────────────────────────────────────── */
   .section-feat {
-    padding-block: 0 clamp(64px, 10vw, 96px);
-    text-align: center;
+    padding-top: 80px;
   }
 
   .section-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
-    font-weight: 500;
-    color: #1E293B;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    margin-bottom: 52px;
+    font-weight: 600;
+    font-size: clamp(1.75rem, 3vw, 34px);
+    line-height: 1.15;
+    color: #1C2A43;
+    margin: 0 0 36px;
+    text-align: center;
   }
 
   .feat-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    text-align: left;
+    gap: 18px;
   }
 
   .feat-card {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 28px 24px;
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(30, 41, 59, 0.05);
-    border-radius: 20px;
-    box-shadow: 0 2px 16px rgba(30, 41, 59, 0.05);
-    transition: transform 0.22s ease, box-shadow 0.22s ease;
-  }
-
-  .feat-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 28px rgba(30, 41, 59, 0.09);
+    background: #FDFBF7;
+    border: 1px solid #E7DFD2;
+    border-radius: 16px;
+    padding: 26px 24px;
   }
 
   .feat-card__icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    background: #F3E7CF;
+    color: #96742F;
     align-items: center;
     justify-content: center;
-    background: rgba(198, 162, 75, 0.10);
-    border-radius: 14px;
-    color: #C6A24B;
-    flex-shrink: 0;
+    margin-bottom: 14px;
   }
 
   .feat-card__title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 16px;
-    font-weight: 500;
-    color: #1E293B;
-    line-height: 1.3;
+    font-size: 17px;
+    font-weight: 600;
+    color: #1C2A43;
+    margin: 0 0 7px;
   }
 
   .feat-card__desc {
-    font-family: 'Inter', sans-serif;
     font-size: 13.5px;
-    font-weight: 400;
-    line-height: 1.68;
-    color: #64748B;
-    flex: 1;
+    line-height: 1.6;
+    color: #7A7263;
+    margin: 0;
   }
 
-  @media (max-width: 1024px) {
-    .feat-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 540px) {
-    .feat-grid { grid-template-columns: 1fr; }
-    .section-title { margin-bottom: 36px; }
-  }
-
-  /* ─── Referral ───────────────────────────────────────── */
   .section-ref {
-    padding-block: 0 clamp(64px, 10vw, 96px);
+    padding: 80px 0 96px;
   }
 
   .ref-box {
-    background-image: url('/referral-background.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: #F5EEE0;
+    border: 10px solid #FFFDF8;
     border-radius: 28px;
-    padding: clamp(40px, 6vw, 64px);
+    padding: 48px 52px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: 40px;
     align-items: center;
-    overflow: hidden;
-    position: relative;
+    box-shadow: 0 18px 40px -20px rgba(28, 42, 67, 0.18);
   }
 
-  /* Subtle overlay for text readability on the warm photo background */
-  .ref-box::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(245, 242, 236, 0.45);
-    pointer-events: none;
+  .ref-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FDFBF7;
+    border: 1px solid #EADFC9;
+    color: #96742F;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 999px;
+    margin-bottom: 18px;
   }
 
   .ref-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1.5rem, 3vw, 2.125rem);
-    font-weight: 500;
-    color: #1E293B;
-    letter-spacing: -0.02em;
-    line-height: 1.22;
-    margin-bottom: 18px;
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3vw, 32px);
+    line-height: 1.2;
+    color: #1C2A43;
+    margin: 0 0 14px;
+    text-wrap: pretty;
   }
 
   .ref-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 14.5px;
-    font-weight: 400;
-    line-height: 1.72;
-    color: #475569;
-    margin-bottom: 32px;
-    max-width: 420px;
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: #7A7263;
+    margin: 0 0 26px;
+    max-width: 480px;
   }
 
   .ref-btn {
     display: inline-flex;
     align-items: center;
-    gap: 9px;
-    padding: 14px 28px;
-    background: #1E293B;
+    gap: 8px;
+    background: #1C2A43;
     color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 14.5px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 28px;
     border-radius: 999px;
     text-decoration: none;
-    border: 1.5px solid transparent;
-    transition: background-color 0.2s ease, transform 0.18s ease;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
   }
 
   .ref-btn:hover {
-    background: #0f172a;
-    transform: translateY(-2px);
-  }
-
-  .ref-right {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-  }
-
-  .ref-coin {
-    flex-shrink: 0;
-    width: 148px;
-    height: 148px;
-    border-radius: 50%;
-    background: #fff;
-    border: 2px solid rgba(198, 162, 75, 0.55);
-    box-shadow:
-      0 0 0 10px rgba(255, 255, 255, 0.45),
-      0 12px 36px rgba(30, 41, 59, 0.14);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .ref-coin__inner {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-  }
-
-  /* Gold heart icon above the amount — matches screenshot */
-  .ref-coin__inner::before {
-    content: '';
-    display: block;
-    width: 26px;
-    height: 26px;
-    background-color: #C6A24B;
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/%3E%3C/svg%3E");
-    mask-size: contain;
-    mask-repeat: no-repeat;
-    mask-position: center;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/%3E%3C/svg%3E");
-    -webkit-mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    margin-bottom: 2px;
-  }
-
-  .ref-coin__label {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    color: #64748B;
-    letter-spacing: 0.06em;
-    margin-bottom: 1px;
-  }
-
-  .ref-coin__amount {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 34px;
-    font-weight: 600;
-    color: #1E293B;
-    line-height: 1;
-  }
-
-  .ref-coin__sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    color: #94A3B8;
-    margin-top: 2px;
-  }
-
-  .ref-left,
-  .ref-right {
-    position: relative;
-    z-index: 1;
-  }
-
-  .ref-img-wrap {
-    flex: 1;
-    max-width: 240px;
+    background: #2A3B5C;
+    color: #fff;
   }
 
   .ref-img {
     width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(30, 41, 59, 0.18);
+    max-width: 300px;
+    justify-self: center;
+    display: block;
   }
 
-  @media (max-width: 860px) {
-    .ref-box {
+  @media (max-width: 960px) {
+    .cards-grid {
       grid-template-columns: 1fr;
-      gap: 36px;
+      max-width: 420px;
+      margin-inline: auto;
     }
 
-    .ref-right {
-      justify-content: center;
-      flex-wrap: wrap;
+    .ext-box {
+      grid-template-columns: 1fr;
+      padding: 32px 24px;
+      gap: 28px;
+    }
+
+    .ext-right {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .feat-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ref-box {
+      grid-template-columns: 1fr;
+      padding: 36px 28px;
+      gap: 28px;
+    }
+
+    .ref-img {
+      order: 2;
     }
   }
 
   @media (max-width: 540px) {
-    .ref-coin { width: 110px; height: 110px; }
-    .ref-coin__amount { font-size: 26px; }
-    .ref-img { height: 160px; }
+    .feat-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ext-right {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ref-btn {
+      white-space: normal;
+      text-align: center;
+      justify-content: center;
+    }
   }
 </style>

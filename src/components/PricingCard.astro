@@ -27,39 +27,31 @@ const {
 } = Astro.props;
 ---
 
-<article class:list={[
-  'pricing-card',
-  featured && 'pricing-card--featured'
-]}>
+<article class:list={['pricing-card', featured && 'pricing-card--featured']}>
   {featured && (
-    <div class="pricing-card__badge">{t(locale, 'pricingCard.featuredBadge')}</div>
+    <span class="pricing-card__badge">{t(locale, 'pricingCard.featuredBadge')}</span>
   )}
 
-  <div class="pricing-card__img-wrap">
-    <img
-      src={image}
-      alt={imageAlt}
-      class="pricing-card__img"
-      loading="lazy"
-      decoding="async"
-    />
-  </div>
+  <img
+    src={image}
+    alt={imageAlt}
+    class="pricing-card__img"
+    loading="lazy"
+    decoding="async"
+  />
 
-  <div class="pricing-card__body">
-    <h3 class="pricing-card__title">{title}</h3>
-    <p class="pricing-card__duration">{duration}</p>
+  <h3 class="pricing-card__title">{title}</h3>
+  <p class="pricing-card__duration">{duration}</p>
+  <p class="pricing-card__price">{price}</p>
+  {monthlyPrice && <p class="pricing-card__monthly">{monthlyPrice}</p>}
+  <p class="pricing-card__desc">{description}</p>
 
-    <div class="pricing-card__price-block">
-      <p class="pricing-card__price">{price}</p>
-      {monthlyPrice && (
-        <p class="pricing-card__monthly">{monthlyPrice}</p>
-      )}
-    </div>
-
-    <p class="pricing-card__desc">{description}</p>
-
-    <a href={startUrl} class="pricing-card__btn">{t(locale, 'pricingCard.startCta')}</a>
-  </div>
+  <a
+    href={startUrl}
+    class:list={['pricing-card__btn', featured ? 'pricing-card__btn--gold' : 'pricing-card__btn--outline']}
+  >
+    {t(locale, 'pricingCard.startCta')}
+  </a>
 </article>
 
 <style>
@@ -67,155 +59,120 @@ const {
     position: relative;
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.72);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1.5px solid rgba(30, 41, 59, 0.07);
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow:
-      0 1px 2px rgba(30, 41, 59, 0.04),
-      0 8px 32px rgba(30, 41, 59, 0.07);
-    transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.28s ease;
-  }
-
-  .pricing-card:hover {
-    transform: translateY(-6px);
-    box-shadow:
-      0 2px 4px rgba(30, 41, 59, 0.06),
-      0 20px 52px rgba(30, 41, 59, 0.12);
+    text-align: center;
+    background: #FDFBF7;
+    border: 1px solid #E7DFD2;
+    border-radius: 20px;
+    padding: 36px 30px 30px;
   }
 
   .pricing-card--featured {
-    border-color: rgba(198, 162, 75, 0.45);
-    box-shadow:
-      0 2px 4px rgba(30, 41, 59, 0.06),
-      0 12px 40px rgba(198, 162, 75, 0.14),
-      inset 0 0 0 1px rgba(198, 162, 75, 0.18);
-  }
-
-  .pricing-card--featured:hover {
-    box-shadow:
-      0 4px 8px rgba(30, 41, 59, 0.08),
-      0 24px 56px rgba(198, 162, 75, 0.22),
-      inset 0 0 0 1px rgba(198, 162, 75, 0.28);
+    border: 2px solid #1C2A43;
+    box-shadow: 0 22px 44px -20px rgba(28, 42, 67, 0.3);
   }
 
   .pricing-card__badge {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #c6a24b 0%, #d4af5e 100%);
-    color: #fff;
-    font-family: 'Inter', sans-serif;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #D9B36A;
+    color: #3D2F14;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    padding: 5px 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 16px;
     border-radius: 999px;
-    box-shadow: 0 2px 8px rgba(198, 162, 75, 0.35);
-  }
-
-  .pricing-card__img-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    padding: 36px 32px 0;
-    min-height: 164px;
+    white-space: nowrap;
   }
 
   .pricing-card__img {
-    width: 100%;
-    max-width: 180px;
-    height: 140px;
+    width: 96px;
+    height: 96px;
     object-fit: contain;
-    object-position: center bottom;
-  }
-
-  .pricing-card__body {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 28px 32px 36px;
+    align-self: center;
+    margin-bottom: 14px;
   }
 
   .pricing-card__title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 22px;
-    font-weight: 500;
-    color: #1E293B;
-    letter-spacing: -0.02em;
-    line-height: 1.25;
-    margin-bottom: 6px;
-    text-align: center;
+    font-size: 21px;
+    font-weight: 600;
+    color: #1C2A43;
+    margin: 0;
   }
 
   .pricing-card__duration {
-    font-family: 'Inter', sans-serif;
-    font-size: 12.5px;
-    font-weight: 500;
-    color: #C6A24B;
-    letter-spacing: 0.04em;
-    text-align: center;
-    margin-bottom: 18px;
-  }
-
-  .pricing-card__price-block {
-    text-align: center;
-    margin-bottom: 16px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #B8934A;
+    text-transform: uppercase;
+    margin: 6px 0 16px;
   }
 
   .pricing-card__price {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 44px;
-    font-weight: 500;
-    color: #1E293B;
-    letter-spacing: -0.03em;
+    font-size: 46px;
+    font-weight: 600;
+    color: #1C2A43;
     line-height: 1;
     margin: 0;
   }
 
   .pricing-card__monthly {
-    margin: 8px 0 0;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    color: #94A3B8;
-    line-height: 1.3;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 12.5px;
+    color: #A79C87;
+    margin: 8px 0 16px;
   }
 
   .pricing-card__desc {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 14px;
-    font-weight: 400;
-    line-height: 1.7;
-    color: #64748B;
-    text-align: center;
-    margin-bottom: 28px;
+    line-height: 1.65;
+    color: #7A7263;
+    margin: 0 0 24px;
+    text-wrap: pretty;
     flex: 1;
   }
 
   .pricing-card__btn {
+    margin-top: auto;
     display: block;
-    width: 100%;
-    padding: 14px 24px;
-    background: linear-gradient(135deg, #c6a24b 0%, #d4af5e 55%, #c6a24b 100%);
-    background-size: 200% 100%;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
     text-align: center;
-    text-decoration: none;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14.5px;
+    font-weight: 800;
+    padding: 13px 20px;
     border-radius: 999px;
-    box-shadow: 0 4px 16px rgba(198, 162, 75, 0.30);
-    transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   }
 
-  .pricing-card__btn:hover {
-    background-position: 100% 0;
-    transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(198, 162, 75, 0.40);
+  .pricing-card__btn--outline {
+    background: #FDFBF7;
+    color: #1C2A43;
+    border: 1.5px solid #C6BBA4;
+  }
+
+  .pricing-card__btn--outline:hover {
+    border-color: #1C2A43;
+    color: #1C2A43;
+  }
+
+  .pricing-card__btn--gold {
+    background: #D9B36A;
+    color: #1C2A43;
+    padding: 14px 20px;
+    border: none;
+  }
+
+  .pricing-card__btn--gold:hover {
+    background: #E3C285;
+    color: #1C2A43;
   }
 </style>

@@ -2,8 +2,12 @@
 import { getLocale, t } from '../i18n/utils';
 const locale = getLocale(Astro.currentLocale);
 
-/** Zet op false wanneer de site live klaar is. */
-const NOTICE_ENABLED = true;
+/**
+ * Site-wide code pop-up (pre-launch gate).
+ * Zet op `true` om opnieuw een blokkerende notice te tonen.
+ * Component + i18n (`siteNotice.*`) blijven bewaard voor hergebruik.
+ */
+const NOTICE_ENABLED = false;
 const BYPASS_CODE = '202608';
 const STORAGE_KEY = 'remoria_site_unlock';
 ---

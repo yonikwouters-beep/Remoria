@@ -1,0 +1,318 @@
+---
+/**
+ * HTML phone mockup for the home nabestaanden card.
+ * All visible text comes from i18n (`mockups.phone.*`).
+ */
+import { getLocale, t } from '../i18n/utils';
+
+const locale = getLocale(Astro.currentLocale);
+const bg = '/Uitvaartsector-remoria.webp';
+---
+
+<div class="phone" aria-hidden="true">
+  <div class="phone__inner">
+    <div class="phone__header" style={`background-image:url('${bg}')`}>
+      <div class="phone__header-overlay">
+        <div class="phone__status">
+          <span>9:41</span>
+          <span class="phone__notch"></span>
+          <span class="phone__signal" aria-hidden="true">
+            <span></span><span></span>
+          </span>
+        </div>
+        <div class="phone__hero-text">
+          <p class="phone__title">{t(locale, 'mockups.phone.title')}</p>
+          <p class="phone__sub">{t(locale, 'mockups.phone.sub')}</p>
+        </div>
+        <div class="phone__upload">
+          <div class="phone__upload-icons">
+            <span class="phone__sat">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+            </span>
+            <span class="phone__main-ico">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
+            </span>
+            <span class="phone__sat">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            </span>
+          </div>
+          <div class="phone__upload-btn">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
+            {t(locale, 'mockups.phone.uploadCta')}
+          </div>
+          <p class="phone__drop">{t(locale, 'mockups.phone.drop')}</p>
+          <p class="phone__formats">{t(locale, 'mockups.phone.formats')}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone__collection-wrap">
+      <div class="phone__collection">
+        <div class="phone__collection-head">
+          <p class="phone__collection-title">{t(locale, 'mockups.phone.collectionTitle')}</p>
+          <span class="phone__view-all">{t(locale, 'mockups.phone.viewAll')}</span>
+        </div>
+        <p class="phone__collection-sub">{t(locale, 'mockups.phone.collectionSub')}</p>
+        <div class="phone__tiles">
+          <div class="phone__tile phone__tile--dark">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D9B36A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <p class="phone__tile-num">{t(locale, 'mockups.phone.photosCount')}</p>
+            <p class="phone__tile-label">{t(locale, 'mockups.phone.photosLabel')}</p>
+          </div>
+          <div class="phone__tile phone__tile--gold">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1C2A43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+            <p class="phone__tile-num">{t(locale, 'mockups.phone.videosCount')}</p>
+            <p class="phone__tile-label">{t(locale, 'mockups.phone.videosLabel')}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone__tabs">
+      <div class="phone__tab phone__tab--active">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <span>{t(locale, 'mockups.phone.tabHome')}</span>
+      </div>
+      <div class="phone__tab">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#B08CD9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        <span>{t(locale, 'mockups.phone.tabMedia')}</span>
+      </div>
+      <div class="phone__tab">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E07A9A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        <span>{t(locale, 'mockups.phone.tabTributes')}</span>
+      </div>
+      <div class="phone__tab">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#7FBF8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>{t(locale, 'mockups.phone.tabChat')}</span>
+      </div>
+      <div class="phone__tab">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#D9B36A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+        <span>{t(locale, 'mockups.phone.tabBook')}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .phone {
+    width: 226px;
+    transform: scale(0.85);
+    transform-origin: bottom center;
+    background: #10131C;
+    border-radius: 30px 30px 0 0;
+    padding: 8px 8px 0;
+    margin: 0 0 -64px;
+    box-shadow: 0 -18px 40px -20px rgba(28, 42, 67, 0.4);
+    font-family: 'Nunito Sans', 'Inter', system-ui, sans-serif;
+  }
+  .phone__inner {
+    border-radius: 23px 23px 0 0;
+    overflow: hidden;
+  }
+  .phone__header {
+    background-size: cover;
+    background-position: center 26%;
+    background-repeat: no-repeat;
+  }
+  .phone__header-overlay {
+    background: linear-gradient(180deg, rgba(30, 30, 40, 0.38), rgba(30, 30, 40, 0.12));
+    padding: 6px 14px 12px;
+  }
+  .phone__status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 8px;
+    font-weight: 700;
+  }
+  .phone__notch {
+    width: 40px;
+    height: 11px;
+    border-radius: 999px;
+    background: #10131C;
+  }
+  .phone__signal {
+    display: inline-flex;
+    gap: 3px;
+    align-items: center;
+  }
+  .phone__signal span:first-child {
+    width: 9px;
+    height: 5px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+  .phone__signal span:last-child {
+    width: 11px;
+    height: 6px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+  .phone__hero-text {
+    text-align: center;
+    margin-top: 8px;
+    color: #fff;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+  }
+  .phone__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0;
+  }
+  .phone__sub {
+    font-size: 7.5px;
+    line-height: 1.5;
+    margin: 3px 0 0;
+    color: rgba(255, 255, 255, 0.95);
+  }
+  .phone__upload {
+    background: #FDFBF7;
+    border-radius: 12px;
+    margin-top: 10px;
+    padding: 12px 10px;
+    text-align: center;
+  }
+  .phone__upload-icons {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .phone__sat {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #EADFC9;
+    color: #8A7F6B;
+    align-items: center;
+    justify-content: center;
+  }
+  .phone__main-ico {
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #C9A340;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+  }
+  .phone__upload-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background: linear-gradient(90deg, #E3BE5F, #D9B36A);
+    color: #3D2F14;
+    font-size: 8.5px;
+    font-weight: 800;
+    border-radius: 7px;
+    padding: 7px 0;
+    margin-top: 9px;
+  }
+  .phone__drop {
+    font-size: 7.5px;
+    color: #4A4438;
+    font-weight: 700;
+    margin: 7px 0 0;
+  }
+  .phone__formats {
+    font-size: 6.5px;
+    color: #A79C87;
+    margin: 2px 0 0;
+  }
+  .phone__collection-wrap {
+    background: #F3EDE3;
+    padding: 9px 10px 0;
+  }
+  .phone__collection {
+    background: #FDFBF7;
+    border-radius: 12px 12px 0 0;
+    padding: 10px 10px 8px;
+  }
+  .phone__collection-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .phone__collection-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #1C2A43;
+    margin: 0;
+  }
+  .phone__view-all {
+    border: 1px solid #E7DFD2;
+    border-radius: 999px;
+    font-size: 6.5px;
+    font-weight: 700;
+    color: #4A4438;
+    padding: 2px 7px;
+  }
+  .phone__collection-sub {
+    font-size: 7px;
+    color: #A79C87;
+    margin: 2px 0 0;
+  }
+  .phone__tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    margin-top: 7px;
+  }
+  .phone__tile {
+    border-radius: 9px;
+    padding: 9px 7px 8px;
+    text-align: center;
+  }
+  .phone__tile--dark {
+    background: #1C2A43;
+    color: #fff;
+  }
+  .phone__tile--gold {
+    background: #EDE3C8;
+    color: #1C2A43;
+  }
+  .phone__tile-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 2px 0 0;
+  }
+  .phone__tile-label {
+    font-size: 7px;
+    margin: 0;
+  }
+  .phone__tabs {
+    background: #10131C;
+    padding: 6px 8px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .phone__tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 3px 5px;
+  }
+  .phone__tab span {
+    font-size: 6px;
+    color: #B9AE97;
+    text-align: center;
+  }
+  .phone__tab--active {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 7px;
+    padding: 3px 7px;
+  }
+  .phone__tab--active span {
+    color: #fff;
+    font-weight: 700;
+  }
+</style>

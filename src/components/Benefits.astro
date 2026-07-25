@@ -1,93 +1,80 @@
 ---
+/**
+ * High-fidelity "Doelgroepen" section from design_handoff_remoria/source/Home.dc.html.
+ */
 import { getLocale, localizePath, t, tp } from '../i18n/utils';
+import PhoneMockup from './PhoneMockup.astro';
+import PartnerDashboardMockup from './PartnerDashboardMockup.astro';
+
 const locale = getLocale(Astro.currentLocale);
 
-const bereavedItems = tp<string[]>(locale, 'benefits.bereaved.items');
-const funeralItems = tp<string[]>(locale, 'benefits.funeral.items');
+type Benefit = {
+  label: string;
+  heading: string;
+  intro?: string;
+  items: string[];
+  cta: string;
+};
+
+const bereaved = tp<Benefit>(locale, 'benefits.bereaved');
+const funeral = tp<Benefit>(locale, 'benefits.funeral');
 ---
 
 <section class="benefits">
-  <div class="benefits__container">
+  <div class="benefits__inner">
 
     <!-- Nabestaanden -->
-    <div class="panel panel--left">
-      <div class="panel__row">
+    <div class="panel panel--bereaved">
+      <div class="panel__grid">
         <div class="panel__text">
-          <div class="panel__icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C6A24B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <p class="panel__label">{t(locale, 'benefits.bereaved.label')}</p>
-          <h2 class="panel__heading" set:html={t(locale, 'benefits.bereaved.heading').replace(/\n/g, '<br />')} />
+          <p class="panel__label panel__label--gold">{bereaved.label}</p>
+          <h3 class="panel__heading" set:html={bereaved.heading.replace(/\n/g, '<br />')} />
+          {bereaved.intro && <p class="panel__intro">{bereaved.intro}</p>}
 
           <ul class="panel__list">
-            {bereavedItems.map((item) => (
+            {bereaved.items.map((item) => (
               <li>
-                <span class="check-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="check check--gold" aria-hidden="true">✓</span>
                 {item}
               </li>
             ))}
           </ul>
 
-          <a href={localizePath(locale, '/voor-nabestaanden')} class="panel__btn">
-            {t(locale, 'benefits.bereaved.cta')}
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <a href={localizePath(locale, '/voor-nabestaanden')} class="panel__cta">
+            {bereaved.cta} <span aria-hidden="true">→</span>
           </a>
         </div>
 
         <div class="panel__visual panel__visual--phone">
-          <img
-            src="/mobile-home-transp.webp"
-            alt={t(locale, 'benefits.bereaved.imageAlt')}
-            class="phone-img"
-            loading="lazy"
-            decoding="async"
-          />
+          <PhoneMockup />
         </div>
       </div>
     </div>
 
     <!-- Uitvaartsector -->
-    <div class="panel panel--right">
-      <div class="panel__row">
+    <div class="panel panel--funeral">
+      <div class="panel__grid">
         <div class="panel__text">
-          <div class="panel__icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C6A24B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <path d="M3 9h18"/>
-              <path d="M9 21V9"/>
-            </svg>
-          </div>
-          <p class="panel__label">{t(locale, 'benefits.funeral.label')}</p>
-          <h2 class="panel__heading" set:html={t(locale, 'benefits.funeral.heading').replace(/\n/g, '<br />')} />
+          <p class="panel__label panel__label--blue">{funeral.label}</p>
+          <h3 class="panel__heading" set:html={funeral.heading.replace(/\n/g, '<br />')} />
+          {funeral.intro && <p class="panel__intro">{funeral.intro}</p>}
 
           <ul class="panel__list">
-            {funeralItems.map((item) => (
+            {funeral.items.map((item) => (
               <li>
-                <span class="check-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="check check--blue" aria-hidden="true">✓</span>
                 {item}
               </li>
             ))}
           </ul>
 
-          <a href={localizePath(locale, '/voor-uitvaartsector')} class="panel__btn">
-            {t(locale, 'benefits.funeral.cta')}
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <a href={localizePath(locale, '/voor-uitvaartsector')} class="panel__cta">
+            {funeral.cta} <span aria-hidden="true">→</span>
           </a>
         </div>
 
-        <div class="panel__visual panel__visual--laptop">
-          <img
-            src="/laptop-transp.webp"
-            alt={t(locale, 'benefits.funeral.imageAlt')}
-            class="laptop-img"
-            loading="lazy"
-            decoding="async"
-          />
+        <div class="panel__visual panel__visual--dashboard">
+          <PartnerDashboardMockup variant="compact" />
         </div>
       </div>
     </div>
@@ -97,231 +84,187 @@ const funeralItems = tp<string[]>(locale, 'benefits.funeral.items');
 
 <style>
   .benefits {
-    background: #F5F2EC;
-    padding: 0 clamp(20px, 4vw, 40px) clamp(64px, 10vw, 100px);
-    width: 100%;
-    max-width: 100%;
+    background: #F6F1E8;
+    padding: clamp(48px, 6vw, 64px) 24px clamp(64px, 9vw, 88px);
   }
 
-  .benefits__container {
-    max-width: 1200px;
+  .benefits__inner {
+    max-width: 1180px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
     gap: 20px;
   }
 
   .panel {
     border-radius: 24px;
     overflow: hidden;
-    min-width: 0;
-    padding: 0;
   }
 
-  .panel--left {
-    background-color: #EDE9DF;
-    background-image:
-      radial-gradient(ellipse 60% 55% at 0% 100%, transparent 45%, #EDE9DF 80%),
+  .panel--bereaved {
+    background:
+      radial-gradient(ellipse 62% 58% at 0% 100%, transparent 42%, #EFE6D5 78%),
       url('/flowers-background.webp');
+    background-color: #EFE6D5;
     background-repeat: no-repeat, no-repeat;
-    background-size: 100% 100%, 44% auto;
-    background-position: bottom left, bottom left;
+    background-size: 100% 100%, 46% auto;
+    background-position: left bottom, left bottom;
+    padding: 34px 32px;
   }
 
-  .panel--right {
-    background: #E5EDF3;
+  .panel--funeral {
+    background: #E2E7EC;
+    padding: 34px 0 34px 32px;
   }
 
-  .panel__row {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    min-height: 440px;
+  .panel__grid {
+    display: grid;
+    gap: 24px;
+    align-items: center;
+    min-height: 100%;
   }
 
-  /* ── Linker kaart: tekst 40 % · telefoon 60 % ── */
-  .panel--left .panel__text   { flex: 0 0 40%; max-width: 40%; }
-  .panel--left .panel__visual { flex: 0 0 60%; max-width: 60%; }
+  .panel--bereaved .panel__grid {
+    grid-template-columns: minmax(0, 1fr) 195px;
+  }
 
-  /* ── Rechter kaart: tekst 46 % · laptop 54 % ── */
-  .panel--right .panel__text   { flex: 0 0 46%; max-width: 46%; }
-  .panel--right .panel__visual { flex: 0 0 54%; max-width: 54%; }
+  .panel--funeral .panel__grid {
+    grid-template-columns: minmax(0, 1fr) 274px;
+    gap: 22px;
+  }
 
   .panel__text {
+    align-self: start;
     min-width: 0;
-    padding: clamp(28px, 3vw, 40px) clamp(12px, 1.5vw, 20px) clamp(28px, 3vw, 40px) clamp(20px, 2.5vw, 32px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .panel__visual {
-    position: relative;
-    overflow: hidden;
-    min-width: 0;
-    display: flex;
-  }
-
-  /* ────────────────────────────────────────────────────────
-     TELEFOON  –  mobile-home-transp.webp = 1080 × 1080 (vierkant)
-     Kolom ≈ 48 % van 590 px = 283 px breed
-     width: 84 % = 238 px  →  height auto = 238 px (vierkant)
-     Lichte kanteling geeft dynamiek; overflow hidden clips netjes
-  ──────────────────────────────────────────────────────── */
-  .panel__visual--phone {
-    align-items: center;
-    justify-content: center;
-  }
-
-  .phone-img {
-    width: 108%;
-    height: auto;
-    display: block;
-    transform: rotate(4deg) translateX(-2%);
-    transform-origin: center center;
-    filter: drop-shadow(0 20px 44px rgba(30, 41, 59, 0.26));
-  }
-
-  /* ────────────────────────────────────────────────────────
-     LAPTOP  –  laptop-transp.webp = 2528 × 1684 (landschap 1.5 : 1)
-     Kolom ≈ 54 % van 590 px = 319 px breed
-     width: 108 % = 345 px  →  height auto = 230 px
-     Naast de bullet points: gecentreerd verticaal
-     Lichte rechter uitlijning zodat laptop rechts aansluit
-  ──────────────────────────────────────────────────────── */
-  .panel__visual--laptop {
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  .laptop-img {
-    width: 108%;
-    height: auto;
-    display: block;
-    filter: drop-shadow(0 14px 32px rgba(30, 41, 59, 0.17));
-  }
-
-  /* ── Tekststijlen (ongewijzigd) ── */
-  .panel__icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(198, 162, 75, 0.12);
-    border-radius: 14px;
-    margin-bottom: 12px;
   }
 
   .panel__label {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: #C6A24B;
-    margin-bottom: 8px;
+    margin: 0 0 14px;
+  }
+
+  .panel__label--gold {
+    color: #96742F;
+  }
+
+  .panel__label--blue {
+    color: #4A6E8C;
   }
 
   .panel__heading {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(20px, 2.1vw, 28px);
-    font-weight: 500;
-    line-height: 1.18;
-    letter-spacing: -0.02em;
-    color: #1E293B;
-    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.2;
+    color: #1C2A43;
+    margin: 0 0 12px;
+  }
+
+  .panel__intro {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #7A7263;
+    margin: 0 0 14px;
   }
 
   .panel__list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-bottom: 20px;
+    gap: 9px;
+    margin: 0 0 24px;
+    padding: 0;
   }
 
   .panel__list li {
     display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-family: 'Inter', sans-serif;
-    font-size: 12.5px;
-    font-weight: 400;
-    color: #475569;
-    line-height: 1.4;
+    align-items: center;
+    gap: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4A4438;
   }
 
-  .check-icon {
+  .check {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
-    background: rgba(198, 162, 75, 0.15);
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
-    color: #C6A24B;
+    color: #fff;
+    font-size: 10px;
     flex-shrink: 0;
-    margin-top: 1px;
   }
 
-  .panel__btn {
+  .check--gold {
+    background: #B8934A;
+  }
+
+  .check--blue {
+    background: #4A6E8C;
+  }
+
+  .panel__cta {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 11px 18px;
-    background: #1E293B;
+    background: #1C2A43;
     color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 12.5px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 24px;
     border-radius: 999px;
     text-decoration: none;
     white-space: nowrap;
     transition: background-color 0.2s ease, transform 0.18s ease;
-    align-self: flex-start;
   }
 
-  .panel__btn:hover {
-    background: #0f172a;
+  .panel__cta:hover {
+    background: #2A3B5C;
     transform: translateY(-2px);
   }
 
-  /* ── Responsive ── */
-  @media (max-width: 1100px) {
-    .benefits__container { gap: 16px; }
-    .panel__row { min-height: 400px; }
-    .panel__list li { font-size: 12px; }
-    .phone-img { width: 112%; }
-    .laptop-img { width: 112%; }
+  .panel__visual {
+    min-width: 0;
+    display: flex;
+    justify-content: center;
   }
 
-  @media (max-width: 900px) {
-    .benefits__container { grid-template-columns: 1fr; }
+  .panel__visual--phone {
+    align-self: end;
+    justify-content: center;
+  }
+
+  .panel__visual--dashboard {
+    justify-content: flex-end;
   }
 
   @media (max-width: 640px) {
-    .panel__row { flex-direction: column; min-height: auto; }
+    .panel--bereaved,
+    .panel--funeral {
+      padding: 28px 24px;
+    }
 
-    .panel--left .panel__text,
-    .panel--right .panel__text  { flex: none; max-width: 100%; padding: 28px 24px 16px; }
+    .panel__grid {
+      grid-template-columns: 1fr !important;
+      gap: 28px;
+    }
 
-    .panel--left .panel__visual,
-    .panel--right .panel__visual { flex: none; max-width: 100%; height: 300px; }
+    .panel__text {
+      order: 1;
+    }
 
-    .panel__visual--phone  { justify-content: center; align-items: center; }
-    .panel__visual--laptop { justify-content: center; align-items: center; }
+    .panel__visual {
+      order: 2;
+      justify-content: center;
+    }
 
-    .phone-img  { width: 120%; height: auto; transform: rotate(5deg); }
-    .laptop-img { width: 88%; height: auto; }
-
-    .panel__btn { align-self: stretch; justify-content: center; }
-  }
-
-  @media (max-width: 480px) {
-    .panel { border-radius: 16px; }
-    .panel--left { background-size: 55% auto; }
-    .panel--left .panel__visual,
-    .panel--right .panel__visual { height: 260px; }
+    .panel__visual--phone {
+      align-self: center;
+    }
   }
 </style>

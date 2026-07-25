@@ -2,32 +2,36 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import PartnerDashboardMockup from '../components/PartnerDashboardMockup.astro';
 import { getLocale, t, tp, localizePath } from '../i18n/utils';
 
 const locale = getLocale(Astro.currentLocale);
 
-type HowStep = { title: string; desc: string };
-type PricingCard = { title: string; desc: string };
-type Feature = { title: string; desc: string };
+type Step = { title: string; desc: string };
+type Card = { title: string; desc: string };
 
-const howSteps = tp<HowStep[]>(locale, 'uitvaartsector.how.steps');
-const pricingCards = tp<PricingCard[]>(locale, 'uitvaartsector.pricingModel.cards');
-const features = tp<Feature[]>(locale, 'uitvaartsector.features');
-
-const pricingCardIcons = [
-  `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
-  `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
-  `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
-];
-
-const featureIcons = [
-  `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`,
-  `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
-  `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
-];
+const heroChecks = tp<string[]>(locale, 'uitvaartsector.hero.checks');
+const howSteps = tp<Step[]>(locale, 'uitvaartsector.how.steps');
+const dashboardChecks = tp<string[]>(locale, 'uitvaartsector.dashboard.checks');
+const partnerCards = tp<Card[]>(locale, 'uitvaartsector.partner.cards');
+const familyCards = tp<Card[]>(locale, 'uitvaartsector.familyOffer.cards');
 
 const contactUrl = localizePath(locale, '/contact');
 const contactMeetUrl = localizePath(locale, '/contact#plan-een-gesprek');
+
+const partnerCardIcons = [
+  `<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  `<span class="partner-card__euro" aria-hidden="true">&euro;</span>`,
+  `<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
+];
+
+const familyCardIcons = [
+  `<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>`,
+  `<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  `<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>`,
+];
+
+const familyCardTints = ['beige', 'sage', 'rose'] as const;
 ---
 
 <BaseLayout title={t(locale, 'uitvaartsector.meta.title')} description={t(locale, 'uitvaartsector.meta.description')}>
@@ -41,25 +45,33 @@ const contactMeetUrl = localizePath(locale, '/contact#plan-een-gesprek');
 
       <div class="hero__content" data-reveal>
         <p class="eyebrow">{t(locale, 'uitvaartsector.hero.eyebrow')}</p>
-        <h1 class="hero__title">
-          {t(locale, 'uitvaartsector.hero.titleLine1')}<br />{t(locale, 'uitvaartsector.hero.titleLine2')}
-        </h1>
-        <p class="hero__body">
-          {t(locale, 'uitvaartsector.hero.body')}
-        </p>
+        <h1 class="hero__title">{t(locale, 'uitvaartsector.hero.title')}</h1>
+        <p class="hero__body">{t(locale, 'uitvaartsector.hero.body')}</p>
+
         <div class="hero__actions">
-          <a href={contactUrl} class="btn btn--gold">{t(locale, 'uitvaartsector.hero.ctaPrimary')}</a>
-          <a href={contactMeetUrl} class="btn btn--outline">
+          <a href={contactUrl} class="btn btn--gold">
+            {t(locale, 'uitvaartsector.hero.ctaPrimary')}
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href={contactMeetUrl} class="btn btn--white">
             <span class="btn__cal" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="4" width="18" height="18" rx="2"/>
-                <line x1="16" y1="2" x2="16" y2="6"/>
-                <line x1="8" y1="2" x2="8" y2="6"/>
-                <line x1="3" y1="10" x2="21" y2="10"/>
+                <path d="M16 2v4M8 2v4M3 10h18"/>
               </svg>
             </span>
             {t(locale, 'uitvaartsector.hero.ctaSecondary')}
           </a>
+        </div>
+
+        <div class="hero__checks">
+          {heroChecks.map((item) => (
+            <div class="hero__check">
+              <span class="hero__check-mark" aria-hidden="true">&#10003;</span>{item}
+            </div>
+          ))}
         </div>
       </div>
 
@@ -77,144 +89,133 @@ const contactMeetUrl = localizePath(locale, '/contact#plan-een-gesprek');
   </section>
 
   <!-- ══════════════════════════════════════════════
-       2. VALUE PROP
+       2. ZO WERKT HET
   ══════════════════════════════════════════════ -->
-  <section class="value-prop">
-    <div class="container value-prop__inner" data-reveal>
-      <div class="value-prop__icon" aria-hidden="true">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-        </svg>
-      </div>
-      <h2 class="value-prop__title">
-        {t(locale, 'uitvaartsector.valueProp.titleLine1')}<br />{t(locale, 'uitvaartsector.valueProp.titleLine2')}
-      </h2>
-      <p class="value-prop__sub">
-        {t(locale, 'uitvaartsector.valueProp.sub')}
-      </p>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════
-       3. HOW IT WORKS
-  ══════════════════════════════════════════════ -->
-  <section class="how" id="hoe-werkt-het" aria-labelledby="how-heading">
+  <section class="how">
     <div class="container">
       <div class="how__header" data-reveal>
-        <p class="eyebrow">{t(locale, 'uitvaartsector.how.eyebrow')}</p>
-        <h2 class="how__title" id="how-heading">{t(locale, 'uitvaartsector.how.title')}</h2>
+        <p class="eyebrow eyebrow--center">{t(locale, 'uitvaartsector.how.eyebrow')}</p>
+        <h2 class="how__title">{t(locale, 'uitvaartsector.how.title')}</h2>
       </div>
 
-      <!-- Icon timeline row -->
-      <div class="how__timeline" aria-hidden="true" data-reveal>
-        <div class="how__timeline-line"></div>
-        <div class="how__icon-row">
-          <div class="how__icon-bubble">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-            </svg>
+      <div class="how__grid">
+        {howSteps.map((step, i) => (
+          <div class="how-card" data-reveal data-reveal-delay={String(i * 80)}>
+            <div class="how-card__top">
+              <span class="how-card__num">{i + 1}</span>
+              {i < howSteps.length - 1 && <span class="how-card__line" aria-hidden="true"></span>}
+            </div>
+            <h3 class="how-card__title">{step.title}</h3>
+            <p class="how-card__desc">{step.desc}</p>
           </div>
-          <div class="how__icon-bubble">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-          </div>
-          <div class="how__icon-bubble">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
-              <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
-            </svg>
-          </div>
-          <div class="how__icon-bubble">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       3. DASHBOARD
+  ══════════════════════════════════════════════ -->
+  <section class="dashboard">
+    <div class="container dashboard__grid">
+
+      <div class="dashboard__content" data-reveal>
+        <div class="dashboard__chip">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/>
+            <rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/>
+          </svg>
+          {t(locale, 'uitvaartsector.dashboard.chip')}
+        </div>
+        <h3 class="dashboard__title">{t(locale, 'uitvaartsector.dashboard.title')}</h3>
+        <p class="dashboard__body">{t(locale, 'uitvaartsector.dashboard.body')}</p>
+        <div class="dashboard__checks">
+          {dashboardChecks.map((item) => (
+            <div class="dashboard__check">
+              <span class="dashboard__check-mark" aria-hidden="true">&#10003;</span>{item}
+            </div>
+          ))}
         </div>
       </div>
 
-      <!-- Steps text row -->
-      <div class="how__steps">
-        {howSteps.map((step, i) => (
-          <div class="how__step" data-reveal data-reveal-delay={String(i * 80)}>
-            <div class="how__step-header">
-              <span class="how__step-num">{i + 1}</span>
-              <h3 class="how__step-title">{step.title}</h3>
-            </div>
-            <p class="how__step-desc">{step.desc}</p>
-          </div>
-        ))}
+      <div class="dashboard__visual" data-reveal data-reveal-delay="100">
+        <PartnerDashboardMockup variant="full" />
       </div>
 
     </div>
   </section>
 
   <!-- ══════════════════════════════════════════════
-       4. WAT KOST HET?
+       4. PARTNERMODEL
   ══════════════════════════════════════════════ -->
-  <section class="pricing-model" aria-labelledby="pricing-model-heading">
+  <section class="partner">
     <div class="container">
-      <div class="pricing-model__header" data-reveal>
-        <p class="eyebrow">{t(locale, 'uitvaartsector.pricingModel.eyebrow')}</p>
-        <h2 class="pricing-model__title" id="pricing-model-heading">{t(locale, 'uitvaartsector.pricingModel.title')}</h2>
+      <div class="partner__header" data-reveal>
+        <p class="eyebrow eyebrow--center">{t(locale, 'uitvaartsector.partner.eyebrow')}</p>
+        <h2 class="partner__title">{t(locale, 'uitvaartsector.partner.title')}</h2>
+        <p class="partner__sub">{t(locale, 'uitvaartsector.partner.sub')}</p>
       </div>
 
-      <div class="features__grid">
-        {pricingCards.map((card, i) => (
-          <div class="feat-card" data-reveal data-reveal-delay={String(i * 80)}>
-            <div class="feat-card__icon" aria-hidden="true" set:html={pricingCardIcons[i]} />
-            <div class="feat-card__body">
-              <h3 class="feat-card__title">{card.title}</h3>
-              <p class="feat-card__desc">{card.desc}</p>
-            </div>
+      <div class="partner__grid">
+        {partnerCards.map((card, i) => (
+          <div class="partner-card" data-reveal data-reveal-delay={String(i * 80)}>
+            <span class="partner-card__icon" aria-hidden="true" set:html={partnerCardIcons[i]} />
+            <h3 class="partner-card__title">{card.title}</h3>
+            <p class="partner-card__desc">{card.desc}</p>
           </div>
         ))}
       </div>
 
-      <p class="pricing-model__cta" data-reveal>
-        {t(locale, 'uitvaartsector.pricingModel.ctaText')}
-        <a href={contactMeetUrl}>{t(locale, 'uitvaartsector.pricingModel.ctaLink')}</a>
+      <p class="partner__link" data-reveal>
+        {t(locale, 'uitvaartsector.partner.linkBefore')}
+        <a href={contactMeetUrl}>{t(locale, 'uitvaartsector.partner.linkCta')}</a>
       </p>
     </div>
   </section>
 
   <!-- ══════════════════════════════════════════════
-       5. FEATURES
+       5. WAT DE FAMILIE KRIJGT
   ══════════════════════════════════════════════ -->
-  <section class="features" aria-labelledby="features-heading">
-    <div class="container features__grid">
-      {features.map((f, i) => (
-        <div class="feat-card" data-reveal data-reveal-delay={String(i * 80)}>
-          <div class="feat-card__icon" aria-hidden="true" set:html={featureIcons[i]} />
-          <div class="feat-card__body">
-            <h3 class="feat-card__title">{f.title}</h3>
-            <p class="feat-card__desc">{f.desc}</p>
+  <section class="family">
+    <div class="container">
+      <div class="family__header" data-reveal>
+        <p class="eyebrow eyebrow--center">{t(locale, 'uitvaartsector.familyOffer.eyebrow')}</p>
+        <h2 class="family__title">{t(locale, 'uitvaartsector.familyOffer.title')}</h2>
+      </div>
+
+      <div class="family__grid">
+        {familyCards.map((card, i) => (
+          <div class:list={['family-card', `family-card--${familyCardTints[i]}`]} data-reveal data-reveal-delay={String(i * 80)}>
+            <span class="family-card__icon" aria-hidden="true" set:html={familyCardIcons[i]} />
+            <h3 class="family-card__title">{card.title}</h3>
+            <p class="family-card__desc">{card.desc}</p>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </section>
 
   <!-- ══════════════════════════════════════════════
        6. CTA BANNER
   ══════════════════════════════════════════════ -->
-  <section class="cta-banner" aria-labelledby="cta-heading">
+  <section class="cta-banner">
     <div class="container">
       <div class="cta-banner__card">
         <div class="cta-banner__overlay" aria-hidden="true"></div>
         <div class="cta-banner__inner" data-reveal>
-          <blockquote class="cta-banner__quote" id="cta-heading">
+          <blockquote class="cta-banner__quote">
             {t(locale, 'uitvaartsector.ctaBanner.quote')}
           </blockquote>
           <div class="cta-banner__cta-block">
             <div class="cta-banner__actions">
-              <a href={contactUrl} class="btn btn--gold">{t(locale, 'uitvaartsector.ctaBanner.ctaPrimary')}</a>
-              <a href={contactUrl} class="btn btn--outline-light">
-                {t(locale, 'uitvaartsector.ctaBanner.ctaSecondary')}
+              <a href={contactUrl} class="btn btn--gold">
+                {t(locale, 'uitvaartsector.ctaBanner.ctaPrimary')}
                 <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                   <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
+              </a>
+              <a href={contactUrl} class="btn btn--outline-light">
+                {t(locale, 'uitvaartsector.ctaBanner.ctaSecondary')}
               </a>
             </div>
             <p class="cta-banner__legal">
@@ -236,6 +237,8 @@ const contactMeetUrl = localizePath(locale, '/contact#plan-een-gesprek');
 <script>
   (function () {
     const els = document.querySelectorAll<HTMLElement>('[data-reveal]');
+    if (!els.length) return;
+
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -255,23 +258,44 @@ const contactMeetUrl = localizePath(locale, '/contact#plan-een-gesprek');
 
 <style>
   /* ─────────────────────────────────────────────
+     TOKENS
+  ───────────────────────────────────────────── */
+  :root {
+    --uv-bg:      #F6F1E8;
+    --uv-navy:    #1C2A43;
+    --uv-gold:    #B8934A;
+    --uv-gold-lt: #D9B36A;
+    --uv-muted:   #7A7263;
+    --uv-line:    #E7DFD2;
+    --uv-card:    #FDFBF7;
+  }
+
+  /* ─────────────────────────────────────────────
      SHARED
   ───────────────────────────────────────────── */
+  section {
+    background-color: var(--uv-bg);
+  }
+
   .container {
-    max-width: 1200px;
+    max-width: 1180px;
     margin-inline: auto;
-    padding-inline: clamp(20px, 5vw, 48px);
+    padding-inline: clamp(20px, 5vw, 24px);
   }
 
   .eyebrow {
     display: block;
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.155em;
     text-transform: uppercase;
-    color: #C6A24B;
-    margin-bottom: 14px;
+    color: var(--uv-gold);
+    margin-bottom: 18px;
+  }
+
+  .eyebrow--center {
+    text-align: center;
   }
 
   /* ── Scroll reveal ── */
@@ -290,50 +314,50 @@ const contactMeetUrl = localizePath(locale, '/contact#plan-een-gesprek');
   .btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 13px 26px;
-    font-family: 'Inter', sans-serif;
+    gap: 9px;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 800;
+    padding: 15px 30px;
     border-radius: 999px;
     text-decoration: none;
     cursor: pointer;
     border: none;
-    transition: transform 0.18s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: transform 0.18s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
   }
 
   .btn--gold {
-    background: linear-gradient(135deg, #c6a24b 0%, #d4af5e 55%, #c6a24b 100%);
-    background-size: 200% 100%;
-    color: #fff;
-    box-shadow: 0 4px 18px rgba(198, 162, 75, 0.32);
-    transition: background-position 0.4s ease, transform 0.18s ease, box-shadow 0.2s ease;
+    background: var(--uv-gold-lt);
+    color: var(--uv-navy);
+    box-shadow: 0 4px 18px rgba(184, 147, 74, 0.28);
   }
   .btn--gold:hover {
-    background-position: 100% 0;
+    background: #e3c285;
     transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(198, 162, 75, 0.42);
+    box-shadow: 0 8px 26px rgba(184, 147, 74, 0.38);
   }
 
-  .btn--outline {
-    background: transparent;
-    color: #1E293B;
-    border: 1.5px solid rgba(30, 41, 59, 0.22);
+  .btn--white {
+    background: #fff;
+    color: var(--uv-navy);
+    font-weight: 700;
+    padding: 15px 26px 15px 12px;
+    border: 1px solid var(--uv-line);
   }
-  .btn--outline:hover {
-    background: rgba(30, 41, 59, 0.05);
-    border-color: rgba(30, 41, 59, 0.4);
+  .btn--white:hover {
+    border-color: var(--uv-navy);
     transform: translateY(-2px);
   }
 
   .btn--outline-light {
     background: transparent;
     color: #fff;
-    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    font-weight: 700;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
   }
   .btn--outline-light:hover {
+    border-color: #fff;
     background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.55);
     transform: translateY(-2px);
   }
 
@@ -343,7 +367,7 @@ const contactMeetUrl = localizePath(locale, '/contact#plan-een-gesprek');
     justify-content: center;
     width: 26px;
     height: 26px;
-    background: #1E293B;
+    background: var(--uv-navy);
     border-radius: 50%;
     color: #fff;
     flex-shrink: 0;
@@ -358,318 +382,407 @@ const contactMeetUrl = localizePath(locale, '/contact#plan-een-gesprek');
 
   .hero__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 6fr 5fr;
     align-items: center;
-    gap: clamp(32px, 5vw, 64px);
-    padding-block: clamp(56px, 8vw, 88px);
-  }
-
-  .hero__content {
-    max-width: 520px;
+    gap: clamp(32px, 6vw, 72px);
+    padding-block: clamp(56px, 9vw, 88px) clamp(48px, 8vw, 72px);
   }
 
   .hero__title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
-    font-weight: 700;
-    color: #1E293B;
-    letter-spacing: -0.025em;
+    font-weight: 600;
+    font-size: clamp(2.1rem, 3.6vw, 3rem);
     line-height: 1.12;
-    margin-bottom: 20px;
+    color: var(--uv-navy);
+    margin: 0 0 22px;
+    text-wrap: pretty;
   }
 
   .hero__body {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    color: #475569;
-    line-height: 1.75;
-    margin-bottom: 36px;
-    max-width: 440px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--uv-muted);
+    margin: 0 0 32px;
+    max-width: 480px;
   }
 
   .hero__actions {
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
     align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .hero__checks {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  .hero__check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--uv-muted);
+  }
+
+  .hero__check-mark {
+    color: var(--uv-gold);
+    font-weight: 800;
   }
 
   .hero__visual {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-self: end;
+    width: 100%;
+    max-width: 440px;
   }
 
   .hero__img {
     width: 100%;
-    max-height: 540px;
-    object-fit: contain;
-    object-position: center;
-    border-radius: 24px;
+    aspect-ratio: 4 / 4.6;
+    object-fit: cover;
     display: block;
+    border-radius: 220px 220px 20px 20px;
+    box-shadow: 0 24px 50px -24px rgba(28, 42, 67, 0.35);
   }
 
   /* ─────────────────────────────────────────────
-     2. VALUE PROP
-  ───────────────────────────────────────────── */
-  .value-prop {
-    padding-block: clamp(72px, 10vw, 104px);
-    text-align: center;
-  }
-
-  .value-prop__inner {
-    max-width: 640px;
-  }
-
-  .value-prop__icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: rgba(198, 162, 75, 0.1);
-    border: 1px solid rgba(198, 162, 75, 0.25);
-    color: #C6A24B;
-    margin-bottom: 24px;
-  }
-
-  .value-prop__title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-    font-weight: 500;
-    color: #1E293B;
-    letter-spacing: -0.022em;
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-
-  .value-prop__sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    color: #64748B;
-    line-height: 1.75;
-  }
-
-  /* ─────────────────────────────────────────────
-     3. HOW IT WORKS
+     2. ZO WERKT HET
   ───────────────────────────────────────────── */
   .how {
-    padding-block: clamp(56px, 8vw, 80px) clamp(64px, 9vw, 96px);
-    background: linear-gradient(180deg, #F5F2EC 0%, #EDE9DF 100%);
+    background: #EFE6D5;
+    padding-block: clamp(56px, 9vw, 88px);
   }
 
   .how__header {
     text-align: center;
-    margin-bottom: 40px;
+    max-width: 560px;
+    margin: 0 auto clamp(40px, 6vw, 56px);
   }
 
   .how__title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-weight: 500;
-    color: #1E293B;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    font-weight: 600;
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    line-height: 1.15;
+    color: var(--uv-navy);
+    margin: 0;
   }
 
-  /* ── Icon timeline ── */
-  .how__timeline {
-    position: relative;
-    margin-bottom: 28px;
-  }
-
-  .how__timeline-line {
-    position: absolute;
-    top: 50%;
-    left: calc(12.5% - 22px);
-    right: calc(12.5% - 22px);
-    height: 1px;
-    background: rgba(198, 162, 75, 0.25);
-    transform: translateY(-50%);
-    z-index: 0;
-  }
-
-  .how__icon-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    position: relative;
-    z-index: 1;
-  }
-
-  .how__icon-bubble {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 52px;
-    height: 52px;
-    background: #F5F2EC;
-    border: 1.5px solid rgba(198, 162, 75, 0.22);
-    border-radius: 14px;
-    color: #1E293B;
-    margin-inline: auto;
-    box-shadow: 0 2px 8px rgba(30, 41, 59, 0.06);
-  }
-
-  /* ── Steps ── */
-  .how__steps {
+  .how__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    align-items: start;
   }
 
-  .how__step {
-    padding: 0 8px;
+  .how-card {
+    background: var(--uv-card);
+    border: 1px solid var(--uv-line);
+    border-radius: 16px;
+    padding: 28px 26px;
   }
 
-  .how__step-header {
+  .how-card__top {
     display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    margin-bottom: 10px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
   }
 
-  .how__step-num {
-    flex-shrink: 0;
+  .how-card__num {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 22px;
-    height: 22px;
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
-    background: #C6A24B;
+    background: var(--uv-navy);
     color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    margin-top: 2px;
-  }
-
-  .how__step-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 14px;
-    font-weight: 600;
-    color: #1E293B;
-    line-height: 1.4;
+    font-weight: 800;
   }
 
-  .how__step-desc {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    color: #64748B;
-    line-height: 1.72;
-    padding-left: 30px;
+  .how-card__line {
+    flex: 1;
+    height: 1px;
+    background: #E7DFC2;
   }
 
-  /* ─────────────────────────────────────────────
-     4. WAT KOST HET?
-  ───────────────────────────────────────────── */
-  .pricing-model {
-    padding-block: clamp(48px, 7vw, 80px);
-  }
-
-  .pricing-model__header {
-    text-align: center;
-    margin-bottom: clamp(28px, 4vw, 40px);
-  }
-
-  .pricing-model__title {
+  .how-card__title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1.6rem, 3vw, 2.25rem);
-    font-weight: 500;
-    color: #1E293B;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--uv-navy);
+    margin: 0 0 8px;
+    line-height: 1.3;
   }
 
-  .pricing-model__cta {
-    margin-top: clamp(24px, 3.5vw, 36px);
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-size: 14.5px;
-    color: #64748B;
+  .how-card__desc {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 13.5px;
     line-height: 1.6;
-  }
-
-  .pricing-model__cta a {
-    color: #C6A24B;
-    font-weight: 500;
-    text-decoration: none;
-    margin-left: 4px;
-    transition: color 0.18s ease;
-  }
-
-  .pricing-model__cta a:hover {
-    color: #1E293B;
+    color: var(--uv-muted);
+    margin: 0;
   }
 
   /* ─────────────────────────────────────────────
-     5. FEATURES
+     3. DASHBOARD
   ───────────────────────────────────────────── */
-  .features {
-    padding-block: clamp(48px, 7vw, 72px);
+  .dashboard {
+    padding-block: clamp(64px, 9vw, 96px) 0;
   }
 
-  .features__grid {
+  .dashboard__grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    align-items: center;
+    gap: clamp(32px, 5vw, 64px);
+    padding-bottom: clamp(64px, 9vw, 96px);
+  }
+
+  .dashboard__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #E2E7EC;
+    color: #4A6E8C;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    padding: 7px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+
+  .dashboard__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.5rem, 2.6vw, 1.875rem);
+    line-height: 1.2;
+    color: var(--uv-navy);
+    margin: 0 0 16px;
+    text-wrap: pretty;
+  }
+
+  .dashboard__body {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--uv-muted);
+    margin: 0 0 22px;
+  }
+
+  .dashboard__checks {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .dashboard__check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #4A4438;
+  }
+
+  .dashboard__check-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--uv-gold);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  .dashboard__visual {
+    background: #E2E7EC;
+    border-radius: 20px;
+    padding: 28px;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ─────────────────────────────────────────────
+     4. PARTNERMODEL
+  ───────────────────────────────────────────── */
+  .partner {
+    padding-block: clamp(64px, 9vw, 96px) 0;
+  }
+
+  .partner__header {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto clamp(32px, 5vw, 48px);
+  }
+
+  .partner__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    line-height: 1.15;
+    color: var(--uv-navy);
+    margin: 0 0 14px;
+  }
+
+  .partner__sub {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--uv-muted);
+    margin: 0;
+  }
+
+  .partner__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
 
-  .feat-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 18px;
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 20px;
-    padding: clamp(22px, 3vw, 32px);
-    box-shadow:
-      0 1px 2px rgba(30, 41, 59, 0.04),
-      0 8px 24px rgba(30, 41, 59, 0.07);
-    transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.28s ease;
+  .partner-card {
+    background: var(--uv-card);
+    border: 1px solid var(--uv-line);
+    border-radius: 16px;
+    padding: 32px 30px;
   }
 
-  .feat-card:hover {
-    transform: translateY(-4px);
-    box-shadow:
-      0 2px 4px rgba(30, 41, 59, 0.06),
-      0 16px 40px rgba(30, 41, 59, 0.11);
-  }
-
-  .feat-card__icon {
-    flex-shrink: 0;
-    display: flex;
+  .partner-card__icon {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
-    background: rgba(198, 162, 75, 0.1);
-    border-radius: 13px;
-    color: #C6A24B;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #F3E7CF;
+    color: #96742F;
+    margin-bottom: 18px;
   }
 
-  .feat-card__body {
-    flex: 1;
+  .partner-card__euro {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
   }
 
-  .feat-card__title {
+  .partner-card__title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 17px;
-    font-weight: 500;
-    color: #1E293B;
-    letter-spacing: -0.01em;
-    line-height: 1.3;
-    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 19px;
+    color: var(--uv-navy);
+    margin: 0 0 8px;
   }
 
-  .feat-card__desc {
-    font-family: 'Inter', sans-serif;
-    font-size: 13.5px;
-    color: #64748B;
-    line-height: 1.72;
+  .partner-card__desc {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--uv-muted);
+    margin: 0;
+  }
+
+  .partner__link {
+    text-align: center;
+    margin: 32px 0 0;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 15px;
+    color: var(--uv-muted);
+  }
+
+  .partner__link a {
+    color: var(--uv-gold);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid #D8BE8A;
+    padding-bottom: 1px;
+    transition: color 0.18s ease, border-color 0.18s ease;
+  }
+  .partner__link a:hover {
+    color: var(--uv-navy);
+    border-color: var(--uv-navy);
+  }
+
+  /* ─────────────────────────────────────────────
+     5. WAT DE FAMILIE KRIJGT
+  ───────────────────────────────────────────── */
+  .family {
+    padding-block: clamp(64px, 9vw, 96px);
+  }
+
+  .family__header {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto clamp(32px, 5vw, 48px);
+  }
+
+  .family__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    line-height: 1.15;
+    color: var(--uv-navy);
+    margin: 0;
+  }
+
+  .family__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .family-card {
+    border-radius: 16px;
+    padding: 28px 26px;
+  }
+
+  .family-card--beige { background: #EFE6D5; }
+  .family-card--sage  { background: #E5EADF; }
+  .family-card--rose  { background: #F0E4DF; }
+
+  .family-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--uv-card);
+    margin-bottom: 18px;
+  }
+
+  .family-card--beige .family-card__icon { color: #96742F; }
+  .family-card--sage  .family-card__icon { color: #5C7048; }
+  .family-card--rose  .family-card__icon { color: #96605C; }
+
+  .family-card__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--uv-navy);
+    margin: 0 0 8px;
+  }
+
+  .family-card__desc {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--uv-muted);
+    margin: 0;
   }
 
   /* ─────────────────────────────────────────────
@@ -683,36 +796,33 @@ const contactMeetUrl = localizePath(locale, '/contact#plan-een-gesprek');
     position: relative;
     overflow: hidden;
     border-radius: 24px;
-    background-image: url('/Banner-uitvaartsector.png');
-    background-size: cover;
-    background-position: right center;
-    background-repeat: no-repeat;
+    background: var(--uv-navy) url('/Banner-uitvaartsector.png') center / cover no-repeat;
   }
 
   .cta-banner__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(15, 23, 42, 0.70);
+    background: linear-gradient(100deg, rgba(22, 34, 60, 0.72) 0%, rgba(22, 34, 60, 0.45) 100%);
   }
 
   .cta-banner__inner {
     position: relative;
     z-index: 1;
-    display: flex;
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: clamp(24px, 5vw, 48px);
     align-items: center;
-    justify-content: space-between;
-    gap: clamp(32px, 5vw, 64px);
-    padding: clamp(40px, 6vw, 64px) clamp(32px, 5vw, 56px);
+    padding: clamp(40px, 6vw, 64px) clamp(28px, 5vw, 60px);
   }
 
   .cta-banner__quote {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1.375rem, 2.8vw, 2rem);
-    font-weight: 500;
+    font-weight: 600;
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    line-height: 1.25;
     color: #fff;
-    letter-spacing: -0.02em;
-    line-height: 1.28;
-    max-width: 560px;
+    margin: 0;
+    text-wrap: pretty;
     font-style: normal;
     quotes: none;
   }
@@ -722,16 +832,17 @@ const contactMeetUrl = localizePath(locale, '/contact#plan-een-gesprek');
     flex-direction: column;
     align-items: flex-end;
     gap: 14px;
-    flex-shrink: 0;
   }
 
   .cta-banner__actions {
     display: flex;
-    flex-direction: row;
     gap: 12px;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: flex-end;
+  }
+
+  .cta-banner__actions .btn {
+    padding: 14px 28px;
   }
 
   .cta-banner__legal {
@@ -741,53 +852,51 @@ const contactMeetUrl = localizePath(locale, '/contact#plan-een-gesprek');
   }
 
   .cta-banner__legal a {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 12.5px;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.6);
     text-decoration: underline;
     text-underline-offset: 2px;
     transition: color 0.18s ease;
   }
-
   .cta-banner__legal a:hover {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.92);
   }
 
   /* ─────────────────────────────────────────────
      RESPONSIVE
   ───────────────────────────────────────────── */
-  @media (max-width: 960px) {
-    .how__steps,
-    .how__icon-row {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .how__timeline-line {
-      display: none;
-    }
-
-    .how__icon-bubble {
-      margin-bottom: 12px;
-    }
-
-    .features__grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 860px) {
+  @media (max-width: 900px) {
     .hero__grid {
       grid-template-columns: 1fr;
     }
 
-    .hero__img {
-      max-height: 360px;
+    .hero__visual {
+      justify-self: center;
+      max-width: 320px;
+      order: -1;
+    }
+
+    .how__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .dashboard__visual {
+      order: -1;
+    }
+
+    .partner__grid,
+    .family__grid {
+      grid-template-columns: 1fr;
     }
 
     .cta-banner__inner {
-      flex-direction: column;
+      grid-template-columns: 1fr;
       text-align: center;
-      align-items: center;
     }
 
     .cta-banner__cta-block {
@@ -795,8 +904,6 @@ const contactMeetUrl = localizePath(locale, '/contact#plan-een-gesprek');
     }
 
     .cta-banner__actions {
-      flex-direction: row;
-      flex-wrap: wrap;
       justify-content: center;
     }
 
@@ -806,18 +913,23 @@ const contactMeetUrl = localizePath(locale, '/contact#plan-een-gesprek');
   }
 
   @media (max-width: 560px) {
-    .how__steps,
-    .how__icon-row {
+    .how__grid {
       grid-template-columns: 1fr;
     }
 
     .hero__actions {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: stretch;
     }
 
-    .hero__title br {
-      display: none;
+    .hero__checks {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cta-banner__actions {
+      flex-direction: column;
+      align-items: stretch;
     }
   }
 </style>

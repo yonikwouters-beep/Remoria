@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+html, body { margin: 0; padding: 0; background: #F6F1E8; }
+a { color: #1C2A43; }
+a:hover { color: #B8934A; }
+</style>
+</helmet>
+<div style="font-family: 'Nunito Sans', sans-serif; background: #F6F1E8; color: #4A4438;" data-screen-label="Voor uitvaartsector">
+
+  <!-- Nav -->
+  <div style="display: flex; align-items: center; gap: 32px; max-width: 1180px; margin: 0 auto; padding: 20px 24px;" data-screen-label="Navigatie">
+    <a href="Home.dc.html" style="display: inline-flex; align-items: center; gap: 9px; text-decoration: none;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1C2A43" stroke-width="1.6"><path d="M5 21V10a7 7 0 0 1 14 0v11"></path><path d="M8 21V11a4 4 0 0 1 8 0v10"></path></svg>
+      <span style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: #1C2A43;">Remoria</span>
+    </a>
+    <div style="display: flex; align-items: center; gap: 26px; margin-left: 12px; font-size: 14.5px; font-weight: 600;">
+      <a href="Home.dc.html" style="text-decoration: none; color: #7A7263;">Home</a>
+      <a href="Voor%20nabestaanden%20-%20features.dc.html" style="text-decoration: none; color: #7A7263;">Voor nabestaanden</a>
+      <a href="Voor%20uitvaartsector.dc.html" style="text-decoration: none; color: #1C2A43;">Voor de uitvaartsector</a>
+      <span style="color: #7A7263;">Prijzen</span>
+      <span style="color: #7A7263;">Contact</span>
+    </div>
+    <span style="margin-left: auto; background: #1C2A43; color: #fff; font-size: 13.5px; font-weight: 700; padding: 10px 22px; border-radius: 999px;">Inloggen</span>
+  </div>
+
+  <!-- Hero -->
+  <div style="max-width: 1180px; margin: 0 auto; padding: 72px 24px 88px; display: grid; grid-template-columns: 6fr 5fr; gap: 72px; align-items: center;" data-screen-label="Hero">
+    <div>
+      <div style="font-size: 12px; font-weight: 800; letter-spacing: 2.5px; color: #B8934A; text-transform: uppercase; margin-bottom: 20px;">Remoria voor de uitvaartsector</div>
+      <h1 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 48px; line-height: 1.12; color: #1C2A43; margin: 0 0 22px; text-wrap: pretty;">Nazorg die families verbindt &mdash; en jouw kantoor onderscheidt</h1>
+      <p style="font-size: 17px; line-height: 1.65; color: #7A7263; margin: 0 0 32px; max-width: 480px;">Geef elke familie een digitale gedenkplek als vast onderdeel van je dienstverlening. Waardevolle troost voor hen, een blijvende band met jouw kantoor &mdash; zonder extra werklast.</p>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <a href="{{ partnerUrl }}" style="display: inline-flex; align-items: center; gap: 8px; background: #D9B36A; color: #1C2A43; font-size: 15px; font-weight: 800; padding: 15px 30px; border-radius: 999px; text-decoration: none;" style-hover="background: #E3C285; color: #1C2A43;">Word partner &rarr;</a>
+        <a href="{{ demoUrl }}" style="display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #1C2A43; font-size: 15px; font-weight: 700; padding: 15px 26px; border-radius: 999px; text-decoration: none; border: 1px solid #E7DFD2;" style-hover="border-color: #1C2A43; color: #1C2A43;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+          Plan een demo
+        </a>
+      </div>
+      <div style="display: flex; gap: 24px; margin-top: 32px;">
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: #7A7263;"><span style="color: #B8934A;">&#10003;</span> Gratis partnerportaal</div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: #7A7263;"><span style="color: #B8934A;">&#10003;</span> Geen verplichtingen</div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: #7A7263;"><span style="color: #B8934A;">&#10003;</span> Vaste winst per plan</div>
+      </div>
+    </div>
+    <div style="justify-self: end; width: 100%; max-width: 440px;">
+      <img src="uploads/Uitvaartsector-remoria.webp" alt="Boog in een landschap bij zonsopgang" style="width: 100%; aspect-ratio: 4 / 4.6; object-fit: cover; display: block; border-radius: 220px 220px 20px 20px; box-shadow: 0 24px 50px -24px rgba(28,42,67,.35);">
+    </div>
+  </div>
+
+  <!-- Zo werkt het -->
+  <div style="background: #EFE6D5; padding: 88px 24px;" data-screen-label="Zo werkt het">
+    <div style="max-width: 1140px; margin: 0 auto;">
+      <div style="text-align: center; max-width: 560px; margin: 0 auto 56px;">
+        <div style="font-size: 12px; font-weight: 800; letter-spacing: 2.5px; color: #B8934A; text-transform: uppercase; margin-bottom: 16px;">Naadloos in jouw dienstverlening</div>
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 40px; line-height: 1.15; color: #1C2A43; margin: 0;">Zo werkt het</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+        <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 16px; padding: 28px 26px; position: relative;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <span style="display: inline-flex; width: 34px; height: 34px; border-radius: 50%; background: #1C2A43; color: #fff; font-size: 14px; font-weight: 800; align-items: center; justify-content: center;">1</span>
+            <span style="flex: 1; height: 1px; background: #E7DFC2;"></span>
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: #1C2A43; margin-bottom: 8px;">Meld je kantoor aan</div>
+          <div style="font-size: 13.5px; line-height: 1.6; color: #7A7263;">Registreer via het partnerformulier. Zodra je account actief is, heb je direct je eigen professionele omgeving.</div>
+        </div>
+        <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 16px; padding: 28px 26px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <span style="display: inline-flex; width: 34px; height: 34px; border-radius: 50%; background: #1C2A43; color: #fff; font-size: 14px; font-weight: 800; align-items: center; justify-content: center;">2</span>
+            <span style="flex: 1; height: 1px; background: #E7DFC2;"></span>
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: #1C2A43; margin-bottom: 8px;">Maak een gedenkplek in seconden</div>
+          <div style="font-size: 13.5px; line-height: 1.6; color: #7A7263;">Voor elke uitvaart maak je een nieuw, beveiligd domein aan &mdash; tegen een vaste inkoopprijs, met een vaste winst per plan.</div>
+        </div>
+        <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 16px; padding: 28px 26px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <span style="display: inline-flex; width: 34px; height: 34px; border-radius: 50%; background: #1C2A43; color: #fff; font-size: 14px; font-weight: 800; align-items: center; justify-content: center;">3</span>
+            <span style="flex: 1; height: 1px; background: #E7DFC2;"></span>
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: #1C2A43; margin-bottom: 8px;">De familie neemt het over</div>
+          <div style="font-size: 13.5px; line-height: 1.6; color: #7A7263;">Nabestaanden nodigen zelf familie en vrienden uit en vullen de plek met foto's en verhalen. Jij hoeft niets te modereren.</div>
+        </div>
+        <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 16px; padding: 28px 26px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <span style="display: inline-flex; width: 34px; height: 34px; border-radius: 50%; background: #1C2A43; color: #fff; font-size: 14px; font-weight: 800; align-items: center; justify-content: center;">4</span>
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: #1C2A43; margin-bottom: 8px;">Gebruik het voor de ceremonie</div>
+          <div style="font-size: 13.5px; line-height: 1.6; color: #7A7263;">Download ge&uuml;ploade foto's in hoge kwaliteit rechtstreeks uit je dashboard &mdash; klaar voor de afscheidsbijeenkomst.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div style="max-width: 1140px; margin: 0 auto; padding: 96px 24px 0; display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: center;" data-screen-label="Dashboard">
+    <div>
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: #E2E7EC; color: #4A6E8C; font-size: 11.5px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; margin-bottom: 20px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg>
+        Jouw dashboard
+      </div>
+      <h3 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 30px; line-height: 1.2; color: #1C2A43; margin: 0 0 16px; text-wrap: pretty;">Alles in &eacute;&eacute;n oogopslag, alles onder controle</h3>
+      <p style="font-size: 16px; line-height: 1.7; color: #7A7263; margin: 0 0 22px;">Je ziet meteen welke gedenkplekken actief zijn, hoe de community's groeien en wat je verdiensten zijn. Beeldmateriaal voor de ceremonie download je in hoge kwaliteit, rechtstreeks uit het dossier.</p>
+      <div style="display: flex; flex-direction: column; gap: 11px;">
+        <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; color: #4A4438;"><span style="display: inline-flex; width: 20px; height: 20px; border-radius: 50%; background: #B8934A; color: #fff; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0;">&#10003;</span>Overzicht per gedenkplek en per familie</div>
+        <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; color: #4A4438;"><span style="display: inline-flex; width: 20px; height: 20px; border-radius: 50%; background: #B8934A; color: #fff; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0;">&#10003;</span>Direct inzicht in jouw verdiensten</div>
+        <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; color: #4A4438;"><span style="display: inline-flex; width: 20px; height: 20px; border-radius: 50%; background: #B8934A; color: #fff; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0;">&#10003;</span>Foto's in hoge kwaliteit downloaden</div>
+      </div>
+    </div>
+    <div style="background: #E2E7EC; border-radius: 20px; padding: 28px;">
+      <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 14px; box-shadow: 0 18px 40px -18px rgba(28,42,67,.25); overflow: hidden;">
+        <div style="display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid #EFE8DB;">
+          <span style="width: 9px; height: 9px; border-radius: 50%; background: #E4D9C4;"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #E4D9C4;"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #E4D9C4;"></span>
+          <span style="margin-left: 10px; background: #F3EEE3; border-radius: 999px; font-size: 10.5px; color: #A79C87; padding: 3px 12px;">partner.remoria.eu</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 148px 1fr;">
+          <div style="border-right: 1px solid #EFE8DB; padding: 14px 0 18px; display: flex; flex-direction: column; gap: 2px;">
+            <div style="display: flex; align-items: center; gap: 7px; padding: 2px 14px 12px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1C2A43" stroke-width="1.7"><path d="M5 21V10a7 7 0 0 1 14 0v11"></path><path d="M8 21V11a4 4 0 0 1 8 0v10"></path></svg><span style="font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 600; color: #1C2A43;">Remoria</span></div>
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; color: #1C2A43; background: #F6EADF; padding: 8px 14px; border-radius: 0 10px 10px 0; margin-right: 10px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>Overzicht</div>
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; color: #8A7F6B; padding: 8px 14px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 21V10a7 7 0 0 1 14 0v11"></path></svg>Gedenkplekken</div>
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; color: #8A7F6B; padding: 8px 14px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>Medewerkers</div>
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; color: #8A7F6B; padding: 8px 14px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>Statistieken</div>
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; color: #8A7F6B; padding: 8px 14px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>Instellingen</div>
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; color: #8A7F6B; padding: 8px 14px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Help &amp; support</div>
+          </div>
+          <div style="padding: 16px 18px 20px;">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 14px;">
+              <div>
+                <div style="font-size: 17px; font-weight: 800; color: #1C2A43;">Overzicht</div>
+                <div style="font-size: 10px; color: #A79C87; margin-top: 2px;">Al uw gedenkplekken in &eacute;&eacute;n oogopslag.</div>
+              </div>
+              <span style="background: #1C2A43; color: #fff; font-size: 10.5px; font-weight: 700; padding: 8px 14px; border-radius: 10px; white-space: nowrap;">+ Nieuwe gedenkplek</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px;">
+              <div style="display: flex; align-items: center; gap: 9px; border: 1px solid #EFE8DB; border-radius: 10px; padding: 11px 12px;"><span style="display: inline-flex; width: 28px; height: 28px; border-radius: 8px; background: #F6EADF; color: #1C2A43; align-items: center; justify-content: center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></span><div><div style="font-size: 16px; font-weight: 800; color: #1C2A43;">23</div><div style="font-size: 8.5px; color: #8A7F6B;">Actieve gedenkplekken</div></div></div>
+              <div style="display: flex; align-items: center; gap: 9px; border: 1px solid #EFE8DB; border-radius: 10px; padding: 11px 12px;"><span style="display: inline-flex; width: 28px; height: 28px; border-radius: 8px; background: #F6EADF; color: #1C2A43; align-items: center; justify-content: center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span><div><div style="font-size: 16px; font-weight: 800; color: #1C2A43;">1.248</div><div style="font-size: 8.5px; color: #8A7F6B;">Communityleden</div></div></div>
+              <div style="display: flex; align-items: center; gap: 9px; border: 1px solid #EFE8DB; border-radius: 10px; padding: 11px 12px;"><span style="display: inline-flex; width: 28px; height: 28px; border-radius: 8px; background: #F6EADF; color: #1C2A43; align-items: center; justify-content: center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></span><div><div style="font-size: 16px; font-weight: 800; color: #1C2A43;">342</div><div style="font-size: 8.5px; color: #8A7F6B;">Gedeelde Herinneringen</div></div></div>
+            </div>
+            <div style="font-size: 11px; font-weight: 800; color: #1C2A43; margin-bottom: 8px;">Recente gedenkplekken</div>
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <div style="display: flex; align-items: center; gap: 10px; border: 1px solid #EFE8DB; border-radius: 10px; padding: 8px 12px;">
+                <img src="assets/photo-09.png" alt="" style="width: 30px; height: 30px; border-radius: 7px; object-fit: cover; display: block;">
+                <div style="min-width: 110px;"><div style="font-size: 11.5px; font-weight: 700; color: #1C2A43;">Jan De Vries</div><div style="font-size: 8.5px; color: #B4A98F;">Aangemaakt op 15-06-2026</div></div>
+                <span style="font-size: 9.5px; color: #8A7F6B;">156 leden</span>
+                <span style="font-size: 9.5px; color: #8A7F6B;">432 herinneringen</span>
+                <span style="margin-left: auto; border: 1px solid #E7DFD2; border-radius: 999px; font-size: 9.5px; font-weight: 700; color: #1C2A43; padding: 4px 14px;">Open</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; border: 1px solid #EFE8DB; border-radius: 10px; padding: 8px 12px;">
+                <img src="assets/photo-01.png" alt="" style="width: 30px; height: 30px; border-radius: 7px; object-fit: cover; display: block;">
+                <div style="min-width: 110px;"><div style="font-size: 11.5px; font-weight: 700; color: #1C2A43;">Maria Jansen</div><div style="font-size: 8.5px; color: #B4A98F;">Aangemaakt op 02-07-2026</div></div>
+                <span style="font-size: 9.5px; color: #8A7F6B;">96 leden</span>
+                <span style="font-size: 9.5px; color: #8A7F6B;">276 herinneringen</span>
+                <span style="margin-left: auto; border: 1px solid #E7DFD2; border-radius: 999px; font-size: 9.5px; font-weight: 700; color: #1C2A43; padding: 4px 14px;">Open</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; border: 1px solid #EFE8DB; border-radius: 10px; padding: 8px 12px;">
+                <img src="assets/photo-06.png" alt="" style="width: 30px; height: 30px; border-radius: 7px; object-fit: cover; display: block;">
+                <div style="min-width: 110px;"><div style="font-size: 11.5px; font-weight: 700; color: #1C2A43;">Peter Mertens</div><div style="font-size: 8.5px; color: #B4A98F;">Aangemaakt op 28-06-2026</div></div>
+                <span style="font-size: 9.5px; color: #8A7F6B;">203 leden</span>
+                <span style="font-size: 9.5px; color: #8A7F6B;">589 herinneringen</span>
+                <span style="margin-left: auto; border: 1px solid #E7DFD2; border-radius: 999px; font-size: 9.5px; font-weight: 700; color: #1C2A43; padding: 4px 14px;">Open</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Partnermodel -->
+  <div style="max-width: 1140px; margin: 0 auto; padding: 96px 24px 0;" data-screen-label="Partnermodel">
+    <div style="text-align: center; max-width: 560px; margin: 0 auto 48px;">
+      <div style="font-size: 12px; font-weight: 800; letter-spacing: 2.5px; color: #B8934A; text-transform: uppercase; margin-bottom: 16px;">Transparant partnermodel</div>
+      <h2 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 40px; line-height: 1.15; color: #1C2A43; margin: 0 0 14px;">Geen risico, wel rendement</h2>
+      <p style="font-size: 16px; line-height: 1.65; color: #7A7263; margin: 0;">Geen abonnementskosten, geen instapkosten, geen verplichtingen. Je betaalt alleen voor wat je verkoopt.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+      <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 16px; padding: 32px 30px;">
+        <span style="display: inline-flex; width: 44px; height: 44px; border-radius: 12px; background: #F3E7CF; color: #96742F; align-items: center; justify-content: center; margin-bottom: 18px;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
+        <div style="font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 600; color: #1C2A43; margin-bottom: 8px;">Gratis portaal</div>
+        <div style="font-size: 14.5px; line-height: 1.65; color: #7A7263;">Het partnerportaal is en blijft volledig gratis. Geen abonnement, geen instapkosten, geen verplichtingen.</div>
+      </div>
+      <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 16px; padding: 32px 30px;">
+        <span style="display: inline-flex; width: 44px; height: 44px; border-radius: 12px; background: #F3E7CF; color: #96742F; align-items: center; justify-content: center; margin-bottom: 18px;"><span style="font-size: 20px; font-weight: 700; line-height: 1;">&euro;</span></span>
+        <div style="font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 600; color: #1C2A43; margin-bottom: 8px;">Vaste winst per plan</div>
+        <div style="font-size: 14.5px; line-height: 1.65; color: #7A7263;">Je koopt elk plan aan tegen een vaste inkoopprijs en bepaalt zelf jouw verkoopprijs. Elk verkocht plan levert een vaste, voorspelbare marge op.</div>
+      </div>
+      <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 16px; padding: 32px 30px;">
+        <span style="display: inline-flex; width: 44px; height: 44px; border-radius: 12px; background: #F3E7CF; color: #96742F; align-items: center; justify-content: center; margin-bottom: 18px;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></span>
+        <div style="font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 600; color: #1C2A43; margin-bottom: 8px;">&Eacute;&eacute;n maandfactuur</div>
+        <div style="font-size: 14.5px; line-height: 1.65; color: #7A7263;">Geen voorfinanciering of administratie per dossier. Begin elke maand ontvang je &eacute;&eacute;n verzamelfactuur voor de voorbije maand.</div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 32px; font-size: 15px; color: #7A7263;">Benieuwd naar de concrete partnervoorwaarden? <a href="{{ demoUrl }}" style="color: #B8934A; font-weight: 700; text-decoration: none; border-bottom: 1px solid #D8BE8A;">Plan een vrijblijvende kennismaking &rarr;</a></div>
+  </div>
+
+  <!-- Wat de familie krijgt -->
+  <div style="max-width: 1140px; margin: 0 auto; padding: 96px 24px 0;" data-screen-label="Wat de familie krijgt">
+    <div style="text-align: center; max-width: 560px; margin: 0 auto 48px;">
+      <div style="font-size: 12px; font-weight: 800; letter-spacing: 2.5px; color: #B8934A; text-transform: uppercase; margin-bottom: 16px;">Wat jij de familie aanbiedt</div>
+      <h2 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 40px; line-height: 1.15; color: #1C2A43; margin: 0;">Een dienst waar families je voor bedanken</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+      <div style="background: #EFE6D5; border-radius: 16px; padding: 28px 26px;">
+        <span style="display: inline-flex; width: 44px; height: 44px; border-radius: 12px; background: #FDFBF7; color: #96742F; align-items: center; justify-content: center; margin-bottom: 18px;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg></span>
+        <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: #1C2A43; margin-bottom: 8px;">Een gedeelde mediacollectie</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #7A7263;">E&eacute;n centrale plek voor foto's, video's en audio &mdash; ook de beelden die de familie zelf nog nooit zag.</div>
+      </div>
+      <div style="background: #E5EADF; border-radius: 16px; padding: 28px 26px;">
+        <span style="display: inline-flex; width: 44px; height: 44px; border-radius: 12px; background: #FDFBF7; color: #5C7048; align-items: center; justify-content: center; margin-bottom: 18px;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+        <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: #1C2A43; margin-bottom: 8px;">Een besloten community</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #7A7263;">Via de chat en het condoleanceregister rouwen familie en vrienden samen, in een veilige omgeving.</div>
+      </div>
+      <div style="background: #F0E4DF; border-radius: 16px; padding: 28px 26px;">
+        <span style="display: inline-flex; width: 44px; height: 44px; border-radius: 12px; background: #FDFBF7; color: #96605C; align-items: center; justify-content: center; margin-bottom: 18px;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg></span>
+        <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: #1C2A43; margin-bottom: 8px;">Een tastbaar fotoboek</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #7A7263;">Van de digitale collectie maakt de familie met enkele klikken een hoogwaardig gedrukt fotoboek.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="max-width: 1140px; margin: 96px auto; padding: 0 24px;" data-screen-label="CTA">
+    <div style="background: #16223C url('uploads/Banner-uitvaartsector.png') center / cover no-repeat; border-radius: 24px; padding: 64px 60px; display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: center;">
+      <div>
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 32px; line-height: 1.25; color: #fff; margin: 0; text-wrap: pretty;">"Onderscheid je uitvaartcentrum en bied Remoria aan als blijvende plek voor troost en herinnering."</h2>
+      </div>
+      <div style="justify-self: end; display: flex; flex-direction: column; align-items: flex-end; gap: 14px;">
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end;">
+          <a href="{{ partnerUrl }}" style="display: inline-flex; align-items: center; gap: 8px; background: #D9B36A; color: #1C2A43; font-size: 15px; font-weight: 800; padding: 14px 28px; border-radius: 999px; text-decoration: none;" style-hover="background: #E3C285; color: #1C2A43;">Word partner &rarr;</a>
+          <a href="{{ demoUrl }}" style="display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #fff; font-size: 15px; font-weight: 700; padding: 14px 28px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,.4); text-decoration: none;" style-hover="border-color: #fff; color: #fff;">Neem contact op</a>
+        </div>
+        <div style="font-size: 12.5px; color: #8B8268;">Verwerkersovereenkomst inbegrepen (bijlage bij de algemene voorwaarden)</div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;partnerUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://www.remoria.eu/word-partner&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}, &quot;demoUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://www.remoria.eu/plan-een-demo&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      partnerUrl: this.props.partnerUrl ?? "https://www.remoria.eu/word-partner",
+      demoUrl: this.props.demoUrl ?? "https://www.remoria.eu/plan-een-demo"
+    };
+  }
+}
+</script>
+</body>
+</html>

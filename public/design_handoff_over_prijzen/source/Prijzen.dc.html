@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+html, body { margin: 0; padding: 0; background: #F6F1E8; }
+a { color: #1C2A43; }
+a:hover { color: #B8934A; }
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .faq-chevron { transform: rotate(180deg); }
+.faq-chevron { transition: transform .2s ease; }
+</style>
+</helmet>
+<div style="font-family: 'Nunito Sans', sans-serif; background: #F6F1E8; color: #4A4438;" data-screen-label="Prijzen">
+
+  <!-- Nav -->
+  <div style="display: flex; align-items: center; gap: 32px; max-width: 1180px; margin: 0 auto; padding: 20px 24px;" data-screen-label="Navigatie">
+    <a href="Home.dc.html" style="display: inline-flex; align-items: center; gap: 9px; text-decoration: none;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1C2A43" stroke-width="1.6"><path d="M5 21V10a7 7 0 0 1 14 0v11"></path><path d="M8 21V11a4 4 0 0 1 8 0v10"></path></svg>
+      <span style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: #1C2A43;">Remoria</span>
+    </a>
+    <div style="display: flex; align-items: center; gap: 26px; margin-left: 12px; font-size: 14.5px; font-weight: 600;">
+      <a href="Home.dc.html" style="text-decoration: none; color: #7A7263;">Home</a>
+      <a href="Voor%20nabestaanden%20-%20features.dc.html" style="text-decoration: none; color: #7A7263;">Voor nabestaanden</a>
+      <a href="Voor%20uitvaartsector.dc.html" style="text-decoration: none; color: #7A7263;">Voor de uitvaartsector</a>
+      <a href="Over%20Remoria.dc.html" style="text-decoration: none; color: #7A7263;">Over Remoria</a>
+      <span style="color: #1C2A43;">Prijzen</span>
+    </div>
+    <span style="margin-left: auto; background: #1C2A43; color: #fff; font-size: 13.5px; font-weight: 700; padding: 10px 22px; border-radius: 999px;">Inloggen</span>
+  </div>
+
+  <!-- Kop -->
+  <div style="text-align: center; max-width: 620px; margin: 0 auto; padding: 56px 24px 0;" data-screen-label="Kop">
+    <div style="font-size: 12px; font-weight: 800; letter-spacing: 2.5px; color: #B8934A; text-transform: uppercase; margin-bottom: 18px;">Prijzen</div>
+    <h1 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 46px; line-height: 1.14; color: #1C2A43; margin: 0 0 18px; text-wrap: pretty;">Kies het plan dat bij jullie past</h1>
+    <p style="font-size: 16.5px; line-height: 1.65; color: #7A7263; margin: 0 0 10px;">Je betaalt &eacute;&eacute;n keer, voor de gedenkplek zelf. Familie en vrienden uitnodigen en laten bijdragen is altijd volledig kosteloos.</p>
+    <p style="font-size: 14.5px; font-weight: 700; color: #4A4438; margin: 0;">Elk plan bevat &aacute;lle functies &mdash; alleen de looptijd verschilt.</p>
+  </div>
+
+  <!-- Plannen -->
+  <div style="max-width: 1080px; margin: 0 auto; padding: 48px 24px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch;" data-screen-label="Plannen">
+    <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 20px; padding: 36px 30px 30px; display: flex; flex-direction: column; text-align: center;">
+      <img src="uploads/Kiempje-remoria.png" alt="Kiempje" style="width: 96px; height: 96px; object-fit: contain; align-self: center; margin-bottom: 14px;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 600; color: #1C2A43;">Samen Herinneren</div>
+      <div style="font-size: 12px; font-weight: 800; letter-spacing: 1.5px; color: #B8934A; text-transform: uppercase; margin: 6px 0 16px;">4 maanden actief</div>
+      <div style="font-family: 'Playfair Display', serif; font-size: 46px; font-weight: 600; color: #1C2A43; line-height: 1;">&euro;85</div>
+      <div style="font-size: 12.5px; color: #A79C87; margin: 8px 0 16px;">eenmalig &middot; &asymp; &euro;21,25 per maand</div>
+      <p style="font-size: 14px; line-height: 1.65; color: #7A7263; margin: 0 0 24px; text-wrap: pretty;">Vier maanden &mdash; ruim de tijd om iedereen uit te nodigen en alle foto's en verhalen te verzamelen die anders verloren gaan. De foto's die je anders nooit had gezien, voor &eacute;&eacute;n vast bedrag.</p>
+      <a href="{{ startUrl }}" style="margin-top: auto; display: block; text-align: center; background: #FDFBF7; color: #1C2A43; border: 1.5px solid #C6BBA4; font-size: 14.5px; font-weight: 800; padding: 13px 20px; border-radius: 999px; text-decoration: none;" style-hover="border-color: #1C2A43; color: #1C2A43;">Start met dit plan</a>
+    </div>
+    <div style="background: #FDFBF7; border: 2px solid #1C2A43; border-radius: 20px; padding: 36px 30px 30px; display: flex; flex-direction: column; text-align: center; position: relative; box-shadow: 0 22px 44px -20px rgba(28,42,67,.3);">
+      <span style="position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: #D9B36A; color: #3D2F14; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 5px 16px; border-radius: 999px; white-space: nowrap;">Meest gekozen</span>
+      <img src="uploads/jonge-boom-remoria.png" alt="Jonge boom" style="width: 96px; height: 96px; object-fit: contain; align-self: center; margin-bottom: 14px;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 600; color: #1C2A43;">Samen Koesteren</div>
+      <div style="font-size: 12px; font-weight: 800; letter-spacing: 1.5px; color: #B8934A; text-transform: uppercase; margin: 6px 0 16px;">1 jaar actief</div>
+      <div style="font-family: 'Playfair Display', serif; font-size: 46px; font-weight: 600; color: #1C2A43; line-height: 1;">&euro;129</div>
+      <div style="font-size: 12.5px; color: #A79C87; margin: 8px 0 16px;">eenmalig &middot; &asymp; &euro;10,75 per maand</div>
+      <p style="font-size: 14px; line-height: 1.65; color: #7A7263; margin: 0 0 24px; text-wrap: pretty;">Een vol jaar om te verzamelen &eacute;n terug te keren: op de verjaardag, de sterfdag, de dagen die er zo toe doen. E&eacute;n heel jaar samen herdenken, met de hele familie.</p>
+      <a href="{{ startUrl }}" style="margin-top: auto; display: block; text-align: center; background: #D9B36A; color: #1C2A43; font-size: 14.5px; font-weight: 800; padding: 14px 20px; border-radius: 999px; text-decoration: none;" style-hover="background: #E3C285; color: #1C2A43;">Start met dit plan</a>
+    </div>
+    <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 20px; padding: 36px 30px 30px; display: flex; flex-direction: column; text-align: center;">
+      <img src="uploads/Groteboom-remoria.png" alt="Volgroeide boom" style="width: 96px; height: 96px; object-fit: contain; align-self: center; margin-bottom: 14px;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 600; color: #1C2A43;">Een Blijvende Herinnering</div>
+      <div style="font-size: 12px; font-weight: 800; letter-spacing: 1.5px; color: #B8934A; text-transform: uppercase; margin: 6px 0 16px;">3 jaar actief</div>
+      <div style="font-family: 'Playfair Display', serif; font-size: 46px; font-weight: 600; color: #1C2A43; line-height: 1;">&euro;239</div>
+      <div style="font-size: 12.5px; color: #A79C87; margin: 8px 0 16px;">eenmalig &middot; &asymp; &euro;6,64 per maand</div>
+      <p style="font-size: 14px; line-height: 1.65; color: #7A7263; margin: 0 0 24px; text-wrap: pretty;">Drie jaar rust: de gedenkplek blijft bestaan en groeit met jullie mee &mdash; voor wie er vandaag is, en voor wie later meer wil weten.</p>
+      <a href="{{ startUrl }}" style="margin-top: auto; display: block; text-align: center; background: #FDFBF7; color: #1C2A43; border: 1.5px solid #C6BBA4; font-size: 14.5px; font-weight: 800; padding: 13px 20px; border-radius: 999px; text-decoration: none;" style-hover="border-color: #1C2A43; color: #1C2A43;">Start met dit plan</a>
+    </div>
+  </div>
+
+  <!-- Trust strip -->
+  <div style="max-width: 1080px; margin: 0 auto; padding: 26px 24px 0; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;" data-screen-label="Zekerheden">
+    <div style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 700; color: #5C5548;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>14 dagen niet tevreden? Geld terug</div>
+    <div style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 700; color: #5C5548;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m4.9 4.9 14.2 14.2"></path></svg>Geen automatische verlenging</div>
+    <div style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 700; color: #5C5548;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"></path><circle cx="12" cy="12" r="10"></circle></svg>Totaalprijs &mdash; geen verborgen kosten</div>
+    <div style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 700; color: #5C5548;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Familie en vrienden dragen gratis bij</div>
+  </div>
+
+  <!-- Verlengen -->
+  <div style="max-width: 1080px; margin: 64px auto 0; padding: 0 24px;" data-screen-label="Verlengen">
+    <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 20px; padding: 40px 44px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; align-items: center;">
+      <div>
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 26px; line-height: 1.25; color: #1C2A43; margin: 0 0 12px;">Verlengen? Iedereen kan bijdragen</h2>
+        <p style="font-size: 14.5px; line-height: 1.7; color: #7A7263; margin: 0 0 12px;">De gedenkplek blijft bestaan zolang de community dat wil. Niet alleen de koper &mdash; <strong style="color: #4A4438;">iedereen met toegang</strong> kan een verlenging bijdragen. Hoe langer je kiest, hoe voordeliger.</p>
+        <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #96742F;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>Samen zorgen we dat herinneringen bewaard blijven</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;">
+        <div style="border: 1px solid #EFE8DB; border-radius: 12px; padding: 14px 8px; text-align: center;"><div style="font-size: 12px; font-weight: 700; color: #4A4438;">1 maand</div><div style="font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: #B8934A; margin-top: 6px;">&euro;6,50</div></div>
+        <div style="border: 1px solid #EFE8DB; border-radius: 12px; padding: 14px 8px; text-align: center;"><div style="font-size: 12px; font-weight: 700; color: #4A4438;">3 maanden</div><div style="font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: #B8934A; margin-top: 6px;">&euro;6/m</div></div>
+        <div style="border: 1px solid #EFE8DB; border-radius: 12px; padding: 14px 8px; text-align: center;"><div style="font-size: 12px; font-weight: 700; color: #4A4438;">6 maanden</div><div style="font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: #B8934A; margin-top: 6px;">&euro;5,50/m</div></div>
+        <div style="border: 1px solid #EFE8DB; border-radius: 12px; padding: 14px 8px; text-align: center;"><div style="font-size: 12px; font-weight: 700; color: #4A4438;">1 jaar</div><div style="font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: #B8934A; margin-top: 6px;">&euro;5/m</div></div>
+        <div style="border: 1px solid #EFE8DB; border-radius: 12px; padding: 14px 8px; text-align: center; background: #F8F3E9;"><div style="font-size: 12px; font-weight: 700; color: #4A4438;">1 jaar +</div><div style="font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: #B8934A; margin-top: 6px;">&euro;4,85/m</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Voordelen -->
+  <div style="max-width: 1080px; margin: 0 auto; padding: 80px 24px 0;" data-screen-label="Voordelen">
+    <h2 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 34px; line-height: 1.15; color: #1C2A43; margin: 0 0 36px; text-align: center;">Alle voordelen van Remoria, in elk plan</h2>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;">
+      <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 16px; padding: 26px 24px;">
+        <span style="display: inline-flex; width: 42px; height: 42px; border-radius: 11px; background: #F3E7CF; color: #96742F; align-items: center; justify-content: center; margin-bottom: 14px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg></span>
+        <div style="font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: #1C2A43; margin-bottom: 7px;">Deel en verzamel</div>
+        <div style="font-size: 13.5px; line-height: 1.6; color: #7A7263;">Nodig familie, vrienden en kennissen uit en verzamel samen foto's, video's en audio op &eacute;&eacute;n veilige plek.</div>
+      </div>
+      <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 16px; padding: 26px 24px;">
+        <span style="display: inline-flex; width: 42px; height: 42px; border-radius: 11px; background: #F3E7CF; color: #96742F; align-items: center; justify-content: center; margin-bottom: 14px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
+        <div style="font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: #1C2A43; margin-bottom: 7px;">Community chat</div>
+        <div style="font-size: 13.5px; line-height: 1.6; color: #7A7263;">Houd contact, deel verhalen en vind troost bij elkaar in de besloten chat.</div>
+      </div>
+      <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 16px; padding: 26px 24px;">
+        <span style="display: inline-flex; width: 42px; height: 42px; border-radius: 11px; background: #F3E7CF; color: #96742F; align-items: center; justify-content: center; margin-bottom: 14px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></span>
+        <div style="font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: #1C2A43; margin-bottom: 7px;">Plaats eerbetonen</div>
+        <div style="font-size: 13.5px; line-height: 1.6; color: #7A7263;">Laat een mooi bericht achter, deel een herinnering en breng een blijvend eerbetoon aan je dierbare.</div>
+      </div>
+      <div style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 16px; padding: 26px 24px;">
+        <span style="display: inline-flex; width: 42px; height: 42px; border-radius: 11px; background: #F3E7CF; color: #96742F; align-items: center; justify-content: center; margin-bottom: 14px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg></span>
+        <div style="font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: #1C2A43; margin-bottom: 7px;">Maak een fotoboek</div>
+        <div style="font-size: 13.5px; line-height: 1.6; color: #7A7263;">Bundel achteraf alle verzamelde herinneringen in een prachtig fotoboek (optioneel bij te bestellen).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div style="max-width: 720px; margin: 0 auto; padding: 80px 24px 0;" data-screen-label="Veelgestelde vragen">
+    <h2 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 34px; line-height: 1.15; color: #1C2A43; margin: 0 0 32px; text-align: center;">Veelgestelde vragen</h2>
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <details style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 12px; padding: 0 22px;">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 17px 0; font-size: 15px; font-weight: 700; color: #1C2A43;">Wat gebeurt er als het plan afloopt?<svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></summary>
+        <div style="font-size: 14px; line-height: 1.7; color: #7A7263; padding: 0 0 18px;">Je krijgt ruim op voorhand bericht. Dan kies je zelf: verlengen (al vanaf &euro;4,85 per maand) of afronden &mdash; bijvoorbeeld met een fotoboek. Er loopt nooit iets automatisch door.</div>
+      </details>
+      <details style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 12px; padding: 0 22px;">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 17px 0; font-size: 15px; font-weight: 700; color: #1C2A43;">Betalen familie en vrienden ook?<svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></summary>
+        <div style="font-size: 14px; line-height: 1.7; color: #7A7263; padding: 0 0 18px;">Nee. Alleen het plan zelf wordt betaald. Iedereen die je uitnodigt kan volledig gratis foto's, verhalen en berichten bijdragen &mdash; met hoeveel je maar wil.</div>
+      </details>
+      <details style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 12px; padding: 0 22px;">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 17px 0; font-size: 15px; font-weight: 700; color: #1C2A43;">Is er verschil in functies tussen de plannen?<svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></summary>
+        <div style="font-size: 14px; line-height: 1.7; color: #7A7263; padding: 0 0 18px;">Nee, elk plan bevat alles: de mediacollectie, de community chat, eerbetonen en de optie tot een fotoboek. Alleen de looptijd verschilt.</div>
+      </details>
+      <details style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 12px; padding: 0 22px;">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 17px 0; font-size: 15px; font-weight: 700; color: #1C2A43;">Hoe werkt de 14-dagen-garantie?<svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></summary>
+        <div style="font-size: 14px; line-height: 1.7; color: #7A7263; padding: 0 0 18px;">Niet tevreden binnen 14 dagen na aankoop? Je krijgt het volledige bedrag terug &mdash; zonder gedoe, zonder vragenlijst.</div>
+      </details>
+      <details style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 12px; padding: 0 22px;">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 17px 0; font-size: 15px; font-weight: 700; color: #1C2A43;">Is het fotoboek inbegrepen in de prijs?<svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></summary>
+        <div style="font-size: 14px; line-height: 1.7; color: #7A7263; padding: 0 0 18px;">Het fotoboek is optioneel en bestel je apart, wanneer jullie er klaar voor zijn. Zo betaal je alleen voor wat je echt wil.</div>
+      </details>
+      <details style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 12px; padding: 0 22px;">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 17px 0; font-size: 15px; font-weight: 700; color: #1C2A43;">Kan alleen de koper verlengen?<svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></summary>
+        <div style="font-size: 14px; line-height: 1.7; color: #7A7263; padding: 0 0 18px;">Nee &mdash; iedereen met toegang tot de gedenkplek kan een verlenging bijdragen. Zo dragen jullie de plek samen.</div>
+      </details>
+      <details style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 12px; padding: 0 22px;">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 17px 0; font-size: 15px; font-weight: 700; color: #1C2A43;">Is dit een abonnement dat automatisch verlengt?<svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></summary>
+        <div style="font-size: 14px; line-height: 1.7; color: #7A7263; padding: 0 0 18px;">Nee. Een plan stopt gewoon aan het einde van de looptijd. Verlengen is altijd een bewuste keuze &mdash; nooit een stille afschrijving.</div>
+      </details>
+      <details style="background: #FDFBF7; border: 1px solid #E7DFD2; border-radius: 12px; padding: 0 22px;">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 17px 0; font-size: 15px; font-weight: 700; color: #1C2A43;">Is de gedenkplek priv&eacute;?<svg class="faq-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8934A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></summary>
+        <div style="font-size: 14px; line-height: 1.7; color: #7A7263; padding: 0 0 18px;">Volledig. Alleen de mensen die jij uitnodigt hebben toegang. Geen advertenties, geen datahandel, geen compromissen.</div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Referral -->
+  <div style="max-width: 1080px; margin: 80px auto 0; padding: 0 24px 96px;" data-screen-label="Referral">
+    <div style="background: #F5EEE0; border: 10px solid #FFFDF8; border-radius: 28px; padding: 48px 52px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 40px; align-items: center; box-shadow: 0 18px 40px -20px rgba(28,42,67,.18);">
+      <div>
+        <div style="display: inline-flex; align-items: center; gap: 8px; background: #FDFBF7; border: 1px solid #EADFC9; color: #96742F; font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 7px 16px; border-radius: 999px; margin-bottom: 18px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>Ontvang &euro;20 als dank</div>
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 32px; line-height: 1.2; color: #1C2A43; margin: 0 0 14px; text-wrap: pretty;">Help een ander herinneringen koesteren</h2>
+        <p style="font-size: 15.5px; line-height: 1.7; color: #7A7263; margin: 0 0 26px; max-width: 480px;">Foto's vertellen verhalen die het verdienen om gedeeld te worden. Ken jij iemand voor wie een gedenkplek een troost zou kunnen zijn? Deel jouw persoonlijke link &mdash; en help je hen een bijzondere herinnering levend te houden.</p>
+        <a href="{{ referralUrl }}" style="display: inline-flex; align-items: center; gap: 8px; background: #1C2A43; color: #fff; font-size: 15px; font-weight: 700; padding: 14px 28px; border-radius: 999px; text-decoration: none; white-space: nowrap;" style-hover="background: #2A3B5C; color: #fff;">Deel de link en help een vriend &rarr;</a>
+      </div>
+      <img src="uploads/referral-remoria-621438f3.png" alt="Envelop met foto, bloemen en gouden hart" style="width: 100%; max-width: 300px; justify-self: center; display: block;">
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://www.remoria.eu/start&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}, &quot;referralUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://www.remoria.eu/referral&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      startUrl: this.props.startUrl ?? "https://www.remoria.eu/start",
+      referralUrl: this.props.referralUrl ?? "https://www.remoria.eu/referral"
+    };
+  }
+}
+</script>
+</body>
+</html>

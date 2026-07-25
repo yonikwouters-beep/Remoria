@@ -59,75 +59,79 @@ export const nl = {
   },
 
   hero: {
-    eyebrow: 'HERINNERINGEN VERBINDEN. VOOR ALTIJD.',
+    eyebrow: 'Herinneringen verbinden. Voor altijd.',
+    heading: 'Een plek waar herinneringen samenkomen',
     headingLine1: 'Een plek waar',
     headingLine2: 'herinneringen',
     headingLine3: 'samenkomen.',
     subtext:
-      'Remoria biedt een toegankelijk platform waar nabestaanden eenvoudig herinneringen delen en bewaren. Een serene plek om verhalen te koesteren en steun te vinden bij elkaar.',
-    primaryCta: 'Start een gedenkplek',
+      "Na een afscheid raken foto's en verhalen verspreid over telefoons, dozen en hoofden. Remoria brengt ze samen op één veilige, serene plek — door iedereen die erbij was.",
+    primaryCta: 'Start een gedenkplek →',
     secondaryCta: 'Bekijk een voorbeeld',
+    trustNote: 'Veilig, besloten en met liefde gemaakt',
   },
 
   features: {
-    eyebrow: 'ALLES WAT JE NODIG HEBT',
+    eyebrow: 'Alles wat je nodig hebt',
     heading: 'Herinneringen op jouw manier',
     items: [
       {
-        title: 'Mediacollectie',
+        title: 'Verzamel alle media',
         description:
-          "Verzamel foto's, video's en verhalen op een prachtige plek. Deel herinneringen met familie en vrienden.",
+          "Foto's, video's en spraakopnames van iedereen die je uitnodigt, samen op één plek.",
       },
       {
-        title: 'Eerbetoon bericht plaatsen',
+        title: 'Plaats een eerbetoon',
         description:
-          'Schrijf een persoonlijk eerbetoon en deel je gevoelens. Een warm woord betekent meer dan je denkt.',
+          'Schrijf een persoonlijke boodschap die blijft staan. Een warm woord betekent meer dan je denkt.',
       },
       {
-        title: 'Community chat',
+        title: 'Praat met elkaar',
         description:
-          'Vind steun bij mensen die begrijpen wat je doormaakt. Deel, praat en luister in een veilige omgeving.',
+          'Deel, praat en luister in een besloten chat met mensen die begrijpen wat je doormaakt.',
       },
       {
         title: 'Maak het tastbaar',
         description:
-          'Bundel herinneringen in een prachtig fotoboek. Een blijvende herinnering die je kunt vasthouden en doorgeven.',
+          'Bundel de mooiste herinneringen in een gedrukt fotoboek om vast te houden en door te geven.',
       },
     ],
   },
 
   benefits: {
     bereaved: {
-      label: 'VOOR NABESTAANDEN',
-      heading: 'Samen herinneren,\nsamen helen.',
+      label: 'Voor nabestaanden',
+      heading: 'Samen herinneren, samen helen',
+      intro:
+        "Eén veilige plek waar familie en vrienden foto's, verhalen en steun met elkaar delen — in jullie eigen tempo.",
       items: [
         'Alles op één veilige plek',
         'Deel met wie jij kiest',
-        'Blijvende herinneringen voor later',
-        'Toegankelijk op elk moment',
+        'Toegankelijk op elk moment, elk toestel',
       ],
       cta: 'Meer voor nabestaanden',
       imageAlt: 'Remoria app op smartphone',
     },
     funeral: {
-      label: 'VOOR DE UITVAARTSECTOR',
-      heading: 'Innovatie die\nzorg versterkt.',
+      label: 'Voor de uitvaartsector',
+      heading: 'Nazorg die je kantoor onderscheidt',
+      intro:
+        'Bied families een digitale gedenkplek aan als vast onderdeel van je dienstverlening — zonder extra werklast.',
       items: [
-        'Bied nabestaanden een digitale plek',
-        'Verhoog betrokkenheid en nazorg',
-        'Efficiënt en gebruiksvriendelijk platform',
-        'Volledig in lijn met jouw dienstverlening',
+        'Gedenkplek aangemaakt in enkele seconden',
+        'Vaste inkoopprijs, vaste winst per plan',
+        'Alles beheerd vanuit één dashboard',
       ],
       cta: 'Meer voor uitvaartorganisaties',
-      imageAlt: 'Remoria platform op laptop',
+      imageAlt: 'Remoria partnerdashboard',
     },
   },
 
   ctaBanner: {
-    heading: 'Herinneringen vervagen niet,\nals je ze deelt.',
-    subtext: 'Begin vandaag nog met het verzamelen en koesteren van herinneringen.',
-    cta: 'Start een gedenkplek',
-    note: 'Veilig, privé en met liefde gemaakt.',
+    heading: 'Herinneringen vervagen niet, als je ze deelt',
+    subtext: 'Begin vandaag met verzamelen — morgen weet iemand zich weer iets minder te herinneren.',
+    cta: 'Start een gedenkplek →',
+    note: 'Veilig, privé en met liefde gemaakt',
   },
 
   guarantee: {
@@ -158,25 +162,108 @@ export const nl = {
     logosAria: 'Partnerorganisaties',
   },
 
+  mockups: {
+    phone: {
+      title: '✨ Deel je Herinneringen ♡',
+      sub: "Upload foto's, video's en audio-opnames om kostbare momenten voor altijd te bewaren en te delen.",
+      uploadCta: 'Upload je Herinneringen',
+      drop: 'Sleep herinneringen hierheen of klik om te selecteren',
+      formats: 'JPG, PNG, GIF, MP4, MOV, MP3, WAV · max. 500MB per bestand',
+      collectionTitle: 'Herinneringencollectie',
+      viewAll: 'Bekijk alles ›',
+      collectionSub: 'Samen bouwen we aan een waardevol archief.',
+      photosCount: '13',
+      photosLabel: "Foto's",
+      videosCount: '0',
+      videosLabel: "Video's",
+      tabHome: 'Home',
+      tabMedia: 'Media',
+      tabTributes: 'Eerbetonen',
+      tabChat: 'Community Chat',
+      tabBook: 'Fotoboek',
+    },
+    dashboard: {
+      url: 'partner.remoria.eu',
+      nav: {
+        overview: 'Overzicht',
+        memorials: 'Gedenkplekken',
+        staff: 'Medewerkers',
+        stats: 'Statistieken',
+        settings: 'Instellingen',
+        help: 'Help & support',
+      },
+      heading: 'Overzicht',
+      sub: 'Al je gedenkplekken in één oogopslag.',
+      newCta: '+ Nieuwe gedenkplek',
+      recent: 'Recente gedenkplekken',
+      open: 'Open',
+      stat1Num: '23',
+      stat1Label: 'Gedenkplekken',
+      stat1LabelFull: 'Actieve gedenkplekken',
+      stat2Num: '1.248',
+      stat2Label: 'Communityleden',
+      stat3Num: '342',
+      stat3Label: 'Herinneringen',
+      stat3LabelFull: 'Gedeelde Herinneringen',
+      rowsCompact: [
+        {
+          photo: '/features/photo-09.png',
+          name: 'Jan De Vries',
+          meta: '156 leden · 432 herinneringen',
+        },
+        {
+          photo: '/features/photo-01.png',
+          name: 'Maria Jansen',
+          meta: '96 leden · 276 herinneringen',
+        },
+      ],
+      rowsFull: [
+        {
+          photo: '/features/photo-09.png',
+          name: 'Jan De Vries',
+          meta: 'Aangemaakt op 15-06-2026',
+          members: '156 leden',
+          memories: '432 herinneringen',
+        },
+        {
+          photo: '/features/photo-01.png',
+          name: 'Maria Jansen',
+          meta: 'Aangemaakt op 02-07-2026',
+          members: '96 leden',
+          memories: '276 herinneringen',
+        },
+        {
+          photo: '/features/photo-06.png',
+          name: 'Peter Mertens',
+          meta: 'Aangemaakt op 28-06-2026',
+          members: '203 leden',
+          memories: '589 herinneringen',
+        },
+      ],
+    },
+  },
+
   prijzen: {
     meta: {
       title: 'Prijzen — Remoria',
       description:
-        'Kies het plan dat bij jullie past. Iedereen in de community kan bijdragen en de gedenkplek eenvoudig verlengen.',
+        'Kies het plan dat bij jullie past. Je betaalt één keer voor de gedenkplek; familie en vrienden dragen gratis bij.',
     },
     hero: {
+      eyebrow: 'Prijzen',
       title: 'Kies het plan dat bij jullie past',
-      sub: 'Je betaalt enkel voor de gedenkplek; familie en vrienden uitnodigen en laten bijdragen is altijd volledig kosteloos.',
+      sub: 'Je betaalt één keer, voor de gedenkplek zelf. Familie en vrienden uitnodigen en laten bijdragen is altijd volledig kosteloos.',
+      note: 'Elk plan bevat álle functies — alleen de looptijd verschilt.',
     },
     plans: [
       {
-        imageAlt: 'Klein kiemplantje — Samen Herinneren plan',
+        imageAlt: 'Kiempje — Samen Herinneren plan',
         title: 'Samen Herinneren',
         duration: '4 maanden actief',
         price: '€85',
-        monthlyPrice: '≈ €21,25 per maand',
+        monthlyPrice: 'eenmalig · ≈ €21,25 per maand',
         description:
-          "Breng iedereen samen. De perfecte periode om foto's, video's en verhalen te verzamelen die anders verloren gaan. Nodig onbeperkt familie en vrienden uit om gratis herinneringen te delen en te bekijken.",
+          "Vier maanden — ruim de tijd om iedereen uit te nodigen en alle foto's en verhalen te verzamelen die anders verloren gaan. De foto's die je anders nooit had gezien, voor één vast bedrag.",
         featured: false,
       },
       {
@@ -184,53 +271,60 @@ export const nl = {
         title: 'Samen Koesteren',
         duration: '1 jaar actief',
         price: '€129',
-        monthlyPrice: '≈ €10,75 per maand',
+        monthlyPrice: 'eenmalig · ≈ €10,75 per maand',
         description:
-          'Neem in alle rust de tijd om samen te herdenken. Keer een jaar lang onbeperkt terug naar de verzamelde herinneringen, juist op de dagen die er zo toe doen. Toegankelijk voor de hele familie.',
+          'Een vol jaar om te verzamelen én terug te keren: op de verjaardag, de sterfdag, de dagen die er zo toe doen. Eén heel jaar samen herdenken, met de hele familie.',
         featured: true,
       },
       {
-        imageAlt: 'Grote boom — Blijvende Herinnering plan',
+        imageAlt: 'Volgroeide boom — Een Blijvende Herinnering plan',
         title: 'Een Blijvende Herinnering',
         duration: '3 jaar actief',
         price: '€239',
-        monthlyPrice: '≈ €6,64 per maand',
+        monthlyPrice: 'eenmalig · ≈ €6,64 per maand',
         description:
-          'Een blijvende plek waar herinneringen in alle rust bewaard blijven, voor vandaag en later.',
+          'Drie jaar rust: de gedenkplek blijft bestaan en groeit met jullie mee — voor wie er vandaag is, en voor wie later meer wil weten.',
         featured: false,
       },
     ],
-    pricingNote: 'Totaalprijs — geen verborgen kosten.',
+    trustLabel: 'Zekerheden',
+    trust: [
+      '14 dagen niet tevreden? Geld terug',
+      'Geen automatische verlenging',
+      'Totaalprijs — geen verborgen kosten',
+      'Familie en vrienden dragen gratis bij',
+    ],
     extensions: {
       title: 'Verlengen? Iedereen kan bijdragen',
-      sub: 'De gedenkplek blijft bestaan zolang de community deze verlengt. Iedereen met toegang kan een bijdrage doen.',
-      note: 'Samen zorgen we ervoor dat herinneringen bewaard blijven.',
+      subHtml:
+        'De gedenkplek blijft bestaan zolang de community dat wil. Niet alleen de koper — <strong>iedereen met toegang</strong> kan een verlenging bijdragen. Hoe langer je kiest, hoe voordeliger.',
+      note: 'Samen zorgen we dat herinneringen bewaard blijven',
       items: [
         { period: '1 maand', price: '€6,50' },
         { period: '3 maanden', price: '€6/m' },
-        { period: '6 maanden', price: '€5,5/m' },
+        { period: '6 maanden', price: '€5,50/m' },
         { period: '1 jaar', price: '€5/m' },
-        { period: '1+', price: '€4,85/m' },
+        { period: '1 jaar +', price: '€4,85/m' },
       ],
     },
     features: {
-      title: 'Alle voordelen van Remoria',
+      title: 'Alle voordelen van Remoria, in elk plan',
       items: [
         {
           title: 'Deel en verzamel',
-          desc: 'Maak eenvoudig een gedenkplek aan, deel met familie, vrienden en kennissen en verzamel herinneringen.',
+          desc: "Nodig familie, vrienden en kennissen uit en verzamel samen foto's, video's en audio op één veilige plek.",
         },
         {
           title: 'Community chat',
-          desc: 'Gebruik de Community chat om met elkaar contact te houden, verhalen te delen en troost te zoeken bij elkaar.',
+          desc: 'Houd contact, deel verhalen en vind troost bij elkaar in de besloten chat.',
         },
         {
           title: 'Plaats eerbetonen',
-          desc: 'Laat een mooi bericht achter, deel een herinnering en breng een eerbetoon aan je dierbare.',
+          desc: 'Laat een mooi bericht achter, deel een herinnering en breng een blijvend eerbetoon aan je dierbare.',
         },
         {
           title: 'Maak een fotoboek',
-          desc: "Maak eenvoudig achteraf een prachtig fotoboek van alle verzamelde herinneringen (optioneel bij te bestellen).",
+          desc: 'Bundel achteraf alle verzamelde herinneringen in een prachtig fotoboek (optioneel bij te bestellen).',
         },
       ],
     },
@@ -240,7 +334,7 @@ export const nl = {
         {
           question: 'Wat gebeurt er als het plan afloopt?',
           answer:
-            "Niets abrupt. De gedenkplek wordt eerst gearchiveerd: ze is dan niet meer zichtbaar, maar alle foto's en verhalen blijven 6 maanden lang veilig bewaard. In die periode kun je alles downloaden of het plan alsnog verlengen. Herinneringen worden bij Remoria nooit zomaar verwijderd.",
+            "De gedenkplek wordt eerst gearchiveerd: ze is dan niet meer zichtbaar, maar alle foto's en verhalen blijven 6 maanden lang veilig bewaard. In die periode kun je alles downloaden of het plan alsnog verlengen. Herinneringen worden bij Remoria nooit zomaar verwijderd.",
         },
         {
           question: 'Betalen familie en vrienden ook?',
@@ -280,15 +374,11 @@ export const nl = {
       ],
     },
     referral: {
+      badge: 'Ontvang €20 als dank',
       title: 'Help een ander herinneringen koesteren',
-      subP1:
-        "Foto's vertellen verhalen die het verdienen om gedeeld te worden. Ken jij iemand voor wie een gedenkplek als Remoria een troost zou kunnen zijn? Deel jouw persoonlijke link.",
-      subP2: 'Deel je link en help je hen een bijzondere herinnering levend te houden.',
-      cta: 'Deel de link en help een vriend',
-      coinLabel: 'Ontvang',
-      coinAmount: '€20',
-      coinSub: 'als dank',
-      imageAlt: 'Herinnering delen',
+      sub: "Foto's vertellen verhalen die het verdienen om gedeeld te worden. Ken jij iemand voor wie een gedenkplek een troost zou kunnen zijn? Deel jouw persoonlijke link — en help je hen een bijzondere herinnering levend te houden.",
+      cta: 'Deel de link en help een vriend →',
+      imageAlt: 'Envelop met foto, bloemen en gouden hart',
     },
   },
 
@@ -538,80 +628,90 @@ export const nl = {
     },
     hero: {
       eyebrow: 'Remoria voor de uitvaartsector',
-      titleLine1: 'Innovatieve nazorg',
-      titleLine2: 'die families verbindt',
-      body: 'Onderscheid je kantoor met een unieke digitale gedenkplek voor de nabestaanden. Een waardevolle toevoeging aan je nazorg die troost biedt zonder extra werklast.',
+      title: 'Nazorg die families verbindt — en jouw kantoor onderscheidt',
+      body: 'Geef elke familie een digitale gedenkplek als vast onderdeel van je dienstverlening. Waardevolle troost voor hen, een blijvende band met jouw kantoor — zonder extra werklast.',
       ctaPrimary: 'Word partner',
       ctaSecondary: 'Plan een demo',
       imageAlt: 'Digitale gedenkplek — lichtgevende boog als symbool van verbinding',
-    },
-    valueProp: {
-      titleLine1: 'Versterk je dienstverlening',
-      titleLine2: 'met een digitale gedenkplek',
-      sub: 'Op een toegankelijke manier herinneringen met elkaar kunnen delen. Remoria is het platform dat je als professionele partner kun aanbieden om die behoefte in te vullen.',
+      checks: ['Gratis partnerportaal', 'Geen verplichtingen', 'Vaste winst per plan'],
     },
     how: {
-      eyebrow: 'Naadloze integratie in jouw dienstverlening',
+      eyebrow: 'Naadloos in jouw dienstverlening',
       title: 'Zo werkt het',
       steps: [
         {
-          title: 'Eenvoudige onboarding',
-          desc: 'Meld je aan via ons partnerformulier met je bedrijfsgegevens. Zodra je account geactiveerd is, heb je direct toegang tot je eigen professionele omgeving.',
+          title: 'Meld je kantoor aan',
+          desc: 'Registreer via het partnerformulier met je bedrijfsgegevens. Zodra je account actief is, heb je direct toegang tot je eigen professionele omgeving.',
         },
         {
-          title: 'Maak in enkele seconden een gedenkplek aan',
-          desc: 'Voor elke uitvaart die je verzorgt, maak je in enkele seconden een nieuw, beveiligd domein aan — tegen een vaste inkoopprijs, met een vaste winst per plan.',
+          title: 'Maak een gedenkplek aan in seconden',
+          desc: 'Voor elke uitvaart die je verzorgt, maak je een nieuw, beveiligd domein aan — tegen een vaste inkoopprijs, met een vaste winst per plan.',
         },
         {
-          title: 'Beheer alles via je dashboard',
-          desc: "In je overzichtelijke dashboard behoud je de volledige controle. Je ziet in één oogopslag welke omgevingen actief zijn en hoe de community's groeien. Hier heb je ook direct inzicht in jouw verdiensten.",
+          title: 'De familie neemt het over',
+          desc: "Nabestaanden nodigen zelf familie en vrienden uit en vullen de gedenkplek met foto's en verhalen. Jij hoeft niets te modereren.",
         },
         {
-          title: 'Directe bron voor de ceremonie',
-          desc: "Heb je beeldmateriaal nodig voor de afscheidsbijeenkomst? In het dashboard kun je eenvoudig de door familie en vrienden geüploade foto's in hoge kwaliteit downloaden.",
+          title: 'Gebruik het voor de ceremonie',
+          desc: "Download geüploade foto's in hoge kwaliteit rechtstreeks uit je dashboard — klaar voor de afscheidsbijeenkomst.",
         },
       ],
     },
-    pricingModel: {
+    dashboard: {
+      chip: 'Jouw dashboard',
+      title: 'Alles in één oogopslag, alles onder controle',
+      body: "Je ziet meteen welke gedenkplekken actief zijn, hoe de community's groeien en wat je verdiensten zijn. Beeldmateriaal voor de ceremonie download je in hoge kwaliteit, rechtstreeks uit het dossier.",
+      checks: [
+        'Overzicht per gedenkplek en per familie',
+        'Direct inzicht in jouw verdiensten',
+        "Foto's in hoge kwaliteit downloaden",
+      ],
+    },
+    partner: {
       eyebrow: 'Transparant partnermodel',
-      title: 'Wat kost het?',
+      title: 'Geen risico, wel rendement',
+      sub: 'Geen abonnementskosten, geen instapkosten, geen verplichtingen. Je betaalt alleen voor wat je verkoopt.',
       cards: [
         {
           title: 'Gratis portaal',
-          desc: 'Geen abonnementskosten, geen instapkosten, geen verplichtingen. Het partnerportaal is en blijft volledig gratis.',
+          desc: 'Het partnerportaal is en blijft volledig gratis. Geen abonnement, geen instapkosten, geen verplichtingen.',
         },
         {
           title: 'Vaste winst per plan',
-          desc: 'Je koopt elk plan aan tegen een vaste inkoopprijs en bepaalt zelf jouw dienstverlening errond. Elk verkocht plan levert je een vaste, voorspelbare winst op.',
+          desc: 'Je koopt elk plan aan tegen een vaste inkoopprijs en bepaalt zelf jouw verkoopprijs. Elk verkocht plan levert een vaste, voorspelbare marge op.',
         },
         {
-          title: 'Eén overzichtelijke maandfactuur',
-          desc: 'Geen voorfinanciering of administratie per dossier: Je ontvangt begin elke maand één verzamelfactuur voor de gedenkplekken van de voorbije maand.',
+          title: 'Één maandfactuur',
+          desc: 'Geen voorfinanciering of administratie per dossier. Begin elke maand ontvang je één verzamelfactuur voor de voorbije maand.',
         },
       ],
-      ctaText: 'Benieuwd naar de concrete partnervoorwaarden?',
-      ctaLink: 'Plan een vrijblijvende kennismaking →',
+      linkBefore: 'Benieuwd naar de concrete partnervoorwaarden? ',
+      linkCta: 'Plan een vrijblijvende kennismaking →',
     },
-    features: [
-      {
-        title: 'Mediacollectie als extra service',
-        desc: "Bied nabestaanden een centrale plek voor foto's, video's en audiofragmenten. Je geeft hen de tools om een rijk, digitaal archief op te bouwen.",
-      },
-      {
-        title: 'Een interactieve community',
-        desc: 'Faciliteer verbinding. Via de Community chat en de mogelijkheid om rouwberichten te plaatsen, creëer je een veilige omgeving waar de familie en hun vrienden samen kunnen rouwen en herinneringen delen.',
-      },
-      {
-        title: 'Maak het tastbaar met het fotoboek',
-        desc: 'Remoria maakt van de digitale collectie met slechts enkele klikken een hoogwaardig fotoboek. Een blijvende herinnering om te koesteren.',
-      },
-    ],
+    familyOffer: {
+      eyebrow: 'Wat jij de familie aanbiedt',
+      title: 'Een dienst waar families je voor bedanken',
+      cards: [
+        {
+          title: 'Een gedeelde mediacollectie',
+          desc: "Één centrale plek voor foto's, video's en audio — ook de beelden die de familie zelf nog nooit zag.",
+        },
+        {
+          title: 'Een besloten community',
+          desc: 'Via de chat en het condoleanceregister rouwen familie en vrienden samen, in een veilige omgeving.',
+        },
+        {
+          title: 'Een tastbaar fotoboek',
+          desc: 'Van de digitale collectie maakt de familie met enkele klikken een hoogwaardig gedrukt fotoboek.',
+        },
+      ],
+    },
     ctaBanner: {
       quote:
         '"Onderscheid je uitvaartcentrum en bied Remoria aan als blijvende plek voor troost en herinnering."',
       ctaPrimary: 'Word partner',
       ctaSecondary: 'Neem contact op',
-      legal: 'Verwerkersovereenkomst (bijlage bij de algemene voorwaarden)',
+      legal: 'Verwerkersovereenkomst inbegrepen (bijlage bij de algemene voorwaarden)',
     },
   },
 
@@ -619,61 +719,66 @@ export const nl = {
     meta: {
       title: 'Over Remoria — het verhaal achter de gedenkplekken',
       description:
-        'Waarom Remoria bestaat: de mooiste foto\'s en verhalen bereiken de familie vaak nooit. Wij bouwen de plek waar ze wél aankomen — besloten, sereen en voor elke generatie.',
+        "Waarom Remoria bestaat: de mooiste foto's en verhalen bereiken de familie vaak nooit. Wij bouwen de plek waar ze wél aankomen — besloten, sereen en voor elke generatie.",
     },
     hero: {
       eyebrow: 'Over Remoria',
-      title: 'Het verhaal achter Remoria.',
+      title: 'Het verhaal achter Remoria',
       quote: '"Omdat herinneringen te kostbaar zijn om te laten vervagen."',
-      imageAlt: "Een familie bekijkt samen oude foto's in een fotoalbum",
+      imageAlt: "Familie bladert samen door een oud fotoalbum",
     },
     mission: {
-      eyebrow: 'Het verhaal achter Remoria',
-      title: "Omdat de mooiste foto's vaak nooit aankomen.",
+      eyebrow: 'Waarom Remoria bestaat',
+      title: "Omdat de mooiste foto's vaak nooit aankomen",
       paragraphs: [
-        "Als iemand overlijdt, zitten de herinneringen overal. In oude fotoalbums op zolder. Op de telefoons van collega's, reisgenoten en jeugdvrienden. In verhalen die alleen verteld worden als de juiste mensen toevallig samen aan tafel zitten.",
-        'Het grootste deel daarvan bereikt de familie nooit. Niet uit onwil, maar omdat de drempel te hoog is. Je stuurt niet zomaar een berichtje met foto\'s naar iemand in rouw. En de plekken die er wel zijn, voelen niet als de juiste plek voor iets zo persoonlijks.',
-        'Remoria is gebouwd om die drempel weg te nemen. Eén serene, besloten plek waar iedereen die iemand gekend heeft zijn foto\'s, video\'s en verhalen kwijt kan. Zodat je plots die foto van twintig jaar geleden ziet: je oom op een surfplank, ergens ver weg, avontuurlijker dan je ooit had geweten. Zodat er aan tafel weer over hem verteld wordt.',
-        'Herinneringen zijn er om te delen. Wij zorgen dat ze aankomen.',
+        "Als iemand overlijdt, zitten de herinneringen overal. In oude fotoalbums op zolder, op de telefoons van collega's, reisgenoten en jeugdvrienden. In verhalen die alleen verteld worden als de juiste mensen toevallig samen aan tafel zitten.",
+        "Het grootste deel daarvan bereikt de familie nooit. Niet uit onwil, maar omdat de drempel te hoog is: je stuurt niet zomaar een berichtje met foto's naar iemand in rouw.",
+        "Remoria neemt die drempel weg. Eén serene, besloten plek waar iedereen die iemand gekend heeft zijn stukje van het verhaal kwijt kan. Zodat je plots de foto ziet van twintig jaar geleden — je oom op een surfplank, ergens ver weg, avontuurlijker dan je hem ooit had gekend.",
       ],
-      pull: '— Yonik, oprichter van Remoria',
+      closing: 'Herinneringen zijn er om te delen. Wij zorgen dat ze aankomen.',
+      signature: '— Yonik, oprichter van Remoria',
     },
     values: {
       eyebrow: 'Kernwaarden',
-      title: 'Waarom we doen wat we doen.',
-      sub: 'Remoria is geen koude database. Het is een plek gebouwd op een paar overtuigingen:',
+      title: 'Waarom we doen wat we doen',
+      sub: 'Remoria is geen koude database. Het is een plek, gebouwd op een paar overtuigingen.',
       cards: [
         {
           title: 'Toegankelijk voor iedereen',
-          desc: 'De mooiste herinneringen komen van onverwachte mensen: de oude reisgenoot, de collega van vroeger, de buurvrouw. Remoria maakt bijdragen zo eenvoudig dat niemand een drempel voelt — van je moeder tot de vriend die je dierbare veertig jaar geleden kende.',
+          desc: 'De mooiste herinneringen komen van onverwachte mensen: de oude reisgenoot, de collega, de buurvrouw. Remoria maakt bijdragen zo eenvoudig dat niemand een drempel voelt — van je moeder tot de vriend die je dierbare veertig jaar geleden kende.',
         },
         {
           title: 'Veilig en discreet',
-          desc: 'Herinneringen zijn persoonlijk en kwetsbaar. Daarom is Remoria volledig besloten: alleen de mensen die je uitnodigt, hebben toegang. Geen advertenties, geen datahandel, geen compromissen.',
+          desc: 'Herinneringen zijn persoonlijk en kwetsbaar. Daarom is Remoria volledig besloten: alleen de mensen die je uitnodigt hebben toegang. Geen advertenties, geen datahandel, geen compromissen.',
         },
         {
           title: 'De brug tussen generaties',
-          desc: 'Verhalen die vandaag worden bewaard, zijn de schatten van morgen. Remoria zorgt dat de herinneringen die je nu vastlegt, toegankelijk blijven voor kinderen, kleinkinderen en iedereen die later meer wil weten.',
+          desc: 'Verhalen die vandaag worden bewaard, zijn de schatten van morgen. Remoria zorgt dat de herinneringen die je nu vastlegt toegankelijk blijven voor kinderen, kleinkinderen en iedereen die later meer wil weten.',
         },
         {
           title: 'Tastbaar blijft',
-          desc: 'Digitaal bewaard, maar tastbaar verbindt. Zet de online collectie om in een prachtig, fysiek fotoboek — een aandenken dat je altijd bij de hand hebt.',
+          desc: 'Digitaal bewaard, maar tastbaar verteld. Zet de online collectie om in een prachtig, fysiek fotoboek — een aandenken dat altijd bij de hand blijft.',
         },
       ],
     },
-    cinematic: {
-      title: 'Herinneringen verdienen\neen blijvende plek.',
+    cta: {
+      title: 'Herinneringen verdienen een blijvende plek',
       sub: "Elke dag gaan kostbare herinneringen verloren — foto's die nooit aankomen, verhalen die niet meer verteld worden. Remoria is er om dat te veranderen. Voor elke familie, en voor elke generatie die nog komt.",
+      primary: 'Start een gedenkplek →',
+      secondary: 'Bekijk een voorbeeld',
     },
+    audienceSectionLabel: 'Voor wie is Remoria',
     audience: [
       {
-        title: 'Voor families\n& nabestaanden',
-        body: 'Je hoeft de herinneringen aan je dierbare niet alleen te bewaren. Remoria geeft je één plek om samen te verzamelen met iedereen die hem of haar gekend heeft — om te delen, te lachen, stil te worden en te herdenken.',
+        eyebrow: 'Voor families & nabestaanden',
+        title: 'Samen herinneren, in jullie tempo',
+        body: 'Eén plek om samen te verzamelen wat je dierbare niet alleen jou, maar iedereen heeft gegeven — en het te delen, te bekijken en te herdenken.',
         cta: 'Ontdek Remoria voor families',
       },
       {
-        title: 'Voor\nuitvaartprofessionals',
-        body: "Als uitvaartondernemer ben je meer dan een dienstverlener — je bent een gids in de moeilijkste momenten van het leven. Remoria versterkt je nazorg met een platform dat families ook ná de uitvaart blijft ondersteunen.",
+        eyebrow: 'Voor uitvaartprofessionals',
+        title: 'Meer dan een dienstverlener',
+        body: 'Word een gids in de moeilijkste momenten van het leven. Remoria versterkt je nazorg met een platform dat families ook ná de uitvaart blijft ondersteunen.',
         cta: 'Ontdek Remoria voor professionals',
       },
     ],
