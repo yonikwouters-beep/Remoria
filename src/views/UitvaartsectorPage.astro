@@ -139,7 +139,9 @@ const familyCardTints = ['beige', 'sage', 'rose'] as const;
       </div>
 
       <div class="dashboard__visual" data-reveal data-reveal-delay="100">
-        <PartnerDashboardMockup variant="full" />
+        <div class="dashboard__mock-fit">
+          <PartnerDashboardMockup variant="full" />
+        </div>
       </div>
 
     </div>
@@ -545,6 +547,12 @@ const familyCardTints = ['beige', 'sage', 'rose'] as const;
     align-items: center;
     gap: clamp(32px, 5vw, 64px);
     padding-bottom: clamp(64px, 9vw, 96px);
+    min-width: 0;
+  }
+
+  .dashboard__content {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .dashboard__chip {
@@ -571,6 +579,7 @@ const familyCardTints = ['beige', 'sage', 'rose'] as const;
     color: var(--uv-navy);
     margin: 0 0 16px;
     text-wrap: pretty;
+    overflow-wrap: break-word;
   }
 
   .dashboard__body {
@@ -579,6 +588,7 @@ const familyCardTints = ['beige', 'sage', 'rose'] as const;
     line-height: 1.7;
     color: var(--uv-muted);
     margin: 0 0 22px;
+    overflow-wrap: break-word;
   }
 
   .dashboard__checks {
@@ -614,9 +624,65 @@ const familyCardTints = ['beige', 'sage', 'rose'] as const;
   .dashboard__visual {
     background: #E2E7EC;
     border-radius: 20px;
-    padding: 28px;
-    display: flex;
-    justify-content: center;
+    padding: clamp(14px, 3.5vw, 28px);
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    container-type: inline-size;
+    container-name: dash-visual;
+  }
+
+  .dashboard__mock-fit {
+    --dash-w: 720;
+    --dash-zoom: 1;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Approximate fit when container query units aren't available */
+  @media (max-width: 900px) {
+    .dashboard__mock-fit {
+      --dash-zoom: 0.62;
+    }
+  }
+  @media (max-width: 640px) {
+    .dashboard__mock-fit {
+      --dash-zoom: 0.48;
+    }
+  }
+  @media (max-width: 420px) {
+    .dashboard__mock-fit {
+      --dash-zoom: 0.4;
+    }
+  }
+
+  @supports (width: 1cqi) {
+    .dashboard__mock-fit {
+      --dash-zoom: min(1, calc(100cqi / (var(--dash-w) * 1px)));
+    }
+  }
+
+  .dashboard__mock-fit :global(.dash--full) {
+    width: max-content;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  /* Firefox: no zoom — scale with transform and reserve height */
+  @supports not (zoom: 1) {
+    .dashboard__mock-fit {
+      --dash-h: 440;
+      aspect-ratio: var(--dash-w) / var(--dash-h);
+      position: relative;
+    }
+
+    .dashboard__mock-fit :global(.dash--full) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: top left;
+      transform: scale(min(1, calc(100cqi / (var(--dash-w) * 1px))));
+    }
   }
 
   /* ─────────────────────────────────────────────
@@ -887,6 +953,10 @@ const familyCardTints = ['beige', 'sage', 'rose'] as const;
 
     .dashboard__visual {
       order: -1;
+    }
+
+    .dashboard__content {
+      max-width: 36rem;
     }
 
     .partner__grid,
