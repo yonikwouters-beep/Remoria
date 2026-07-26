@@ -59,6 +59,7 @@ export const nl = {
     legalAria: 'Juridische links',
     privacy: 'Privacy',
     terms: 'Voorwaarden',
+    affiliate: 'Affiliate-login',
   },
 
   hero: {

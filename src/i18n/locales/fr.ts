@@ -60,6 +60,7 @@ export const fr = {
     legalAria: 'Liens légaux',
     privacy: 'Confidentialité',
     terms: 'Conditions',
+    affiliate: 'Connexion affilié',
   },
 
   hero: {
