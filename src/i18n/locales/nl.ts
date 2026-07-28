@@ -69,7 +69,7 @@ export const nl = {
     headingLine2: 'herinneringen',
     headingLine3: 'samenkomen.',
     subtext:
-      "Na een afscheid raken foto's en verhalen verspreid over telefoons, dozen en hoofden. Remoria brengt ze samen op één veilige, serene plek — door iedereen die erbij was.",
+      "Na een afscheid raken foto's en verhalen verspreid over telefoons, dozen en gedachten. Remoria brengt ze samen op één veilige, serene plek",
     primaryCta: 'Start een gedenkplek →',
     secondaryCta: 'Bekijk een voorbeeld',
     trustNote: 'Veilig, besloten en met liefde gemaakt',
@@ -110,7 +110,7 @@ export const nl = {
         "Eén veilige plek waar familie en vrienden foto's, verhalen en steun met elkaar delen — in jullie eigen tempo.",
       items: [
         'Alles op één veilige plek',
-        'Deel met wie jij kiest',
+        'Kies met wie jij deelt',
         'Toegankelijk op elk moment, elk toestel',
       ],
       cta: 'Meer voor nabestaanden',
@@ -132,8 +132,8 @@ export const nl = {
   },
 
   ctaBanner: {
-    heading: 'Herinneringen vervagen niet, als je ze deelt',
-    subtext: 'Begin vandaag met verzamelen — morgen weet iemand zich weer iets minder te herinneren.',
+    heading: 'Herinneringen zijn er om te delen',
+    subtext: "Breng foto's en verhalen van iedereen samen op één besloten en serene gedenkplek.",
     cta: 'Start een gedenkplek →',
     note: 'Veilig, privé en met liefde gemaakt',
   },

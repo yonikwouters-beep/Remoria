@@ -70,7 +70,7 @@ export const fr = {
     headingLine2: 'les souvenirs',
     headingLine3: 'se rejoignent.',
     subtext:
-      "Après un adieu, photos et histoires se dispersent entre téléphones, boîtes et mémoires. Remoria les réunit dans un seul endroit sûr et serein — par tous ceux qui y étaient.",
+      "Après un adieu, photos et histoires se dispersent entre téléphones, boîtes et pensées. Remoria les réunit dans un seul endroit sûr et serein.",
     primaryCta: 'Créer un espace du souvenir →',
     secondaryCta: 'Voir un exemple',
     trustNote: 'Sûr, privé et fait avec amour',
@@ -111,7 +111,7 @@ export const fr = {
         'Un endroit sûr où famille et amis partagent photos, histoires et soutien — à votre rythme.',
       items: [
         'Tout au même endroit sûr',
-        'Partage avec qui tu choisis',
+        'Choisis avec qui tu partages',
         'Accessible à tout moment, sur tout appareil',
       ],
       cta: 'Plus pour les proches',
@@ -133,9 +133,9 @@ export const fr = {
   },
 
   ctaBanner: {
-    heading: "Les souvenirs ne s'estompent pas quand on les partage",
+    heading: 'Les souvenirs sont faits pour être partagés',
     subtext:
-      "Commence à rassembler aujourd'hui — demain, quelqu'un se souviendra peut-être un peu moins.",
+      "Réunis photos et histoires de tout le monde dans un seul espace du souvenir privé et serein.",
     cta: 'Créer un espace du souvenir →',
     note: 'Sûr, privé et fait avec amour',
   },

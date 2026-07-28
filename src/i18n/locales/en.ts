@@ -69,7 +69,7 @@ export const en = {
     headingLine2: 'memories',
     headingLine3: 'come together.',
     subtext:
-      'After a farewell, photos and stories scatter across phones, boxes and minds. Remoria brings them together in one safe, serene place — by everyone who was there.',
+      'After a farewell, photos and stories scatter across phones, boxes and thoughts. Remoria brings them together in one safe, serene place.',
     primaryCta: 'Start a memorial →',
     secondaryCta: 'View an example',
     trustNote: 'Safe, private and made with love',
@@ -110,7 +110,7 @@ export const en = {
         'One safe place where family and friends share photos, stories and support — at your own pace.',
       items: [
         'Everything in one safe place',
-        'Share with who you choose',
+        'Choose who you share with',
         'Accessible anytime, on any device',
       ],
       cta: 'More for the bereaved',
@@ -132,8 +132,8 @@ export const en = {
   },
 
   ctaBanner: {
-    heading: 'Memories do not fade when you share them',
-    subtext: 'Start gathering today — tomorrow someone may remember a little less.',
+    heading: 'Memories are meant to be shared',
+    subtext: 'Bring photos and stories from everyone together in one private, serene memorial.',
     cta: 'Start a memorial →',
     note: 'Safe, private and made with love',
   },
