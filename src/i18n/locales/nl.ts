@@ -168,7 +168,7 @@ export const nl = {
 
   mockups: {
     phone: {
-      title: '✨ Deel je Herinneringen ♡',
+      title: '✨ Deel je herinneringen ♡',
       sub: "Upload foto's, video's en audio-opnames om kostbare momenten voor altijd te bewaren en te delen.",
       uploadCta: 'Upload je Herinneringen',
       drop: 'Sleep herinneringen hierheen of klik om te selecteren',

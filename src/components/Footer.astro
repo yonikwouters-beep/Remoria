@@ -95,10 +95,8 @@ const locale = getLocale(Astro.currentLocale);
         </form>
         <p class="footer__newsletter-note">
           {t(locale, 'footer.newsletterNoteBefore')}<a
-            href="/Remoria-Privacyverklaring.pdf"
+            href={localizePath(locale, '/privacy')}
             class="footer__newsletter-note-link"
-            target="_blank"
-            rel="noopener noreferrer"
           >{t(locale, 'footer.privacyLink')}</a>{t(locale, 'footer.newsletterNoteAfter')}
         </p>
       </div>
@@ -113,16 +111,12 @@ const locale = getLocale(Astro.currentLocale);
       </p>
       <nav class="footer__legal" aria-label={t(locale, 'footer.legalAria')}>
         <a
-          href="/Remoria-Privacyverklaring.pdf"
+          href={localizePath(locale, '/privacy')}
           class="footer__legal-link"
-          target="_blank"
-          rel="noopener noreferrer"
         >{t(locale, 'footer.privacy')}</a>
         <a
-          href="/Remoria-Algemene-Voorwaarden.pdf"
+          href={localizePath(locale, '/algemene-voorwaarden')}
           class="footer__legal-link"
-          target="_blank"
-          rel="noopener noreferrer"
         >{t(locale, 'footer.terms')}</a>
         <a
           href="https://affiliates.endorsely.com/dashboard/remoriaeu-4cbb"
