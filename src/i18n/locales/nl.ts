@@ -2,7 +2,7 @@ export const nl = {
   meta: {
     defaultTitle: 'Remoria — Een plek waar herinneringen samenkomen',
     defaultDescription:
-      'Remoria biedt een toegankelijk platform waar nabestaanden eenvoudig herinneringen delen en bewaren. Een serene plek om verhalen te koesteren en steun te vinden bij elkaar.',
+      'Remoria is een besloten platform om herinneringen aan een dierbare te bewaren en te delen met familie en vrienden.',
   },
 
   nav: {
@@ -69,7 +69,7 @@ export const nl = {
     headingLine2: 'herinneringen',
     headingLine3: 'samenkomen.',
     subtext:
-      "Na een afscheid raken foto's en verhalen verspreid over telefoons, dozen en gedachten. Remoria brengt ze samen op één veilige, serene plek",
+      'Remoria is een besloten platform om herinneringen aan een dierbare te bewaren en te delen met familie en vrienden.',
     primaryCta: 'Start een gedenkplek →',
     secondaryCta: 'Bekijk een voorbeeld',
     trustNote: 'Veilig, besloten en met liefde gemaakt',

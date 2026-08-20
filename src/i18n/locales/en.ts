@@ -2,7 +2,7 @@ export const en = {
   meta: {
     defaultTitle: 'Remoria — A place where memories come together',
     defaultDescription:
-      'Remoria offers an accessible platform where bereaved families can easily share and preserve memories. A serene place to cherish stories and find support in one another.',
+      'Remoria is a private platform to preserve memories of a loved one and share them with family and friends.',
   },
 
   nav: {
@@ -69,7 +69,7 @@ export const en = {
     headingLine2: 'memories',
     headingLine3: 'come together.',
     subtext:
-      'After a farewell, photos and stories scatter across phones, boxes and thoughts. Remoria brings them together in one safe, serene place.',
+      'Remoria is a private platform to preserve memories of a loved one and share them with family and friends.',
     primaryCta: 'Start a memorial →',
     secondaryCta: 'View an example',
     trustNote: 'Safe, private and made with love',

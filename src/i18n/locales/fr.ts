@@ -2,7 +2,7 @@ export const fr = {
   meta: {
     defaultTitle: 'Remoria — Un lieu où les souvenirs se retrouvent',
     defaultDescription:
-      'Remoria offre une plateforme accessible où les proches peuvent facilement partager et préserver les souvenirs. Un espace serein pour chérir les histoires et se soutenir mutuellement.',
+      'Remoria est une plateforme privée pour conserver les souvenirs d’un être cher et les partager avec la famille et les amis.',
   },
 
   nav: {
@@ -70,7 +70,7 @@ export const fr = {
     headingLine2: 'les souvenirs',
     headingLine3: 'se rejoignent.',
     subtext:
-      "Après un adieu, photos et histoires se dispersent entre téléphones, boîtes et pensées. Remoria les réunit dans un seul endroit sûr et serein.",
+      'Remoria est une plateforme privée pour conserver les souvenirs d’un être cher et les partager avec la famille et les amis.',
     primaryCta: 'Créer un espace du souvenir →',
     secondaryCta: 'Voir un exemple',
     trustNote: 'Sûr, privé et fait avec amour',
