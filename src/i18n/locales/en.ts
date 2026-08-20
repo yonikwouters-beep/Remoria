@@ -64,12 +64,16 @@ export const en = {
 
   hero: {
     eyebrow: 'Memories connect. Forever.',
+    appName: 'Remoria',
+    tagline: 'A place where memories come together',
     heading: 'A place where memories come together',
     headingLine1: 'A place where',
     headingLine2: 'memories',
     headingLine3: 'come together.',
     subtext:
       'Remoria is a private platform to preserve memories of a loved one and share them with family and friends.',
+    purposeDetail:
+      'With Remoria, bereaved families collect photos, videos, stories and messages of support in one private memorial space. Only people you invite can access it.',
     primaryCta: 'Start a memorial →',
     secondaryCta: 'View an example',
     trustNote: 'Safe, private and made with love',

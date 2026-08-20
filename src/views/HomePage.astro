@@ -6,9 +6,24 @@ import Features from '../components/Features.astro';
 import Benefits from '../components/Benefits.astro';
 import CTABanner from '../components/CTABanner.astro';
 import Footer from '../components/Footer.astro';
+import { getLocale, t } from '../i18n/utils';
+
+const locale = getLocale(Astro.currentLocale);
+
+const appSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Remoria',
+  description: t(locale, 'hero.subtext'),
+  url: 'https://app.remoria.eu',
+  applicationCategory: 'SocialNetworkingApplication',
+  operatingSystem: 'Web',
+};
 ---
 
 <BaseLayout>
+  <script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
+
   <Navbar />
   <Hero />
   <Features />

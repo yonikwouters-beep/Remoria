@@ -64,12 +64,16 @@ export const nl = {
 
   hero: {
     eyebrow: 'Herinneringen verbinden. Voor altijd.',
+    appName: 'Remoria',
+    tagline: 'Een plek waar herinneringen samenkomen',
     heading: 'Een plek waar herinneringen samenkomen',
     headingLine1: 'Een plek waar',
     headingLine2: 'herinneringen',
     headingLine3: 'samenkomen.',
     subtext:
       'Remoria is een besloten platform om herinneringen aan een dierbare te bewaren en te delen met familie en vrienden.',
+    purposeDetail:
+      'Met Remoria verzamelen nabestaanden foto’s, video’s, verhalen en steunberichten op één private gedenkplek. Alleen mensen die jij uitnodigt hebben toegang.',
     primaryCta: 'Start een gedenkplek →',
     secondaryCta: 'Bekijk een voorbeeld',
     trustNote: 'Veilig, besloten en met liefde gemaakt',

@@ -65,12 +65,16 @@ export const fr = {
 
   hero: {
     eyebrow: 'Les souvenirs relient. Pour toujours.',
+    appName: 'Remoria',
+    tagline: 'Un endroit où les souvenirs se rejoignent',
     heading: 'Un endroit où les souvenirs se rejoignent',
     headingLine1: 'Un endroit où',
     headingLine2: 'les souvenirs',
     headingLine3: 'se rejoignent.',
     subtext:
       'Remoria est une plateforme privée pour conserver les souvenirs d’un être cher et les partager avec la famille et les amis.',
+    purposeDetail:
+      'Avec Remoria, les proches rassemblent photos, vidéos, histoires et messages de soutien dans un espace du souvenir privé. Seules les personnes que vous invitez y ont accès.',
     primaryCta: 'Créer un espace du souvenir →',
     secondaryCta: 'Voir un exemple',
     trustNote: 'Sûr, privé et fait avec amour',
