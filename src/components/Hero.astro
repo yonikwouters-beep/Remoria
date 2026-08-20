@@ -5,10 +5,12 @@
 import { getLocale, localizePath, t } from '../i18n/utils';
 const locale = getLocale(Astro.currentLocale);
 
-const taglineKey = 'hero.tagline';
-const tagline =
-  t(locale, taglineKey) !== taglineKey
-    ? t(locale, taglineKey)
+// `hero.heading` isn't split into three lines in the copy deck; fall back to
+// the existing line-based keys if the single-string key isn't present yet.
+const headingKey = 'hero.heading';
+const heading =
+  t(locale, headingKey) !== headingKey
+    ? t(locale, headingKey)
     : [t(locale, 'hero.headingLine1'), t(locale, 'hero.headingLine2'), t(locale, 'hero.headingLine3')].join(' ');
 
 const trustNoteKey = 'hero.trustNote';
@@ -16,7 +18,7 @@ const trustNoteRaw = t(locale, trustNoteKey);
 const trustNote = trustNoteRaw !== trustNoteKey ? trustNoteRaw : null;
 ---
 
-<section class="hero" aria-labelledby="hero-app-name">
+<section class="hero">
   <div class="hero__bg" style="background-image: url('/hero-visual.png')" aria-hidden="true"></div>
   <div class="hero__gradient" aria-hidden="true"></div>
 
@@ -24,11 +26,10 @@ const trustNote = trustNoteRaw !== trustNoteKey ? trustNoteRaw : null;
     <div class="hero__content">
       <p class="hero__eyebrow">{t(locale, 'hero.eyebrow')}</p>
 
-      <h1 class="hero__app-name" id="hero-app-name">{t(locale, 'hero.appName')}</h1>
-      <p class="hero__tagline">{tagline}</p>
+      <p class="hero__brand">Remoria</p>
+      <h1 class="hero__heading">{heading}</h1>
 
       <p class="hero__subtext">{t(locale, 'hero.subtext')}</p>
-      <p class="hero__purpose">{t(locale, 'hero.purposeDetail')}</p>
 
       <div class="hero__actions">
         <a href={localizePath(locale, '/prijzen')} class="btn btn-primary">
@@ -104,7 +105,7 @@ const trustNote = trustNoteRaw !== trustNoteKey ? trustNoteRaw : null;
   }
 
   .hero__content {
-    max-width: 560px;
+    max-width: 520px;
     min-width: 0;
   }
 
@@ -117,41 +118,32 @@ const trustNote = trustNoteRaw !== trustNoteKey ? trustNoteRaw : null;
     margin-bottom: 20px;
   }
 
-  .hero__app-name {
+  .hero__brand {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 600;
-    font-size: clamp(2.4rem, 5vw + 0.5rem, 64px);
-    line-height: 1.05;
+    font-size: clamp(1.15rem, 1.6vw + 0.4rem, 1.5rem);
+    line-height: 1.2;
     color: #1C2A43;
-    margin: 0 0 10px;
+    margin: 0 0 8px;
     letter-spacing: -0.01em;
   }
 
-  .hero__tagline {
+  .hero__heading {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 600;
-    font-size: clamp(1.35rem, 2.4vw + 0.4rem, 28px);
-    line-height: 1.25;
+    font-size: clamp(2rem, 4.4vw + 0.5rem, 54px);
+    line-height: 1.12;
     color: #1C2A43;
-    margin: 0 0 20px;
+    margin: 0 0 22px;
     text-wrap: pretty;
   }
 
   .hero__subtext {
     font-size: 17.5px;
     line-height: 1.65;
-    color: #4A4438;
-    font-weight: 600;
-    margin: 0 0 12px;
-    max-width: 520px;
-  }
-
-  .hero__purpose {
-    font-size: 16px;
-    line-height: 1.65;
     color: #7A7263;
     margin: 0 0 32px;
-    max-width: 520px;
+    max-width: 440px;
   }
 
   .hero__actions {
