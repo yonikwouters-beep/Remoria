@@ -59,7 +59,20 @@ export const en = {
     legalAria: 'Legal links',
     privacy: 'Privacy',
     terms: 'Terms',
-    affiliate: 'Affiliate login',
+    affiliate: 'Creators',
+  },
+
+  creators: {
+    eyebrow: 'Remoria Creators',
+    title: 'Share Remoria and earn €20 per plan sold',
+    body: 'Know people for whom a place full of memories of a loved one would be valuable? Sign up, get your own link and receive €20 for every plan purchased through it. Paid out monthly.',
+    cta: 'Become a creator →',
+    stat1Value: '€20',
+    stat1Label: 'per paid plan',
+    stat2Value: '60 d',
+    stat2Label: 'a click still counts',
+    stat3Value: '1×/mo',
+    stat3Label: 'paid out',
   },
 
   hero: {
@@ -381,7 +394,7 @@ export const en = {
       badge: 'Receive €20 as a thank-you',
       title: 'Help someone else cherish memories',
       sub: 'Photos tell stories that deserve to be shared. Do you know someone for whom a memorial could bring comfort? Share your personal link — and help them keep a special memory alive.',
-      cta: 'Share the link and help a friend →',
+      cta: 'Become a creator →',
       imageAlt: 'Envelope with a photo, flowers and a golden heart',
     },
   },

@@ -1,0 +1,65 @@
+---
+/**
+ * Remoria Creators — marketing block (tracking lives on app.remoria.eu/r/<code>).
+ * Inline styles so this doesn't clash with page CSS.
+ */
+import { getLocale, t } from '../i18n/utils';
+
+const locale = getLocale(Astro.currentLocale);
+const creatorsUrl = 'https://app.remoria.eu/creators';
+---
+
+<section
+  class="creators-section"
+  style="padding:72px 16px;background:#FAF7F2;font-family:Inter,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;"
+  aria-labelledby="creators-heading"
+>
+  <div style="max-width:1040px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:40px;">
+    <div style="flex:1 1 380px;min-width:0;">
+      <p style="margin:0 0 12px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#A8832F;">
+        {t(locale, 'creators.eyebrow')}
+      </p>
+      <h2
+        id="creators-heading"
+        style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,4vw,40px);line-height:1.15;font-weight:600;color:#1B2235;"
+      >
+        {t(locale, 'creators.title')}
+      </h2>
+      <p style="margin:18px 0 0;font-size:16px;line-height:1.65;color:#6B6557;max-width:520px;">
+        {t(locale, 'creators.body')}
+      </p>
+      <a
+        href={creatorsUrl}
+        style="display:inline-block;margin-top:28px;padding:14px 26px;border-radius:12px;background:linear-gradient(90deg,#D4AF7A,#F8C865);color:#2D2B26;font-weight:600;font-size:15px;text-decoration:none;box-shadow:0 4px 16px rgba(214,194,141,.35);"
+      >
+        {t(locale, 'creators.cta')}
+      </a>
+    </div>
+    <div style="flex:1 1 320px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;">
+      <div style="background:#fff;border:1px solid #EAE3D6;border-radius:16px;padding:18px;">
+        <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;color:#1B2235;">
+          {t(locale, 'creators.stat1Value')}
+        </div>
+        <div style="margin-top:6px;font-size:13px;line-height:1.4;color:#6B6557;">
+          {t(locale, 'creators.stat1Label')}
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid #EAE3D6;border-radius:16px;padding:18px;">
+        <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;color:#1B2235;">
+          {t(locale, 'creators.stat2Value')}
+        </div>
+        <div style="margin-top:6px;font-size:13px;line-height:1.4;color:#6B6557;">
+          {t(locale, 'creators.stat2Label')}
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid #EAE3D6;border-radius:16px;padding:18px;">
+        <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;color:#1B2235;">
+          {t(locale, 'creators.stat3Value')}
+        </div>
+        <div style="margin-top:6px;font-size:13px;line-height:1.4;color:#6B6557;">
+          {t(locale, 'creators.stat3Label')}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

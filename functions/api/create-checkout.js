@@ -2,7 +2,7 @@
  * Cloudflare Pages Function — POST /api/create-checkout
  *
  * Body (JSON):
- *   { priceId: string, endorsely_referral?: string }
+ *   { priceId: string }
  *
  * Environment variables (stel in via Cloudflare Pages → Settings → Environment variables):
  *   STRIPE_SECRET_KEY   — jouw Stripe secret key (sk_live_... of sk_test_...)
@@ -10,7 +10,7 @@
  */
 export async function onRequestPost({ request, env }) {
   try {
-    const { priceId, endorsely_referral } = await request.json();
+    const { priceId } = await request.json();
 
     if (!priceId) {
       return new Response(JSON.stringify({ error: 'Missing priceId' }), {
@@ -29,11 +29,6 @@ export async function onRequestPost({ request, env }) {
     params.append('success_url', `${siteUrl}/bedankt?session_id={CHECKOUT_SESSION_ID}`);
     params.append('cancel_url', `${siteUrl}/prijzen`);
     params.append('locale', 'nl');
-
-    // Endorsely referral tracking
-    if (endorsely_referral) {
-      params.append('metadata[endorsely_referral]', endorsely_referral);
-    }
 
     const stripeRes = await fetch('https://api.stripe.com/v1/checkout/sessions', {
       method: 'POST',

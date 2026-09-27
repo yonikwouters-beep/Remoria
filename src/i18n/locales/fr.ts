@@ -60,7 +60,20 @@ export const fr = {
     legalAria: 'Liens légaux',
     privacy: 'Confidentialité',
     terms: 'Conditions',
-    affiliate: 'Connexion affilié',
+    affiliate: 'Creators',
+  },
+
+  creators: {
+    eyebrow: 'Remoria Creators',
+    title: 'Partage Remoria et gagne 20 € par formule vendue',
+    body: "Tu connais des personnes pour qui un espace rempli de souvenirs d'un être cher serait précieux ? Inscris-toi, obtiens ton propre lien et reçois 20 € pour chaque formule achetée via ton lien. Paiement mensuel.",
+    cta: 'Devenir creator →',
+    stat1Value: '20 €',
+    stat1Label: 'par formule payée',
+    stat2Value: '60 j',
+    stat2Label: 'un clic compte encore',
+    stat3Value: '1×/mois',
+    stat3Label: 'payé',
   },
 
   hero: {
@@ -375,7 +388,7 @@ export const fr = {
       badge: 'Reçois 20 € en remerciement',
       title: "Aide quelqu'un d'autre à chérir des souvenirs",
       sub: "Les photos racontent des histoires qui méritent d'être partagées. Connais-tu quelqu'un pour qui un espace mémorial pourrait être un réconfort ? Partage ton lien personnel — et aide-les à garder vivant un souvenir précieux.",
-      cta: 'Partage le lien et aide un ami →',
+      cta: 'Devenir creator →',
       imageAlt: 'Enveloppe avec une photo, des fleurs et un cœur doré',
     },
   },

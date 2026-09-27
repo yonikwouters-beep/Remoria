@@ -59,7 +59,20 @@ export const nl = {
     legalAria: 'Juridische links',
     privacy: 'Privacy',
     terms: 'Voorwaarden',
-    affiliate: 'Affiliate-login',
+    affiliate: 'Creators',
+  },
+
+  creators: {
+    eyebrow: 'Remoria Creators',
+    title: 'Deel Remoria en verdien €20 per verkocht plan',
+    body: 'Ken je mensen voor wie een plek vol herinneringen aan een dierbare waardevol is? Meld je aan, krijg je eigen link en ontvang €20 voor elk plan dat via jouw link gekocht wordt. Maandelijks uitbetaald.',
+    cta: 'Word creator →',
+    stat1Value: '€20',
+    stat1Label: 'per betaald plan',
+    stat2Value: '60 d',
+    stat2Label: 'telt een klik mee',
+    stat3Value: '1×/mnd',
+    stat3Label: 'uitbetaald',
   },
 
   hero: {
@@ -381,7 +394,7 @@ export const nl = {
       badge: 'Ontvang €20 als dank',
       title: 'Help een ander herinneringen koesteren',
       sub: "Foto's vertellen verhalen die het verdienen om gedeeld te worden. Ken jij iemand voor wie een gedenkplek een troost zou kunnen zijn? Deel jouw persoonlijke link — en help je hen een bijzondere herinnering levend te houden.",
-      cta: 'Deel de link en help een vriend →',
+      cta: 'Word creator →',
       imageAlt: 'Envelop met foto, bloemen en gouden hart',
     },
   },
