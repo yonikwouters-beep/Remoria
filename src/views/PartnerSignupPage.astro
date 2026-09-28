@@ -278,11 +278,15 @@ const f = (key: string) => t(locale, `partnerSignup.form.${key}`);
   .signup__title {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 600;
-    font-size: clamp(2rem, 4.5vw, 48px);
+    font-size: clamp(1.9rem, 3.4vw, 42px);
     line-height: 1.12;
     color: #1C2A43;
     margin: 0 0 18px;
-    text-wrap: pretty;
+    text-wrap: balance;
+    /* Nooit midden in een woord afbreken (de site breekt lange woorden standaard wel af). */
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: manual;
   }
 
   .signup__intro {
@@ -416,6 +420,8 @@ const f = (key: string) => t(locale, `partnerSignup.form.${key}`);
     display: grid;
     gap: 16px;
     margin-bottom: 16px;
+    /* Velden op één lijn, ook als een label over twee regels loopt. */
+    align-items: end;
   }
 
   .form-row--2 {
@@ -466,6 +472,11 @@ const f = (key: string) => t(locale, `partnerSignup.form.${key}`);
   .form-consent input.is-invalid {
     border-color: #C47A6A;
     outline: 2px solid rgba(196, 122, 106, 0.35);
+  }
+
+  /* Invoervelden en keuzelijst even hoog, zodat een rij netjes op één lijn staat. */
+  .form-input:not(.form-textarea) {
+    height: 46px;
   }
 
   .form-select {

@@ -742,7 +742,7 @@ export const fr = {
       enterprisePlaceholder: '0123.456.789',
       contactLabel: 'Personne de contact *',
       emailLabel: 'E-mail *',
-      emailPlaceholder: 'nom@pompesfunebres.be',
+      emailPlaceholder: 'nom@entreprise.be',
       phoneLabel: 'Téléphone *',
       streetLabel: 'Rue et numéro',
       postalLabel: 'Code postal',
