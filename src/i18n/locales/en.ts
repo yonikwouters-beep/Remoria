@@ -60,6 +60,7 @@ export const en = {
     privacy: 'Privacy',
     terms: 'Terms',
     affiliate: 'Creators',
+    cookieSettings: 'Cookie preferences',
   },
 
   creators: {
@@ -73,6 +74,29 @@ export const en = {
     stat2Label: 'a click still counts',
     stat3Value: '1×/mo',
     stat3Label: 'paid out',
+  },
+
+  cookies: {
+    title: 'Your privacy, your choice',
+    text: 'We only use what is needed to make the site work, such as your language choice. External services, like our Cal.com booking calendar, only load once you allow them.',
+    accept: 'Allow all',
+    reject: 'Necessary only',
+    settings: 'Settings',
+    privacyLink: 'Privacy statement',
+    dialogAria: 'Cookie preferences',
+    modalTitle: 'Cookie preferences',
+    modalIntro: 'Choose what we may load. You can change your choice at any time via "Cookie preferences" at the bottom of every page.',
+    necessaryTitle: 'Necessary',
+    necessaryText: 'Remembers your language and your cookie preferences. The site does not work properly without them.',
+    alwaysOn: 'Always on',
+    externalTitle: 'External services',
+    externalText: 'Shows the Cal.com booking calendar directly on our contact page. Cal.com may set its own cookies when it does.',
+    save: 'Save choice',
+    close: 'Close',
+    calPromptTitle: 'Load the calendar?',
+    calPromptText: 'To book a call we show the Cal.com calendar. Cal.com may set its own cookies when it does.',
+    calPromptAccept: 'Show calendar',
+    calPromptCancel: 'Cancel',
   },
 
   hero: {

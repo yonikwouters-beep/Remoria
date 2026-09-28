@@ -60,6 +60,7 @@ export const nl = {
     privacy: 'Privacy',
     terms: 'Voorwaarden',
     affiliate: 'Creators',
+    cookieSettings: 'Cookievoorkeuren',
   },
 
   creators: {
@@ -73,6 +74,29 @@ export const nl = {
     stat2Label: 'telt een klik mee',
     stat3Value: '1×/mnd',
     stat3Label: 'uitbetaald',
+  },
+
+  cookies: {
+    title: 'Jouw privacy, jouw keuze',
+    text: 'We gebruiken alleen wat nodig is om de site te laten werken, zoals je taalkeuze. Externe diensten, zoals onze afsprakenagenda van Cal.com, laden we pas als jij dat toestaat.',
+    accept: 'Alles toestaan',
+    reject: 'Alleen noodzakelijk',
+    settings: 'Instellingen',
+    privacyLink: 'Privacyverklaring',
+    dialogAria: 'Cookievoorkeuren',
+    modalTitle: 'Cookievoorkeuren',
+    modalIntro: 'Kies zelf wat we mogen laden. Je kunt je keuze altijd wijzigen via "Cookievoorkeuren" onderaan elke pagina.',
+    necessaryTitle: 'Noodzakelijk',
+    necessaryText: 'Onthoudt je taalkeuze en je cookievoorkeuren. Zonder deze gegevens werkt de site niet goed.',
+    alwaysOn: 'Altijd aan',
+    externalTitle: 'Externe diensten',
+    externalText: 'Toont de afsprakenagenda van Cal.com rechtstreeks op onze contactpagina. Cal.com kan daarbij eigen cookies plaatsen.',
+    save: 'Keuze opslaan',
+    close: 'Sluiten',
+    calPromptTitle: 'Agenda laden?',
+    calPromptText: 'Om een gesprek in te plannen tonen we de agenda van Cal.com. Cal.com kan daarbij eigen cookies plaatsen.',
+    calPromptAccept: 'Agenda tonen',
+    calPromptCancel: 'Annuleren',
   },
 
   hero: {

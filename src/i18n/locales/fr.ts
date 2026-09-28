@@ -61,6 +61,7 @@ export const fr = {
     privacy: 'Confidentialité',
     terms: 'Conditions',
     affiliate: 'Creators',
+    cookieSettings: 'Préférences cookies',
   },
 
   creators: {
@@ -74,6 +75,29 @@ export const fr = {
     stat2Label: 'un clic compte encore',
     stat3Value: '1×/mois',
     stat3Label: 'payé',
+  },
+
+  cookies: {
+    title: 'Ta vie privée, ton choix',
+    text: "Nous n'utilisons que ce qui est nécessaire au fonctionnement du site, comme ton choix de langue. Les services externes, comme notre agenda de rendez-vous Cal.com, ne se chargent que si tu l'autorises.",
+    accept: 'Tout autoriser',
+    reject: 'Nécessaires uniquement',
+    settings: 'Paramètres',
+    privacyLink: 'Déclaration de confidentialité',
+    dialogAria: 'Préférences cookies',
+    modalTitle: 'Préférences cookies',
+    modalIntro: 'Choisis ce que nous pouvons charger. Tu peux modifier ton choix à tout moment via « Préférences cookies » en bas de chaque page.',
+    necessaryTitle: 'Nécessaires',
+    necessaryText: 'Retiennent ton choix de langue et tes préférences cookies. Sans eux, le site ne fonctionne pas correctement.',
+    alwaysOn: 'Toujours actifs',
+    externalTitle: 'Services externes',
+    externalText: "Affiche l'agenda de rendez-vous Cal.com directement sur notre page de contact. Cal.com peut alors placer ses propres cookies.",
+    save: 'Enregistrer mon choix',
+    close: 'Fermer',
+    calPromptTitle: "Charger l'agenda ?",
+    calPromptText: "Pour planifier un rendez-vous, nous affichons l'agenda de Cal.com. Cal.com peut alors placer ses propres cookies.",
+    calPromptAccept: "Afficher l'agenda",
+    calPromptCancel: 'Annuler',
   },
 
   hero: {

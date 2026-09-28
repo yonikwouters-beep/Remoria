@@ -1,0 +1,577 @@
+---
+/**
+ * Cookiebanner + voorkeurenvenster.
+ *
+ * De site plaatst zelf alleen noodzakelijke gegevens (taalkeuze, deze keuze).
+ * Externe diensten (nu: de Cal.com-agenda op de contactpagina) laden pas na
+ * toestemming. Andere scripts vragen de keuze op via window.RemoriaConsent:
+ *   RemoriaConsent.get()            → { external: boolean } | null (nog geen keuze)
+ *   RemoriaConsent.request(opts)    → Promise<boolean>, vraagt toestemming voor externe diensten
+ *   RemoriaConsent.open()           → opent het voorkeurenvenster
+ * en luisteren naar het event 'remoria-consent' op window.
+ * Weigeren is even makkelijk als toestaan (twee gelijkwaardige knoppen).
+ */
+import { getLocale, localizePath, t } from '../i18n/utils';
+
+const locale = getLocale(Astro.currentLocale);
+const c = (key: string) => t(locale, `cookies.${key}`);
+const privacyUrl = localizePath(locale, '/privacy');
+---
+
+<div class="cc" id="cc-banner" role="region" aria-label={c('dialogAria')} hidden>
+  <div class="cc__card">
+    <div class="cc__head">
+      <span class="cc__mark" aria-hidden="true"><img src="/Poort-icoon-kleur.svg" alt="" width="40" height="40" /></span>
+      <p class="cc__title">{c('title')}</p>
+    </div>
+    <div class="cc__body">
+      <p class="cc__text">
+        {c('text')} <a href={privacyUrl}>{c('privacyLink')}</a>
+      </p>
+      <div class="cc__actions">
+        <button type="button" class="cc__btn cc__btn--navy" data-cc="reject">{c('reject')}</button>
+        <button type="button" class="cc__btn cc__btn--gold" data-cc="accept">{c('accept')}</button>
+        <button type="button" class="cc__link" data-cc="settings">{c('settings')}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<dialog class="cc-modal" id="cc-modal" aria-labelledby="cc-modal-title">
+  <form method="dialog" class="cc-modal__inner">
+    <button type="submit" value="close" class="cc-modal__close" aria-label={c('close')}>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <span class="cc__mark" aria-hidden="true"><img src="/Poort-icoon-kleur.svg" alt="" width="40" height="40" /></span>
+    <h2 class="cc-modal__title" id="cc-modal-title">{c('modalTitle')}</h2>
+    <p class="cc-modal__intro">{c('modalIntro')}</p>
+
+    <div class="cc-modal__row">
+      <div>
+        <p class="cc-modal__label">{c('necessaryTitle')}</p>
+        <p class="cc-modal__desc">{c('necessaryText')}</p>
+      </div>
+      <span class="cc-modal__always">{c('alwaysOn')}</span>
+    </div>
+
+    <label class="cc-modal__row cc-modal__row--toggle">
+      <div>
+        <p class="cc-modal__label">{c('externalTitle')}</p>
+        <p class="cc-modal__desc">{c('externalText')}</p>
+      </div>
+      <span class="cc-switch">
+        <input type="checkbox" id="cc-external" />
+        <span class="cc-switch__track" aria-hidden="true"></span>
+      </span>
+    </label>
+
+    <div class="cc-modal__actions cc-modal__actions--grid">
+      <button type="button" class="cc__btn cc__btn--navy" data-cc="reject">{c('reject')}</button>
+      <button type="button" class="cc__btn cc__btn--gold" data-cc="accept">{c('accept')}</button>
+      <button type="button" class="cc__btn cc__btn--outline cc__btn--wide" data-cc="save">{c('save')}</button>
+    </div>
+    <p class="cc-modal__privacy"><a href={privacyUrl}>{c('privacyLink')}</a></p>
+  </form>
+</dialog>
+
+<dialog class="cc-modal cc-modal--small" id="cc-prompt" aria-labelledby="cc-prompt-title">
+  <div class="cc-modal__inner">
+    <span class="cc__mark" aria-hidden="true"><img src="/Poort-icoon-kleur.svg" alt="" width="40" height="40" /></span>
+    <h2 class="cc-modal__title" id="cc-prompt-title"></h2>
+    <p class="cc-modal__intro" id="cc-prompt-text"></p>
+    <div class="cc-modal__actions cc-modal__actions--grid">
+      <button type="button" class="cc__btn cc__btn--navy" data-prompt="no"></button>
+      <button type="button" class="cc__btn cc__btn--gold" data-prompt="yes"></button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  type Consent = { v: number; external: boolean; at: string };
+  const KEY = 'remoria-consent';
+  const VERSION = 1;
+
+  const banner = document.getElementById('cc-banner');
+  const modal = document.getElementById('cc-modal') as HTMLDialogElement | null;
+  const prompt = document.getElementById('cc-prompt') as HTMLDialogElement | null;
+  const externalBox = document.getElementById('cc-external') as HTMLInputElement | null;
+
+  function read(): Consent | null {
+    try {
+      const raw = localStorage.getItem(KEY);
+      const parsed = raw ? (JSON.parse(raw) as Consent) : null;
+      return parsed && parsed.v === VERSION ? parsed : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function write(external: boolean) {
+    const value: Consent = { v: VERSION, external, at: new Date().toISOString() };
+    try {
+      localStorage.setItem(KEY, JSON.stringify(value));
+    } catch {
+      /* privévenster: keuze geldt dan alleen voor dit bezoek */
+    }
+    current = value;
+    if (banner) banner.hidden = true;
+    if (modal?.open) modal.close();
+    window.dispatchEvent(new CustomEvent('remoria-consent', { detail: { external } }));
+  }
+
+  let current = read();
+
+  function openSettings() {
+    if (!modal || !externalBox) return;
+    externalBox.checked = !!current?.external;
+    modal.showModal();
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-cc]').forEach((el) => {
+    el.addEventListener('click', () => {
+      const action = el.dataset.cc;
+      if (action === 'accept') write(true);
+      else if (action === 'reject') write(false);
+      else if (action === 'save') write(!!externalBox?.checked);
+      else if (action === 'settings') openSettings();
+    });
+  });
+
+  document.querySelectorAll<HTMLElement>('[data-cookie-settings]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openSettings();
+    });
+  });
+
+  /** Vraagt toestemming voor externe diensten op het moment dat ze nodig zijn. */
+  function request(opts: { title: string; text: string; accept: string; cancel: string }): Promise<boolean> {
+    if (current?.external) return Promise.resolve(true);
+    if (!prompt) return Promise.resolve(false);
+    const title = prompt.querySelector('#cc-prompt-title');
+    const text = prompt.querySelector('#cc-prompt-text');
+    const yes = prompt.querySelector<HTMLButtonElement>('[data-prompt="yes"]');
+    const no = prompt.querySelector<HTMLButtonElement>('[data-prompt="no"]');
+    if (!title || !text || !yes || !no) return Promise.resolve(false);
+    title.textContent = opts.title;
+    text.textContent = opts.text;
+    yes.textContent = opts.accept;
+    no.textContent = opts.cancel;
+    return new Promise((resolve) => {
+      const done = (ok: boolean) => {
+        yes.onclick = no.onclick = null;
+        prompt.onclose = null;
+        if (prompt.open) prompt.close();
+        if (ok) write(true);
+        resolve(ok);
+      };
+      yes.onclick = () => done(true);
+      no.onclick = () => done(false);
+      prompt.onclose = () => done(false);
+      prompt.showModal();
+    });
+  }
+
+  (window as unknown as { RemoriaConsent: unknown }).RemoriaConsent = {
+    get: () => (current ? { external: current.external } : null),
+    request,
+    open: openSettings,
+  };
+
+  if (!current && banner) banner.hidden = false;
+</script>
+
+<style>
+  .cc {
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    z-index: 1000;
+    max-width: 460px;
+    width: calc(100% - 48px);
+    animation: cc-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .cc[hidden] {
+    display: none;
+  }
+
+  @keyframes cc-in {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .cc__card {
+    position: relative;
+    background: #FDFBF7;
+    border: 1px solid #E7DFD2;
+    border-radius: 20px;
+    padding: 22px 22px 20px;
+    box-shadow: 0 24px 50px -20px rgba(28, 42, 67, 0.35);
+    overflow: hidden;
+    font-family: 'Nunito Sans', sans-serif;
+  }
+
+  /* Gouden lijn bovenaan, zoals het pad in de Instagram-carrousels. */
+  .cc__card::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(217, 179, 106, 0), #D9B36A 30%, #B8934A 70%, rgba(184, 147, 74, 0));
+  }
+
+  .cc__head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+
+  /* Gloeiende poort, zoals op de laatste slide van de lanceringscarrousel. */
+  .cc__mark {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 60%, #3A4A68 0%, #1C2A43 70%);
+    box-shadow: 0 0 0 1px rgba(217, 179, 106, 0.45), 0 0 22px rgba(217, 179, 106, 0.45);
+  }
+
+  .cc__mark img {
+    width: 64px;
+    height: 64px;
+    max-width: none;
+    filter: drop-shadow(0 0 6px rgba(217, 179, 106, 0.8));
+  }
+
+  .cc__title,
+  .cc-modal__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.25;
+    color: #1C2A43;
+    margin: 0;
+  }
+
+  .cc__text {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #6B6353;
+    margin: 0 0 16px;
+  }
+
+  .cc__text a,
+  .cc-modal__privacy a {
+    color: #96742F;
+    font-weight: 700;
+  }
+
+  .cc__actions,
+  .cc-modal__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .cc__actions .cc__btn {
+    flex: 1 1 0;
+    min-width: max-content;
+  }
+
+  .cc__actions .cc__link {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  .cc-modal__actions--grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cc__btn--wide {
+    grid-column: 1 / -1;
+  }
+
+  .cc__btn {
+    border: none;
+    cursor: pointer;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.25;
+    padding: 12px 18px;
+    border-radius: 999px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .cc__btn--gold {
+    background: #D9B36A;
+    color: #1C2A43;
+  }
+
+  .cc__btn--gold:hover {
+    background: #E3C285;
+  }
+
+  .cc__btn--navy {
+    background: #1C2A43;
+    color: #fff;
+  }
+
+  .cc__btn--navy:hover {
+    background: #2A3B5C;
+  }
+
+  .cc__btn--outline {
+    background: transparent;
+    color: #1C2A43;
+    box-shadow: inset 0 0 0 1.5px #1C2A43;
+  }
+
+  .cc__btn--outline:hover {
+    background: rgba(28, 42, 67, 0.06);
+  }
+
+  .cc__link {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #6B6353;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding: 6px 4px;
+  }
+
+  .cc__link:hover {
+    color: #1C2A43;
+  }
+
+  .cc__btn:focus-visible,
+  .cc__link:focus-visible,
+  .cc-modal__close:focus-visible {
+    outline: 2px solid #B8934A;
+    outline-offset: 2px;
+  }
+
+  /* ── Voorkeurenvenster ── */
+  .cc-modal {
+    border: none;
+    margin: auto;
+    padding: 0;
+    border-radius: 22px;
+    background: #FDFBF7;
+    color: #4A4438;
+    width: min(520px, calc(100% - 32px));
+    max-height: calc(100dvh - 32px);
+    box-shadow: 0 30px 70px -20px rgba(28, 42, 67, 0.45);
+    font-family: 'Nunito Sans', sans-serif;
+  }
+
+  .cc-modal::backdrop {
+    background: rgba(28, 42, 67, 0.45);
+    backdrop-filter: blur(2px);
+  }
+
+  .cc-modal__inner {
+    position: relative;
+    padding: 30px 30px 24px;
+  }
+
+  .cc-modal__inner::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(217, 179, 106, 0), #D9B36A 30%, #B8934A 70%, rgba(184, 147, 74, 0));
+  }
+
+  .cc-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: #7A7263;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cc-modal__close:hover {
+    background: rgba(28, 42, 67, 0.06);
+  }
+
+  .cc-modal__title {
+    font-size: 22px;
+    margin: 14px 0 6px;
+  }
+
+  .cc-modal__intro {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6B6353;
+    margin: 0 0 18px;
+  }
+
+  .cc-modal__row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #E7DFD2;
+    background: #fff;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+
+  .cc-modal__row--toggle {
+    cursor: pointer;
+  }
+
+  .cc-modal__label {
+    font-size: 14.5px;
+    font-weight: 800;
+    color: #1C2A43;
+    margin: 0 0 2px;
+  }
+
+  .cc-modal__desc {
+    font-size: 13px;
+    line-height: 1.55;
+    color: #7A7263;
+    margin: 0;
+  }
+
+  .cc-modal__always {
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #96742F;
+    background: #F3E7CF;
+    border-radius: 999px;
+    padding: 5px 10px;
+  }
+
+  .cc-switch {
+    position: relative;
+    flex-shrink: 0;
+    width: 46px;
+    height: 26px;
+  }
+
+  .cc-switch input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .cc-switch__track {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: #D8D0C2;
+    transition: background-color 0.2s ease;
+    pointer-events: none;
+  }
+
+  .cc-switch__track::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(28, 42, 67, 0.25);
+    transition: transform 0.2s ease;
+  }
+
+  .cc-switch input:checked + .cc-switch__track {
+    background: #B8934A;
+  }
+
+  .cc-switch input:checked + .cc-switch__track::after {
+    transform: translateX(20px);
+  }
+
+  .cc-switch input:focus-visible + .cc-switch__track {
+    outline: 2px solid #1C2A43;
+    outline-offset: 2px;
+  }
+
+  .cc-modal__actions {
+    margin-top: 18px;
+  }
+
+  .cc-modal__privacy {
+    margin: 14px 0 0;
+    font-size: 13px;
+    text-align: right;
+  }
+
+  @media (max-width: 560px) {
+    .cc {
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      width: auto;
+    }
+
+    .cc__card {
+      padding: 18px 16px 12px;
+    }
+
+    .cc__mark {
+      width: 40px;
+      height: 40px;
+    }
+
+    .cc__mark img {
+      width: 56px;
+      height: 56px;
+    }
+
+    .cc__text {
+      margin-bottom: 14px;
+    }
+
+    .cc__actions .cc__btn {
+      padding: 12px 10px;
+      font-size: 13.5px;
+      min-width: 0;
+    }
+
+    .cc-modal__inner {
+      padding: 26px 20px 20px;
+    }
+
+    .cc-modal__privacy {
+      text-align: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cc {
+      animation: none;
+    }
+  }
+</style>

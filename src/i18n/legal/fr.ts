@@ -6,7 +6,7 @@ export const privacyFr: LegalDoc = {
     "Comment Remoria traite vos données personnelles : ce que nous traitons, pourquoi, pendant combien de temps et les droits dont vous disposez — rédigé pour être compréhensible même sans formation juridique.",
   title: "Déclaration de confidentialité",
   brand: "Remoria",
-  updated: "Dernière mise à jour le 23 juillet 2026",
+  updated: "Dernière mise à jour le 28 septembre 2026",
   intro:
     "Remoria est conçu pour quelque chose de profondément personnel : les souvenirs de ceux qui vous sont chers. Traiter vos données avec soin n'est donc pas un détail, mais un fondement. Dans cette déclaration, vous découvrez quelles données nous traitons, pourquoi, pendant combien de temps et quels droits vous avez. Nous l'avons rédigée de manière à ce que vous puissiez la comprendre même sans formation juridique.",
   sections: [
@@ -160,7 +160,11 @@ export const privacyFr: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "Remoria n'utilise que des cookies et des techniques similaires qui sont nécessaires au fonctionnement du site et de la plateforme, comme les sessions de connexion et les préférences linguistiques. Aucun consentement n'est requis pour ces cookies essentiels. Si, à l'avenir, nous souhaitions utiliser des cookies analytiques ou d'autres cookies non essentiels, nous vous demanderions d'abord votre consentement et mettrions cette déclaration à jour.",
+          text: "Remoria n'utilise que des cookies et des techniques similaires qui sont nécessaires au fonctionnement du site et de la plateforme, comme les sessions de connexion, votre préférence linguistique et votre choix en matière de cookies lui-même. Aucun consentement n'est requis pour ces cookies nécessaires. Nous n'utilisons pas de cookies analytiques, publicitaires ou de suivi. Les polices du site sont hébergées par nos soins, de sorte qu'aucune donnée n'est transmise à des tiers à cet effet.",
+        },
+        {
+          type: "p",
+          text: "Sur la page de contact, vous pouvez planifier un entretien via l'agenda de Cal.com. Cal.com est un service externe qui peut déposer ses propres cookies ; nous ne chargeons donc cet agenda qu'après avoir obtenu votre consentement. Vous pouvez modifier votre choix à tout moment via « Préférences cookies » en bas de chaque page.",
         },
       ],
     },
