@@ -77,7 +77,6 @@ export const fr = {
   },
 
   hero: {
-    eyebrow: 'Les souvenirs relient. Pour toujours.',
     heading: 'Un endroit où les souvenirs se rejoignent',
     headingLine1: 'Un endroit où',
     headingLine2: 'les souvenirs',
@@ -86,7 +85,6 @@ export const fr = {
       "Après un adieu, photos et histoires se dispersent entre téléphones, boîtes et pensées. Remoria les réunit dans un seul endroit sûr et serein.",
     primaryCta: 'Créer un espace du souvenir →',
     secondaryCta: 'Voir un exemple',
-    trustNote: 'Sûr, privé et fait avec amour',
   },
 
   features: {
@@ -162,24 +160,7 @@ export const fr = {
     startCta: 'Commencer avec ce plan',
   },
 
-  siteNotice: {
-    logoAria: 'Remoria',
-    logoAlt: 'Remoria',
-    title: 'Nous travaillons encore sur le site',
-    lead: 'Les espaces mémoriaux ne peuvent pas encore être achetés.',
-    imageAlt: 'Aperçu du portail Remoria',
-    contact:
-      "Tu as des questions ou tu souhaites être l'un de nos premiers partenaires ? Contacte-nous à",
-    unlockLabel: "Code d'accès",
-    unlockPlaceholder: 'Code',
-    unlockSubmit: 'Continuer',
-    unlockError: 'Code incorrect.',
-  },
 
-  trustBar: {
-    label: 'Approuvé par les familles et les organisations funéraires',
-    logosAria: 'Organisations partenaires',
-  },
 
   mockups: {
     phone: {
@@ -225,26 +206,26 @@ export const fr = {
       stat3Label: 'Souvenirs',
       stat3LabelFull: 'Souvenirs partagés',
       rowsCompact: [
-        { photo: '/features/photo-09.png', name: 'Jan De Vries', meta: 'Créé le 15-06-2026' },
-        { photo: '/features/photo-01.png', name: 'Maria Jansen', meta: 'Créé le 02-07-2026' },
+        { photo: '/features/photo-09.webp', name: 'Jan De Vries', meta: 'Créé le 15-06-2026' },
+        { photo: '/features/photo-01.webp', name: 'Maria Jansen', meta: 'Créé le 02-07-2026' },
       ],
       rowsFull: [
         {
-          photo: '/features/photo-09.png',
+          photo: '/features/photo-09.webp',
           name: 'Jan De Vries',
           meta: 'Créé le 15-06-2026',
           members: '156 membres',
           memories: '432 souvenirs',
         },
         {
-          photo: '/features/photo-01.png',
+          photo: '/features/photo-01.webp',
           name: 'Maria Jansen',
           meta: 'Créé le 02-07-2026',
           members: '96 membres',
           memories: '276 souvenirs',
         },
         {
-          photo: '/features/photo-06.png',
+          photo: '/features/photo-06.webp',
           name: 'Peter Mertens',
           meta: 'Créé le 28-06-2026',
           members: '203 membres',
@@ -357,7 +338,7 @@ export const fr = {
         title: 'Se Souvenir Ensemble',
         duration: 'Actif pendant 4 mois',
         price: '€85',
-        monthlyPrice: 'paiement unique · ≈ €21,25 par mois',
+        monthlyPrice: 'paiement unique · sans abonnement',
         description:
           "Quatre mois — largement le temps d'inviter tout le monde et de rassembler toutes les photos et histoires qui seraient autrement perdues. Les photos que tu n'aurais jamais vues, pour un montant fixe.",
         credits: '<strong>10</strong> crédits IA pour essayer',
@@ -481,6 +462,244 @@ export const fr = {
     },
   },
 
+  nabestaanden: {
+    meta: {
+      title: 'Remoria pour les proches — Un lieu durable pour chaque moment précieux',
+      description:
+        "Remoria permet de réunir facilement tous les souvenirs dans un seul endroit sûr et serein. Crée dès aujourd'hui un espace du souvenir numérique pour ton être cher.",
+    },
+    hero: {
+      eyebrow: 'Remoria pour les proches',
+      titleLine1: 'Un lieu durable',
+      titleLine2: 'pour chaque moment',
+      titleLine3: 'précieux',
+      body: "Quand on perd quelqu'un, les souvenirs deviennent notre bien le plus précieux. Mais ils sont souvent dispersés : dans de vieux albums photo, sur différents smartphones ou au fond de notre mémoire. Remoria permet de tout réunir facilement dans un seul endroit sûr et serein.",
+      ctaPrimary: 'Créer un espace du souvenir',
+      ctaSecondary: 'Voir un exemple',
+    },
+    how: {
+      eyebrow: 'Comment ça marche',
+      title: 'Crée un lieu\ndurable',
+      sub: 'Mettre en place un espace du souvenir numérique est simple.',
+      steps: [
+        {
+          title: "Crée l'espace en un tournemain",
+          text: "Lance facilement un espace du souvenir personnel. En quelques minutes, tu disposes d'un environnement sûr où les souvenirs se rejoignent.",
+        },
+        {
+          title: 'Invite ton entourage',
+          text: "Partage le lien unique via WhatsApp, e-mail ou les réseaux sociaux, ou utilise le QR code personnel. Tu peux aussi le faire imprimer sur le faire-part, pour que famille et amis trouvent directement l'espace du souvenir.",
+        },
+        {
+          title: 'Partage, relie et souviens-toi',
+          text: "Dès que tes proches se sont inscrits, chacun ajoute ses propres photos, vidéos et fragments audio. Dans le Chat communautaire et à travers les hommages, des conversations naissent et des histoires refont surface, que tu n'avais peut-être jamais entendues.",
+        },
+      ],
+    },
+    features: {
+      eyebrow: 'Tout ce que tu reçois',
+      title: 'Un seul endroit où tous les souvenirs se rejoignent',
+      sub: "Chaque personne qui l'a aimé(e) apporte sa pierre : des photos que tu n'avais jamais vues, des histoires que tu ne connaissais pas, des mots qui restent. Voici ce qui se passe dans un espace du souvenir.",
+      demoLink: 'Voir un vrai espace de démonstration',
+      media: {
+        chip: 'Photos, vidéos & audio',
+        headline: "Les photos que personne n'avait encore vues",
+        body: "Chacun garde quelque part une boîte ou un téléphone plein de moments que le reste de la famille n'a jamais vus. Dans l'espace du souvenir, chacun ajoute ses propres photos, vidéos et messages vocaux — ainsi se dessine peu à peu le portrait d'une vie entière, racontée par tous ceux qui étaient là.",
+        points: [
+          'Toute personne invitée peut contribuer',
+          'Aussi des vidéos et des messages vocaux',
+          'Classé clairement en albums',
+        ],
+        mock: {
+          url: 'app.remoria.eu',
+          title: 'Souvenirs partagés',
+          sub: 'Photos, vidéos et audio que vous partagez ensemble',
+          add: 'Ajouter un souvenir',
+          filterAll: 'Tout',
+          filterPhotos: 'Photos',
+          filterVideos: 'Vidéos',
+          filterAudio: 'Audio',
+          meta: '13 contributions · 6 personnes',
+        },
+      },
+      chat: {
+        chip: 'Chat communautaire',
+        headline: 'Des histoires qui sinon ne seraient jamais racontées',
+        body: "Dans le chat privé, famille, amis et anciens collègues se remémorent ensemble. Le collègue de l'atelier, la voisine d'autrefois — chacun connaît une facette que tu ne connaissais pas encore. Et chaque histoire en appelle une autre.",
+        points: [
+          'Entièrement privé — seulement les personnes que tu invites',
+          'Assez simple pour tous les âges',
+        ],
+        mock: {
+          title: 'Chat communautaire',
+          sub: '24 participants',
+          pinName: '📌 An Calleem',
+          pinText:
+            "Chère famille, chers amis, bienvenue dans l'espace de papa. N'hésitez pas à ajouter vos photos et vos histoires. Chaque souvenir est le bienvenu. ♥",
+          typingInitials: 'DP',
+          placeholder: 'Écris un message...',
+          messages: [
+            {
+              initials: 'WV',
+              name: 'Willy Vandenbroeck',
+              time: '12:31',
+              avatar: 'wv',
+              text: "Je suis enfin allé chercher cette vieille boîte au grenier. Il y a des photos de l'atelier que vous n'avez jamais vues. Je les ajoute.",
+            },
+            {
+              initials: 'AC',
+              name: 'An Calleem',
+              time: '16:31',
+              avatar: 'ac',
+              text: "Willy, cette photo de papa à l'établi... j'ai dû ravaler mes larmes. Qu'il a l'air jeune. Merci.",
+            },
+          ],
+        },
+      },
+      tribute: {
+        chip: 'En mémoire',
+        headline: 'Des mots qui restent',
+        body: "Les cartes de condoléances finissent dans une boîte. Ici, les mots trouvent une place durable : des messages personnels de tous ceux qui ont dit adieu, à relire aux moments où tu en as besoin — le mois prochain, ou dans dix ans.",
+        points: [
+          'Un registre de condoléances durable',
+          "Aussi pour ceux qui n'ont pas pu assister aux funérailles",
+        ],
+        mock: {
+          title: 'En mémoire',
+          sub: 'Souvenirs et messages en hommage à Vincent Calleem',
+          cards: [
+            {
+              initials: 'RC',
+              name: 'Roger Calleem',
+              date: '22 juillet',
+              quote:
+                '"Des garnements à la ferme jusqu\'à deux vieux au comptoir — tu étais toujours là, grand frère. Salut, Vince."',
+              likes: '7',
+            },
+            {
+              initials: 'DP',
+              name: 'Denise Peeters',
+              date: '19 juillet',
+              quote:
+                '"Nous n\'aurions pu rêver meilleur voisin. Toujours un coup de main et un petit mot par-dessus la haie. La rue est plus calme sans vous, Vincent."',
+              likes: '12',
+            },
+          ],
+        },
+      },
+      photobook: {
+        chip: 'Le livre photo',
+        headline: 'Et puis tu le tiens, entre tes mains',
+        body: "Quand votre espace est bien rempli, tu réunis les plus belles photos et histoires dans un livre photo imprimé. Un souvenir tangible qui trouve sa place sur la table du salon plutôt que dans le cloud — pour toi, ou à offrir à ceux que tu aimes.",
+        alt: 'Livre photo Remoria imprimé',
+        steps: [
+          {
+            title: 'Sélectionne les moments',
+            text: "qui racontent le mieux l'histoire",
+          },
+          {
+            title: 'Personnalise',
+            text: 'la couverture, le titre et la mise en page',
+          },
+          {
+            title: 'Reçois-le chez toi',
+            text: ', prêt à être transmis',
+          },
+        ],
+      },
+      pricing: {
+        eyebrow: 'Combien ça coûte ?',
+        title: "Des photos que tu n'aurais jamais vues. Pour €85.",
+        p1: "Un seul montant, pas d'abonnement qui continue en silence. Tu reçois <strong>quatre mois complets</strong> — largement le temps d'inviter tout le monde et de rassembler toutes les photos et histoires, à votre rythme.",
+        p2: "Ensuite, c'est toi qui décides : prolonger si l'espace vit encore, ou conclure — par exemple avec un livre photo comme conclusion tangible.",
+        price: '€85',
+        priceMeta: 'paiement unique · 4 mois',
+        checks: [
+          "Un espace du souvenir complet avec tout ce qui précède",
+          'Invite autant de famille et d\'amis que tu veux',
+          'Prolonger est possible, mais pas obligatoire',
+          'Pas satisfait dans les 14 jours ? Remboursé',
+        ],
+        cta: 'Créer un espace du souvenir →',
+      },
+      demoCta: {
+        title: "Tu préfères d'abord voir à quoi ça ressemble ?",
+        sub: "Promène-toi librement dans un vrai espace de démonstration. Pas besoin de compte, rien à installer.",
+        primary: "Voir l'espace de démonstration",
+        secondary: 'Créer un espace du souvenir →',
+      },
+    },
+    cta: {
+      titleLine1: 'Prêt à créer',
+      titleLine2: 'un lieu durable ?',
+      sub: "Commence dès aujourd'hui et invite tes proches à conserver ensemble les souvenirs.",
+      button: 'Créer un espace du souvenir',
+    },
+    trust: [
+      {
+        title: 'Sûr et privé',
+        text: 'Ton espace est entièrement privé et sécurisé.',
+      },
+      {
+        title: 'Toujours accessible',
+        text: 'Accès partout et à tout moment, pour toi et tes proches.',
+      },
+      {
+        title: 'Fait avec soin',
+        text: 'Développé dans le respect de tes souvenirs.',
+      },
+      {
+        title: 'Des souvenirs tangibles',
+        text: 'Crée facilement un magnifique livre photo.',
+      },
+    ],
+    faqs: {
+      title: 'Les questions que nous entendons souvent',
+      items: [
+        {
+          question: "Ai-je besoin de connaissances techniques ?",
+          answer:
+            "Non. Créer un espace du souvenir prend quelques minutes, et ajouter des photos n'est pas plus difficile qu'envoyer un message. Nous avons volontairement rendu Remoria si simple que tout le monde peut participer.",
+        },
+        {
+          question: 'Les membres plus âgés de la famille peuvent-ils aussi participer ?',
+          answer:
+            "Oui. Les invités arrivent via un lien ou un QR code et créent un compte avec leur adresse e-mail, ou se connectent avec Google. Ensuite, regarder des photos et partager des souvenirs n'est pas plus difficile qu'envoyer un message. Si quelqu'un a besoin d'un coup de main la première fois, un membre de la famille peut l'aider.",
+        },
+        {
+          question: "Qui peut voir l'espace du souvenir ?",
+          answer:
+            "Seulement les personnes que tu invites. L'espace du souvenir est entièrement privé : introuvable sur Google, invisible pour les personnes extérieures.",
+        },
+        {
+          question: "Est-ce que ça coûte quelque chose aux personnes que j'invite ?",
+          answer:
+            "Non, rien. Inviter, partager et lire est toujours entièrement gratuit pour la famille et les amis — peu importe le nombre de personnes que tu invites.",
+        },
+        {
+          question: 'Est-ce que je garde le contrôle sur ce qui est publié ?',
+          answer:
+            "Oui. En tant qu'administrateur, tu décides qui a accès, et tu peux organiser ou supprimer des contributions si quelque chose ne convient pas. En pratique, c'est rarement nécessaire — mais le contrôle reste entre tes mains.",
+        },
+        {
+          question: 'Est-ce que je perds mes photos quand le plan expire ?',
+          answer:
+            "Non. À l'expiration, l'espace du souvenir est archivé, mais tout reste conservé en sécurité pendant encore 6 mois. Pendant cette période, tu peux tout télécharger ou prolonger le plan. Rien ne disparaît jamais sans que tu le saches.",
+        },
+        {
+          question: 'Est-ce trop tôt — ou trop tard — pour créer un espace du souvenir ?',
+          answer:
+            "Non. Certaines familles commencent la semaine de l'adieu, pour que les photos soient réunies avant la cérémonie. D'autres commencent des mois ou des années plus tard, quand il y a de la place pour cela. Chaque moment est le bon moment.",
+        },
+        {
+          question: 'Notre entreprise de pompes funèbres peut-elle s\'en occuper pour nous ?',
+          answer:
+            "Oui. Remoria travaille avec des entreprises de pompes funèbres qui préparent l'espace du souvenir pour toi, pour que tu n'aies à t'occuper de rien. Demande-le à ton entreprise de pompes funèbres — ou crée-en un toi-même.",
+        },
+      ],
+    },
+  },
+
   uitvaartsector: {
     meta: {
       title: 'Remoria pour le secteur funéraire — un suivi qui connecte les familles',
@@ -506,7 +725,7 @@ export const fr = {
         },
         {
           title: 'Créez un espace mémorial en quelques secondes',
-          desc: "Pour chaque funéraille que vous organisez, vous créez un nouveau domaine sécurisé — à un prix d'achat fixe, avec un bénéfice fixe par plan.",
+          desc: "Pour chaque funéraille que vous organisez, vous créez un nouvel espace mémorial sécurisé — à un prix d'achat fixe, avec un bénéfice fixe par plan.",
         },
         {
           title: 'La famille prend le relais',
@@ -576,6 +795,73 @@ export const fr = {
     },
   },
 
+  partnerSignup: {
+    meta: {
+      title: 'Devenir partenaire Remoria — inscription pour les entreprises funéraires',
+      description:
+        'Inscrivez votre entreprise funéraire comme partenaire Remoria. Nous préparons votre portail partenaire gratuit et vous contactons dans les deux jours ouvrables.',
+    },
+    eyebrow: 'Devenir partenaire',
+    title: 'Inscrivez votre entreprise funéraire',
+    intro:
+      'Remplissez vos coordonnées et nous préparons votre portail partenaire. Gratuit, sans abonnement et sans engagement.',
+    stepsTitle: 'Et ensuite ?',
+    steps: [
+      {
+        title: 'Nous examinons votre demande',
+        text: 'Vous recevez immédiatement une confirmation par e-mail.',
+      },
+      {
+        title: 'Nous vous contactons',
+        text: 'Dans les deux jours ouvrables, pour faire connaissance et répondre à vos questions.',
+      },
+      {
+        title: 'Votre portail est prêt',
+        text: 'Vous recevez une invitation pour vous connecter et pouvez créer tout de suite votre premier espace mémorial.',
+      },
+    ],
+    meetBefore: "Vous préférez d'abord en parler ? ",
+    meetLink: 'Planifiez une présentation sans engagement →',
+    form: {
+      title: 'Coordonnées de votre entreprise',
+      sub: 'Les champs marqués * sont obligatoires.',
+      officeLabel: "Nom de l'entreprise funéraire *",
+      enterpriseLabel: "Numéro d'entreprise *",
+      enterprisePlaceholder: '0123.456.789',
+      contactLabel: 'Personne de contact *',
+      emailLabel: 'E-mail *',
+      emailPlaceholder: 'nom@pompesfunebres.be',
+      phoneLabel: 'Téléphone *',
+      streetLabel: 'Rue et numéro',
+      postalLabel: 'Code postal',
+      cityLabel: 'Commune',
+      countryLabel: 'Pays',
+      countries: { BE: 'Belgique', NL: 'Pays-Bas', LU: 'Luxembourg' },
+      websiteLabel: 'Site web',
+      websitePlaceholder: 'www.pompesfunebres.be',
+      messageLabel: 'Autre chose à nous dire ?',
+      messagePlaceholder: "Par exemple le nombre de funérailles que vous organisez par an, ou quand vous appeler de préférence.",
+      consentBefore: 'Remoria peut utiliser mes coordonnées pour me contacter au sujet du partenariat (voir la ',
+      consentLink: 'déclaration de confidentialité',
+      consentAfter: '). *',
+      submit: "Envoyer l'inscription →",
+      sending: 'Envoi en cours…',
+      successTitle: 'Merci pour votre inscription !',
+      successText: 'Nous avons bien reçu vos coordonnées et vous envoyons une confirmation par e-mail. Nous vous contactons dans les deux jours ouvrables.',
+      errors: {
+        required: 'Ce champ est obligatoire.',
+        invalid_office: 'Indiquez le nom de votre entreprise funéraire.',
+        invalid_enterprise_number: "Indiquez un numéro d'entreprise valide.",
+        invalid_name: 'Indiquez le nom de la personne de contact.',
+        invalid_email: 'Indiquez une adresse e-mail valide.',
+        invalid_phone: 'Indiquez un numéro de téléphone valide.',
+        terms_required: 'Cochez la case pour que nous puissions vous contacter.',
+        rate_limited: 'Vous avez déjà envoyé plusieurs inscriptions. Réessayez plus tard ou écrivez à hello@remoria.eu.',
+        generic: "Une erreur s'est produite. Réessayez ou écrivez à hello@remoria.eu.",
+      },
+    },
+  },
+
   overOns: {
     meta: {
       title: "À propos de Remoria — l'histoire derrière les espaces mémoriaux",
@@ -617,7 +903,7 @@ export const fr = {
           desc: "Les histoires préservées aujourd'hui sont les trésors de demain. Remoria veille à ce que les souvenirs que tu captures maintenant restent accessibles aux enfants, petits-enfants et à tous ceux qui voudront en savoir plus plus tard.",
         },
         {
-          title: 'Le tangible perdure',
+          title: 'À garder entre les mains',
           desc: "Conservé numériquement, mais raconté de façon tangible. Transforme la collection en ligne en un magnifique livre photo physique — un souvenir toujours à portée de main.",
         },
       ],
@@ -661,7 +947,7 @@ export const fr = {
       meetingLabel: 'Planifier un entretien',
       meetingTitle: 'Pour les professionnels funéraires',
       meetingDesc:
-        'Tu veux découvrir Remoria pour ton entreprise ? Planifie une présentation sans engagement de 20 minutes.',
+        'Tu veux découvrir Remoria pour ton entreprise ? Planifie une présentation sans engagement de 30 minutes.',
       meetingCta: 'Voir les disponibilités →',
     },
     faqTip: {
@@ -675,7 +961,7 @@ export const fr = {
       naamLabel: 'Nom',
       naamPlaceholder: 'Ton nom complet',
       emailLabel: 'E-mail',
-      emailPlaceholder: 'nom@email.be',
+      emailPlaceholder: 'nom@exemple.com',
       afdelingLabel: 'De quoi s’agit-il ?',
       afdelingOptions: ['Question générale', 'Partenariat (secteur funéraire)', 'Support'],
       berichtLabel: 'Message',
