@@ -637,7 +637,7 @@ export const fr = {
         },
         {
           title: 'Créez un espace mémorial en quelques secondes',
-          desc: "Pour chaque funéraille que vous organisez, vous créez un nouvel espace du souvenir sécurisé — à un prix d'achat fixe, avec un bénéfice fixe par plan.",
+          desc: "Pour chaque funéraille que vous organisez, vous créez un nouvel espace mémorial sécurisé — à un prix d'achat fixe, avec un bénéfice fixe par plan.",
         },
         {
           title: 'La famille prend le relais',
@@ -704,6 +704,73 @@ export const fr = {
       ctaPrimary: 'Devenir partenaire',
       ctaSecondary: 'Nous contacter',
       legal: 'Accord de traitement des données inclus (annexe aux conditions générales)',
+    },
+  },
+
+  partnerSignup: {
+    meta: {
+      title: 'Devenir partenaire Remoria — inscription pour les entreprises funéraires',
+      description:
+        'Inscrivez votre entreprise funéraire comme partenaire Remoria. Nous préparons votre portail partenaire gratuit et vous contactons dans les deux jours ouvrables.',
+    },
+    eyebrow: 'Devenir partenaire',
+    title: 'Inscrivez votre entreprise funéraire',
+    intro:
+      'Remplissez vos coordonnées et nous préparons votre portail partenaire. Gratuit, sans abonnement et sans engagement.',
+    stepsTitle: 'Et ensuite ?',
+    steps: [
+      {
+        title: 'Nous examinons votre demande',
+        text: 'Vous recevez immédiatement une confirmation par e-mail.',
+      },
+      {
+        title: 'Nous vous contactons',
+        text: 'Dans les deux jours ouvrables, pour faire connaissance et répondre à vos questions.',
+      },
+      {
+        title: 'Votre portail est prêt',
+        text: 'Vous recevez une invitation pour vous connecter et pouvez créer tout de suite votre premier espace mémorial.',
+      },
+    ],
+    meetBefore: "Vous préférez d'abord en parler ? ",
+    meetLink: 'Planifiez une présentation sans engagement →',
+    form: {
+      title: 'Coordonnées de votre entreprise',
+      sub: 'Les champs marqués * sont obligatoires.',
+      officeLabel: "Nom de l'entreprise funéraire *",
+      enterpriseLabel: "Numéro d'entreprise *",
+      enterprisePlaceholder: '0123.456.789',
+      contactLabel: 'Personne de contact *',
+      emailLabel: 'E-mail *',
+      emailPlaceholder: 'nom@pompesfunebres.be',
+      phoneLabel: 'Téléphone *',
+      streetLabel: 'Rue et numéro',
+      postalLabel: 'Code postal',
+      cityLabel: 'Commune',
+      countryLabel: 'Pays',
+      countries: { BE: 'Belgique', NL: 'Pays-Bas', LU: 'Luxembourg' },
+      websiteLabel: 'Site web',
+      websitePlaceholder: 'www.pompesfunebres.be',
+      messageLabel: 'Autre chose à nous dire ?',
+      messagePlaceholder: "Par exemple le nombre de funérailles que vous organisez par an, ou quand vous appeler de préférence.",
+      consentBefore: 'Remoria peut utiliser mes coordonnées pour me contacter au sujet du partenariat (voir la ',
+      consentLink: 'déclaration de confidentialité',
+      consentAfter: '). *',
+      submit: "Envoyer l'inscription →",
+      sending: 'Envoi en cours…',
+      successTitle: 'Merci pour votre inscription !',
+      successText: 'Nous avons bien reçu vos coordonnées et vous envoyons une confirmation par e-mail. Nous vous contactons dans les deux jours ouvrables.',
+      errors: {
+        required: 'Ce champ est obligatoire.',
+        invalid_office: 'Indiquez le nom de votre entreprise funéraire.',
+        invalid_enterprise_number: "Indiquez un numéro d'entreprise valide.",
+        invalid_name: 'Indiquez le nom de la personne de contact.',
+        invalid_email: 'Indiquez une adresse e-mail valide.',
+        invalid_phone: 'Indiquez un numéro de téléphone valide.',
+        terms_required: 'Cochez la case pour que nous puissions vous contacter.',
+        rate_limited: 'Vous avez déjà envoyé plusieurs inscriptions. Réessayez plus tard ou écrivez à hello@remoria.eu.',
+        generic: "Une erreur s'est produite. Réessayez ou écrivez à hello@remoria.eu.",
+      },
     },
   },
 

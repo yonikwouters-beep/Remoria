@@ -713,6 +713,73 @@ export const nl = {
     },
   },
 
+  partnerSignup: {
+    meta: {
+      title: 'Word Remoria-partner — aanmelden voor uitvaartondernemingen',
+      description:
+        'Meld je uitvaartonderneming aan als Remoria-partner. We zetten je gratis partnerportaal klaar en nemen binnen twee werkdagen contact op.',
+    },
+    eyebrow: 'Word partner',
+    title: 'Meld je uitvaartonderneming aan',
+    intro:
+      'Vul je gegevens in en wij zetten je partnerportaal klaar. Gratis, zonder abonnement en zonder verplichtingen.',
+    stepsTitle: 'Wat gebeurt er daarna?',
+    steps: [
+      {
+        title: 'We bekijken je aanmelding',
+        text: 'Je krijgt meteen een bevestiging per e-mail.',
+      },
+      {
+        title: 'We nemen contact op',
+        text: 'Binnen twee werkdagen, om kennis te maken en je vragen te beantwoorden.',
+      },
+      {
+        title: 'Je portaal staat klaar',
+        text: 'Je ontvangt een uitnodiging om in te loggen en kan meteen je eerste gedenkplek aanmaken.',
+      },
+    ],
+    meetBefore: 'Liever eerst een gesprek? ',
+    meetLink: 'Plan een vrijblijvende kennismaking →',
+    form: {
+      title: 'Gegevens van je onderneming',
+      sub: 'Velden met * zijn verplicht.',
+      officeLabel: 'Naam van de uitvaartonderneming *',
+      enterpriseLabel: 'Ondernemingsnummer (of KvK-nummer) *',
+      enterprisePlaceholder: '0123.456.789',
+      contactLabel: 'Contactpersoon *',
+      emailLabel: 'E-mail *',
+      emailPlaceholder: 'naam@uitvaartonderneming.be',
+      phoneLabel: 'Telefoon *',
+      streetLabel: 'Straat en nummer',
+      postalLabel: 'Postcode',
+      cityLabel: 'Gemeente',
+      countryLabel: 'Land',
+      countries: { BE: 'België', NL: 'Nederland', LU: 'Luxemburg' },
+      websiteLabel: 'Website',
+      websitePlaceholder: 'www.uitvaartonderneming.be',
+      messageLabel: 'Wil je nog iets kwijt?',
+      messagePlaceholder: 'Bijvoorbeeld hoeveel uitvaarten je per jaar verzorgt, of wanneer we je best bellen.',
+      consentBefore: 'Remoria mag mijn gegevens gebruiken om contact met mij op te nemen over het partnerschap (zie de ',
+      consentLink: 'privacyverklaring',
+      consentAfter: '). *',
+      submit: 'Verstuur aanmelding →',
+      sending: 'Bezig met versturen…',
+      successTitle: 'Bedankt voor je aanmelding!',
+      successText: 'We hebben je gegevens goed ontvangen en sturen je een bevestiging per e-mail. We nemen binnen twee werkdagen contact met je op.',
+      errors: {
+        required: 'Dit veld is verplicht.',
+        invalid_office: 'Vul de naam van je uitvaartonderneming in.',
+        invalid_enterprise_number: 'Vul een geldig ondernemingsnummer in.',
+        invalid_name: 'Vul de naam van de contactpersoon in.',
+        invalid_email: 'Vul een geldig e-mailadres in.',
+        invalid_phone: 'Vul een geldig telefoonnummer in.',
+        terms_required: 'Vink het vakje aan zodat we contact met je mogen opnemen.',
+        rate_limited: 'Je hebt al enkele aanmeldingen verstuurd. Probeer het later opnieuw of mail naar hello@remoria.eu.',
+        generic: 'Er ging iets mis. Probeer het opnieuw of mail naar hello@remoria.eu.',
+      },
+    },
+  },
+
   overOns: {
     meta: {
       title: 'Over Remoria — het verhaal achter de gedenkplekken',

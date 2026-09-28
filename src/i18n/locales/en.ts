@@ -713,6 +713,73 @@ export const en = {
     },
   },
 
+  partnerSignup: {
+    meta: {
+      title: 'Become a Remoria partner — sign-up for funeral homes',
+      description:
+        'Sign up your funeral home as a Remoria partner. We set up your free partner portal and get in touch within two working days.',
+    },
+    eyebrow: 'Become a partner',
+    title: 'Sign up your funeral home',
+    intro:
+      'Fill in your details and we will set up your partner portal. Free, with no subscription and no obligations.',
+    stepsTitle: 'What happens next?',
+    steps: [
+      {
+        title: 'We review your application',
+        text: 'You get a confirmation by email straight away.',
+      },
+      {
+        title: 'We get in touch',
+        text: 'Within two working days, to get to know you and answer your questions.',
+      },
+      {
+        title: 'Your portal is ready',
+        text: 'You receive an invitation to log in and can create your first memorial right away.',
+      },
+    ],
+    meetBefore: 'Prefer to talk first? ',
+    meetLink: 'Book a no-obligation introduction →',
+    form: {
+      title: 'Your company details',
+      sub: 'Fields marked * are required.',
+      officeLabel: 'Name of the funeral home *',
+      enterpriseLabel: 'Company registration number *',
+      enterprisePlaceholder: '0123.456.789',
+      contactLabel: 'Contact person *',
+      emailLabel: 'Email *',
+      emailPlaceholder: 'name@funeralhome.com',
+      phoneLabel: 'Phone *',
+      streetLabel: 'Street and number',
+      postalLabel: 'Postcode',
+      cityLabel: 'City',
+      countryLabel: 'Country',
+      countries: { BE: 'Belgium', NL: 'Netherlands', LU: 'Luxembourg' },
+      websiteLabel: 'Website',
+      websitePlaceholder: 'www.funeralhome.com',
+      messageLabel: 'Anything else?',
+      messagePlaceholder: 'For example how many funerals you arrange per year, or when is the best time to call.',
+      consentBefore: 'Remoria may use my details to contact me about the partnership (see the ',
+      consentLink: 'privacy statement',
+      consentAfter: '). *',
+      submit: 'Send application →',
+      sending: 'Sending…',
+      successTitle: 'Thank you for signing up!',
+      successText: 'We have received your details and are sending you a confirmation by email. We will get in touch within two working days.',
+      errors: {
+        required: 'This field is required.',
+        invalid_office: 'Please enter the name of your funeral home.',
+        invalid_enterprise_number: 'Please enter a valid company registration number.',
+        invalid_name: 'Please enter the name of the contact person.',
+        invalid_email: 'Please enter a valid email address.',
+        invalid_phone: 'Please enter a valid phone number.',
+        terms_required: 'Please tick the box so we may contact you.',
+        rate_limited: 'You have already sent several applications. Please try again later or email hello@remoria.eu.',
+        generic: 'Something went wrong. Please try again or email hello@remoria.eu.',
+      },
+    },
+  },
+
   overOns: {
     meta: {
       title: 'About Remoria — the story behind the memorials',
