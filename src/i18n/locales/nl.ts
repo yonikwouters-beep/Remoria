@@ -76,16 +76,14 @@ export const nl = {
   },
 
   hero: {
-    eyebrow: 'Herinneringen verbinden. Voor altijd.',
     heading: 'Een plek waar herinneringen samenkomen',
     headingLine1: 'Een plek waar',
     headingLine2: 'herinneringen',
     headingLine3: 'samenkomen.',
     subtext:
-      "Na een afscheid raken foto's en verhalen verspreid over telefoons, dozen en gedachten. Remoria brengt ze samen op één veilige, serene plek",
+      "Na een afscheid raken foto's en verhalen verspreid over telefoons, dozen en gedachten. Remoria brengt ze samen op één veilige, serene plek.",
     primaryCta: 'Start een gedenkplek →',
     secondaryCta: 'Bekijk een voorbeeld',
-    trustNote: 'Veilig, besloten en met liefde gemaakt',
   },
 
   features: {
@@ -131,7 +129,7 @@ export const nl = {
     },
     funeral: {
       label: 'Voor de uitvaartsector',
-      heading: 'Nazorg die je kantoor onderscheidt',
+      heading: 'Nazorg die je uitvaartonderneming onderscheidt',
       intro:
         'Bied families een digitale gedenkplek aan als vast onderdeel van je dienstverlening — zonder extra werklast.',
       items: [
@@ -160,30 +158,13 @@ export const nl = {
     startCta: 'Start met dit plan',
   },
 
-  siteNotice: {
-    logoAria: 'Remoria',
-    logoAlt: 'Remoria',
-    title: 'We werken nog aan de website',
-    lead: 'Gedenkplekken kunnen nog niet aangeschaft worden.',
-    imageAlt: 'Voorbeeld van het Remoria portaal',
-    contact:
-      'Heb je vragen of wil je een van de eerste partners zijn? Neem contact op via',
-    unlockLabel: 'Toegangscode',
-    unlockPlaceholder: 'Code',
-    unlockSubmit: 'Doorgaan',
-    unlockError: 'Onjuiste code.',
-  },
 
-  trustBar: {
-    label: 'Vertrouwd door families en uitvaartorganisaties',
-    logosAria: 'Partnerorganisaties',
-  },
 
   mockups: {
     phone: {
       title: '✨ Deel je herinneringen ♡',
       sub: "Upload foto's, video's en audio-opnames om kostbare momenten voor altijd te bewaren en te delen.",
-      uploadCta: 'Upload je Herinneringen',
+      uploadCta: 'Upload je herinneringen',
       drop: 'Sleep herinneringen hierheen of klik om te selecteren',
       formats: 'JPG, PNG, GIF, MP4, MOV, MP3, WAV · max. 500MB per bestand',
       collectionTitle: 'Herinneringencollectie',
@@ -221,36 +202,36 @@ export const nl = {
       stat2Label: 'Communityleden',
       stat3Num: '946',
       stat3Label: 'Herinneringen',
-      stat3LabelFull: 'Gedeelde Herinneringen',
+      stat3LabelFull: 'Gedeelde herinneringen',
       rowsCompact: [
         {
-          photo: '/features/photo-09.png',
+          photo: '/features/photo-09.webp',
           name: 'Jan De Vries',
           meta: '156 leden · 432 herinneringen',
         },
         {
-          photo: '/features/photo-01.png',
+          photo: '/features/photo-01.webp',
           name: 'Maria Jansen',
           meta: '96 leden · 276 herinneringen',
         },
       ],
       rowsFull: [
         {
-          photo: '/features/photo-09.png',
+          photo: '/features/photo-09.webp',
           name: 'Jan De Vries',
           meta: 'Aangemaakt op 15-06-2026',
           members: '156 leden',
           memories: '432 herinneringen',
         },
         {
-          photo: '/features/photo-01.png',
+          photo: '/features/photo-01.webp',
           name: 'Maria Jansen',
           meta: 'Aangemaakt op 02-07-2026',
           members: '96 leden',
           memories: '276 herinneringen',
         },
         {
-          photo: '/features/photo-06.png',
+          photo: '/features/photo-06.webp',
           name: 'Peter Mertens',
           meta: 'Aangemaakt op 28-06-2026',
           members: '203 leden',
@@ -278,7 +259,7 @@ export const nl = {
         title: 'Samen Herinneren',
         duration: '4 maanden actief',
         price: '€85',
-        monthlyPrice: 'eenmalig · ≈ €21,25 per maand',
+        monthlyPrice: 'eenmalig · geen abonnement',
         description:
           "Vier maanden — ruim de tijd om iedereen uit te nodigen en alle foto's en verhalen te verzamelen die anders verloren gaan. De foto's die je anders nooit had gezien, voor één vast bedrag.",
         featured: false,
@@ -417,7 +398,7 @@ export const nl = {
     how: {
       eyebrow: 'Hoe het werkt',
       title: 'Zo creëer je een\nblijvende plek',
-      sub: 'Het opzetten van een digitaal gedenkplek is eenvoudig.',
+      sub: 'Een digitale gedenkplek opzetten is eenvoudig.',
       steps: [
         {
           title: 'Maak in een handomdraai de omgeving aan',
@@ -425,11 +406,11 @@ export const nl = {
         },
         {
           title: 'Nodig je kring uit',
-          text: 'Deel de unieke link via sociale media platformen, of gebruik de persoonlijke QR-code. Deze code kun je bijvoorbeeld ook op het rouwprentje laten drukken, zodat vrienden en familie direct toegang hebben tot de omgeving.',
+          text: 'Deel de unieke link via WhatsApp, e-mail of sociale media, of gebruik de persoonlijke QR-code. Die kun je bijvoorbeeld ook op de rouwkaart laten drukken, zodat vrienden en familie meteen de weg naar de gedenkplek vinden.',
         },
         {
           title: 'Deel, verbind en herinner',
-          text: "Zodra je mensen zijn aangemeld kan iedereen zijn eigen foto's, video's of audiofragmenten uploaden. Via de Community chat of het plaatsen van een eerbetoon ontstaan er gesprekken en komen er verhalen naar boven die je misschien nog nooit gehoord had.",
+          text: "Zodra je dierbaren zich hebben aangemeld, voegt iedereen zijn eigen foto's, video's en audiofragmenten toe. In de Community chat en via de eerbetonen ontstaan gesprekken, en komen verhalen boven die je misschien nog nooit had gehoord.",
         },
       ],
     },
@@ -449,7 +430,7 @@ export const nl = {
         ],
         mock: {
           url: 'app.remoria.eu',
-          title: 'Gedeelde Herinneringen',
+          title: 'Gedeelde herinneringen',
           sub: "Foto's, video's en audio die jullie samen delen",
           add: 'Herinnering toevoegen',
           filterAll: 'Alle',
@@ -601,7 +582,7 @@ export const nl = {
         {
           question: 'Kunnen oudere familieleden ook meedoen?',
           answer:
-            "Ja — dat is precies waarvoor Remoria gebouwd is. Genodigden komen binnen via een eenvoudige link of QR-code, zonder ingewikkelde registratie. Ook wie zelden op een computer zit, kan foto's bekijken en herinneringen delen.",
+            "Ja. Genodigden komen binnen via een link of QR-code en maken een account aan met hun e-mailadres, of loggen in met Google. Daarna is foto's bekijken en herinneringen delen niet moeilijker dan een berichtje sturen. Heeft iemand de eerste keer wat hulp nodig, dan kan een familielid even meekijken.",
         },
         {
           question: 'Wie kan de gedenkplek zien?',
@@ -621,7 +602,7 @@ export const nl = {
         {
           question: "Ben ik mijn foto's kwijt als het plan afloopt?",
           answer:
-            'Nee. Na afloop wordt de gedenkplek gearchiveerd, maar alles blijft nog maandenlang bewaard. Je kunt in die periode alles downloaden of het plan verlengen. Er verdwijnt nooit iets zonder dat je het weet.',
+            'Nee. Na afloop wordt de gedenkplek gearchiveerd, maar alles blijft nog 6 maanden veilig bewaard. Je kunt in die periode alles downloaden of het plan verlengen. Er verdwijnt nooit iets zonder dat je het weet.',
         },
         {
           question: 'Is het te vroeg — of te laat — om een gedenkplek te maken?',
@@ -631,7 +612,7 @@ export const nl = {
         {
           question: 'Kan onze uitvaartondernemer dit voor ons regelen?',
           answer:
-            'Ja. Remoria werkt samen met uitvaartondernemers die de gedenkplek voor jou klaarzetten, zodat jij er geen omkijken naar hebt. Vraag ernaar bij je uitvaartcentrum — of maak er zelf één aan.',
+            'Ja. Remoria werkt samen met uitvaartondernemers die de gedenkplek voor jou klaarzetten, zodat jij er geen omkijken naar hebt. Vraag ernaar bij je uitvaartondernemer — of maak er zelf één aan.',
         },
       ],
     },
@@ -645,8 +626,8 @@ export const nl = {
     },
     hero: {
       eyebrow: 'Remoria voor de uitvaartsector',
-      title: 'Nazorg die families verbindt — en jouw kantoor onderscheidt',
-      body: 'Geef elke familie een digitale gedenkplek als vast onderdeel van je dienstverlening. Waardevolle troost voor hen, een blijvende band met jouw kantoor — zonder extra werklast.',
+      title: 'Nazorg die families verbindt — en jouw onderneming onderscheidt',
+      body: 'Geef elke familie een digitale gedenkplek als vast onderdeel van je dienstverlening. Waardevolle troost voor hen, een blijvende band met jouw onderneming — zonder extra werklast.',
       ctaPrimary: 'Word partner',
       ctaSecondary: 'Plan een demo',
       imageAlt: 'Digitale gedenkplek — lichtgevende boog als symbool van verbinding',
@@ -657,12 +638,12 @@ export const nl = {
       title: 'Zo werkt het',
       steps: [
         {
-          title: 'Meld je kantoor aan',
+          title: 'Meld je onderneming aan',
           desc: 'Registreer via het partnerformulier met je bedrijfsgegevens. Zodra je account actief is, heb je direct toegang tot je eigen professionele omgeving.',
         },
         {
           title: 'Maak een gedenkplek aan in seconden',
-          desc: 'Voor elke uitvaart die je verzorgt, maak je een nieuw, beveiligd domein aan — tegen een vaste inkoopprijs, met een vaste winst per plan.',
+          desc: 'Voor elke uitvaart die je verzorgt, maak je een nieuwe, beveiligde gedenkplek aan — tegen een vaste inkoopprijs, met een vaste winst per plan.',
         },
         {
           title: 'De familie neemt het over',
@@ -698,7 +679,7 @@ export const nl = {
           desc: 'Je koopt elk plan aan tegen een vaste inkoopprijs en bepaalt zelf jouw verkoopprijs. Elk verkocht plan levert een vaste, voorspelbare marge op.',
         },
         {
-          title: 'Één maandfactuur',
+          title: 'Eén maandfactuur',
           desc: 'Geen voorfinanciering of administratie per dossier. Begin elke maand ontvang je één verzamelfactuur voor de voorbije maand.',
         },
       ],
@@ -711,7 +692,7 @@ export const nl = {
       cards: [
         {
           title: 'Een gedeelde mediacollectie',
-          desc: "Één centrale plek voor foto's, video's en audio — ook de beelden die de familie zelf nog nooit zag.",
+          desc: "Eén centrale plek voor foto's, video's en audio — ook de beelden die de familie zelf nog nooit zag.",
         },
         {
           title: 'Een besloten community',
@@ -725,7 +706,7 @@ export const nl = {
     },
     ctaBanner: {
       quote:
-        '"Onderscheid je uitvaartcentrum en bied Remoria aan als blijvende plek voor troost en herinnering."',
+        '"Onderscheid je uitvaartonderneming en bied Remoria aan als blijvende plek voor troost en herinnering."',
       ctaPrimary: 'Word partner',
       ctaSecondary: 'Neem contact op',
       legal: 'Verwerkersovereenkomst inbegrepen (bijlage bij de algemene voorwaarden)',
@@ -773,7 +754,7 @@ export const nl = {
           desc: 'Verhalen die vandaag worden bewaard, zijn de schatten van morgen. Remoria zorgt dat de herinneringen die je nu vastlegt toegankelijk blijven voor kinderen, kleinkinderen en iedereen die later meer wil weten.',
         },
         {
-          title: 'Tastbaar blijft',
+          title: 'Om vast te houden',
           desc: 'Digitaal bewaard, maar tastbaar verteld. Zet de online collectie om in een prachtig, fysiek fotoboek — een aandenken dat altijd bij de hand blijft.',
         },
       ],
@@ -809,7 +790,7 @@ export const nl = {
     hero: {
       eyebrow: 'Contact',
       title: 'Hoe kunnen we helpen?',
-      sub: 'Een vraag over een gedenkplek, hulp nodig bij het verzamelen, of gewoon even aftoetsen of Remoria iets voor jullie is? We horen graag van je.',
+      sub: 'Een vraag over een gedenkplek, hulp nodig bij het verzamelen, of gewoon even polsen of Remoria iets voor jullie is? We horen graag van je.',
       reassure: 'We antwoorden meestal binnen één werkdag',
     },
     info: {
@@ -817,7 +798,7 @@ export const nl = {
       meetingLabel: 'Plan een gesprek',
       meetingTitle: 'Voor uitvaartprofessionals',
       meetingDesc:
-        'Wil je Remoria ontdekken voor je kantoor? Plan een vrijblijvende kennismaking van 20 minuten.',
+        'Wil je Remoria ontdekken voor je uitvaartonderneming? Plan een vrijblijvende kennismaking van 30 minuten.',
       meetingCta: 'Bekijk beschikbaarheid →',
     },
     faqTip: {
@@ -831,7 +812,7 @@ export const nl = {
       naamLabel: 'Naam',
       naamPlaceholder: 'Je volledige naam',
       emailLabel: 'E-mail',
-      emailPlaceholder: 'naam@email.be',
+      emailPlaceholder: 'naam@voorbeeld.com',
       afdelingLabel: 'Waarover gaat je vraag?',
       afdelingOptions: ['Algemene vraag', 'Partnerschap (uitvaartsector)', 'Support'],
       berichtLabel: 'Bericht',

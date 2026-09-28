@@ -1,5 +1,4 @@
 ---
-import SiteNotice from '../components/SiteNotice.astro';
 import { getLocale, localizePath, stripLocalePrefix, locales, t } from '../i18n/utils';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
@@ -16,6 +15,10 @@ const {
 
 const pathname = stripLocalePrefix(Astro.url.pathname);
 const pathForLocale = pathname === '/' ? '' : pathname.replace(/^\//, '');
+const siteUrl = Astro.site ?? Astro.url.origin;
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const ogImage = new URL(`/og-${locale}.jpg`, siteUrl).href;
+const ogLocale = { nl: 'nl_BE', en: 'en_GB', fr: 'fr_BE' }[locale];
 ---
 
 <!doctype html>
@@ -28,18 +31,31 @@ const pathForLocale = pathname === '/' ? '' : pathname.replace(/^\//, '');
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Remoria" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta name="twitter:card" content="summary_large_image" />
 
     {locales.map((loc) => (
       <link
         rel="alternate"
         hreflang={loc}
-        href={new URL(getRelativeLocaleUrl(loc, pathForLocale || undefined), Astro.site ?? Astro.url.origin).href}
+        href={new URL(getRelativeLocaleUrl(loc, pathForLocale || undefined), siteUrl).href}
       />
     ))}
     <link
       rel="alternate"
       hreflang="x-default"
-      href={new URL(localizePath('nl', pathname), Astro.site ?? Astro.url.origin).href}
+      href={new URL(localizePath('nl', pathname), siteUrl).href}
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,7 +67,6 @@ const pathForLocale = pathname === '/' ? '' : pathname.replace(/^\//, '');
 
   </head>
   <body>
-    <SiteNotice />
     <div class="site-wrap">
       <slot />
     </div>

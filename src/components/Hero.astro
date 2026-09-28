@@ -12,20 +12,14 @@ const heading =
   t(locale, headingKey) !== headingKey
     ? t(locale, headingKey)
     : [t(locale, 'hero.headingLine1'), t(locale, 'hero.headingLine2'), t(locale, 'hero.headingLine3')].join(' ');
-
-const trustNoteKey = 'hero.trustNote';
-const trustNoteRaw = t(locale, trustNoteKey);
-const trustNote = trustNoteRaw !== trustNoteKey ? trustNoteRaw : null;
 ---
 
 <section class="hero">
-  <div class="hero__bg" style="background-image: url('/hero-visual.png')" aria-hidden="true"></div>
+  <div class="hero__bg" style="background-image: url('/hero-visual.webp')" aria-hidden="true"></div>
   <div class="hero__gradient" aria-hidden="true"></div>
 
   <div class="hero__inner">
     <div class="hero__content">
-      <p class="hero__eyebrow">{t(locale, 'hero.eyebrow')}</p>
-
       <p class="hero__brand">Remoria</p>
       <h1 class="hero__heading">{heading}</h1>
 
@@ -47,16 +41,6 @@ const trustNote = trustNoteRaw !== trustNoteKey ? trustNoteRaw : null;
           {t(locale, 'hero.secondaryCta')}
         </a>
       </div>
-
-      {trustNote && (
-        <div class="hero__trust">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="11" width="18" height="11" rx="2"/>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-          </svg>
-          {trustNote}
-        </div>
-      )}
     </div>
   </div>
 </section>
@@ -107,15 +91,6 @@ const trustNote = trustNoteRaw !== trustNoteKey ? trustNoteRaw : null;
   .hero__content {
     max-width: 520px;
     min-width: 0;
-  }
-
-  .hero__eyebrow {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: #B8934A;
-    margin-bottom: 20px;
   }
 
   .hero__brand {
@@ -200,15 +175,6 @@ const trustNote = trustNoteRaw !== trustNoteKey ? trustNoteRaw : null;
     background: #1C2A43;
     color: #fff;
     flex-shrink: 0;
-  }
-
-  .hero__trust {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 24px;
-    font-size: 13px;
-    color: #A79C87;
   }
 
   @media (max-width: 900px) {
