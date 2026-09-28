@@ -12,6 +12,7 @@ export interface Props {
   description: string;
   featured?: boolean;
   startUrl?: string;
+  credits?: string;
 }
 
 const {
@@ -24,6 +25,7 @@ const {
   description,
   featured = false,
   startUrl = '#',
+  credits,
 } = Astro.props;
 ---
 
@@ -45,6 +47,12 @@ const {
   <p class="pricing-card__price">{price}</p>
   {monthlyPrice && <p class="pricing-card__monthly">{monthlyPrice}</p>}
   <p class="pricing-card__desc">{description}</p>
+  {credits && (
+    <p class="pricing-card__credits">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17l.8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8z"/></svg>
+      <span set:html={credits} />
+    </p>
+  )}
 
   <a
     href={startUrl}
@@ -55,6 +63,25 @@ const {
 </article>
 
 <style>
+  .pricing-card__credits {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: center;
+    margin: 0 0 20px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: #EFE6D5;
+    color: #7A5E24;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+  }
+
+  .pricing-card__credits :global(strong) {
+    font-weight: 800;
+  }
+
   .pricing-card {
     position: relative;
     display: flex;

@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import CeremonyKit from '../components/CeremonyKit.astro';
+import FamilyMessages from '../components/FamilyMessages.astro';
 import PartnerDashboardMockup from '../components/PartnerDashboardMockup.astro';
 import { getLocale, t, tp, localizePath } from '../i18n/utils';
 
@@ -146,6 +148,10 @@ const familyCardTints = ['beige', 'sage', 'rose'] as const;
 
     </div>
   </section>
+
+  <CeremonyKit audience="funeral" />
+
+  <FamilyMessages />
 
   <!-- ══════════════════════════════════════════════
        4. PARTNERMODEL
