@@ -76,7 +76,6 @@ export const en = {
   },
 
   hero: {
-    eyebrow: 'Memories connect. Forever.',
     heading: 'A place where memories come together',
     headingLine1: 'A place where',
     headingLine2: 'memories',
@@ -85,7 +84,6 @@ export const en = {
       'After a farewell, photos and stories scatter across phones, boxes and thoughts. Remoria brings them together in one safe, serene place.',
     primaryCta: 'Start a memorial →',
     secondaryCta: 'View an example',
-    trustNote: 'Safe, private and made with love',
   },
 
   features: {
@@ -160,30 +158,13 @@ export const en = {
     startCta: 'Start with this plan',
   },
 
-  siteNotice: {
-    logoAria: 'Remoria',
-    logoAlt: 'Remoria',
-    title: 'We are still working on the website',
-    lead: 'Memorial spaces cannot be purchased yet.',
-    imageAlt: 'Preview of the Remoria portal',
-    contact:
-      'Do you have questions or would you like to be one of our first partners? Get in touch at',
-    unlockLabel: 'Access code',
-    unlockPlaceholder: 'Code',
-    unlockSubmit: 'Continue',
-    unlockError: 'Incorrect code.',
-  },
 
-  trustBar: {
-    label: 'Trusted by families and funeral organisations',
-    logosAria: 'Partner organisations',
-  },
 
   mockups: {
     phone: {
       title: '✨ Share your Memories ♡',
       sub: 'Upload photos, videos and audio recordings to keep precious moments forever and share them.',
-      uploadCta: 'Upload your Memories',
+      uploadCta: 'Upload your memories',
       drop: 'Drag memories here or click to select',
       formats: 'JPG, PNG, GIF, MP4, MOV, MP3, WAV · max. 500MB per file',
       collectionTitle: 'Memory collection',
@@ -224,33 +205,33 @@ export const en = {
       stat3LabelFull: 'Shared memories',
       rowsCompact: [
         {
-          photo: '/features/photo-09.png',
+          photo: '/features/photo-09.webp',
           name: 'Jan De Vries',
           meta: '156 members · 432 memories',
         },
         {
-          photo: '/features/photo-01.png',
+          photo: '/features/photo-01.webp',
           name: 'Maria Jansen',
           meta: '96 members · 276 memories',
         },
       ],
       rowsFull: [
         {
-          photo: '/features/photo-09.png',
+          photo: '/features/photo-09.webp',
           name: 'Jan De Vries',
           meta: 'Created on 15-06-2026',
           members: '156 members',
           memories: '432 memories',
         },
         {
-          photo: '/features/photo-01.png',
+          photo: '/features/photo-01.webp',
           name: 'Maria Jansen',
           meta: 'Created on 02-07-2026',
           members: '96 members',
           memories: '276 memories',
         },
         {
-          photo: '/features/photo-06.png',
+          photo: '/features/photo-06.webp',
           name: 'Peter Mertens',
           meta: 'Created on 28-06-2026',
           members: '203 members',
@@ -278,7 +259,7 @@ export const en = {
         title: 'Remember Together',
         duration: 'Active for 4 months',
         price: '€85',
-        monthlyPrice: 'one-time · ≈ €21.25 per month',
+        monthlyPrice: 'one-time · no subscription',
         description:
           'Four months — plenty of time to invite everyone and gather all the photos and stories that would otherwise be lost. The photos you would never have seen, for one fixed amount.',
         featured: false,
@@ -425,7 +406,7 @@ export const en = {
         },
         {
           title: 'Invite your circle',
-          text: 'Share the unique link via social media platforms, or use the personal QR code. You can also have this code printed on the memorial card, so friends and family have immediate access.',
+          text: 'Share the unique link via WhatsApp, email or social media, or use the personal QR code. You can also have it printed on the funeral card, so friends and family can find the memorial straight away.',
         },
         {
           title: 'Share, connect and remember',
@@ -449,7 +430,7 @@ export const en = {
         ],
         mock: {
           url: 'app.remoria.eu',
-          title: 'Shared Memories',
+          title: 'Shared memories',
           sub: 'Photos, videos and audio you share together',
           add: 'Add a memory',
           filterAll: 'All',
@@ -601,7 +582,7 @@ export const en = {
         {
           question: 'Can older family members take part too?',
           answer:
-            'Yes — that is exactly what Remoria is built for. Guests enter via a simple link or QR code, without complicated registration. Even those who rarely use a computer can view photos and share memories.',
+            'Yes. Guests arrive via a link or QR code and create an account with their email address, or sign in with Google. After that, viewing photos and sharing memories is no harder than sending a text. If someone needs a hand the first time, a family member can help them get started.',
         },
         {
           question: 'Who can see the memorial?',
@@ -621,7 +602,7 @@ export const en = {
         {
           question: 'Will I lose my photos when the plan expires?',
           answer:
-            'No. After expiry the memorial is archived, but everything remains stored for months. During that period you can download everything or renew the plan. Nothing ever disappears without you knowing.',
+            'No. After expiry the memorial is archived, but everything remains safely stored for 6 more months. During that period you can download everything or renew the plan. Nothing ever disappears without you knowing.',
         },
         {
           question: 'Is it too early — or too late — to create a memorial?',
@@ -662,7 +643,7 @@ export const en = {
         },
         {
           title: 'Create a memorial in seconds',
-          desc: 'For every funeral you arrange, you create a new, secured domain — at a fixed purchase price, with a fixed profit per plan.',
+          desc: 'For every funeral you arrange, you create a new, secure memorial — at a fixed purchase price, with a fixed profit per plan.',
         },
         {
           title: 'The family takes it from there',
@@ -732,6 +713,73 @@ export const en = {
     },
   },
 
+  partnerSignup: {
+    meta: {
+      title: 'Become a Remoria partner — sign-up for funeral homes',
+      description:
+        'Sign up your funeral home as a Remoria partner. We set up your free partner portal and get in touch within two working days.',
+    },
+    eyebrow: 'Become a partner',
+    title: 'Sign up your funeral home',
+    intro:
+      'Fill in your details and we will set up your partner portal. Free, with no subscription and no obligations.',
+    stepsTitle: 'What happens next?',
+    steps: [
+      {
+        title: 'We review your application',
+        text: 'You get a confirmation by email straight away.',
+      },
+      {
+        title: 'We get in touch',
+        text: 'Within two working days, to get to know you and answer your questions.',
+      },
+      {
+        title: 'Your portal is ready',
+        text: 'You receive an invitation to log in and can create your first memorial right away.',
+      },
+    ],
+    meetBefore: 'Prefer to talk first? ',
+    meetLink: 'Book a no-obligation introduction →',
+    form: {
+      title: 'Your company details',
+      sub: 'Fields marked * are required.',
+      officeLabel: 'Name of the funeral home *',
+      enterpriseLabel: 'Company registration number *',
+      enterprisePlaceholder: '0123.456.789',
+      contactLabel: 'Contact person *',
+      emailLabel: 'Email *',
+      emailPlaceholder: 'name@funeralhome.com',
+      phoneLabel: 'Phone *',
+      streetLabel: 'Street and number',
+      postalLabel: 'Postcode',
+      cityLabel: 'City',
+      countryLabel: 'Country',
+      countries: { BE: 'Belgium', NL: 'Netherlands', LU: 'Luxembourg' },
+      websiteLabel: 'Website',
+      websitePlaceholder: 'www.funeralhome.com',
+      messageLabel: 'Anything else?',
+      messagePlaceholder: 'For example how many funerals you arrange per year, or when is the best time to call.',
+      consentBefore: 'Remoria may use my details to contact me about the partnership (see the ',
+      consentLink: 'privacy statement',
+      consentAfter: '). *',
+      submit: 'Send application →',
+      sending: 'Sending…',
+      successTitle: 'Thank you for signing up!',
+      successText: 'We have received your details and are sending you a confirmation by email. We will get in touch within two working days.',
+      errors: {
+        required: 'This field is required.',
+        invalid_office: 'Please enter the name of your funeral home.',
+        invalid_enterprise_number: 'Please enter a valid company registration number.',
+        invalid_name: 'Please enter the name of the contact person.',
+        invalid_email: 'Please enter a valid email address.',
+        invalid_phone: 'Please enter a valid phone number.',
+        terms_required: 'Please tick the box so we may contact you.',
+        rate_limited: 'You have already sent several applications. Please try again later or email hello@remoria.eu.',
+        generic: 'Something went wrong. Please try again or email hello@remoria.eu.',
+      },
+    },
+  },
+
   overOns: {
     meta: {
       title: 'About Remoria — the story behind the memorials',
@@ -773,7 +821,7 @@ export const en = {
           desc: 'Stories preserved today are the treasures of tomorrow. Remoria ensures that the memories you capture now remain accessible to children, grandchildren and everyone who wants to know more later.',
         },
         {
-          title: 'Tangible endures',
+          title: 'Something to hold',
           desc: 'Preserved digitally, but told tangibly. Turn the online collection into a beautiful, physical photo book — a keepsake that always stays within reach.',
         },
       ],
@@ -817,7 +865,7 @@ export const en = {
       meetingLabel: 'Book a call',
       meetingTitle: 'For funeral professionals',
       meetingDesc:
-        'Want to explore Remoria for your funeral home? Book a no-obligation 20-minute introduction.',
+        'Want to explore Remoria for your funeral home? Book a no-obligation 30-minute introduction.',
       meetingCta: 'View availability →',
     },
     faqTip: {
