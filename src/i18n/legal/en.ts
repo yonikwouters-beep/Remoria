@@ -6,7 +6,7 @@ export const privacyEn: LegalDoc = {
     "How Remoria handles your personal data: what we process, why, for how long, and the rights you have — written to be clear even without a legal background.",
   title: "Privacy Policy",
   brand: "Remoria",
-  updated: "Last updated on 23 July 2026",
+  updated: "Last updated on 28 September 2026",
   intro:
     "Remoria is built for something deeply personal: the memories of those you hold dear. Handling your data with care is therefore not an afterthought, but a foundation. In this policy you can read which data we process, why, for how long, and which rights you have. We've written it so you can understand it even without a legal background.",
   sections: [
@@ -160,7 +160,11 @@ export const privacyEn: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "Remoria only uses cookies and similar techniques that are necessary to make the website and the platform work, such as login sessions and language preferences. No consent is required for these essential cookies. Should we wish to use analytical or other non-essential cookies in the future, we will first ask for your consent and update this policy.",
+          text: "Remoria only uses cookies and similar techniques that are necessary to make the website and the platform work, such as login sessions, your language preference and your cookie choice itself. No consent is required for these necessary cookies. We do not use analytics, advertising or tracking cookies. The website's fonts are served by ourselves, so no data goes to third parties for them.",
+        },
+        {
+          type: "p",
+          text: "On the contact page you can schedule a call through the Cal.com calendar. Cal.com is an external service that may set its own cookies, so we only load that calendar after you give your consent. You can change your choice at any time via \"Cookie preferences\" at the bottom of every page.",
         },
       ],
     },

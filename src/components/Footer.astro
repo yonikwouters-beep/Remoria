@@ -124,6 +124,11 @@ const locale = getLocale(Astro.currentLocale);
           target="_blank"
           rel="noopener noreferrer"
         >{t(locale, 'footer.affiliate')}</a>
+        <button
+          type="button"
+          class="footer__legal-link footer__legal-button"
+          data-cookie-settings
+        >{t(locale, 'footer.cookieSettings')}</button>
       </nav>
     </div>
 
@@ -344,7 +349,8 @@ const locale = getLocale(Astro.currentLocale);
 
   .footer__legal {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 8px 20px;
   }
 
   .footer__legal-link {
@@ -353,6 +359,13 @@ const locale = getLocale(Astro.currentLocale);
     color: rgba(255, 255, 255, 0.42);
     text-decoration: none;
     transition: color 0.16s ease;
+  }
+
+  .footer__legal-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
   }
 
   .footer__legal-link:hover {

@@ -9,7 +9,7 @@ export const privacyNl: LegalDoc = {
     "Lees hoe Remoria met jouw persoonsgegevens omgaat: welke gegevens we verwerken, waarom, hoe lang en welke rechten je hebt onder de AVG.",
   title: "Privacyverklaring",
   brand: "Remoria",
-  updated: "Laatst bijgewerkt op 23 juli 2026",
+  updated: "Laatst bijgewerkt op 28 september 2026",
   intro:
     "Remoria is gebouwd voor iets heel persoonlijks: de herinneringen aan wie je dierbaar is. Zorgvuldig omgaan met jouw gegevens is daarom geen bijzaak, maar een fundament. In deze verklaring lees je welke gegevens we verwerken, waarom, hoe lang, en welke rechten je hebt. We hebben ze zo geschreven dat je ze ook zonder juridische achtergrond kunt begrijpen.",
   sections: [
@@ -163,7 +163,11 @@ export const privacyNl: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "Remoria gebruikt enkel cookies en vergelijkbare technieken die noodzakelijk zijn om de website en het platform te laten werken, zoals inlogsessies en taalvoorkeuren. Voor deze essentiële cookies is geen toestemming vereist. Zouden we in de toekomst analytische of andere niet-essentiële cookies willen gebruiken, dan vragen we daarvoor eerst je toestemming en werken we deze verklaring bij.",
+          text: "Remoria gebruikt enkel cookies en vergelijkbare technieken die noodzakelijk zijn om de website en het platform te laten werken, zoals inlogsessies, je taalvoorkeur en je cookiekeuze zelf. Voor deze noodzakelijke cookies is geen toestemming vereist. We gebruiken geen analytische, advertentie- of trackingcookies. De lettertypes van de website worden door onszelf aangeboden, zodat daarvoor geen gegevens naar derden gaan.",
+        },
+        {
+          type: "p",
+          text: "Op de contactpagina kun je een gesprek inplannen via de agenda van Cal.com. Cal.com is een externe dienst die eigen cookies kan plaatsen; we laden die agenda daarom pas nadat je daarvoor toestemming geeft. Je kunt je keuze op elk moment wijzigen via \"Cookievoorkeuren\" onderaan elke pagina.",
         },
       ],
     },
