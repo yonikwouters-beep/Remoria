@@ -241,6 +241,91 @@ export const nl = {
     },
   },
 
+  ceremonyKit: {
+    eyebrow: 'Ceremoniekit · Voor de afscheidsdienst',
+    title: 'Scan en deel je herinnering',
+    body: {
+      family:
+        'Drukklare affiches, tafelkaartjes en beelden met de QR-code van de gedenkplek. Gasten scannen en delen meteen hun herinnering aan jullie dierbare.',
+      funeral:
+        'Maak voor elke afscheidsdienst in een paar klikken affiches, tafelkaartjes en beelden met de QR-code van de gedenkplek, met het logo van jouw onderneming erop. Gasten scannen en delen meteen hun herinnering.',
+    },
+    points: {
+      family: [
+        'Drie stijlen: Klassiek, Sereen en Puur',
+        'In het Nederlands, Frans of Engels, met een eigen zin bij de QR-code',
+        'Optioneel met 3 mm afloop als een drukkerij de affiche op maat snijdt',
+        'Open voor gasten rond de ceremonie: 3, 7 of 14 dagen krijgt wie scant meteen toegang, zonder dat je elke aanvraag moet goedkeuren',
+      ],
+      funeral: [
+        'Drie stijlen: Klassiek, Sereen en Puur',
+        'In het Nederlands, Frans of Engels, met een eigen zin bij de QR-code',
+        'Jouw eigen logo erop, optioneel met 3 mm afloop voor de drukkerij',
+        'Open voor gasten rond de ceremonie: 3, 7 of 14 dagen krijgt wie scant meteen toegang, zonder dat elke aanvraag goedgekeurd moet worden',
+      ],
+    },
+    formats: [
+      { name: 'Affiche A3', sub: 'PDF · 29,7 × 42 cm' },
+      { name: 'Affiche A4', sub: 'PDF · 21 × 29,7 cm' },
+      { name: 'Tafelkaartje A6', sub: 'PDF · 10,5 × 14,8 cm' },
+      { name: 'Digitaal staand', sub: 'PNG · voor WhatsApp of rouwkaart' },
+      { name: 'Digitaal scherm', sub: 'PNG · 1920 × 1080 voor een scherm' },
+    ],
+    posterKicker: 'In liefdevolle herinnering',
+    posterMessage: 'Scan en deel je herinnering aan Marie',
+  },
+
+  familyMessages: {
+    eyebrow: 'Berichten · Familie en uitvaartonderneming',
+    title: 'Eenvoudig contact met de familie',
+    body: "Stel de familie een vraag of vraag foto's voor de afscheidsdienst, rechtstreeks vanuit je partnerportaal. De familie antwoordt vanuit de gedenkplek en stuurt de foto's mee die ze daar al verzameld heeft.",
+    points: [
+      {
+        title: 'Eén privégesprek per gedenkplek',
+        text: 'Enkel de beheerders van de gedenkplek en jouw team zien het gesprek. Gasten zien dit niet.',
+      },
+      {
+        title: "Foto's in volle kwaliteit",
+        text: "De familie stuurt foto's rechtstreeks uit de gedenkplek door, voor de diavoorstelling of de rouwkaart. Je downloadt ze per bericht of alles tegelijk als ZIP.",
+      },
+      {
+        title: 'Alles op één plek',
+        text: "Geen losse mails of WhatsApp-berichten meer: vragen, afspraken en foto's staan samen bij de gedenkplek.",
+      },
+      {
+        title: 'Niets missen',
+        text: 'Nieuwe berichten verschijnen meteen, met een melding in het portaal en hoogstens één mail per uur per gesprek.',
+      },
+    ],
+    mock: {
+      header: 'Familie van Marie Peeters',
+      private: 'Privégesprek · gasten zien dit niet',
+      question: "Mogen we een paar foto's ontvangen voor de diavoorstelling tijdens de afscheidsdienst?",
+      answer: "Dit zijn de foto's voor de diavoorstelling, de eerste mag op de rouwkaart.",
+      download: "Alle foto's (12) · Download (ZIP)",
+    },
+  },
+
+  aiWallet: {
+    eyebrow: 'AI-wallet',
+    title: "Geef oude foto's een nieuw leven",
+    body: "Elke gedenkplek heeft een eigen AI-wallet. Met je credits maak je foto's scherper, kleur je zwart-witfoto's in, herstel je beschadigde afdrukken of maak je er een 3D-beeld van.",
+    tools: [
+      { title: 'Scherper maken', cost: '1 credit per foto', text: "Meer detail op scherm en in het fotoboek, ook voor oude of kleine foto's." },
+      { title: 'Inkleuren', cost: '1 credit per foto', text: "Zwart-wit- en sepiafoto's krijgen weer kleur. Kleurenfoto's worden overgeslagen en niet aangerekend." },
+      { title: 'Herstellen', cost: '2 credits per foto', text: 'Krassen, vlekken en vervaging wegwerken op oude afdrukken.' },
+      { title: '3D-effect', cost: '3 credits per foto', text: 'Een bewegend dieptebeeld van de foto, alsof je er even in kan stappen.' },
+    ],
+    plans: [
+      { credits: '1000', label: 'credits bij Een Blijvende Herinnering' },
+      { credits: '500', label: 'credits bij Samen Koesteren' },
+      { credits: '10', label: 'credits om te proberen bij Samen Herinneren' },
+    ],
+    packsIntro: 'Extra credits nodig? Vul je wallet aan per gedenkplek:',
+    packs: ['100 voor €8', '300 voor €15', '500 voor €20', '1000 voor €35'],
+    packsNote: 'incl. btw',
+  },
+
   prijzen: {
     meta: {
       title: 'Prijzen — Remoria',
@@ -251,7 +336,7 @@ export const nl = {
       eyebrow: 'Prijzen',
       title: 'Kies het plan dat bij jullie past',
       sub: 'Je betaalt één keer, voor de gedenkplek zelf. Familie en vrienden uitnodigen en laten bijdragen is altijd volledig kosteloos.',
-      note: 'Elk plan bevat álle functies — alleen de looptijd verschilt.',
+      note: 'Elk plan bevat álle functies — alleen de looptijd en het aantal AI-credits verschillen.',
     },
     plans: [
       {
@@ -262,6 +347,7 @@ export const nl = {
         monthlyPrice: 'eenmalig · geen abonnement',
         description:
           "Vier maanden — ruim de tijd om iedereen uit te nodigen en alle foto's en verhalen te verzamelen die anders verloren gaan. De foto's die je anders nooit had gezien, voor één vast bedrag.",
+        credits: '<strong>10</strong> AI-credits om te proberen',
         featured: false,
       },
       {
@@ -272,6 +358,7 @@ export const nl = {
         monthlyPrice: 'eenmalig · ≈ €10,75 per maand',
         description:
           'Een vol jaar om te verzamelen én terug te keren: op de verjaardag, de sterfdag, de dagen die er zo toe doen. Eén heel jaar samen herdenken, met de hele familie.',
+        credits: '<strong>500</strong> AI-credits inbegrepen',
         featured: true,
       },
       {
@@ -282,6 +369,7 @@ export const nl = {
         monthlyPrice: 'eenmalig · ≈ €6,64 per maand',
         description:
           'Drie jaar rust: de gedenkplek blijft bestaan en groeit met jullie mee — voor wie er vandaag is, en voor wie later meer wil weten.',
+        credits: '<strong>1000</strong> AI-credits inbegrepen',
         featured: false,
       },
     ],
@@ -342,7 +430,7 @@ export const nl = {
         {
           question: 'Is er verschil in functies tussen de plannen?',
           answer:
-            'Nee — elk plan bevat alles: de Mediacollectie, de Community chat, de eerbetonen en de mogelijkheid om een fotoboek samen te stellen. Het enige verschil is hoe lang de gedenkplek actief blijft.',
+            'Nee — elk plan bevat alles: de Mediacollectie, de Community chat, de eerbetonen en de mogelijkheid om een fotoboek samen te stellen. Het verschil zit in hoe lang de gedenkplek actief blijft en hoeveel AI-credits erbij zitten: 10 om te proberen, 500 bij Samen Koesteren en 1000 bij Een Blijvende Herinnering.',
         },
         {
           question: 'Hoe werkt de 14-dagen-garantie?',

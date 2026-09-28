@@ -241,6 +241,91 @@ export const en = {
     },
   },
 
+  ceremonyKit: {
+    eyebrow: 'Ceremony kit · For the farewell service',
+    title: 'Scan and share your memory',
+    body: {
+      family:
+        "Print-ready posters, table cards and images with the memorial's QR code. Guests scan and share their memory of your loved one right away.",
+      funeral:
+        "Create posters, table cards and images with the memorial's QR code for every farewell service in a few clicks, with your funeral home's logo on them. Guests scan and share their memory right away.",
+    },
+    points: {
+      family: [
+        'Three styles: Classic, Serene and Pure',
+        'In Dutch, French or English, with your own line next to the QR code',
+        'Optional 3 mm bleed if a print shop trims the poster to size',
+        'Open to guests around the ceremony: for 3, 7 or 14 days anyone who scans gets access right away, without you approving each request',
+      ],
+      funeral: [
+        'Three styles: Classic, Serene and Pure',
+        'In Dutch, French or English, with your own line next to the QR code',
+        'Your own logo on it, with optional 3 mm bleed for the print shop',
+        'Open to guests around the ceremony: for 3, 7 or 14 days anyone who scans gets access right away, without each request needing approval',
+      ],
+    },
+    formats: [
+      { name: 'Poster A3', sub: 'PDF · 29.7 × 42 cm' },
+      { name: 'Poster A4', sub: 'PDF · 21 × 29.7 cm' },
+      { name: 'Table card A6', sub: 'PDF · 10.5 × 14.8 cm' },
+      { name: 'Digital portrait', sub: 'PNG · for WhatsApp or a death notice' },
+      { name: 'Digital screen', sub: 'PNG · 1920 × 1080 for a screen' },
+    ],
+    posterKicker: 'In loving memory',
+    posterMessage: 'Scan and share your memory of Marie',
+  },
+
+  familyMessages: {
+    eyebrow: 'Messages · Family and funeral home',
+    title: 'Easy contact with the family',
+    body: "Ask the family a question or request photos for the farewell service, straight from your partner portal. The family replies from the memorial and sends along the photos already collected there.",
+    points: [
+      {
+        title: 'One private conversation per memorial',
+        text: "Only the memorial's administrators and your team see the conversation. Guests can't see it.",
+      },
+      {
+        title: 'Photos in full quality',
+        text: 'The family forwards photos straight from the memorial, for the slideshow or the memorial card. You download them per message or all at once as a ZIP.',
+      },
+      {
+        title: 'Everything in one place',
+        text: 'No more scattered emails or WhatsApp messages: questions, arrangements and photos sit together with the memorial.',
+      },
+      {
+        title: 'Never miss a thing',
+        text: 'New messages appear instantly, with a notification in the portal and at most one email per hour per conversation.',
+      },
+    ],
+    mock: {
+      header: 'Family of Marie Peeters',
+      private: "Private conversation · guests can't see this",
+      question: 'Could we receive a few photos for the slideshow at the farewell service?',
+      answer: 'These are the photos for the slideshow; the first one can go on the memorial card.',
+      download: 'All photos (12) · Download (ZIP)',
+    },
+  },
+
+  aiWallet: {
+    eyebrow: 'AI wallet',
+    title: 'Give old photos a new life',
+    body: 'Every memorial has its own AI wallet. With your credits you make photos sharper, colorize black-and-white photos, restore damaged prints or turn them into a 3D image.',
+    tools: [
+      { title: 'Make sharper', cost: '1 credit per photo', text: 'More detail on screen and in the photo book, even for old or small photos.' },
+      { title: 'Colorize', cost: '1 credit per photo', text: 'Black-and-white and sepia photos get their colour back. Colour photos are skipped and not charged.' },
+      { title: 'Restore', cost: '2 credits per photo', text: 'Remove scratches, stains and fading from old prints.' },
+      { title: '3D effect', cost: '3 credits per photo', text: 'A moving depth view of the photo, as if you could step into it for a moment.' },
+    ],
+    plans: [
+      { credits: '1000', label: 'credits with A Lasting Memory' },
+      { credits: '500', label: 'credits with Cherish Together' },
+      { credits: '10', label: 'credits to try with Remember Together' },
+    ],
+    packsIntro: 'Need more credits? Top up your wallet per memorial:',
+    packs: ['100 for €8', '300 for €15', '500 for €20', '1000 for €35'],
+    packsNote: 'incl. VAT',
+  },
+
   prijzen: {
     meta: {
       title: 'Pricing — Remoria',
@@ -251,7 +336,7 @@ export const en = {
       eyebrow: 'Pricing',
       title: 'Choose the plan that suits you',
       sub: 'You pay once, for the memorial itself. Inviting family and friends and letting them contribute is always completely free.',
-      note: 'Every plan includes all features — only the duration differs.',
+      note: 'Every plan includes all features — only the duration and the number of AI credits differ.',
     },
     plans: [
       {
@@ -262,6 +347,7 @@ export const en = {
         monthlyPrice: 'one-time · no subscription',
         description:
           'Four months — plenty of time to invite everyone and gather all the photos and stories that would otherwise be lost. The photos you would never have seen, for one fixed amount.',
+        credits: '<strong>10</strong> AI credits to try',
         featured: false,
       },
       {
@@ -272,6 +358,7 @@ export const en = {
         monthlyPrice: 'one-time · ≈ €10.75 per month',
         description:
           'A full year to collect and return: on birthdays, anniversaries, the days that matter most. One whole year of remembering together, with the whole family.',
+        credits: '<strong>500</strong> AI credits included',
         featured: true,
       },
       {
@@ -282,6 +369,7 @@ export const en = {
         monthlyPrice: 'one-time · ≈ €6.64 per month',
         description:
           'Three years of peace: the memorial remains and grows with you — for those who are here today, and for those who want to know more later.',
+        credits: '<strong>1000</strong> AI credits included',
         featured: false,
       },
     ],
@@ -342,7 +430,7 @@ export const en = {
         {
           question: 'Is there a difference in features between plans?',
           answer:
-            'No — every plan includes everything: the Media collection, the Community chat, the tributes and the ability to compile a photo book. The only difference is how long the memorial remains active.',
+            'No — every plan includes everything: the Media collection, the Community chat, the tributes and the ability to compile a photo book. The difference is how long the memorial remains active and how many AI credits come with it: 10 to try, 500 with Cherish Together and 1000 with A Lasting Memory.',
         },
         {
           question: 'How does the 14-day guarantee work?',

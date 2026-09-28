@@ -235,6 +235,91 @@ export const fr = {
     },
   },
 
+  ceremonyKit: {
+    eyebrow: 'Kit cérémonie · Pour la cérémonie d’adieu',
+    title: 'Scannez et partagez votre souvenir',
+    body: {
+      family:
+        'Affiches, cartes de table et visuels prêts à imprimer avec le code QR de l’espace mémorial. Les invités scannent et partagent aussitôt leur souvenir de votre proche.',
+      funeral:
+        'Créez en quelques clics, pour chaque cérémonie, des affiches, cartes de table et visuels avec le code QR de l’espace mémorial, avec le logo de votre maison funéraire. Les invités scannent et partagent aussitôt leur souvenir.',
+    },
+    points: {
+      family: [
+        'Trois styles : Classique, Serein et Épuré',
+        'En néerlandais, français ou anglais, avec votre propre phrase près du code QR',
+        'Fond perdu de 3 mm en option si un imprimeur coupe l’affiche sur mesure',
+        'Ouvert aux invités autour de la cérémonie : pendant 3, 7 ou 14 jours, toute personne qui scanne obtient aussitôt l’accès, sans approuver chaque demande',
+      ],
+      funeral: [
+        'Trois styles : Classique, Serein et Épuré',
+        'En néerlandais, français ou anglais, avec votre propre phrase près du code QR',
+        'Votre propre logo, avec fond perdu de 3 mm en option pour l’imprimeur',
+        'Ouvert aux invités autour de la cérémonie : pendant 3, 7 ou 14 jours, toute personne qui scanne obtient aussitôt l’accès, sans approbation de chaque demande',
+      ],
+    },
+    formats: [
+      { name: 'Affiche A3', sub: 'PDF · 29,7 × 42 cm' },
+      { name: 'Affiche A4', sub: 'PDF · 21 × 29,7 cm' },
+      { name: 'Carte de table A6', sub: 'PDF · 10,5 × 14,8 cm' },
+      { name: 'Numérique portrait', sub: 'PNG · pour WhatsApp ou le faire-part' },
+      { name: 'Écran numérique', sub: 'PNG · 1920 × 1080 pour un écran' },
+    ],
+    posterKicker: 'En souvenir affectueux',
+    posterMessage: 'Scannez et partagez votre souvenir de Marie',
+  },
+
+  familyMessages: {
+    eyebrow: 'Messages · Famille et maison funéraire',
+    title: 'Un contact simple avec la famille',
+    body: 'Posez une question à la famille ou demandez des photos pour la cérémonie, directement depuis votre portail partenaire. La famille répond depuis l’espace mémorial et joint les photos qu’elle y a déjà rassemblées.',
+    points: [
+      {
+        title: 'Une conversation privée par espace mémorial',
+        text: 'Seuls les gestionnaires de l’espace mémorial et votre équipe voient la conversation. Les invités ne la voient pas.',
+      },
+      {
+        title: 'Des photos en pleine qualité',
+        text: 'La famille transfère les photos directement depuis l’espace mémorial, pour le diaporama ou le souvenir mortuaire. Vous les téléchargez par message ou toutes à la fois en ZIP.',
+      },
+      {
+        title: 'Tout au même endroit',
+        text: 'Fini les e-mails et messages WhatsApp éparpillés : questions, accords et photos restent ensemble avec l’espace mémorial.',
+      },
+      {
+        title: 'Ne rien manquer',
+        text: 'Les nouveaux messages apparaissent aussitôt, avec une notification dans le portail et au plus un e-mail par heure et par conversation.',
+      },
+    ],
+    mock: {
+      header: 'Famille de Marie Peeters',
+      private: 'Conversation privée · invisible pour les invités',
+      question: 'Pourrions-nous recevoir quelques photos pour le diaporama de la cérémonie ?',
+      answer: 'Voici les photos pour le diaporama ; la première peut aller sur le souvenir mortuaire.',
+      download: 'Toutes les photos (12) · Télécharger (ZIP)',
+    },
+  },
+
+  aiWallet: {
+    eyebrow: 'Portefeuille IA',
+    title: 'Redonne vie aux anciennes photos',
+    body: 'Chaque espace mémorial a son propre portefeuille IA. Avec tes crédits, tu rends les photos plus nettes, tu colorises le noir et blanc, tu restaures les tirages abîmés ou tu en fais une image 3D.',
+    tools: [
+      { title: 'Rendre plus net', cost: '1 crédit par photo', text: 'Plus de détails à l’écran et dans le livre photo, même pour des photos anciennes ou petites.' },
+      { title: 'Coloriser', cost: '1 crédit par photo', text: 'Les photos noir et blanc et sépia retrouvent leurs couleurs. Les photos en couleur sont ignorées et non facturées.' },
+      { title: 'Restaurer', cost: '2 crédits par photo', text: 'Supprimer rayures, taches et décoloration sur les anciens tirages.' },
+      { title: 'Effet 3D', cost: '3 crédits par photo', text: 'Une vue en profondeur animée de la photo, comme si tu pouvais y entrer un instant.' },
+    ],
+    plans: [
+      { credits: '1000', label: 'crédits avec Un Souvenir Durable' },
+      { credits: '500', label: 'crédits avec Chérir Ensemble' },
+      { credits: '10', label: 'crédits pour essayer avec Se Souvenir Ensemble' },
+    ],
+    packsIntro: 'Besoin de plus de crédits ? Recharge ton portefeuille par espace mémorial :',
+    packs: ['100 pour 8 €', '300 pour 15 €', '500 pour 20 €', '1000 pour 35 €'],
+    packsNote: 'TVA incl.',
+  },
+
   prijzen: {
     meta: {
       title: 'Tarifs — Remoria',
@@ -245,7 +330,7 @@ export const fr = {
       eyebrow: 'Tarifs',
       title: 'Choisis le plan qui vous convient',
       sub: "Tu paies une seule fois, pour l'espace mémorial lui-même. Inviter famille et amis et les laisser contribuer est toujours entièrement gratuit.",
-      note: 'Chaque plan contient toutes les fonctionnalités — seule la durée diffère.',
+      note: 'Chaque plan contient toutes les fonctionnalités — seuls la durée et le nombre de crédits IA diffèrent.',
     },
     plans: [
       {
@@ -256,6 +341,7 @@ export const fr = {
         monthlyPrice: 'paiement unique · sans abonnement',
         description:
           "Quatre mois — largement le temps d'inviter tout le monde et de rassembler toutes les photos et histoires qui seraient autrement perdues. Les photos que tu n'aurais jamais vues, pour un montant fixe.",
+        credits: '<strong>10</strong> crédits IA pour essayer',
         featured: false,
       },
       {
@@ -266,6 +352,7 @@ export const fr = {
         monthlyPrice: 'paiement unique · ≈ €10,75 par mois',
         description:
           "Une année complète pour rassembler et revenir : pour l'anniversaire, la date du décès, les jours qui comptent vraiment. Toute une année pour commémorer ensemble, avec toute la famille.",
+        credits: '<strong>500</strong> crédits IA inclus',
         featured: true,
       },
       {
@@ -276,6 +363,7 @@ export const fr = {
         monthlyPrice: 'paiement unique · ≈ €6,64 par mois',
         description:
           "Trois ans de sérénité : l'espace mémorial reste et grandit avec vous — pour ceux qui sont là aujourd'hui, et pour ceux qui voudront en savoir plus plus tard.",
+        credits: '<strong>1000</strong> crédits IA inclus',
         featured: false,
       },
     ],
@@ -336,7 +424,7 @@ export const fr = {
         {
           question: 'Y a-t-il une différence de fonctionnalités entre les plans ?',
           answer:
-            "Non — chaque plan inclut tout : la Médiathèque, le Community chat, les hommages et la possibilité de composer un livre photo. La seule différence est la durée pendant laquelle l'espace mémorial reste actif.",
+            "Non — chaque plan inclut tout : la Médiathèque, le Community chat, les hommages et la possibilité de composer un livre photo. La différence tient à la durée pendant laquelle l'espace mémorial reste actif et au nombre de crédits IA inclus : 10 pour essayer, 500 avec Chérir Ensemble et 1000 avec Un Souvenir Durable.",
         },
         {
           question: 'Comment fonctionne la garantie 14 jours ?',

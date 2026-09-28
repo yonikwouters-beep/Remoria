@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
+import AiWallet from '../components/AiWallet.astro';
 import PricingCard from '../components/PricingCard.astro';
 import Footer from '../components/Footer.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
@@ -16,6 +17,7 @@ type PlanItem = {
   monthlyPrice: string;
   description: string;
   featured: boolean;
+  credits?: string;
 };
 
 type ExtItem = { period: string; price: string };
@@ -91,6 +93,7 @@ const referralUrl = 'https://app.remoria.eu/creators';
               description={plan.description}
               featured={plan.featured}
               startUrl={plan.startUrl}
+              credits={plan.credits}
             />
           ))}
         </div>
@@ -109,6 +112,8 @@ const referralUrl = 'https://app.remoria.eu/creators';
         </div>
       </div>
     </section>
+
+    <AiWallet showPacks />
 
     <section class="section-ext">
       <div class="container container--plans">
