@@ -335,9 +335,9 @@ export const fr = {
       { title: 'Effet 3D', cost: '3 crédits par photo', text: 'Une vue en profondeur animée de la photo, comme si tu pouvais y entrer un instant.' },
     ],
     plans: [
-      { credits: '1000', label: 'crédits avec Un Souvenir Durable' },
-      { credits: '500', label: 'crédits avec Chérir Ensemble' },
-      { credits: '10', label: 'crédits pour essayer avec Se Souvenir Ensemble' },
+      { credits: '1000', label: 'crédits avec Préserver ensemble' },
+      { credits: '500', label: 'crédits avec Commémorer ensemble' },
+      { credits: '10', label: 'crédits pour essayer avec Recueillir ensemble' },
     ],
     packsIntro: 'Besoin de plus de crédits ? Recharge ton portefeuille par espace mémorial :',
     packs: ['100 pour 8 €', '300 pour 15 €', '500 pour 20 €', '1000 pour 35 €'],
@@ -358,8 +358,8 @@ export const fr = {
     },
     plans: [
       {
-        imageAlt: 'Petite graine — plan Se Souvenir Ensemble',
-        title: 'Se Souvenir Ensemble',
+        imageAlt: 'Petite graine — plan Recueillir ensemble',
+        title: 'Recueillir ensemble',
         duration: 'Actif pendant 4 mois',
         price: '€85',
         monthlyPrice: 'paiement unique · sans abonnement',
@@ -369,8 +369,8 @@ export const fr = {
         featured: false,
       },
       {
-        imageAlt: 'Jeune arbre — plan Chérir Ensemble',
-        title: 'Chérir Ensemble',
+        imageAlt: 'Jeune arbre — plan Commémorer ensemble',
+        title: 'Commémorer ensemble',
         duration: 'Actif pendant 1 an',
         price: '€129',
         monthlyPrice: 'paiement unique · ≈ €10,75 par mois',
@@ -380,8 +380,8 @@ export const fr = {
         featured: true,
       },
       {
-        imageAlt: 'Arbre mature — plan Un Souvenir Durable',
-        title: 'Un Souvenir Durable',
+        imageAlt: 'Arbre mature — plan Préserver ensemble',
+        title: 'Préserver ensemble',
         duration: 'Actif pendant 3 ans',
         price: '€239',
         monthlyPrice: 'paiement unique · ≈ €6,64 par mois',
@@ -448,7 +448,7 @@ export const fr = {
         {
           question: 'Y a-t-il une différence de fonctionnalités entre les plans ?',
           answer:
-            "Non — chaque plan inclut tout : la Médiathèque, le Community chat, les hommages et la possibilité de composer un livre photo. La différence tient à la durée pendant laquelle l'espace mémorial reste actif et au nombre de crédits IA inclus : 10 pour essayer, 500 avec Chérir Ensemble et 1000 avec Un Souvenir Durable.",
+            "Non — chaque plan inclut tout : la Médiathèque, le Community chat, les hommages et la possibilité de composer un livre photo. La différence tient à la durée pendant laquelle l'espace mémorial reste actif et au nombre de crédits IA inclus : 10 pour essayer, 500 avec Commémorer ensemble et 1000 avec Préserver ensemble.",
         },
         {
           question: 'Comment fonctionne la garantie 14 jours ?',
