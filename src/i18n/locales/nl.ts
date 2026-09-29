@@ -341,9 +341,9 @@ export const nl = {
       { title: '3D-effect', cost: '3 credits per foto', text: 'Een bewegend dieptebeeld van de foto, alsof je er even in kan stappen.' },
     ],
     plans: [
-      { credits: '1000', label: 'credits bij Een Blijvende Herinnering' },
-      { credits: '500', label: 'credits bij Samen Koesteren' },
-      { credits: '10', label: 'credits om te proberen bij Samen Herinneren' },
+      { credits: '1000', label: 'credits bij Samen bewaren' },
+      { credits: '500', label: 'credits bij Samen herdenken' },
+      { credits: '10', label: 'credits om te proberen bij Samen verzamelen' },
     ],
     packsIntro: 'Extra credits nodig? Vul je wallet aan per gedenkplek:',
     packs: ['100 voor €8', '300 voor €15', '500 voor €20', '1000 voor €35'],
@@ -364,8 +364,8 @@ export const nl = {
     },
     plans: [
       {
-        imageAlt: 'Kiempje — Samen Herinneren plan',
-        title: 'Samen Herinneren',
+        imageAlt: 'Kiempje — Samen verzamelen plan',
+        title: 'Samen verzamelen',
         duration: '4 maanden actief',
         price: '€85',
         monthlyPrice: 'eenmalig · geen abonnement',
@@ -375,8 +375,8 @@ export const nl = {
         featured: false,
       },
       {
-        imageAlt: 'Jonge boom — Samen Koesteren plan',
-        title: 'Samen Koesteren',
+        imageAlt: 'Jonge boom — Samen herdenken plan',
+        title: 'Samen herdenken',
         duration: '1 jaar actief',
         price: '€129',
         monthlyPrice: 'eenmalig · ≈ €10,75 per maand',
@@ -386,8 +386,8 @@ export const nl = {
         featured: true,
       },
       {
-        imageAlt: 'Volgroeide boom — Een Blijvende Herinnering plan',
-        title: 'Een Blijvende Herinnering',
+        imageAlt: 'Volgroeide boom — Samen bewaren plan',
+        title: 'Samen bewaren',
         duration: '3 jaar actief',
         price: '€239',
         monthlyPrice: 'eenmalig · ≈ €6,64 per maand',
@@ -454,7 +454,7 @@ export const nl = {
         {
           question: 'Is er verschil in functies tussen de plannen?',
           answer:
-            'Nee — elk plan bevat alles: de Mediacollectie, de Community chat, de eerbetonen en de mogelijkheid om een fotoboek samen te stellen. Het verschil zit in hoe lang de gedenkplek actief blijft en hoeveel AI-credits erbij zitten: 10 om te proberen, 500 bij Samen Koesteren en 1000 bij Een Blijvende Herinnering.',
+            'Nee — elk plan bevat alles: de Mediacollectie, de Community chat, de eerbetonen en de mogelijkheid om een fotoboek samen te stellen. Het verschil zit in hoe lang de gedenkplek actief blijft en hoeveel AI-credits erbij zitten: 10 om te proberen, 500 bij Samen herdenken en 1000 bij Samen bewaren.',
         },
         {
           question: 'Hoe werkt de 14-dagen-garantie?',

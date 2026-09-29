@@ -341,9 +341,9 @@ export const en = {
       { title: '3D effect', cost: '3 credits per photo', text: 'A moving depth view of the photo, as if you could step into it for a moment.' },
     ],
     plans: [
-      { credits: '1000', label: 'credits with A Lasting Memory' },
-      { credits: '500', label: 'credits with Cherish Together' },
-      { credits: '10', label: 'credits to try with Remember Together' },
+      { credits: '1000', label: 'credits with Preserve together' },
+      { credits: '500', label: 'credits with Remember together' },
+      { credits: '10', label: 'credits to try with Gather together' },
     ],
     packsIntro: 'Need more credits? Top up your wallet per memorial:',
     packs: ['100 for €8', '300 for €15', '500 for €20', '1000 for €35'],
@@ -364,8 +364,8 @@ export const en = {
     },
     plans: [
       {
-        imageAlt: 'Seedling — Remember Together plan',
-        title: 'Remember Together',
+        imageAlt: 'Seedling — Gather together plan',
+        title: 'Gather together',
         duration: 'Active for 4 months',
         price: '€85',
         monthlyPrice: 'one-time · no subscription',
@@ -375,8 +375,8 @@ export const en = {
         featured: false,
       },
       {
-        imageAlt: 'Young tree — Cherish Together plan',
-        title: 'Cherish Together',
+        imageAlt: 'Young tree — Remember together plan',
+        title: 'Remember together',
         duration: 'Active for 1 year',
         price: '€129',
         monthlyPrice: 'one-time · ≈ €10.75 per month',
@@ -386,8 +386,8 @@ export const en = {
         featured: true,
       },
       {
-        imageAlt: 'Mature tree — A Lasting Memory plan',
-        title: 'A Lasting Memory',
+        imageAlt: 'Mature tree — Preserve together plan',
+        title: 'Preserve together',
         duration: 'Active for 3 years',
         price: '€239',
         monthlyPrice: 'one-time · ≈ €6.64 per month',
@@ -454,7 +454,7 @@ export const en = {
         {
           question: 'Is there a difference in features between plans?',
           answer:
-            'No — every plan includes everything: the Media collection, the Community chat, the tributes and the ability to compile a photo book. The difference is how long the memorial remains active and how many AI credits come with it: 10 to try, 500 with Cherish Together and 1000 with A Lasting Memory.',
+            'No — every plan includes everything: the Media collection, the Community chat, the tributes and the ability to compile a photo book. The difference is how long the memorial remains active and how many AI credits come with it: 10 to try, 500 with Remember together and 1000 with Preserve together.',
         },
         {
           question: 'How does the 14-day guarantee work?',
