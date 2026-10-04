@@ -6,7 +6,7 @@ export const privacyEn: LegalDoc = {
     "How Remoria handles your personal data: what we process, why, for how long, and the rights you have — written to be clear even without a legal background.",
   title: "Privacy Policy",
   brand: "Remoria",
-  updated: "Last updated on 28 September 2026",
+  updated: "Last updated on 4 October 2026",
   intro:
     "Remoria is built for something deeply personal: the memories of those you hold dear. Handling your data with care is therefore not an afterthought, but a foundation. In this policy you can read which data we process, why, for how long, and which rights you have. We've written it so you can understand it even without a legal background.",
   sections: [
@@ -44,12 +44,13 @@ export const privacyEn: LegalDoc = {
           type: "ul",
           items: [
             "Account data: name, email address, language preference, login credentials;",
-            "Memorial data: the name and details of the deceased, photos, videos, audio, stories, tributes and messages that users post (“Content”);",
+            "Memorial data: the name and details of the deceased, photos, videos, audio, stories, tributes and messages that users post (“Content”). If you use an AI feature yourself (colourising, restoring or sharpening a photo, adding a depth effect or estimating the year), that photo is processed for that purpose;",
             "Payment and invoicing data: chosen plan, payment status and invoicing details. Your card or account details are processed by our payment provider and never reach our servers;",
             "Photo book order data: delivery address and order contents when you order a printed photo book;",
             "Partner data: business details, contact persons and billing information of partners;",
             "Communication: messages sent via the contact form, email or the newsletter subscription;",
-            "Technical data: limited log and security data needed to keep the platform working safely and reliably.",
+            "Technical data: limited log and security data needed to keep the platform working safely and reliably;",
+            "Error reports: technical data about errors in the app (without email addresses, access codes or content), so we can fix problems quickly.",
           ],
         },
       ],
@@ -65,10 +66,12 @@ export const privacyEn: LegalDoc = {
           type: "ul",
           items: [
             "Providing the service (creating memorials, showing Content to invitees, processing photo books) — performance of the contract;",
+            "Optional AI features for photos, only when you start them yourself and pay with AI credit — performance of the contract. The photo is only used for that edit; the AI services do not use it to train models;",
             "Invoicing and accounting — legal obligation;",
             "Service emails (invitations, reminders when a plan is about to expire, important changes) — performance of the contract or legitimate interest;",
             "The newsletter — your consent, which you can withdraw at any time via the unsubscribe link in every email;",
             "Security and abuse prevention — legitimate interest;",
+            "Error tracking and backups to keep the platform reliable — legitimate interest;",
             "Answering questions via the contact form — legitimate interest or pre-contractual steps.",
           ],
         },
@@ -92,7 +95,7 @@ export const privacyEn: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "Anyone who posts Content featuring other (living) people who are identifiable is themselves responsible for ensuring this is allowed — see also our terms and conditions. Are you identifiable on a memorial and would you rather not be? Let us know via hello@remoria.eu; we'll review it together with the administrator and remove images where that is justified. Memorials are, incidentally, entirely private: only invitees have access, and search engines cannot read along.",
+          text: "Anyone who posts Content featuring other (living) people who are identifiable is themselves responsible for ensuring this is allowed — see also our terms and conditions. Are you identifiable on a memorial and would you rather not be? Let us know via hello@remoria.eu; we'll review it together with the administrator and remove images where that is justified. Memorials can never be found through search engines. Depending on what the administrator chooses, they are accessible only to invitees, with an access code, or temporarily open to anyone with the link. On the access page, the name, date of birth, date of death and profile photo of the deceased are visible to anyone with the link.",
         },
       ],
     },
@@ -101,11 +104,35 @@ export const privacyEn: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "We only share data with service providers we need to make Remoria work, such as our hosting provider, our payment provider, our email sender and the printing company that produces and ships photo books. With each of them we conclude a data processing agreement: they may only process your data on our instructions and for the purpose of providing the service. Beyond that, we only share data when the law requires us to.",
+          text: "We only share data with service providers we need to make Remoria work. Here they all are (in legal terms: our sub-processors):",
+        },
+        {
+          type: "table",
+          head: ["Service", "Used for", "Location"],
+          rows: [
+            ["Supabase", "database, accounts and login", "EU (Paris)"],
+            ["Cloudflare (R2)", "storage of photos and videos", "Cloudflare Inc.; bucket storage location: EU"],
+            ["Hetzner (via xCloud)", "hosting of the application", "EU (Germany)"],
+            ["Stripe", "payments", "Stripe Payments Europe (Ireland); transfer to the US possible"],
+            ["Resend", "sending emails", "Ireland"],
+            ["Peecho", "printing and shipping photo books (name, address, order)", "Netherlands"],
+            ["Replicate", "AI editing of photos, only at your request", "US"],
+            ["Anthropic", "estimating the year of photos (AI), only at your request", "US"],
+            ["Google", "signing in with Google, if you choose to", "US / Ireland"],
+            ["AnyChat", "support chat and help assistant in the partner portal", "Ukraine (outside the EEA)"],
+            ["Sentry", "error reports (without personal data such as email addresses)", "EU (Germany)"],
+            ["Backblaze B2", "encrypted nightly backups of the database", "EU (Netherlands)"],
+            ["GitHub", "runs the nightly backup job (data is encrypted there)", "US"],
+            ["Yuki", "accounting and invoices for partners", "Netherlands/Belgium"],
+          ],
         },
         {
           type: "p",
-          text: "If your memorial runs through a funeral director, they only receive what is needed for their services (such as the status of the memorial) — never the content of conversations between invitees.",
+          text: "With each of them we conclude a data processing agreement: they may only process your data on our instructions and for the purpose of providing the service. Beyond that, we only share data when the law requires us to.",
+        },
+        {
+          type: "p",
+          text: "If your memorial runs through a funeral director, their staff can view the memorial to help you, and you can exchange messages with them through Remoria.",
         },
       ],
     },
@@ -114,7 +141,7 @@ export const privacyEn: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "Where possible, we choose processing within the EEA. Where a service provider processes data outside the EEA, this only happens with appropriate safeguards such as the European Standard Contractual Clauses or an adequacy decision by the European Commission.",
+          text: "Where possible, we choose processing within the EEA. Cloudflare, Stripe, Resend, Replicate, Anthropic, Google and GitHub may process data in the United States. This always happens under the European Standard Contractual Clauses or on the basis of the EU-US Data Privacy Framework. AnyChat processes data in Ukraine, which is outside the EEA; the European Standard Contractual Clauses apply there too.",
         },
       ],
     },
