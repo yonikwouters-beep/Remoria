@@ -1,6 +1,6 @@
 export const en = {
   meta: {
-    defaultTitle: 'Remoria — A place where memories come together',
+    defaultTitle: 'Remoria | Online memorial where memories come together',
     defaultDescription:
       'Remoria is a private platform to preserve memories of a loved one and share them with family and friends.',
   },

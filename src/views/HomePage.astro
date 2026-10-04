@@ -10,19 +10,52 @@ import { getLocale, t } from '../i18n/utils';
 
 const locale = getLocale(Astro.currentLocale);
 
-const appSchema = {
+const siteUrl = 'https://www.remoria.eu';
+const pageUrl = new URL(Astro.url.pathname, siteUrl).href;
+const inLanguage = { nl: 'nl-BE', en: 'en', fr: 'fr-BE' }[locale];
+
+// Merkgegevens voor Google: sitenaam "Remoria", logo en organisatie. Geen reviews of beoordelingen.
+const schema = {
   '@context': 'https://schema.org',
-  '@type': 'WebApplication',
-  name: 'Remoria',
-  description: t(locale, 'meta.defaultDescription'),
-  url: 'https://www.remoria.eu',
-  applicationCategory: 'LifestyleApplication',
-  operatingSystem: 'Web',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`,
+      name: 'Remoria',
+      url: `${siteUrl}/`,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/favicon+footer/favicon-512-creme-tegel.png`,
+        width: 512,
+        height: 512,
+      },
+      email: 'hello@remoria.eu',
+      description: t(locale, 'meta.defaultDescription'),
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      name: 'Remoria',
+      alternateName: ['remoria.eu', 'www.remoria.eu'],
+      url: `${siteUrl}/`,
+      inLanguage,
+      publisher: { '@id': `${siteUrl}/#organization` },
+    },
+    {
+      '@type': 'WebApplication',
+      name: 'Remoria',
+      description: t(locale, 'meta.defaultDescription'),
+      url: pageUrl,
+      applicationCategory: 'LifestyleApplication',
+      operatingSystem: 'Web',
+      publisher: { '@id': `${siteUrl}/#organization` },
+    },
+  ],
 };
 ---
 
 <BaseLayout>
-  <script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <Navbar />
   <Hero />
