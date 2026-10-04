@@ -1,6 +1,6 @@
 export const nl = {
   meta: {
-    defaultTitle: 'Remoria — Een plek waar herinneringen samenkomen',
+    defaultTitle: 'Remoria | Digitale gedenkplek waar herinneringen samenkomen',
     defaultDescription:
       'Remoria is een besloten platform om herinneringen aan een dierbare te bewaren en te delen met familie en vrienden.',
   },

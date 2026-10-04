@@ -1,6 +1,6 @@
 export const fr = {
   meta: {
-    defaultTitle: 'Remoria — Un lieu où les souvenirs se retrouvent',
+    defaultTitle: 'Remoria | Espace mémorial en ligne où les souvenirs se retrouvent',
     defaultDescription:
       'Remoria est une plateforme privée pour conserver les souvenirs d’un être cher et les partager avec la famille et les amis.',
   },
