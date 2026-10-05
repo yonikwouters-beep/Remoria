@@ -40,12 +40,31 @@ const seeAlsoHref = localizePath(locale, content.seeAlsoHref);
             {section.blocks.map((block) =>
               block.type === 'p' ? (
                 <p class="legal__p">{block.text}</p>
-              ) : (
+              ) : block.type === 'ul' ? (
                 <ul class="legal__ul">
                   {block.items.map((item) => (
                     <li class="legal__li">{item}</li>
                   ))}
                 </ul>
+              ) : (
+                <table class="legal__table">
+                  <thead>
+                    <tr>
+                      {block.head.map((cell) => (
+                        <th scope="col">{cell}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {block.rows.map((row) => (
+                      <tr>
+                        {row.map((cell, i) => (
+                          <td data-label={block.head[i]}>{cell}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               )
             )}
           </section>
@@ -181,6 +200,70 @@ const seeAlsoHref = localizePath(locale, content.seeAlsoHref);
     color: #4a4438;
     margin-bottom: 6px;
     padding-left: 0.2em;
+  }
+
+  .legal__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4px 0 16px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #4a4438;
+  }
+
+  .legal__table th {
+    text-align: left;
+    font-weight: 700;
+    color: #1c2a43;
+    padding: 8px 10px;
+    border-bottom: 2px solid #e7dfd2;
+  }
+
+  .legal__table td {
+    padding: 9px 10px;
+    border-bottom: 1px solid #efe8db;
+    vertical-align: top;
+  }
+
+  .legal__table td:first-child {
+    font-weight: 600;
+    color: #1c2a43;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 600px) {
+    .legal__table thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+
+    .legal__table tr {
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px solid #efe8db;
+    }
+
+    .legal__table td {
+      display: block;
+      padding: 2px 0;
+      border: 0;
+    }
+
+    .legal__table td:first-child {
+      white-space: normal;
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+
+    .legal__table td:not(:first-child)::before {
+      content: attr(data-label) ': ';
+      font-weight: 600;
+      color: #7a7263;
+    }
   }
 
   .legal__company {
