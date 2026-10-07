@@ -1,0 +1,7 @@
+---
+import HelpArticlePage from '../../../views/HelpArticlePage.astro';
+import { helpStaticPaths } from '../../../help/content';
+
+export const getStaticPaths = () => helpStaticPaths('fr');
+---
+<HelpArticlePage entry={Astro.props.entry} />

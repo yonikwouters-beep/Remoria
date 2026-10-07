@@ -1,0 +1,222 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/help.css';
+import { getLocale, localizePath, t, locales, type Locale } from '../i18n/utils';
+import {
+  HELP_DATE_LOCALE,
+  HELP_FEEDBACK_ENDPOINT,
+  HELP_LANG_NAMES,
+  helpHomePath,
+} from '../help/config.mjs';
+import {
+  articleLang,
+  articlePath,
+  categoryFor,
+  getHelpArticles,
+  getHelpCategories,
+  getTranslations,
+  sortArticles,
+  type HelpArticle,
+} from '../help/content';
+
+interface Props {
+  entry: HelpArticle;
+}
+
+const { entry } = Astro.props;
+const locale = getLocale(Astro.currentLocale);
+const { Content, headings } = await render(entry);
+const toc = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
+
+const categories = await getHelpCategories(locale);
+const category = categoryFor(categories, entry.data.category);
+const homeHref = helpHomePath(locale);
+
+// Taalversies van dit artikel. Ontbreekt een vertaling, dan wijst de taalwisselaar
+// naar het overzicht in die taal, en komt die taal niet in de hreflang-tags.
+const translations = await getTranslations(entry.data.id);
+const alternates: Partial<Record<Locale, string>> = {};
+for (const [lang, translation] of Object.entries(translations)) {
+  alternates[lang as Locale] = articlePath(translation!);
+}
+const langHrefs = Object.fromEntries(
+  locales.map((lang) => [lang, alternates[lang] ?? helpHomePath(lang)]),
+) as Record<Locale, string>;
+const otherLanguages = locales.filter((lang) => lang !== locale && alternates[lang]);
+
+const related = (await getHelpArticles(locale))
+  .filter((other) => other.data.category === entry.data.category && other.data.id !== entry.data.id)
+  .sort(sortArticles)
+  .slice(0, 4);
+
+const updatedLabel = t(locale, 'help.updated').replace(
+  '{date}',
+  new Intl.DateTimeFormat(HELP_DATE_LOCALE[locale], { day: 'numeric', month: 'long', year: 'numeric' }).format(
+    entry.data.updated,
+  ),
+);
+---
+
+<BaseLayout title={`${entry.data.title} | Remoria`} description={entry.data.description} alternates={alternates}>
+  <Navbar langHrefs={langHrefs} />
+
+  <main class="help help-article-page">
+    <div class="help-article-wrap">
+      <nav class="help-breadcrumb" aria-label={t(locale, 'help.breadcrumbAria')}>
+        <a href={homeHref}>{t(locale, 'help.eyebrow')}</a>
+        <span aria-hidden="true">/</span>
+        <a href={`${homeHref}#categorie-${category.key}`}>{category.title}</a>
+      </nav>
+
+      <div class:list={['help-article-grid', toc.length === 0 && 'help-article-grid--no-toc']}>
+        <article class="help-article" lang={articleLang(entry)}>
+          <header class="help-article__header">
+            <h1 class="help-article__title">{entry.data.title}</h1>
+            <p class="help-article__lead">{entry.data.description}</p>
+            <p class="help-article__meta">
+              <span>{updatedLabel}</span>
+              {otherLanguages.length > 0 && (
+                <span class="help-article__langs">
+                  {t(locale, 'help.languagesLabel')}{' '}
+                  {otherLanguages.map((lang, index) => (
+                    <>
+                      {index > 0 && ' · '}
+                      <a href={alternates[lang]} hreflang={lang} lang={lang}>{HELP_LANG_NAMES[lang]}</a>
+                    </>
+                  ))}
+                </span>
+              )}
+            </p>
+          </header>
+
+          {toc.length > 0 && (
+            <details class="help-toc help-toc--mobile">
+              <summary>{t(locale, 'help.tocTitle')}</summary>
+              <ol>
+                {toc.map((heading) => (
+                  <li class={`help-toc__item help-toc__item--h${heading.depth}`}>
+                    <a href={`#${heading.slug}`}>{heading.text}</a>
+                  </li>
+                ))}
+              </ol>
+            </details>
+          )}
+
+          <div class="help-prose">
+            <Content />
+          </div>
+
+          <section
+            class="help-feedback"
+            data-help-feedback
+            data-id={entry.data.id}
+            data-lang={locale}
+            data-endpoint={HELP_FEEDBACK_ENDPOINT}
+            data-thanks-yes={t(locale, 'help.feedbackThanksYes')}
+            data-thanks-no={t(locale, 'help.feedbackThanksNo')}
+          >
+            <p class="help-feedback__question">{t(locale, 'help.feedbackQuestion')}</p>
+            <div class="help-feedback__buttons">
+              <button type="button" class="help-feedback__button" data-value="yes">{t(locale, 'help.feedbackYes')}</button>
+              <button type="button" class="help-feedback__button" data-value="no">{t(locale, 'help.feedbackNo')}</button>
+            </div>
+            <p class="help-feedback__thanks" role="status" data-help-feedback-thanks hidden></p>
+          </section>
+        </article>
+
+        {toc.length > 0 && (
+          <aside class="help-toc help-toc--desktop" aria-labelledby="help-toc-title">
+            <p class="help-toc__title" id="help-toc-title">{t(locale, 'help.tocTitle')}</p>
+            <ol>
+              {toc.map((heading) => (
+                <li class={`help-toc__item help-toc__item--h${heading.depth}`}>
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+              ))}
+            </ol>
+          </aside>
+        )}
+      </div>
+
+      {related.length > 0 && (
+        <section class="help-related">
+          <h2 class="help-related__title">{t(locale, 'help.related')}</h2>
+          <ul class="help-cards">
+            {related.map((other) => (
+              <li>
+                <a href={articlePath(other)} class="help-card">
+                  <span class="help-card__title">{other.data.title}</span>
+                  <span class="help-card__desc">{other.data.description}</span>
+                  <span class="help-card__arrow" aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <aside class="help-contact">
+        <div>
+          <h2 class="help-contact__title">{t(locale, 'help.contactTitle')}</h2>
+          <p class="help-contact__text">{t(locale, 'help.contactText')}</p>
+        </div>
+        <a href={localizePath(locale, '/contact')} class="help-contact__cta">{t(locale, 'help.contactCta')}</a>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  // "Was dit artikel nuttig?": voorlopig enkel een bedankje en een event.
+  // Zodra HELP_FEEDBACK_ENDPOINT (src/help/config.mjs) een adres heeft, wordt het antwoord daarheen gestuurd.
+  for (const block of document.querySelectorAll<HTMLElement>('[data-help-feedback]')) {
+    const { id = '', lang = '', endpoint = '' } = block.dataset;
+    const thanks = block.querySelector<HTMLElement>('[data-help-feedback-thanks]');
+    const buttons = block.querySelectorAll<HTMLButtonElement>('.help-feedback__button');
+    const storageKey = `remoria-help-feedback:${lang}/${id}`;
+
+    const showThanks = (value: string) => {
+      if (!thanks) return;
+      thanks.textContent = value === 'yes' ? block.dataset.thanksYes || '' : block.dataset.thanksNo || '';
+      thanks.hidden = false;
+      buttons.forEach((button) => {
+        button.disabled = true;
+        button.classList.toggle('is-selected', button.dataset.value === value);
+      });
+    };
+
+    try {
+      const previous = localStorage.getItem(storageKey);
+      if (previous) showThanks(previous);
+    } catch {
+      /* geen opslag beschikbaar: gewoon opnieuw laten stemmen */
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const value = button.dataset.value || '';
+        const detail = { id, lang, helpful: value === 'yes', page: window.location.pathname };
+        showThanks(value);
+        try {
+          localStorage.setItem(storageKey, value);
+        } catch {
+          /* niet erg */
+        }
+        window.dispatchEvent(new CustomEvent('remoria-help-feedback', { detail }));
+        if (endpoint) {
+          fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(detail),
+            keepalive: true,
+          }).catch(() => {});
+        }
+      });
+    });
+  }
+</script>

@@ -1,0 +1,76 @@
+# Categorieën van het help center.
+# Elk artikel verwijst in zijn frontmatter naar één van deze sleutels (category: ...).
+# "order" bepaalt de volgorde op de overzichtspagina. Een categorie zonder artikels wordt niet getoond.
+# Ontbreekt een taal, dan wordt de Engelse naam getoond.
+
+aan-de-slag:
+  order: 1
+  nl:
+    title: Aan de slag
+    description: Een gedenkplek aanmaken en je weg vinden.
+  fr:
+    title: Premiers pas
+    description: Créer un espace du souvenir et s'y retrouver.
+  en:
+    title: Getting started
+    description: Creating a memorial and finding your way around.
+
+fotos-en-herinneringen:
+  order: 2
+  nl:
+    title: Foto's en herinneringen
+    description: Foto's en video's toevoegen, albums maken en herinneringen bekijken.
+  fr:
+    title: Photos et souvenirs
+    description: Ajouter des photos et vidéos, créer des albums et parcourir les souvenirs.
+  en:
+    title: Photos and memories
+    description: Adding photos and videos, creating albums and viewing memories.
+
+ai-hulp:
+  order: 3
+  nl:
+    title: AI-hulp en AI-wallet
+    description: Oude foto's verbeteren, inkleuren en tot leven brengen.
+  fr:
+    title: Aide IA et AI-wallet
+    description: Améliorer, coloriser et animer d'anciennes photos.
+  en:
+    title: AI help and AI-wallet
+    description: Improving, colourising and animating old photos.
+
+uitnodigen:
+  order: 4
+  nl:
+    title: Mensen uitnodigen
+    description: Familie en vrienden toegang geven tot de gedenkplek.
+  fr:
+    title: Inviter des proches
+    description: Donner accès à l'espace du souvenir à la famille et aux amis.
+  en:
+    title: Inviting people
+    description: Giving family and friends access to the memorial.
+
+account-en-privacy:
+  order: 5
+  nl:
+    title: Account en privacy
+    description: Je account, betalingen en wie wat kan zien.
+  fr:
+    title: Compte et confidentialité
+    description: Votre compte, les paiements et qui peut voir quoi.
+  en:
+    title: Account and privacy
+    description: Your account, payments and who can see what.
+
+uitvaartondernemers:
+  order: 6
+  nl:
+    title: Voor uitvaartondernemers
+    description: Het partnerportaal, gedenkplekken voor families en medewerkers.
+  fr:
+    title: Pour les entreprises de pompes funèbres
+    description: Le portail partenaire, les espaces du souvenir des familles et les collaborateurs.
+  en:
+    title: For funeral homes
+    description: The partner portal, memorials for families and staff.

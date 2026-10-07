@@ -1,5 +1,5 @@
 ---
-import { getLocale, localizePath, stripLocalePrefix, locales, t } from '../i18n/utils';
+import { getLocale, localizePath, stripLocalePrefix, locales, t, type Locale } from '../i18n/utils';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import CookieConsent from '../components/CookieConsent.astro';
 // Lettertypes zelf gehost (geen verzoeken naar Google Fonts, dus geen IP-adressen naar Google).
@@ -20,12 +20,15 @@ import '@fontsource/inter/600.css';
 export interface Props {
   title?: string;
   description?: string;
+  /** Eigen taalversies (pad per taal) voor pagina's met andere paden per taal, zoals het help center. */
+  alternates?: Partial<Record<Locale, string>>;
 }
 
 const locale = getLocale(Astro.currentLocale);
 const {
   title = t(locale, 'meta.defaultTitle'),
   description = t(locale, 'meta.defaultDescription'),
+  alternates,
 } = Astro.props;
 
 const pathname = stripLocalePrefix(Astro.url.pathname);
@@ -34,6 +37,18 @@ const siteUrl = Astro.site ?? Astro.url.origin;
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 const ogImage = new URL(`/og-${locale}.jpg`, siteUrl).href;
 const ogLocale = { nl: 'nl_BE', en: 'en_GB', fr: 'fr_BE' }[locale];
+
+const alternateLinks = alternates
+  ? locales
+      .filter((loc) => alternates[loc])
+      .map((loc) => ({ hreflang: loc, href: new URL(alternates[loc]!, siteUrl).href }))
+  : locales.map((loc) => ({
+      hreflang: loc,
+      href: new URL(getRelativeLocaleUrl(loc, pathForLocale || undefined), siteUrl).href,
+    }));
+const xDefaultPath = alternates
+  ? (alternates.nl ?? alternates.en ?? Object.values(alternates)[0])
+  : localizePath('nl', pathname);
 ---
 
 <!doctype html>
@@ -60,18 +75,12 @@ const ogLocale = { nl: 'nl_BE', en: 'en_GB', fr: 'fr_BE' }[locale];
     <meta property="og:locale" content={ogLocale} />
     <meta name="twitter:card" content="summary_large_image" />
 
-    {locales.map((loc) => (
-      <link
-        rel="alternate"
-        hreflang={loc}
-        href={new URL(getRelativeLocaleUrl(loc, pathForLocale || undefined), siteUrl).href}
-      />
+    {alternateLinks.map((link) => (
+      <link rel="alternate" hreflang={link.hreflang} href={link.href} />
     ))}
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href={new URL(localizePath('nl', pathname), siteUrl).href}
-    />
+    {xDefaultPath && (
+      <link rel="alternate" hreflang="x-default" href={new URL(xDefaultPath, siteUrl).href} />
+    )}
   </head>
   <body>
     <div class="site-wrap">

@@ -11,9 +11,11 @@ import {
 
 export interface Props {
   overlay?: boolean;
+  /** Eigen doel per taal voor de taalwisselaar (bv. help-artikels met andere paden per taal). */
+  langHrefs?: Partial<Record<Locale, string>>;
 }
 
-const { overlay = false } = Astro.props;
+const { overlay = false, langHrefs } = Astro.props;
 const locale = getLocale(Astro.currentLocale);
 const currentPath = stripLocalePrefix(Astro.url.pathname);
 
@@ -123,7 +125,7 @@ const langNames: Record<Locale, string> = {
         <div class="lang-dropdown" role="listbox" aria-label={t(locale, 'nav.langSwitcherAria')}>
           {locales.map((loc) => (
             <a
-              href={localizePath(loc, currentPath)}
+              href={langHrefs?.[loc] ?? localizePath(loc, currentPath)}
               class:list={['lang-option', loc === locale && 'lang-option--active']}
               role="option"
               aria-selected={loc === locale}
@@ -187,7 +189,7 @@ const langNames: Record<Locale, string> = {
       <div class="lang-mobile" role="group" aria-label={t(locale, 'nav.langSwitcherAria')}>
         {locales.map((loc) => (
           <a
-            href={localizePath(loc, currentPath)}
+            href={langHrefs?.[loc] ?? localizePath(loc, currentPath)}
             class:list={['lang-mobile__option', loc === locale && 'lang-mobile__option--active']}
             hreflang={loc}
             data-lang={loc}
