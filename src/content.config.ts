@@ -1,7 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 import { z } from 'astro/zod';
-import { HELP_LANGS, RESERVED_IDS } from './help/config.mjs';
+import { HELP_AUDIENCES, HELP_LANGS, RESERVED_IDS } from './help/config.mjs';
 
 /**
  * Help-artikels: één .md-bestand per artikel per taal in src/content/help/<taal>/.
@@ -39,6 +39,8 @@ const help = defineCollection({
 const helpCategories = defineCollection({
   loader: file('./src/content/help/categorieen.yml'),
   schema: z.object({
+    // Voor wie de categorie is: nabestaanden (families en bezoekers) of partners (uitvaartondernemers).
+    audience: z.enum(HELP_AUDIENCES as [string, ...string[]]),
     order: z.number().default(100),
     ...Object.fromEntries(
       HELP_LANGS.map((lang) => [

@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 import { getLocale, localizePath, t } from '../i18n/utils';
 import {
   articlePath,
+  audienceRank,
   categoryFor,
   getHelpArticles,
   getHelpCategories,
@@ -26,11 +27,25 @@ const groups = [...new Set(articles.map((entry) => entry.data.category))]
   }))
   .sort((a, b) => a.category.order - b.category.order);
 
+// Twee delen: eerst voor nabestaanden, dan voor uitvaartondernemers.
+const audienceLabels = {
+  nabestaanden: { title: t(locale, 'help.audienceNabestaanden'), intro: t(locale, 'help.audienceNabestaandenIntro') },
+  partners: { title: t(locale, 'help.audiencePartners'), intro: t(locale, 'help.audiencePartnersIntro') },
+} as const;
+const sections = [...new Set(groups.map((group) => group.category.audience))]
+  .sort((a, b) => audienceRank(a) - audienceRank(b))
+  .map((audience) => ({
+    audience,
+    id: `voor-${audience}`,
+    ...audienceLabels[audience],
+    groups: groups.filter((group) => group.category.audience === audience),
+  }));
+
 // Kleine zoekindex, rechtstreeks in de pagina (geen externe dienst nodig).
 const searchIndex = articles.map((entry) => ({
   title: entry.data.title,
   description: entry.data.description,
-  category: categoryFor(categories, entry.data.category).title,
+  category: `${audienceLabels[categoryFor(categories, entry.data.category).audience].title} · ${categoryFor(categories, entry.data.category).title}`,
   url: articlePath(entry),
   text: markdownToText(entry.body ?? ''),
 }));
@@ -87,24 +102,39 @@ const countLabel = (n: number) =>
 
       <div data-help-categories>
         {groups.length === 0 && <p class="help-empty">{t(locale, 'help.empty')}</p>}
-        {groups.map((group) => (
-          <section class="help-category" id={`categorie-${group.category.key}`}>
-            <header class="help-category__header">
-              <h2 class="help-category__title">{group.category.title}</h2>
-              <span class="help-category__count">{countLabel(group.articles.length)}</span>
+        {sections.length > 1 && (
+          <nav class="help-audience-nav" aria-label={t(locale, 'help.audienceNav')}>
+            {sections.map((section) => (
+              <a href={`#${section.id}`} class="help-audience-nav__link">{section.title}</a>
+            ))}
+          </nav>
+        )}
+        {sections.map((section) => (
+          <section class="help-audience" id={section.id} aria-labelledby={`${section.id}-title`}>
+            <header class="help-audience__header">
+              <h2 class="help-audience__title" id={`${section.id}-title`}>{section.title}</h2>
+              <p class="help-audience__intro">{section.intro}</p>
             </header>
-            {group.category.description && <p class="help-category__desc">{group.category.description}</p>}
-            <ul class="help-cards">
-              {group.articles.map((entry) => (
-                <li>
-                  <a href={articlePath(entry)} class="help-card">
-                    <span class="help-card__title">{entry.data.title}</span>
-                    <span class="help-card__desc">{entry.data.description}</span>
-                    <span class="help-card__arrow" aria-hidden="true">→</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {section.groups.map((group) => (
+              <section class="help-category" id={`categorie-${group.category.key}`}>
+                <header class="help-category__header">
+                  <h3 class="help-category__title">{group.category.title}</h3>
+                  <span class="help-category__count">{countLabel(group.articles.length)}</span>
+                </header>
+                {group.category.description && <p class="help-category__desc">{group.category.description}</p>}
+                <ul class="help-cards">
+                  {group.articles.map((entry) => (
+                    <li>
+                      <a href={articlePath(entry)} class="help-card">
+                        <span class="help-card__title">{entry.data.title}</span>
+                        <span class="help-card__desc">{entry.data.description}</span>
+                        <span class="help-card__arrow" aria-hidden="true">→</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
           </section>
         ))}
       </div>

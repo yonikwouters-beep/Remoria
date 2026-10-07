@@ -140,8 +140,71 @@
   padding: 32px 0;
 }
 
+/* Twee delen: voor nabestaanden en voor uitvaartondernemers */
+.help-audience-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 8px 0 8px;
+}
+
+.help-audience-nav__link {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: 1px solid #DCCFB8;
+  border-radius: 999px;
+  background: #FDFBF7;
+  color: #1C2A43;
+  font-size: 15px;
+  font-weight: 700;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.help-audience-nav__link:hover,
+.help-audience-nav__link:focus-visible {
+  border-color: #C9A85C;
+  background: #FFFFFF;
+}
+
+.help-audience {
+  margin-top: 48px;
+  scroll-margin-top: 96px;
+}
+
+.help-audience + .help-audience {
+  margin-top: 72px;
+  padding-top: 48px;
+  border-top: 1px solid #DCCFB8;
+}
+
+.help-audience__header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 8px;
+}
+
+.help-audience__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3.4vw, 2.2rem);
+  color: #1C2A43;
+  margin: 0 0 8px;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: manual;
+}
+
+.help-audience__intro {
+  font-size: 16px;
+  color: #7A7263;
+  margin: 0;
+}
+
 .help-category {
   margin-top: 40px;
+  scroll-margin-top: 96px;
 }
 
 .help-category__header {
@@ -157,7 +220,7 @@
 .help-category__title {
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 600;
-  font-size: clamp(1.35rem, 2.6vw, 1.6rem);
+  font-size: clamp(1.25rem, 2.4vw, 1.45rem);
   color: #1C2A43;
   margin: 0;
   word-break: normal;

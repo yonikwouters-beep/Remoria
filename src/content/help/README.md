@@ -22,6 +22,8 @@ Zodra een wijziging op `main` staat, zet Cloudflare ze automatisch online.
    - `id`: vaste naam van het artikel, gelijk in alle talen. Kleine letters en koppeltekens, bv. `credits-bijboeken`. Wijzig hem later niet meer: de app en AnyChat linken ernaar.
    - `title`: de titel.
    - `description`: één of twee zinnen; verschijnt in het overzicht en bij Google.
+     Staat er een dubbele punt met een spatie in de titel of beschrijving (bv. `Voor beheerders: ...`),
+     zet de hele tekst dan tussen dubbele aanhalingstekens: `description: "Voor beheerders: ..."`.
    - `category`: één van de sleutels uit `categorieen.yml` (bv. `ai-hulp`).
    - `order`: volgorde binnen de categorie (1 eerst).
    - `updated`: datum van de laatste inhoudelijke wijziging, `JJJJ-MM-DD`.
@@ -29,7 +31,19 @@ Zodra een wijziging op `main` staat, zet Cloudflare ze automatisch online.
    - Optioneel `draft: true`: het artikel wordt nog niet getoond.
 3. Schrijf de tekst eronder. Gebruik `## Tussenkop` voor elke tussenkop: die komen in de inhoudstafel.
    `**vet**` voor knopnamen, `- ` voor een lijstje, `1. ` voor stappen.
-4. Een nieuwe categorie nodig? Voeg ze toe aan `categorieen.yml`, met een naam in elke taal.
+4. Een nieuwe categorie nodig? Voeg ze toe aan `categorieen.yml`, met een naam in elke taal
+   en `audience: nabestaanden` of `audience: partners`.
+
+## Voor nabestaanden en voor uitvaartondernemers
+
+Het overzicht heeft twee delen. Elke categorie in `categorieen.yml` zegt met `audience` in welk deel ze staat:
+
+- `nabestaanden`: families, beheerders en bezoekers van een gedenkplek;
+- `partners`: uitvaartondernemers die met het partnerportaal werken.
+
+Alles in dit help center is publiek. Teksten die enkel voor partners met een portaal bedoeld zijn
+(zoals facturatie en de privacyafspraken met partners) staan daarom niet hier, maar in de app
+(`src/lib/portalHelp.ts` in de app-repo) en zijn enkel zichtbaar na inloggen in het portaal.
 
 Wie de site lokaal draait, kan ook `npm run help:nieuw -- credits-bijboeken` gebruiken.
 
