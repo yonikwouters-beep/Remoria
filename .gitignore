@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# help center export voor AnyChat (npm run help:export)
+help-export/

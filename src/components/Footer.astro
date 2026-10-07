@@ -1,5 +1,6 @@
 ---
 import { getLocale, localizePath, t } from '../i18n/utils';
+import { helpHomePath } from '../help/config.mjs';
 const locale = getLocale(Astro.currentLocale);
 ---
 
@@ -49,6 +50,7 @@ const locale = getLocale(Astro.currentLocale);
         <ul class="footer__links">
           <li><a href={localizePath(locale, '/over-ons')} class="footer__link">{t(locale, 'footer.aboutUs')}</a></li>
           <li><a href={localizePath(locale, '/contact')} class="footer__link">{t(locale, 'footer.contact')}</a></li>
+          <li><a href={helpHomePath(locale)} class="footer__link">{t(locale, 'footer.help')}</a></li>
         </ul>
       </div>
 
