@@ -9,7 +9,7 @@
  * Ontbrekende of verouderde vertalingen zijn enkel waarschuwingen.
  */
 import path from 'node:path';
-import { HELP_LANGS, RESERVED_IDS } from '../src/help/config.mjs';
+import { HELP_AUDIENCES, HELP_LANGS, RESERVED_IDS } from '../src/help/config.mjs';
 import { loadArticles, loadCategories } from '../src/help/load.mjs';
 
 const REQUIRED = ['id', 'title', 'description', 'category', 'order', 'updated'];
@@ -29,6 +29,12 @@ for (const a of articles) {
   if (a.updated && Number.isNaN(Date.parse(a.updated))) errors.push(`${a.file}: updated "${a.updated}" is geen datum (JJJJ-MM-DD)`);
   const fileName = path.basename(a.file, '.md');
   if (fileName !== a.id) console.warn(`Let op: ${a.file} heeft id "${a.id}"; geef het bestand bij voorkeur dezelfde naam (${a.id}.md).`);
+}
+
+for (const [key, category] of Object.entries(categories)) {
+  if (!HELP_AUDIENCES.includes(category.audience)) {
+    errors.push(`categorieen.yml: categorie "${key}" heeft geen geldige audience (${HELP_AUDIENCES.join(' of ')})`);
+  }
 }
 
 // Dubbele ids of adressen binnen één taal.

@@ -1,33 +1,39 @@
 # Categorieën van het help center.
 # Elk artikel verwijst in zijn frontmatter naar één van deze sleutels (category: ...).
-# "order" bepaalt de volgorde op de overzichtspagina. Een categorie zonder artikels wordt niet getoond.
+# "audience" bepaalt in welk deel van de overzichtspagina de categorie staat:
+#   nabestaanden = families, beheerders en bezoekers van een gedenkplek
+#   partners     = uitvaartondernemers met een partnerportaal
+# "order" bepaalt de volgorde binnen dat deel. Een categorie zonder artikels wordt niet getoond.
 # Ontbreekt een taal, dan wordt de Engelse naam getoond.
 
 aan-de-slag:
+  audience: nabestaanden
   order: 1
   nl:
     title: Aan de slag
-    description: Een gedenkplek aanmaken en je weg vinden.
+    description: Wat Remoria is, toegang krijgen en een gedenkplek aanmaken.
   fr:
     title: Premiers pas
-    description: Créer un espace du souvenir et s'y retrouver.
+    description: Ce qu'est Remoria, obtenir l'accès et créer un espace du souvenir.
   en:
     title: Getting started
-    description: Creating a memorial and finding your way around.
+    description: What Remoria is, getting access and creating a memorial.
 
 fotos-en-herinneringen:
+  audience: nabestaanden
   order: 2
   nl:
     title: Foto's en herinneringen
-    description: Foto's en video's toevoegen, albums maken en herinneringen bekijken.
+    description: Foto's en video's toevoegen, albums maken en een fotoboek bestellen.
   fr:
     title: Photos et souvenirs
-    description: Ajouter des photos et vidéos, créer des albums et parcourir les souvenirs.
+    description: Ajouter des photos et vidéos, créer des albums et commander un livre photo.
   en:
     title: Photos and memories
-    description: Adding photos and videos, creating albums and viewing memories.
+    description: Adding photos and videos, creating albums and ordering a photo book.
 
 ai-hulp:
+  audience: nabestaanden
   order: 3
   nl:
     title: AI-hulp en AI-wallet
@@ -40,6 +46,7 @@ ai-hulp:
     description: Improving, colourising and animating old photos.
 
 uitnodigen:
+  audience: nabestaanden
   order: 4
   nl:
     title: Mensen uitnodigen
@@ -51,8 +58,22 @@ uitnodigen:
     title: Inviting people
     description: Giving family and friends access to the memorial.
 
-account-en-privacy:
+looptijd-en-verlengen:
+  audience: nabestaanden
   order: 5
+  nl:
+    title: Looptijd en verlengen
+    description: Hoe lang een gedenkplek online blijft en hoe je samen verlengt.
+  fr:
+    title: Durée et prolongation
+    description: Combien de temps un espace du souvenir reste en ligne et comment le prolonger ensemble.
+  en:
+    title: Period and extending
+    description: How long a memorial stays online and how to extend it together.
+
+account-en-privacy:
+  audience: nabestaanden
+  order: 6
   nl:
     title: Account en privacy
     description: Je account, betalingen en wie wat kan zien.
@@ -63,14 +84,41 @@ account-en-privacy:
     title: Account and privacy
     description: Your account, payments and who can see what.
 
-uitvaartondernemers:
-  order: 6
+contact-uitvaartonderneming:
+  audience: nabestaanden
+  order: 7
   nl:
-    title: Voor uitvaartondernemers
-    description: Het partnerportaal, gedenkplekken voor families en medewerkers.
+    title: Contact met de uitvaartonderneming
+    description: Berichten en foto's sturen naar de uitvaartonderneming die je begeleidt.
   fr:
-    title: Pour les entreprises de pompes funèbres
-    description: Le portail partenaire, les espaces du souvenir des familles et les collaborateurs.
+    title: Contact avec les pompes funèbres
+    description: Envoyer des messages et des photos à l'entreprise de pompes funèbres qui vous accompagne.
   en:
-    title: For funeral homes
-    description: The partner portal, memorials for families and staff.
+    title: Contact with the funeral home
+    description: Sending messages and photos to the funeral home that supports you.
+
+uitvaartondernemers:
+  audience: partners
+  order: 1
+  nl:
+    title: Het partnerportaal
+    description: Inloggen, gedenkplekken voor families beheren en medewerkers toevoegen.
+  fr:
+    title: Le portail partenaire
+    description: Se connecter, gérer les espaces du souvenir des familles et ajouter des collaborateurs.
+  en:
+    title: The partner portal
+    description: Logging in, managing memorials for families and adding team members.
+
+contact-met-families:
+  audience: partners
+  order: 2
+  nl:
+    title: Contact met families
+    description: Berichten en foto's uitwisselen met de beheerders van een gedenkplek.
+  fr:
+    title: Contact avec les familles
+    description: Échanger des messages et des photos avec les gestionnaires d'un espace du souvenir.
+  en:
+    title: Contact with families
+    description: Exchanging messages and photos with the managers of a memorial.

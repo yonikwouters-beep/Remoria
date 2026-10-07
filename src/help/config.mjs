@@ -14,6 +14,9 @@ export const SITE_URL = 'https://www.remoria.eu';
 export const HELP_LANGS = ['nl', 'fr', 'en'];
 
 /** Taal waarnaar /help/go/ terugvalt als de gevraagde vertaling ontbreekt. */
+/** Doelgroepen, in de volgorde waarin ze op de overzichtspagina staan. */
+export const HELP_AUDIENCES = ['nabestaanden', 'partners'];
+
 export const HELP_FALLBACK_LANG = 'en';
 
 /** Basispad van het help center per taal (zonder slash op het einde). */

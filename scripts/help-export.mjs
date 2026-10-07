@@ -11,20 +11,47 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { HELP_LANGS, absoluteUrl, helpArticlePath } from '../src/help/config.mjs';
+import { HELP_AUDIENCES, HELP_LANGS, absoluteUrl, helpArticlePath } from '../src/help/config.mjs';
 import { ROOT, loadArticles, loadCategories } from '../src/help/load.mjs';
 
 const OUT = path.join(ROOT, 'help-export');
 const LABELS = {
-  nl: { url: 'Publieke URL', category: 'Categorie', updated: 'Bijgewerkt' },
-  fr: { url: 'URL publique', category: 'Catégorie', updated: 'Mis à jour' },
-  en: { url: 'Public URL', category: 'Category', updated: 'Updated' },
+  nl: {
+    url: 'Publieke URL',
+    audience: 'Voor',
+    category: 'Categorie',
+    updated: 'Bijgewerkt',
+    nabestaanden: 'nabestaanden',
+    partners: 'uitvaartondernemers',
+  },
+  fr: {
+    url: 'URL publique',
+    audience: 'Pour',
+    category: 'Catégorie',
+    updated: 'Mis à jour',
+    nabestaanden: 'les familles',
+    partners: 'les pompes funèbres',
+  },
+  en: {
+    url: 'Public URL',
+    audience: 'For',
+    category: 'Category',
+    updated: 'Updated',
+    nabestaanden: 'families',
+    partners: 'funeral homes',
+  },
 };
+const audienceRank = (key) => HELP_AUDIENCES.indexOf(categories[key]?.audience ?? 'nabestaanden');
 
 const categories = loadCategories();
 const articles = loadArticles()
   .filter((a) => !a.draft)
-  .sort((a, b) => (categories[a.category]?.order ?? 999) - (categories[b.category]?.order ?? 999) || a.order - b.order);
+  .sort(
+    (a, b) =>
+      audienceRank(a.category) - audienceRank(b.category) ||
+      (categories[a.category]?.order ?? 999) - (categories[b.category]?.order ?? 999) ||
+      a.order - b.order,
+  );
 
 fs.rmSync(OUT, { recursive: true, force: true });
 
@@ -39,6 +66,7 @@ for (const lang of HELP_LANGS) {
       `# ${a.title}`,
       '',
       `${label.url}: ${url}`,
+      `${label.audience}: ${label[categories[a.category]?.audience ?? 'nabestaanden']}`,
       `${label.category}: ${category}`,
       `${label.updated}: ${a.updated}`,
       '',

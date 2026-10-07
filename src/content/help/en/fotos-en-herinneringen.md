@@ -10,14 +10,14 @@ updated: 2026-10-07
 
 ## Adding photos or videos
 
-Go to **Media** and use the **upload** button. You can pick several files at once. During upload you'll see the progress per file.
+Go to **Media** and use the **Upload** button. You can pick several files at once. During upload you'll see the progress per file.
 
 ## Loose or in an album
 
 When uploading, choose:
 
 - **Loose memories**: they appear under "My uploads", without an album.
-- **Create a new album**: the photos are grouped into an album right away.
+- **Create new album**: the photos are grouped into an album right away.
 
 You can always create an album or move photos into one later.
 

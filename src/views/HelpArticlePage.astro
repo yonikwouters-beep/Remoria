@@ -34,6 +34,7 @@ const toc = headings.filter((heading) => heading.depth === 2 || heading.depth ==
 const categories = await getHelpCategories(locale);
 const category = categoryFor(categories, entry.data.category);
 const homeHref = helpHomePath(locale);
+const audienceTitle = t(locale, category.audience === 'partners' ? 'help.audiencePartners' : 'help.audienceNabestaanden');
 
 // Taalversies van dit artikel. Ontbreekt een vertaling, dan wijst de taalwisselaar
 // naar het overzicht in die taal, en komt die taal niet in de hreflang-tags.
@@ -67,6 +68,8 @@ const updatedLabel = t(locale, 'help.updated').replace(
     <div class="help-article-wrap">
       <nav class="help-breadcrumb" aria-label={t(locale, 'help.breadcrumbAria')}>
         <a href={homeHref}>{t(locale, 'help.eyebrow')}</a>
+        <span aria-hidden="true">/</span>
+        <a href={`${homeHref}#voor-${category.audience}`}>{audienceTitle}</a>
         <span aria-hidden="true">/</span>
         <a href={`${homeHref}#categorie-${category.key}`}>{category.title}</a>
       </nav>

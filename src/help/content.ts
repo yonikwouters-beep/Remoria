@@ -1,5 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { HELP_LANGS, HELP_FALLBACK_LANG, helpArticlePath, helpHomePath } from './config.mjs';
+import { HELP_AUDIENCES, HELP_LANGS, HELP_FALLBACK_LANG, helpArticlePath, helpHomePath } from './config.mjs';
 import type { Locale } from '../i18n/utils';
 
 export type HelpArticle = CollectionEntry<'help'>;
@@ -34,8 +34,11 @@ export async function getTranslations(id: string): Promise<Partial<Record<HelpLa
   return result;
 }
 
+export type HelpAudience = 'nabestaanden' | 'partners';
+
 export type HelpCategory = {
   key: string;
+  audience: HelpAudience;
   order: number;
   title: string;
   description: string;
@@ -50,6 +53,7 @@ export async function getHelpCategories(lang: HelpLang): Promise<Map<string, Hel
     const label = data[lang] ?? data[HELP_FALLBACK_LANG] ?? { title: entry.id, description: '' };
     map.set(entry.id, {
       key: entry.id,
+      audience: data.audience,
       order: data.order ?? 100,
       title: label.title,
       description: label.description ?? '',
@@ -59,7 +63,12 @@ export async function getHelpCategories(lang: HelpLang): Promise<Map<string, Hel
 }
 
 export function categoryFor(categories: Map<string, HelpCategory>, key: string): HelpCategory {
-  return categories.get(key) ?? { key, order: 999, title: key, description: '' };
+  return categories.get(key) ?? { key, audience: 'nabestaanden', order: 999, title: key, description: '' };
+}
+
+/** Volgorde van de doelgroepen op de overzichtspagina (nabestaanden eerst). */
+export function audienceRank(audience: HelpAudience): number {
+  return (HELP_AUDIENCES as readonly string[]).indexOf(audience);
 }
 
 export function sortArticles(a: HelpArticle, b: HelpArticle): number {
