@@ -344,7 +344,7 @@ export const nl = {
     plans: [
       { credits: '1000', label: 'credits bij Samen bewaren' },
       { credits: '500', label: 'credits bij Samen herdenken' },
-      { credits: '10', label: 'credits om te proberen bij Samen verzamelen' },
+      { credits: '25', label: 'credits om te proberen bij Samen verzamelen' },
     ],
     packsIntro: 'Extra credits nodig? Vul je wallet aan per gedenkplek:',
     packs: ['100 voor €8', '300 voor €15', '500 voor €20', '1000 voor €35'],
@@ -372,7 +372,7 @@ export const nl = {
         monthlyPrice: 'eenmalig · geen abonnement',
         description:
           "Vier maanden — ruim de tijd om iedereen uit te nodigen en alle foto's en verhalen te verzamelen die anders verloren gaan. De foto's die je anders nooit had gezien, voor één vast bedrag.",
-        credits: '<strong>10</strong> AI-credits om te proberen',
+        credits: '<strong>25</strong> AI-credits om te proberen',
         featured: false,
       },
       {
@@ -455,7 +455,7 @@ export const nl = {
         {
           question: 'Is er verschil in functies tussen de plannen?',
           answer:
-            'Nee — elk plan bevat alles: de Mediacollectie, de Community chat, de eerbetonen en de mogelijkheid om een fotoboek samen te stellen. Het verschil zit in hoe lang de gedenkplek actief blijft en hoeveel AI-credits erbij zitten: 10 om te proberen, 500 bij Samen herdenken en 1000 bij Samen bewaren.',
+            'Nee — elk plan bevat alles: de Mediacollectie, de Community chat, de eerbetonen en de mogelijkheid om een fotoboek samen te stellen. Het verschil zit in hoe lang de gedenkplek actief blijft en hoeveel AI-credits erbij zitten: 25 om te proberen, 500 bij Samen herdenken en 1000 bij Samen bewaren.',
         },
         {
           question: 'Hoe werkt de 14-dagen-garantie?',

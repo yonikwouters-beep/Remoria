@@ -344,7 +344,7 @@ export const en = {
     plans: [
       { credits: '1000', label: 'credits with Preserve together' },
       { credits: '500', label: 'credits with Remember together' },
-      { credits: '10', label: 'credits to try with Gather together' },
+      { credits: '25', label: 'credits to try with Gather together' },
     ],
     packsIntro: 'Need more credits? Top up your wallet per memorial:',
     packs: ['100 for €8', '300 for €15', '500 for €20', '1000 for €35'],
@@ -372,7 +372,7 @@ export const en = {
         monthlyPrice: 'one-time · no subscription',
         description:
           'Four months — plenty of time to invite everyone and gather all the photos and stories that would otherwise be lost. The photos you would never have seen, for one fixed amount.',
-        credits: '<strong>10</strong> AI credits to try',
+        credits: '<strong>25</strong> AI credits to try',
         featured: false,
       },
       {
@@ -455,7 +455,7 @@ export const en = {
         {
           question: 'Is there a difference in features between plans?',
           answer:
-            'No — every plan includes everything: the Media collection, the Community chat, the tributes and the ability to compile a photo book. The difference is how long the memorial remains active and how many AI credits come with it: 10 to try, 500 with Remember together and 1000 with Preserve together.',
+            'No — every plan includes everything: the Media collection, the Community chat, the tributes and the ability to compile a photo book. The difference is how long the memorial remains active and how many AI credits come with it: 25 to try, 500 with Remember together and 1000 with Preserve together.',
         },
         {
           question: 'How does the 14-day guarantee work?',
