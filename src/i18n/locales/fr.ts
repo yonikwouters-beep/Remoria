@@ -338,7 +338,7 @@ export const fr = {
     plans: [
       { credits: '1000', label: 'crédits avec Préserver ensemble' },
       { credits: '500', label: 'crédits avec Commémorer ensemble' },
-      { credits: '10', label: 'crédits pour essayer avec Recueillir ensemble' },
+      { credits: '25', label: 'crédits pour essayer avec Recueillir ensemble' },
     ],
     packsIntro: 'Besoin de plus de crédits ? Recharge ton portefeuille par espace mémorial :',
     packs: ['100 pour 8 €', '300 pour 15 €', '500 pour 20 €', '1000 pour 35 €'],
@@ -366,7 +366,7 @@ export const fr = {
         monthlyPrice: 'paiement unique · sans abonnement',
         description:
           "Quatre mois — largement le temps d'inviter tout le monde et de rassembler toutes les photos et histoires qui seraient autrement perdues. Les photos que tu n'aurais jamais vues, pour un montant fixe.",
-        credits: '<strong>10</strong> crédits IA pour essayer',
+        credits: '<strong>25</strong> crédits IA pour essayer',
         featured: false,
       },
       {
@@ -449,7 +449,7 @@ export const fr = {
         {
           question: 'Y a-t-il une différence de fonctionnalités entre les plans ?',
           answer:
-            "Non — chaque plan inclut tout : la Médiathèque, le Community chat, les hommages et la possibilité de composer un livre photo. La différence tient à la durée pendant laquelle l'espace mémorial reste actif et au nombre de crédits IA inclus : 10 pour essayer, 500 avec Commémorer ensemble et 1000 avec Préserver ensemble.",
+            "Non — chaque plan inclut tout : la Médiathèque, le Community chat, les hommages et la possibilité de composer un livre photo. La différence tient à la durée pendant laquelle l'espace mémorial reste actif et au nombre de crédits IA inclus : 25 pour essayer, 500 avec Commémorer ensemble et 1000 avec Préserver ensemble.",
         },
         {
           question: 'Comment fonctionne la garantie 14 jours ?',

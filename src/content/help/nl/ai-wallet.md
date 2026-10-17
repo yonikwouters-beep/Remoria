@@ -13,7 +13,7 @@ Elke gedenkplek heeft een eigen AI-wallet met credits. Daarmee maak je oude of k
 
 ## Hoeveel credits krijg je?
 
-- **Samen verzamelen** (4 maanden): 10 credits om te proberen.
+- **Samen verzamelen** (4 maanden): 25 credits om te proberen.
 - **Samen herdenken** (1 jaar): 500 credits inbegrepen.
 - **Samen bewaren** (3 jaar): 1000 credits inbegrepen.
 

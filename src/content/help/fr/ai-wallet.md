@@ -13,7 +13,7 @@ Chaque espace du souvenir dispose de son propre AI-wallet avec des crédits. Ils
 
 ## Combien de crédits ?
 
-- **Recueillir ensemble** (4 mois) : 10 crédits pour essayer.
+- **Recueillir ensemble** (4 mois) : 25 crédits pour essayer.
 - **Commémorer ensemble** (1 an) : 500 crédits inclus.
 - **Préserver ensemble** (3 ans) : 1000 crédits inclus.
 

@@ -13,7 +13,7 @@ Every memorial has its own AI-wallet with credits. Use them to sharpen old or sm
 
 ## How many credits do you get?
 
-- **Gather together** (4 months): 10 credits to try it out.
+- **Gather together** (4 months): 25 credits to try it out.
 - **Remember together** (1 year): 500 credits included.
 - **Preserve together** (3 years): 1000 credits included.
 
