@@ -177,6 +177,35 @@ const heading =
     flex-shrink: 0;
   }
 
+  /*
+   * Wider than 1440px: stop the visual from growing with the window, which
+   * zoomed in on the gate and cut off its arch. Keep the 1440px composition
+   * (same size, same fade) and move it inward so it stays next to the centred
+   * content, with a soft fade on its right edge instead of a hard cut.
+   */
+  @media (min-width: 1441px) {
+    .hero__bg,
+    .hero__gradient {
+      left: auto;
+      right: max(0px, calc(50% - 720px));
+      width: 893px;
+    }
+
+    .hero__bg {
+      -webkit-mask-image: linear-gradient(to left, transparent 0, #000 min(220px, calc(50vw - 720px)));
+      mask-image: linear-gradient(to left, transparent 0, #000 min(220px, calc(50vw - 720px)));
+    }
+
+    .hero__gradient {
+      background: linear-gradient(
+        90deg,
+        #F6F1E8 0%,
+        rgba(246, 241, 232, 0.85) 22.6%,
+        rgba(246, 241, 232, 0) 64.5%
+      );
+    }
+  }
+
   @media (max-width: 900px) {
     .hero__bg {
       width: 78%;
