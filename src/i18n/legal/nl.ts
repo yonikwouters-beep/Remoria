@@ -9,7 +9,7 @@ export const privacyNl: LegalDoc = {
     "Lees hoe Remoria met jouw persoonsgegevens omgaat: welke gegevens we verwerken, waarom, hoe lang en welke rechten je hebt onder de AVG.",
   title: "Privacyverklaring",
   brand: "Remoria",
-  updated: "Laatst bijgewerkt op 28 september 2026",
+  updated: "Laatst bijgewerkt op 4 oktober 2026",
   intro:
     "Remoria is gebouwd voor iets heel persoonlijks: de herinneringen aan wie je dierbaar is. Zorgvuldig omgaan met jouw gegevens is daarom geen bijzaak, maar een fundament. In deze verklaring lees je welke gegevens we verwerken, waarom, hoe lang, en welke rechten je hebt. We hebben ze zo geschreven dat je ze ook zonder juridische achtergrond kunt begrijpen.",
   sections: [
@@ -47,12 +47,13 @@ export const privacyNl: LegalDoc = {
           type: "ul",
           items: [
             "Accountgegevens: naam, e-mailadres, taalvoorkeur, inloggegevens;",
-            "Gegevens over de gedenkplek: naam en gegevens van de overledene, foto’s, video’s, audio, verhalen, eerbetonen en berichten die gebruikers plaatsen (“Inhoud”);",
+            "Gegevens over de gedenkplek: naam en gegevens van de overledene, foto’s, video’s, audio, verhalen, eerbetonen en berichten die gebruikers plaatsen (“Inhoud”). Gebruik je zelf een AI-functie (een foto inkleuren, herstellen, verscherpen, er een diepte-effect aan geven of het jaar schatten), dan wordt die foto daarvoor verwerkt;",
             "Betaal- en factuurgegevens: gekozen plan, betaalstatus en factuurgegevens. Je kaart- of rekeninggegevens worden verwerkt door onze betaalprovider en bereiken onze servers nooit;",
             "Bestelgegevens fotoboek: leveringsadres en bestelinhoud wanneer je een gedrukt fotoboek bestelt;",
             "Partnergegevens: ondernemingsgegevens, contactpersonen en facturatiegegevens van partners;",
             "Communicatie: berichten via het contactformulier, e-mail of de nieuwsbriefinschrijving;",
-            "Technische gegevens: beperkte log- en beveiligingsgegevens die nodig zijn om het platform veilig en stabiel te laten werken.",
+            "Technische gegevens: beperkte log- en beveiligingsgegevens die nodig zijn om het platform veilig en stabiel te laten werken;",
+            "Foutmeldingen: technische gegevens over fouten in de app (zonder e-mailadressen, toegangscodes of inhoud), om problemen snel op te lossen.",
           ],
         },
       ],
@@ -68,10 +69,12 @@ export const privacyNl: LegalDoc = {
           type: "ul",
           items: [
             "Het leveren van de dienst (gedenkplekken aanmaken, Inhoud tonen aan genodigden, fotoboeken verwerken) — uitvoering van de overeenkomst;",
+            "Optionele AI-functies voor foto’s, enkel wanneer je die zelf start en betaalt met AI-tegoed — uitvoering van de overeenkomst. De foto wordt alleen voor die bewerking gebruikt; de AI-diensten gebruiken ze niet om modellen te trainen;",
             "Facturatie en boekhouding — wettelijke verplichting;",
             "Service-e-mails (uitnodigingen, herinneringen bij het aflopen van een plan, belangrijke wijzigingen) — uitvoering van de overeenkomst of gerechtvaardigd belang;",
             "De nieuwsbrief — jouw toestemming, die je op elk moment kunt intrekken via de uitschrijflink in elke e-mail;",
             "Beveiliging en misbruikpreventie — gerechtvaardigd belang;",
+            "Foutopsporing en back-ups om het platform betrouwbaar te houden — gerechtvaardigd belang;",
             "Het beantwoorden van vragen via het contactformulier — gerechtvaardigd belang of precontractuele stappen.",
           ],
         },
@@ -95,7 +98,7 @@ export const privacyNl: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "Wie Inhoud plaatst waarop andere (levende) personen herkenbaar zijn, is er zelf voor verantwoordelijk dat dit mag — zie ook onze algemene voorwaarden. Sta je herkenbaar op een gedenkplek en wil je dat niet? Laat het ons weten via hello@remoria.eu; we bekijken het samen met de beheerder en halen beelden weg waar dat gerechtvaardigd is. Gedenkplekken zijn overigens volledig besloten: enkel genodigden hebben toegang, en zoekmachines kunnen niet meelezen.",
+          text: "Wie Inhoud plaatst waarop andere (levende) personen herkenbaar zijn, is er zelf voor verantwoordelijk dat dit mag — zie ook onze algemene voorwaarden. Sta je herkenbaar op een gedenkplek en wil je dat niet? Laat het ons weten via hello@remoria.eu; we bekijken het samen met de beheerder en halen beelden weg waar dat gerechtvaardigd is. Gedenkplekken zijn nooit vindbaar via zoekmachines. Afhankelijk van wat de beheerder kiest, zijn ze enkel toegankelijk voor genodigden, met een toegangscode, of tijdelijk open voor wie de link heeft. Op de toegangspagina zijn de naam, de geboorte- en overlijdensdatum en de profielfoto van de overledene zichtbaar voor wie de link heeft.",
         },
       ],
     },
@@ -104,11 +107,35 @@ export const privacyNl: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "We delen gegevens enkel met dienstverleners die we nodig hebben om Remoria te laten werken, zoals onze hostingprovider, onze betaalprovider, onze e-mailverzender en de drukkerij die fotoboeken produceert en verzendt. Met elk van hen sluiten we een verwerkersovereenkomst: zij mogen jouw gegevens uitsluitend verwerken in onze opdracht en voor het leveren van de dienst. Daarnaast delen we gegevens enkel wanneer de wet ons daartoe verplicht.",
+          text: "We delen gegevens enkel met dienstverleners die we nodig hebben om Remoria te laten werken. Hieronder vind je ze allemaal (in vaktermen: onze subverwerkers):",
+        },
+        {
+          type: "table",
+          head: ["Dienst", "Waarvoor", "Locatie"],
+          rows: [
+            ["Supabase", "database, accounts en inloggen", "EU (Parijs)"],
+            ["Cloudflare (R2)", "opslag van foto’s en video’s", "Cloudflare Inc.; opslaglocatie van de bucket: EU"],
+            ["Hetzner (via xCloud)", "hosting van de applicatie", "EU (Duitsland)"],
+            ["Stripe", "betalingen", "Stripe Payments Europe (Ierland); doorgifte naar de VS mogelijk"],
+            ["Resend", "versturen van e-mails", "Ierland"],
+            ["Peecho", "drukken en verzenden van fotoboeken (naam, adres, bestelling)", "Nederland"],
+            ["Replicate", "AI-bewerking van foto’s, enkel op jouw verzoek", "VS"],
+            ["Anthropic", "jaar schatten van foto’s (AI), enkel op jouw verzoek", "VS"],
+            ["Google", "inloggen met Google, als je daarvoor kiest", "VS / Ierland"],
+            ["AnyChat", "supportchat en hulpassistent in het partnerportaal", "Oekraïne (buiten de EER)"],
+            ["Sentry", "foutmeldingen (zonder persoonsgegevens zoals e-mailadressen)", "EU (Duitsland)"],
+            ["Backblaze B2", "versleutelde nachtelijke back-ups van de database", "EU (Nederland)"],
+            ["GitHub", "voert de nachtelijke back-uptaak uit (gegevens worden daar versleuteld)", "VS"],
+            ["Yuki", "boekhouding en facturen voor partners", "Nederland/België"],
+          ],
         },
         {
           type: "p",
-          text: "Werkt jouw gedenkplek via een uitvaartondernemer, dan ontvangt die enkel wat nodig is voor zijn dienstverlening (zoals de status van de gedenkplek) — nooit de inhoud van gesprekken tussen genodigden.",
+          text: "Met elk van hen sluiten we een verwerkersovereenkomst: zij mogen jouw gegevens uitsluitend verwerken in onze opdracht en voor het leveren van de dienst. Daarnaast delen we gegevens enkel wanneer de wet ons daartoe verplicht.",
+        },
+        {
+          type: "p",
+          text: "Werkt jouw gedenkplek via een uitvaartondernemer, dan kunnen de medewerkers van die onderneming de gedenkplek bekijken om je te helpen, en kun je met hen berichten uitwisselen via Remoria.",
         },
       ],
     },
@@ -117,7 +144,7 @@ export const privacyNl: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "We kiezen waar mogelijk voor verwerking binnen de EER. Waar een dienstverlener gegevens buiten de EER verwerkt, gebeurt dit uitsluitend met passende waarborgen zoals de Europese standaardcontractbepalingen of een adequaatheidsbesluit van de Europese Commissie.",
+          text: "We kiezen waar mogelijk voor verwerking binnen de EER. Cloudflare, Stripe, Resend, Replicate, Anthropic, Google en GitHub kunnen gegevens in de Verenigde Staten verwerken. Dat gebeurt telkens met de Europese standaardcontractbepalingen of op basis van het EU-VS Data Privacy Framework. AnyChat verwerkt gegevens in Oekraïne, dat buiten de EER ligt; ook daarvoor gelden de Europese standaardcontractbepalingen.",
         },
       ],
     },

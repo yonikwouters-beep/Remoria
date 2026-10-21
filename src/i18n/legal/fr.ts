@@ -6,7 +6,7 @@ export const privacyFr: LegalDoc = {
     "Comment Remoria traite vos données personnelles : ce que nous traitons, pourquoi, pendant combien de temps et les droits dont vous disposez — rédigé pour être compréhensible même sans formation juridique.",
   title: "Déclaration de confidentialité",
   brand: "Remoria",
-  updated: "Dernière mise à jour le 28 septembre 2026",
+  updated: "Dernière mise à jour le 4 octobre 2026",
   intro:
     "Remoria est conçu pour quelque chose de profondément personnel : les souvenirs de ceux qui vous sont chers. Traiter vos données avec soin n'est donc pas un détail, mais un fondement. Dans cette déclaration, vous découvrez quelles données nous traitons, pourquoi, pendant combien de temps et quels droits vous avez. Nous l'avons rédigée de manière à ce que vous puissiez la comprendre même sans formation juridique.",
   sections: [
@@ -44,12 +44,13 @@ export const privacyFr: LegalDoc = {
           type: "ul",
           items: [
             "Données de compte : nom, adresse e-mail, préférence linguistique, identifiants de connexion ;",
-            "Données relatives au lieu de mémoire : le nom et les informations concernant la personne décédée, les photos, vidéos, fichiers audio, récits, hommages et messages que les utilisateurs publient (« Contenu ») ;",
+            "Données relatives au lieu de mémoire : le nom et les informations concernant la personne décédée, les photos, vidéos, fichiers audio, récits, hommages et messages que les utilisateurs publient (« Contenu »). Si vous utilisez vous-même une fonction d'IA (coloriser, restaurer ou rendre plus nette une photo, y ajouter un effet de profondeur ou en estimer l'année), cette photo est traitée à cette fin ;",
             "Données de paiement et de facturation : le plan choisi, le statut de paiement et les données de facturation. Vos données de carte ou de compte sont traitées par notre prestataire de paiement et n'atteignent jamais nos serveurs ;",
             "Données de commande de livre photo : l'adresse de livraison et le contenu de la commande lorsque vous commandez un livre photo imprimé ;",
             "Données de partenaires : les données d'entreprise, les personnes de contact et les données de facturation des partenaires ;",
             "Communication : les messages envoyés via le formulaire de contact, par e-mail ou lors de l'inscription à la newsletter ;",
-            "Données techniques : des données limitées de journalisation et de sécurité nécessaires au fonctionnement sûr et stable de la plateforme.",
+            "Données techniques : des données limitées de journalisation et de sécurité nécessaires au fonctionnement sûr et stable de la plateforme ;",
+            "Rapports d'erreurs : des données techniques sur les erreurs dans l'application (sans adresses e-mail, codes d'accès ni contenu), pour résoudre rapidement les problèmes.",
           ],
         },
       ],
@@ -65,10 +66,12 @@ export const privacyFr: LegalDoc = {
           type: "ul",
           items: [
             "La fourniture du service (créer des lieux de mémoire, montrer le Contenu aux invités, traiter les livres photo) — exécution du contrat ;",
+            "Les fonctions d'IA facultatives pour les photos, uniquement lorsque vous les lancez vous-même et les payez avec du crédit IA — exécution du contrat. La photo n'est utilisée que pour cette retouche ; les services d'IA ne l'utilisent pas pour entraîner des modèles ;",
             "La facturation et la comptabilité — obligation légale ;",
             "Les e-mails de service (invitations, rappels à l'approche de l'échéance d'un plan, modifications importantes) — exécution du contrat ou intérêt légitime ;",
             "La newsletter — votre consentement, que vous pouvez retirer à tout moment via le lien de désinscription figurant dans chaque e-mail ;",
             "La sécurité et la prévention des abus — intérêt légitime ;",
+            "Le suivi des erreurs et les sauvegardes, pour garder la plateforme fiable — intérêt légitime ;",
             "La réponse aux questions posées via le formulaire de contact — intérêt légitime ou démarches précontractuelles.",
           ],
         },
@@ -92,7 +95,7 @@ export const privacyFr: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "Toute personne qui publie un Contenu sur lequel d'autres personnes (vivantes) sont reconnaissables est elle-même responsable de s'assurer que cela est autorisé — voir aussi nos conditions générales. Êtes-vous reconnaissable sur un lieu de mémoire et préféreriez-vous ne pas l'être ? Faites-le-nous savoir à l'adresse hello@remoria.eu ; nous examinerons la situation avec l'administrateur et retirerons les images lorsque cela se justifie. Les lieux de mémoire sont d'ailleurs entièrement privés : seuls les invités y ont accès et les moteurs de recherche ne peuvent pas les consulter.",
+          text: "Toute personne qui publie un Contenu sur lequel d'autres personnes (vivantes) sont reconnaissables est elle-même responsable de s'assurer que cela est autorisé — voir aussi nos conditions générales. Êtes-vous reconnaissable sur un lieu de mémoire et préféreriez-vous ne pas l'être ? Faites-le-nous savoir à l'adresse hello@remoria.eu ; nous examinerons la situation avec l'administrateur et retirerons les images lorsque cela se justifie. Les lieux de mémoire ne sont jamais trouvables via les moteurs de recherche. Selon le choix de l'administrateur, ils sont accessibles uniquement aux invités, avec un code d'accès, ou ouverts temporairement à toute personne disposant du lien. Sur la page d'accès, le nom, les dates de naissance et de décès et la photo de profil de la personne décédée sont visibles par toute personne disposant du lien.",
         },
       ],
     },
@@ -101,11 +104,35 @@ export const privacyFr: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "Nous ne partageons les données qu'avec les prestataires de services dont nous avons besoin pour faire fonctionner Remoria, tels que notre hébergeur, notre prestataire de paiement, notre expéditeur d'e-mails et l'imprimerie qui produit et expédie les livres photo. Avec chacun d'eux, nous concluons un accord de sous-traitance : ils ne peuvent traiter vos données que sur nos instructions et pour la fourniture du service. Par ailleurs, nous ne partageons les données que lorsque la loi nous y oblige.",
+          text: "Nous ne partageons les données qu'avec les prestataires de services dont nous avons besoin pour faire fonctionner Remoria. Les voici tous (en termes juridiques : nos sous-traitants ultérieurs) :",
+        },
+        {
+          type: "table",
+          head: ["Service", "Utilisé pour", "Localisation"],
+          rows: [
+            ["Supabase", "base de données, comptes et connexion", "UE (Paris)"],
+            ["Cloudflare (R2)", "stockage des photos et vidéos", "Cloudflare Inc. ; lieu de stockage du bucket : UE"],
+            ["Hetzner (via xCloud)", "hébergement de l'application", "UE (Allemagne)"],
+            ["Stripe", "paiements", "Stripe Payments Europe (Irlande) ; transfert vers les États-Unis possible"],
+            ["Resend", "envoi d'e-mails", "Irlande"],
+            ["Peecho", "impression et expédition des livres photo (nom, adresse, commande)", "Pays-Bas"],
+            ["Replicate", "retouche de photos par IA, uniquement à votre demande", "États-Unis"],
+            ["Anthropic", "estimation de l'année des photos (IA), uniquement à votre demande", "États-Unis"],
+            ["Google", "connexion avec Google, si vous le choisissez", "États-Unis / Irlande"],
+            ["AnyChat", "chat d'assistance et assistant d'aide dans le portail partenaire", "Ukraine (hors EEE)"],
+            ["Sentry", "rapports d'erreurs (sans données personnelles telles que les adresses e-mail)", "UE (Allemagne)"],
+            ["Backblaze B2", "sauvegardes nocturnes chiffrées de la base de données", "UE (Pays-Bas)"],
+            ["GitHub", "exécute la tâche de sauvegarde nocturne (les données y sont chiffrées)", "États-Unis"],
+            ["Yuki", "comptabilité et factures pour les partenaires", "Pays-Bas/Belgique"],
+          ],
         },
         {
           type: "p",
-          text: "Si votre lieu de mémoire passe par une entreprise de pompes funèbres, celle-ci ne reçoit que ce qui est nécessaire à sa prestation (comme le statut du lieu de mémoire) — jamais le contenu des échanges entre invités.",
+          text: "Avec chacun d'eux, nous concluons un accord de sous-traitance : ils ne peuvent traiter vos données que sur nos instructions et pour la fourniture du service. Par ailleurs, nous ne partageons les données que lorsque la loi nous y oblige.",
+        },
+        {
+          type: "p",
+          text: "Si votre lieu de mémoire passe par une entreprise de pompes funèbres, les collaborateurs de celle-ci peuvent consulter le lieu de mémoire pour vous aider, et vous pouvez échanger des messages avec eux via Remoria.",
         },
       ],
     },
@@ -114,7 +141,7 @@ export const privacyFr: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "Dans la mesure du possible, nous optons pour un traitement au sein de l'EEE. Lorsqu'un prestataire de services traite des données en dehors de l'EEE, cela n'a lieu qu'avec des garanties appropriées telles que les clauses contractuelles types européennes ou une décision d'adéquation de la Commission européenne.",
+          text: "Dans la mesure du possible, nous optons pour un traitement au sein de l'EEE. Cloudflare, Stripe, Resend, Replicate, Anthropic, Google et GitHub peuvent traiter des données aux États-Unis. Cela se fait toujours avec les clauses contractuelles types européennes ou sur la base du cadre de protection des données UE-États-Unis (Data Privacy Framework). AnyChat traite des données en Ukraine, qui se situe en dehors de l'EEE ; les clauses contractuelles types européennes s'y appliquent également.",
         },
       ],
     },

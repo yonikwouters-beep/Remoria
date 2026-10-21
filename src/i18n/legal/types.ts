@@ -1,6 +1,7 @@
 export type LegalBlock =
   | { type: 'p'; text: string }
-  | { type: 'ul'; items: string[] };
+  | { type: 'ul'; items: string[] }
+  | { type: 'table'; head: string[]; rows: string[][] };
 
 export type LegalSection = {
   heading: string;
